@@ -1,0 +1,34 @@
+body {
+	background: var(--sc-color-bg);
+	color: var(--sc-color-text);
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+	margin-top: var(--sc-space-lg);
+	margin-bottom: var(--sc-space-sm);
+	color: var(--sc-color-text);
+}
+
+p {
+	margin-bottom: var(--sc-space-md);
+	color: var(--sc-color-text-muted);
+}
+
+a {
+	color: var(--sc-color-primary);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--sc-color-primary);
+	text-decoration: underline;
+}

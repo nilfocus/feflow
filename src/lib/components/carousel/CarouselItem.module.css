@@ -1,0 +1,18 @@
+.carouselItem {
+	position: relative;
+	flex: 0 0 100%;
+	width: 100%;
+	scroll-snap-align: start;
+}
+
+/* .carouselItem img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	border-radius: 0.5rem;
+	transition: transform 0.3s ease;
+}
+
+.carouselItem img:hover {
+	transform: scale(1.05);
+} */
