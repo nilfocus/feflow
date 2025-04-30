@@ -1,25 +1,26 @@
 .drawer {
 	position: fixed;
-	left: -100%;
+	transform: translateX(-100%);
 	background: var(--sc-color-surface);
 	color: var(--sc-color-on-surface);
 	width: 18rem;
 	z-index: 999;
 	border-right: 1px solid var(--sc-color-border);
 	padding-right: var(--sc-space-lg);
-	transition: left 0.3s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+	transition: transform 0.3s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 	top: 0;
 	bottom: 0;
+	will-change: transform;
 }
 
-.drawer.opened {
-	left: 0;
+.drawer.show {
+	transform: translateX(0);
 }
 
 .content {
 	display: flex;
 	flex-direction: column;
-	height: 86vh;
+	height: 100%;
 	position: relative;
-	top: var(--sc-space-xl);
+	padding-top: var(--sc-space-xl);
 }

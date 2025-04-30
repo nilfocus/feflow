@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Drawer, DrawerHeader } from "@/lib/index.js"
+	import { Button, Drawer } from "@/lib/index.js"
 
 	let openDrawer = $state(false)
 
@@ -12,8 +12,8 @@
 	<span>logo</span>
 {/snippet}
 
-{#snippet headerSnippet()}
-	<DrawerHeader
+{#snippet drawerHeader()}
+	<Drawer.Header
 		content={headerContent}
 		handleClose={() => {
 			openDrawer = false
@@ -21,7 +21,7 @@
 	/>
 {/snippet}
 
-{#snippet contentSnippet()}
+{#snippet contentDrawer()}
 	<a
 		href={"/"}
 		onclick={() => {
@@ -34,11 +34,11 @@
 
 <Drawer
 	isOpen={openDrawer}
-	onClose={() => {
+	handleClose={() => {
 		openDrawer = false
 	}}
-	header={headerSnippet}
-	content={contentSnippet}
+	header={drawerHeader}
+	content={contentDrawer}
 />
 
 <Button onclick={handleOpenDrawer}>Open Drawer</Button>

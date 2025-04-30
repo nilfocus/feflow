@@ -7,7 +7,7 @@
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen: boolean
-		onClose: () => void
+		handleClose: () => void
 		header: Snippet
 		content: Snippet
 	}
@@ -15,7 +15,7 @@
 	let {
 		class: className = "",
 		isOpen,
-		onClose,
+		handleClose,
 		header,
 		content,
 		...rest
@@ -24,18 +24,18 @@
 
 <div
 	{...rest}
-	use:clickOutsideAction={{ handler: onClose }}
+	use:clickOutsideAction={{ handler: handleClose }}
 	use:resizeAction={{
 		handler: () => {
 			if (window.innerWidth > 768) {
-				onClose()
+				handleClose()
 			}
 		}
 	}}
 	class={classMapUtil({
 		[className as string]: true,
-		[styles.opened]: isOpen,
-		[styles.drawer]: true
+		[styles.drawer]: true,
+		[styles.show]: isOpen
 	})}
 >
 	{@render header()}

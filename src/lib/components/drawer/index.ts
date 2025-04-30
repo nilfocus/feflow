@@ -1,3 +1,6 @@
-import Drawer from "./Drawer.svelte"
+import DrawerComponent from "./Drawer.svelte"
+import DrawerHeaderComponent from "./DrawerHeader.svelte"
 
-export default Drawer
+export default Object.assign(DrawerComponent, {
+	Header: DrawerHeaderComponent
+})

@@ -26,7 +26,7 @@
 		[className as string]: true,
 		[styles[variant]]: true,
 		[styles.button]: true,
-		[`bg-${bgColor}-600`]: true
+		[`bg-${bgColor}`]: true
 	})}
 	type={rest.type ?? "button"}
 	{...rest}

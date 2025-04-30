@@ -6,14 +6,14 @@
 	import { clickOutsideAction } from "../../actions/index.js"
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
-		opened: boolean
-		onClose: () => void
+		isOpen: boolean
+		handleClose: () => void
 	}
 
 	let {
 		class: className = "",
-		opened,
-		onClose,
+		isOpen,
+		handleClose,
 		children,
 		...rest
 	}: Props = $props()
@@ -21,20 +21,14 @@
 
 <div
 	{...rest}
-	use:clickOutsideAction={{ handler: onClose }}
+	use:clickOutsideAction={{ handler: handleClose }}
 	class={classMapUtil({
 		[className as string]: true,
-		[styles.menu]: true
+		[styles.menu]: true,
+		[styles.show]: isOpen
 	})}
 >
-	<Card
-		class={classMapUtil({
-			[styles.content]: true,
-			[styles.show]: opened,
-			[styles.hide]: !opened
-		})}
-		onclick={onClose}
-	>
+	<Card class={styles.content} onclick={handleClose}>
 		{@render children?.()}
 	</Card>
 </div>
