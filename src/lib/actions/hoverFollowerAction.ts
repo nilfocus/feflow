@@ -41,7 +41,7 @@ export default function hoverFollowerAction(
 		overlay.style.opacity = "0"
 	}
 
-	function handler(element: HTMLElement) {
+	function handleAdd(element: HTMLElement) {
 		element.style.position = "relative"
 
 		element.addEventListener("mouseenter", () => {
@@ -53,25 +53,33 @@ export default function hoverFollowerAction(
 		})
 	}
 
+	function handleRemove(element: HTMLElement) {
+		element.style.position = ""
+
+		element.removeEventListener("mouseenter", () => {
+			handleEnter(element)
+		})
+
+		element.removeEventListener("mouseleave", () => {
+			handleLeave()
+		})
+	}
+
 	childs.slice(1).forEach((node) => {
-		handler(node as HTMLElement)
+		handleAdd(node as HTMLElement)
 
 		Array.from(node.children).forEach((node) => {
-			handler(node as HTMLElement)
+			handleAdd(node as HTMLElement)
 		})
 	})
 
 	return {
 		destroy() {
-			childs.forEach((node) => {
-				const element = node as HTMLElement
+			childs.slice(1).forEach((node) => {
+				handleRemove(node as HTMLElement)
 
-				element.removeEventListener("mouseenter", () => {
-					handleEnter(element)
-				})
-
-				element.removeEventListener("mouseleave", () => {
-					handleLeave()
+				Array.from(node.children).forEach((node) => {
+					handleRemove(node as HTMLElement)
 				})
 			})
 		}
