@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { HTMLAttributes } from "svelte/elements"
+	import type { HTMLButtonAttributes } from "svelte/elements"
 	import type { VariantType } from "../../types/index.js"
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import styles from "./Accordion.module.css"
 	import Button from "../button/index.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	interface Props extends HTMLButtonAttributes {
 		isOpen: boolean
 		label: string
 		variant?: VariantType
@@ -21,12 +21,13 @@
 	}: Props = $props()
 </script>
 
-<div class={styles.accordion} {...rest}>
+<div class={styles.accordion}>
 	<Button
+		{...rest}
 		class={classMapUtil({
-			[styles.active]: isOpen,
-			[styles[variant]]: true
+			[styles.active]: isOpen
 		})}
+		{variant}
 	>
 		{label}
 	</Button>
