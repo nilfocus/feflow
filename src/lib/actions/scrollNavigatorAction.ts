@@ -2,7 +2,7 @@ type Props = {
 	onChange?: (isFirst: boolean, isLast: boolean) => void
 }
 
-export default function scrollNavigationAction(
+export default function scrollNavigatorAction(
 	node: HTMLElement,
 	props: Props = {}
 ) {
@@ -56,10 +56,6 @@ export default function scrollNavigationAction(
 	update()
 
 	return {
-		update(newProps: Props) {
-			props = newProps
-			update()
-		},
 		destroy() {
 			window.removeEventListener("keydown", handleKeyDown)
 		},

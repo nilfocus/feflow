@@ -4,13 +4,12 @@
 	import styles from "./ScrollSection.module.css"
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import type { HTMLAttributes } from "svelte/elements"
-	import {
-		deviceDetectorAction,
-		dragScrollAction,
-		scrollDetectAction
-	} from "../../actions/index.js"
 	import KeyboardArrowLeftIcon from "../../icons/KeyboardArrowLeftIcon.svelte"
 	import KeyboardArrowRightIcon from "../../icons/KeyboardArrowRightIcon.svelte"
+	import {
+		scrollDetectAction,
+		scrollNavigatorAction
+	} from "../../actions/index.js"
 
 	interface Props extends HTMLAttributes<HTMLElement> {
 		data: SectionType[]
@@ -18,39 +17,51 @@
 
 	let { class: className = "", data, ...rest }: Props = $props()
 
-	let contentEl: HTMLElement
-	let showRightArrow = $state(false)
-	let isDragging = $state(false)
+	let _scrollNavigatorAction:
+		| ReturnType<typeof scrollNavigatorAction>
+		| undefined
+	let isFirst = $state(true)
+	let isLast = $state(false)
 
-	let isDesktopDevice = $state(false)
+	function setupNavigator(node: HTMLDivElement) {
+		_scrollNavigatorAction = scrollNavigatorAction(node, {
+			onChange(a, b) {
+				isFirst = a
+				isLast = b
+			}
+		})
+		return _scrollNavigatorAction
+	}
+
+	function next() {
+		if (_scrollNavigatorAction?.controls) {
+			_scrollNavigatorAction.controls.next()
+		}
+	}
+
+	function prev() {
+		if (_scrollNavigatorAction?.controls) {
+			_scrollNavigatorAction.controls.prev()
+		}
+	}
 </script>
 
 <nav {...rest} class={styles.scrollSection}>
-	{#if !showRightArrow}
-		<Button variant="text" class={styles.arrowIndicator}>
+	{#if isLast}
+		<Button variant="text" class={styles.arrowIndicator} onclick={prev}>
 			<KeyboardArrowLeftIcon height={"16px"} width={"16px"} />
 		</Button>
 	{/if}
 	<div
-		class={styles.content}
-		bind:this={contentEl}
+		use:setupNavigator
 		use:scrollDetectAction={{
-			handler: (v) => {
-				showRightArrow = v
-			},
-			disabled: isDragging
-		}}
-		use:dragScrollAction={{
-			onDrag: () => {
-				isDragging = true
-			},
-			disabled: !isDesktopDevice
-		}}
-		use:deviceDetectorAction={{
-			onChange: ({ deviceType }) => {
-				isDesktopDevice = deviceType === "desktop"
+			onChange: (a, b) => {
+				console.log(a, b)
+				isFirst = a
+				isLast = b
 			}
 		}}
+		class={styles.content}
 	>
 		{#each data as { onClick, reference, isActive }}
 			<Button
@@ -65,8 +76,8 @@
 			</Button>
 		{/each}
 	</div>
-	{#if showRightArrow}
-		<Button variant="text" class={styles.arrowIndicator}>
+	{#if isFirst}
+		<Button variant="text" class={styles.arrowIndicator} onclick={next}>
 			<KeyboardArrowRightIcon height={"16px"} width={"16px"} />
 		</Button>
 	{/if}

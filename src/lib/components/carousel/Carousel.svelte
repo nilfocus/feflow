@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements"
 	import styles from "./Carousel.module.css"
-	import scrollNavigationAction from "../../actions/scrollNavigationAction.js"
+	import { scrollNavigatorAction } from "../../actions/index.js"
 	import {
 		KeyboardArrowLeftIcon,
 		KeyboardArrowRightIcon
@@ -12,30 +12,31 @@
 
 	let { class: className = "", children, ...rest }: Props = $props()
 
-	let el: HTMLDivElement | null = null
-	let navigationAction: ReturnType<typeof scrollNavigationAction> | undefined
+	let _scrollNavigatorAction:
+		| ReturnType<typeof scrollNavigatorAction>
+		| undefined
 	let isFirst = $state(true)
 	let isLast = $state(false)
 
-	function setupNavigation(node: HTMLDivElement) {
-		navigationAction = scrollNavigationAction(node, {
+	function setupNavigator(node: HTMLDivElement) {
+		_scrollNavigatorAction = scrollNavigatorAction(node, {
 			onChange(a, b) {
 				isFirst = a
 				isLast = b
 			}
 		})
-		return navigationAction
+		return _scrollNavigatorAction
 	}
 
 	function next() {
-		if (navigationAction?.controls) {
-			navigationAction.controls.next()
+		if (_scrollNavigatorAction?.controls) {
+			_scrollNavigatorAction.controls.next()
 		}
 	}
 
 	function prev() {
-		if (navigationAction?.controls) {
-			navigationAction.controls.prev()
+		if (_scrollNavigatorAction?.controls) {
+			_scrollNavigatorAction.controls.prev()
 		}
 	}
 </script>
@@ -48,7 +49,7 @@
 	})}
 	aria-label="carousel"
 >
-	<div bind:this={el} use:setupNavigation class={styles.content}>
+	<div use:setupNavigator class={styles.content}>
 		{@render children?.()}
 	</div>
 	<div class={styles.actions}>

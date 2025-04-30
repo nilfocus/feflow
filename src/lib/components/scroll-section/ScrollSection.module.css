@@ -4,7 +4,7 @@
 	right: 0;
 	left: 0;
 	width: 100%;
-	background: var(--sc-color-primary);
+	background: var(--sc-color-surface);
 	box-shadow: var(--sc-shadow-md);
 	z-index: 999;
 	overflow: hidden;
@@ -31,6 +31,7 @@
 	height: 100%;
 	cursor: grab;
 	-webkit-overflow-scrolling: touch;
+	color: var(--sc-color-on-surface);
 }
 
 .content:active {
@@ -75,6 +76,7 @@
 }
 
 @keyframes blink {
+
 	0%,
 	100% {
 		opacity: 1;

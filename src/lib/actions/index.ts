@@ -4,10 +4,10 @@ import scrollSectionAction from "./scrollSectionAction.js"
 import inputDropAction from "./inputDropAction.js"
 import observeAttributeAction from "./observeAttributeAction.js"
 import resizeAction from "./resizeAction.js"
-import scrollDetectAction from "./scrollDetectAction.js"
 import deviceDetectorAction from "./deviceDetectorAction.js"
-import scrollNavigationAction from "./scrollNavigationAction.js"
+import scrollNavigatorAction from "./scrollNavigatorAction.js"
 import hoverFollowerAction from "./hoverFollowerAction.js"
+import scrollDetectAction from "./scrollDetectAction.js"
 
 export {
 	inputDropAction,
@@ -16,8 +16,8 @@ export {
 	clickOutsideAction,
 	observeAttributeAction,
 	resizeAction,
-	scrollDetectAction,
 	deviceDetectorAction,
-	scrollNavigationAction,
-	hoverFollowerAction
+	scrollNavigatorAction,
+	hoverFollowerAction,
+	scrollDetectAction
 }

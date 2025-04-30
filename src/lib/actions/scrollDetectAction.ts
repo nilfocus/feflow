@@ -1,45 +1,34 @@
 type Props = {
-	handler: (visible: boolean) => void
-	disabled?: boolean
+	onChange?: (isFirst: boolean, isLast: boolean) => void
 }
 
 export default function scrollDetectAction(
 	node: HTMLElement,
-	{ handler, disabled = false }: Props
+	{ onChange }: Props
 ) {
-	if (typeof window === "undefined") {
-		return { destroy: () => {} }
-	}
-
-	function checkScroll() {
+	function updateByScrollPosition() {
 		const { scrollLeft, clientWidth, scrollWidth } = node
-		const isRightVisible = scrollLeft + clientWidth < scrollWidth - 1
-		handler(isRightVisible)
+		const isFirst = scrollLeft <= 1
+		const isLast = scrollLeft + clientWidth >= scrollWidth - 1
+
+		onChange?.(isFirst, isLast)
 	}
 
 	let timeout: ReturnType<typeof setTimeout> | undefined
 
 	function checkScrollDebounced() {
 		clearTimeout(timeout)
-		timeout = setTimeout(checkScroll, 50)
+		timeout = setTimeout(updateByScrollPosition, 50)
 	}
 
-	window.addEventListener("resize", checkScroll)
+	window.addEventListener("resize", checkScrollDebounced)
 	node.addEventListener("scroll", checkScrollDebounced)
 
-	checkScroll()
+	updateByScrollPosition()
 
 	return {
-		update(params: {
-			handler: (visible: boolean) => void
-			disabled?: boolean
-		}) {
-			disabled = params.disabled ?? false
-			handler = params.handler
-			checkScroll()
-		},
 		destroy() {
-			window.removeEventListener("resize", checkScroll)
+			window.removeEventListener("resize", checkScrollDebounced)
 			node.removeEventListener("scroll", checkScrollDebounced)
 		}
 	}
