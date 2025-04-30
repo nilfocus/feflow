@@ -10,6 +10,7 @@ export type ColorType =
 	| "warning"
 export type ThemeType = "dark" | "light"
 export type PositionType = "top" | "bottom" | "right" | "left"
+export type OrientationType = "vertical" | "horizontal"
 
 export * from "./toast.types.js"
 export * from "./scrollSection.types.js"

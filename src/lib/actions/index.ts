@@ -7,6 +7,7 @@ import resizeAction from "./resizeAction.js"
 import scrollDetectAction from "./scrollDetectAction.js"
 import deviceDetectorAction from "./deviceDetectorAction.js"
 import scrollNavigationAction from "./scrollNavigationAction.js"
+import hoverFollowerAction from "./hoverFollowerAction.js"
 
 export {
 	inputDropAction,
@@ -17,5 +18,6 @@ export {
 	resizeAction,
 	scrollDetectAction,
 	deviceDetectorAction,
-	scrollNavigationAction
+	scrollNavigationAction,
+	hoverFollowerAction
 }
