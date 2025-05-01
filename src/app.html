@@ -1,9 +1,16 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<script>
+			const theme = localStorage.getItem("theme") || "light"
+			document.documentElement.setAttribute("data-theme", theme)
+			document.documentElement.style.colorScheme = theme
+		</script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
