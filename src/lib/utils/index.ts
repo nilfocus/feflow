@@ -1,5 +1,7 @@
 import classMapUtil from "./classMapUtil.js"
+import colorModeUtil from "./colorModeUtil.js"
 
-export default {
-	classMapUtil
+export {
+	classMapUtil,
+	colorModeUtil
 }

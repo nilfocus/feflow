@@ -1,6 +1,7 @@
 import "./globals.css"
 export * as Actions from "./actions/index.js"
 export * as States from "./states/index.js"
+export * as Utils from "./utils/index.js"
 export { default as Accordion } from "./components/accordion/index.js"
 export { default as Avatar } from "./components/avatar/index.js"
 export { default as Badge } from "./components/badge/index.js"
