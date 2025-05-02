@@ -3,13 +3,18 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import Button from "../button/index.js"
 	import { CloseIcon } from "../../icons/index.js"
+	import type { AlignType } from "../../types/index.js"
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
+		align?: AlignType
+		closable?: boolean
 		handleClose: () => void
 	}
 
 	let {
 		class: className = "",
+		align = "start",
+		closable = true,
 		handleClose,
 		children,
 		...rest
@@ -23,12 +28,14 @@
 		["header"]: true
 	})}
 >
-	<div class="content">
+	<div class="content" style={`justify-content: ${align};`}>
 		{@render children?.()}
 	</div>
-	<Button variant="text" onclick={handleClose}>
-		<CloseIcon />
-	</Button>
+	{#if closable}
+		<Button variant="text" onclick={handleClose}>
+			<CloseIcon />
+		</Button>
+	{/if}
 </div>
 
 <style>
@@ -39,6 +46,11 @@
 		align-items: last baseline;
 		gap: 1rem;
 		height: 70px;
+		border-bottom: 1px solid var(--sc-color-border);
+	}
+
+	.header.border-0 {
+		border-bottom: none;
 	}
 
 	.content {
@@ -48,5 +60,7 @@
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
 		line-clamp: 2;
+		flex: 1;
+		display: flex;
 	}
 </style>

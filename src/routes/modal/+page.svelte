@@ -9,12 +9,16 @@
 </script>
 
 <Modal isOpen={openModal} {handleClose}>
-	<Modal.Header {handleClose}>
+	<Modal.Header {handleClose} align="center" closable={true}>
 		<h1>test header</h1>
 	</Modal.Header>
 	<Modal.Content>
 		<p>test content</p>
 	</Modal.Content>
+	<Modal.Actions class="border-0" align={"center"}>
+		<Button variant="outlined" onclick={handleClose}>Cancel</Button>
+		<Button>Save</Button>
+	</Modal.Actions>
 </Modal>
 
 <Button

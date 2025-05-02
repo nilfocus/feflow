@@ -20,5 +20,8 @@
 <style>
 	.content {
 		padding: 0 0 0.5rem 3px;
+		max-height: 80vh;
+		overflow: auto;
+		box-sizing: border-box;
 	}
 </style>

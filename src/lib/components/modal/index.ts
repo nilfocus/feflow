@@ -1,8 +1,10 @@
 import ModalComponent from "./Modal.svelte"
 import ModalHeaderComponent from "./ModalHeader.svelte"
 import ModalContentComponent from "./ModalContent.svelte"
+import ModalActionsComponent from "./ModalActions.svelte"
 
 export default Object.assign(ModalComponent, {
 	Header: ModalHeaderComponent,
-	Content: ModalContentComponent
+	Content: ModalContentComponent,
+	Actions: ModalActionsComponent
 })
