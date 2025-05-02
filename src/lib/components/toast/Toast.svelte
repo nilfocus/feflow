@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { ErrorIcon, InfoIcon, WarningIcon } from "../../icons/index.js"
 	import { toastState } from "../../states/index.js"
 	import type { ColorType, ToastType } from "../../types/index.js"
 	import classMapUtil from "../../utils/classMapUtil.js"
-	import { onDestroy, onMount } from "svelte"
+	import { onDestroy, onMount, type Component } from "svelte"
 	import type { HTMLAttributes } from "svelte/elements"
 
 	interface Props
@@ -23,6 +24,14 @@
 
 	const _toastState = toastState()
 
+	const icons: Partial<Record<ColorType, Component>> = {
+		error: ErrorIcon,
+		info: InfoIcon,
+		warning: WarningIcon
+	}
+
+	const Icon = icons[color] ?? InfoIcon
+
 	onMount(() => {
 		timer = setTimeout(() => {
 			_toastState.clearWithDelay()
@@ -40,8 +49,11 @@
 		[className as string]: true,
 		toast: true
 	})}
-	style={`background: var(--color-${color}); color: var(--color-on-${color})`}
+	style={`background: var(--color-${color}); color: var(--color-on-${color});`}
 >
+	{#if Icon}
+		<Icon fill={`var(--color-on-${color})`} height="20px" width="20px" />
+	{/if}
 	{message}
 </div>
 
@@ -84,6 +96,9 @@
 		backdrop-filter: blur(6px);
 		border: 1px solid rgba(255, 255, 255, 0.06);
 		animation: fadeInUp 0.5s ease-out forwards;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
 
 	.toast::before {

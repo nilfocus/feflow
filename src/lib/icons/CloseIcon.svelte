@@ -12,7 +12,7 @@
 	height={rest.width ?? "24px"}
 	width={rest.width ?? "24px"}
 	viewBox="0 -960 960 960"
-	fill="var(--sc-color-text)"
+	fill={rest.fill ?? "var(--sc-color-text)"}
 >
 	<path
 		d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
