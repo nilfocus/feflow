@@ -6,4 +6,4 @@ export type ActionType<T> = (
 	destroy?: () => void
 } | void
 
-export type ActionEntryType<T> = ActionType<T> | [ActionType<T>, unknown]
+export type ActionEntryType<T> = [ActionType<T>, unknown]

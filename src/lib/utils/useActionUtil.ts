@@ -1,12 +1,13 @@
-import type { ActionEntry } from "../types/index.js"
+import type { ActionEntryType } from "../types/index.js"
+
 
 export default function useActionUtil<T extends HTMLElement>(
 	node: T,
-	actionsList: ActionEntry<T>[] = []
+	actionsList: ActionEntryType<T>[] = []
 ) {
 	let destroyFns: (() => void)[] = []
 
-	function applyActions(list: ActionEntry<T>[]) {
+	function applyActions(list: ActionEntryType<T>[]) {
 		destroyFns = list
 			.map(([action, params]) => {
 				const result = action(node, params)
@@ -18,7 +19,7 @@ export default function useActionUtil<T extends HTMLElement>(
 	applyActions(actionsList)
 
 	return {
-		update(newList: ActionEntry<T>[]) {
+		update(newList: ActionEntryType<T>[]) {
 			destroyFns.forEach((fn) => fn())
 			applyActions(newList)
 		},
