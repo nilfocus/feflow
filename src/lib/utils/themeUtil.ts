@@ -47,20 +47,11 @@ export default function themeUtil() {
 		if (saved) applyTheme(saved)
 	}
 
-	function getInitThemeScript() {
-		return `
-		(function () {
-			const theme = localStorage.getItem("${THEME_STORAGE}") || "light";
-			document.documentElement.setAttribute("${THEME_ATTR}", theme);
-			document.documentElement.style.colorScheme = theme;
-		})()
-		`
-	}
-
 	return {
 		setThemeVariables,
 		toggleColorMode,
 		initThemeFromStorage,
-		getInitThemeScript
+		THEME_STORAGE,
+		THEME_ATTR
 	}
 }

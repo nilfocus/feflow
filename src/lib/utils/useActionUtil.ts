@@ -1,6 +1,5 @@
 import type { ActionEntryType } from "../types/index.js"
 
-
 export default function useActionUtil<T extends HTMLElement>(
 	node: T,
 	actionsList: ActionEntryType<T>[] = []

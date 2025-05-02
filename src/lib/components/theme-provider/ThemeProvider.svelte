@@ -10,7 +10,7 @@
 
 	let { theme, children }: Props = $props()
 
-	const { setThemeVariables, getInitThemeScript } = themeUtil()
+	const { setThemeVariables, THEME_ATTR, THEME_STORAGE } = themeUtil()
 
 	onMount(() => {
 		if (theme) {
@@ -20,7 +20,15 @@
 </script>
 
 <svelte:head>
-	{@html `<script>${getInitThemeScript()}</script>`}
+	{@html `
+	<script>
+		(function () {
+			const theme = localStorage.getItem("${THEME_STORAGE}") || "light";
+			document.documentElement.setAttribute("${THEME_ATTR}", theme);
+			document.documentElement.style.colorScheme = theme;
+		})()
+	</script>
+	`}
 </svelte:head>
 
 {@render children?.()}

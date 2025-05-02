@@ -6,7 +6,7 @@
 	text-align: left;
 }
 
-.menuItem>* {
+.menuItem > * {
 	color: var(--sc-color-on-surface) !important;
 }
 

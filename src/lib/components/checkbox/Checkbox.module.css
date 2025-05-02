@@ -6,15 +6,15 @@
 	-webkit-tap-highlight-color: transparent;
 	gap: 0.5rem;
 	align-items: center;
-	margin-top: .3rem;
-	margin-bottom: .3rem;
+	margin-top: 0.3rem;
+	margin-bottom: 0.3rem;
 }
 
 .checkbox input {
 	display: none;
 }
 
-.checkbox input:disabled+.wrapper .bg {
+.checkbox input:disabled + .wrapper .bg {
 	background: var(--sc-color-secondary) !important;
 	border-color: var(--sc-color-secondary) !important;
 }
@@ -53,16 +53,16 @@
 	transition: stroke-dashoffset 0.3s ease 0.1s;
 }
 
-.checkbox input:checked+.wrapper .bg {
+.checkbox input:checked + .wrapper .bg {
 	background: var(--sc-color-primary);
 	border-color: var(--sc-color-secondary);
 }
 
-.checkbox input:checked+.wrapper .icon {
+.checkbox input:checked + .wrapper .icon {
 	transform: scale(1);
 }
 
-.checkbox input:checked+.wrapper .checkPath {
+.checkbox input:checked + .wrapper .checkPath {
 	stroke-dashoffset: 0;
 }
 

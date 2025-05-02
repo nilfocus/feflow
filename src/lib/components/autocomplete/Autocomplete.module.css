@@ -1,60 +1,60 @@
 .autocomplete {
-    position: relative;
-    width: 400px;
+	position: relative;
+	width: 400px;
 }
 
 .items {
-    border-radius: 5px;
-    background: var(--sc-color-surface);
-    max-height: 300px;
-    overflow: hidden;
-    overflow-y: auto;
-    position: absolute;
-    z-index: 99;
-    box-shadow:
-        0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 100%;
+	border-radius: 5px;
+	background: var(--sc-color-surface);
+	max-height: 300px;
+	overflow: hidden;
+	overflow-y: auto;
+	position: absolute;
+	z-index: 99;
+	box-shadow:
+		0 4px 8px 0 rgba(0, 0, 0, 0.2),
+		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 100%;
 }
 
-.items>div {
-    padding: 24px 32px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    cursor: pointer;
-    border-bottom: 1px solid var(--sc-color-border);
-    font-size: 14px;
+.items > div {
+	padding: 24px 32px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	cursor: pointer;
+	border-bottom: 1px solid var(--sc-color-border);
+	font-size: 14px;
 }
 
-.items>div>* {
-    color: var(--sc-color-on-surface);
+.items > div > * {
+	color: var(--sc-color-on-surface);
 }
 
-.items>div.focused {
-    background: red;
+.items > div.focused {
+	background: red;
 }
 
-.items>div:last-child {
-    border: none;
+.items > div:last-child {
+	border: none;
 }
 
-.items>div:hover {
-    background: blue;
+.items > div:hover {
+	background: blue;
 }
 
 .items::-webkit-scrollbar {
-    width: 10px;
+	width: 10px;
 }
 
 .items::-webkit-scrollbar-track {
-    background: #f1f1f1;
+	background: #f1f1f1;
 }
 
 .items::-webkit-scrollbar-thumb {
-    background: green;
+	background: green;
 }
 
 .items::-webkit-scrollbar-thumb:hover {
-    background: #555;
+	background: #555;
 }
