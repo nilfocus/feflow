@@ -1,6 +1,5 @@
 export * from "./toast.types.js"
 export * from "./scrollSection.types.js"
-export * from "./themeVars.types.js"
 export * from "./variant.types.js"
 export * from "./size.types.js"
 export * from "./color.types.js"
