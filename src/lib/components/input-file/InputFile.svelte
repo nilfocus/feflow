@@ -1,10 +1,10 @@
 <script lang="ts">
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import styles from "./InputFile.module.css"
-	import type { HTMLAttributes } from "svelte/elements"
+	import type { HTMLInputAttributes } from "svelte/elements"
 	import { inputDropAction } from "../../actions/index.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	interface Props extends HTMLInputAttributes {
 		onDropEvent?: (files: File[]) => void
 	}
 
@@ -26,7 +26,6 @@
 </script>
 
 <div
-	{...rest}
 	use:inputDropAction={{
 		onFiles: handleDrop,
 		setIsDragging: (v: boolean) => {
@@ -42,9 +41,10 @@
 >
 	{@render children?.()}
 	<input
+		{...rest}
 		type="file"
-		multiple
 		onchange={(e) => {
+			if (files.length > 0 && !rest.multiple) return
 			handleDrop(Array.from((e.target as HTMLInputElement).files || []))
 		}}
 	/>

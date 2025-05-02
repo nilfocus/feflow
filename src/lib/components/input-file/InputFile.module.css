@@ -10,7 +10,7 @@
 
 .dropzone.dragging {
 	border-color: var(--sc-color-border-hover);
-	background-color: var(--sc-color-surface);
+	background: var(--sc-color-surface);
 }
 
 .dropzone input[type="file"] {
