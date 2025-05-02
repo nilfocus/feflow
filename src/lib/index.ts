@@ -30,3 +30,4 @@ export { default as ProgressLoader } from "./components/progress-loader/index.js
 export { default as HoverFollower } from "./components/hover-follower/index.js"
 export { default as ThemeProvider } from "./components/theme-provider/index.js"
 export { default as Select } from "./components/select/index.js"
+export { default as Autocomplete } from "./components/autocomplete/index.js"

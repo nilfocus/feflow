@@ -8,6 +8,7 @@ import deviceDetectorAction from "./deviceDetectorAction.js"
 import scrollNavigatorAction from "./scrollNavigatorAction.js"
 import hoverFollowerAction from "./hoverFollowerAction.js"
 import scrollDetectAction from "./scrollDetectAction.js"
+import keyboardNavigationAction from "./keyboardNavigationAction.js"
 
 export {
 	inputDropAction,
@@ -19,5 +20,6 @@ export {
 	deviceDetectorAction,
 	scrollNavigatorAction,
 	hoverFollowerAction,
-	scrollDetectAction
+	scrollDetectAction,
+	keyboardNavigationAction
 }

@@ -1,15 +1,21 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import classMapUtil from "../../utils/classMapUtil.js"
-	import type { ColorType, VariantType } from "../../types/index.js"
+	import type {
+		ActionEntryType,
+		ColorType,
+		VariantType
+	} from "../../types/index.js"
 	import styles from "./Input.module.css"
 	import { observeAttributeAction } from "../../actions/index.js"
+	import useActionUtil from "@/lib/utils/useActionUtil.js"
 
 	interface Props extends HTMLInputAttributes {
 		label?: string
 		variant?: VariantType
 		color?: ColorType
 		focused?: boolean
+		actions?: ActionEntryType<HTMLElement>[]
 	}
 
 	let {
@@ -18,6 +24,7 @@
 		variant = "outlined",
 		color = "primary",
 		focused = false,
+		actions = [],
 		children,
 		...rest
 	}: Props = $props()
@@ -52,6 +59,7 @@
 				helperText = value
 			}
 		}}
+		use:useActionUtil={actions}
 		class={classMapUtil({
 			["border-error"]: Boolean(helperText)
 		})}
@@ -59,7 +67,7 @@
 	/>
 
 	{#if label}
-		<label for={rest.id || rest.name}>{label}</label>
+		<label for={rest.id ?? rest.name}>{label}</label>
 	{/if}
 
 	<!-- {#if variant === "outlined"}
