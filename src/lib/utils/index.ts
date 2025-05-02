@@ -1,7 +1,4 @@
 import classMapUtil from "./classMapUtil.js"
-import colorModeUtil from "./colorModeUtil.js"
+import themeUtil from "./themeUtil.js"
 
-export {
-	classMapUtil,
-	colorModeUtil
-}
+export { classMapUtil, themeUtil }

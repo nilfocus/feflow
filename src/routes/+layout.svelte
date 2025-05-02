@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toaster } from "@/lib/index.js"
+	import { ThemeProvider, Toaster } from "@/lib/index.js"
 	import "./globals.css"
 
 	let { children } = $props()
@@ -7,4 +7,6 @@
 
 <Toaster />
 
-{@render children()}
+<ThemeProvider>
+	{@render children()}
+</ThemeProvider>
