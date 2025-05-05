@@ -49,7 +49,7 @@
 		[className as string]: true,
 		toast: true
 	})}
-	style={`background: var(--color-${color}); color: var(--color-on-${color});`}
+	style={`background: var(--color-${color}); color: var(--color-on-${color}); ${rest.style}`}
 >
 	{#if Icon}
 		<Icon fill={`var(--color-on-${color})`} height="20px" width="20px" />
@@ -85,33 +85,26 @@
 		position: relative;
 		background: var(--color-primary);
 		color: var(--color-on-primary);
-		padding: 0.875rem 1.25rem;
+		padding: 0.5rem 1.25rem;
 		border-radius: 0.5rem;
 		margin-bottom: 0.5rem;
-		font-size: 0.95rem;
+		font-size: var(--sc-size-md);
 		font-weight: 500;
 		box-shadow:
 			0 4px 12px rgba(0, 0, 0, 0.15),
 			0 0 0 1px rgba(255, 255, 255, 0.05);
 		backdrop-filter: blur(6px);
-		border: 1px solid rgba(255, 255, 255, 0.06);
-		animation: fadeInUp 0.5s ease-out forwards;
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
+		border-left: 4px solid currentColor;
+		animation: fadeInUp 0.5s ease-out;
+		transition: transform 0.3s ease-out;
+		pointer-events: all;
 	}
 
-	.toast::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 5px;
-		height: 100%;
-		background: inherit;
-		border-top-left-radius: 0.5rem;
-		border-bottom-left-radius: 0.5rem;
-		opacity: 0.5;
+	.toast:hover {
+		transform: scale(1.1);
 	}
 
 	@keyframes fadeInUp {

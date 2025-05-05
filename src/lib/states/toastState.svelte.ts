@@ -9,28 +9,31 @@ export const data = $state<{ toasts: ToastType[] }>({
 export default function toastState() {
 	return {
 		data,
-		add(partialToast: Omit<Partial<ToastType>, "id">) {
-			const generateToast = (
-				partial: Omit<Partial<ToastType>, "id">
-			): ToastType => ({
-				id: crypto.randomUUID(),
-				message: partial.message ?? "",
-				color: partial.color,
-				duration: partial.duration ?? DEFAULT_DURATION
-			})
-			data.toasts = [...data.toasts, generateToast(partialToast)]
+		add(toast: Omit<Partial<ToastType>, "id">) {
+			data.toasts = [
+				...data.toasts,
+				{
+					id: crypto.randomUUID(),
+					message: toast.message ?? "",
+					duration: toast.duration ?? DEFAULT_DURATION,
+					position: toast.position ?? "bottom-right",
+					...toast
+				}
+			]
 		},
-		remove(id: string) {
-			data.toasts = data.toasts.filter((t) => t.id !== id)
+		async remove(toastId: string) {
+			await new Promise((resolve) => setTimeout(resolve, 50))
+			data.toasts = data.toasts.filter((toast) => toast.id !== toastId)
 		},
 		clear() {
 			data.toasts = []
 		},
 		async clearWithDelay(step = 200) {
-			const toastsCopy = [...data.toasts].sort(
-				(a, b) =>
-					(b.duration ?? DEFAULT_DURATION) - (a.duration ?? DEFAULT_DURATION)
-			)
+			const toastsCopy = [...data.toasts].sort((a, b) => {
+				const d1 = a.duration ?? DEFAULT_DURATION
+				const d2 = b.duration ?? DEFAULT_DURATION
+				return d1 - d2
+			})
 
 			for (const toast of toastsCopy) {
 				this.remove(toast.id)

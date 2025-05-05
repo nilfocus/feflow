@@ -1,1 +1,7 @@
-export type PositionType = "top" | "bottom" | "right" | "left"
+export type PositionType =
+	| "top-left"
+	| "top-right"
+	| "bottom-left"
+	| "bottom-right"
+	| "top-center"
+	| "bottom-center"
