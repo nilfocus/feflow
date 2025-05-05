@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { themeUtil } from "../../utils/index.js"
 	import type { ThemeVars } from "../../types/index.js"
-	import { onMount, type Snippet } from "svelte"
+	import { type Snippet } from "svelte"
 
 	interface Props {
 		theme?: ThemeVars
@@ -10,13 +10,7 @@
 
 	let { theme, children }: Props = $props()
 
-	const { setThemeVariables, THEME_ATTR, THEME_STORAGE } = themeUtil()
-
-	onMount(() => {
-		if (theme) {
-			setThemeVariables(theme)
-		}
-	})
+	const { THEME_ATTR, THEME_STORAGE, themeVarsToCssString } = themeUtil()
 </script>
 
 <svelte:head>
@@ -29,6 +23,8 @@
 		})()
 	</script>
 	`}
+
+	{@html themeVarsToCssString(theme)}
 </svelte:head>
 
 {@render children?.()}

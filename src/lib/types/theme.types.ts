@@ -1,7 +1,7 @@
 export type ThemeType = "dark" | "light"
 
 export type ThemeVars = {
-	colors: {
+	colors?: Partial<{
 		colorPrimary: string
 		colorOnPrimary: string
 		colorText: string
@@ -10,20 +10,20 @@ export type ThemeVars = {
 		colorOnBg: string
 		colorSurface: string
 		colorOnSurface: string
-	}
-	spacing: {
+	}>
+	spacing?: Partial<{
 		spaceXs: string
 		spaceSm: string
 		spaceMd: string
 		spaceLg: string
-	}
-	fontSizes: {
+	}>
+	fontSizes?: Partial<{
 		sizeSm: string
 		sizeMd: string
 		sizeLg: string
-	}
-	shadows: {
+	}>
+	shadows?: Partial<{
 		shadowMd: string
 		shadowLg: string
-	}
+	}>
 }
