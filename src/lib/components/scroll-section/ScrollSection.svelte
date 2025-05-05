@@ -10,21 +10,30 @@
 
 	interface Props extends HTMLAttributes<HTMLElement> {
 		data: SectionType[]
+		scrollButtons?: boolean
 	}
 
-	let { class: className = "", data, ...rest }: Props = $props()
+	let {
+		class: className = "",
+		data,
+		scrollButtons = true,
+		...rest
+	}: Props = $props()
 
 	let _scrollNavigatorAction:
 		| ReturnType<typeof scrollNavigatorAction>
 		| undefined
+
 	let isFirst = $state(true)
 	let isLast = $state(false)
+	let isScrollable = $state(false)
 
 	function setupNavigator(node: HTMLDivElement) {
 		_scrollNavigatorAction = scrollNavigatorAction(node, {
-			onChange(a, b) {
+			onChange(a, b, c) {
 				isFirst = a
 				isLast = b
+				isScrollable = c
 			}
 		})
 		return _scrollNavigatorAction
@@ -44,7 +53,7 @@
 </script>
 
 <nav {...rest} class={styles.scrollSection}>
-	{#if !isFirst || isLast}
+	{#if isScrollable && (!isFirst || isLast) && scrollButtons}
 		<Button variant="text" class={styles.arrowIndicator} onclick={prev}>
 			<KeyboardArrowLeftIcon height={"16px"} width={"16px"} />
 		</Button>
@@ -63,7 +72,7 @@
 			</Button>
 		{/each}
 	</div>
-	{#if !isLast}
+	{#if isScrollable && !isLast && scrollButtons}
 		<Button variant="text" class={styles.arrowIndicator} onclick={next}>
 			<KeyboardArrowRightIcon height={"16px"} width={"16px"} />
 		</Button>

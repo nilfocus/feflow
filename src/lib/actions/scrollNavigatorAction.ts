@@ -1,5 +1,5 @@
 type Props = {
-	onChange?: (isFirst: boolean, isLast: boolean) => void
+	onChange?: (isFirst: boolean, isLast: boolean, isScrollable: boolean) => void
 }
 
 export default function scrollNavigatorAction(
@@ -7,9 +7,10 @@ export default function scrollNavigatorAction(
 	props: Props = {}
 ) {
 	function update() {
+		const isScrollable = node.scrollWidth > node.clientWidth
 		const isFirst = node.scrollLeft === 0
 		const isLast = node.scrollLeft + node.clientWidth >= node.scrollWidth - 2
-		props.onChange?.(isFirst, isLast)
+		props.onChange?.(isFirst, isLast, isScrollable)
 	}
 
 	function getNextElement() {
@@ -80,12 +81,15 @@ export default function scrollNavigatorAction(
 
 	node.addEventListener("scroll", update, { passive: true })
 	window.addEventListener("keydown", handleKeyDown)
+	window.addEventListener("resize", update)
+
 	requestAnimationFrame(update)
 
 	return {
 		destroy() {
 			node.removeEventListener("scroll", update)
 			window.removeEventListener("keydown", handleKeyDown)
+			window.removeEventListener("resize", update)
 		},
 		controls
 	}
