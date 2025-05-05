@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Actions, ScrollSection, States } from "@/lib/index.js"
 
-	const sectionsData = Array.from({ length: 15 }, (_, index) => ({
+	const sectionsData = Array.from({ length: 25 }, (_, index) => ({
 		reference: `Section ${index + 1}`
 	}))
 

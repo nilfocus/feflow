@@ -6,57 +6,85 @@ export default function scrollNavigatorAction(
 	node: HTMLElement,
 	props: Props = {}
 ) {
-	const { onChange } = props ?? {}
-
-	let idx = 0
-	const childs = Array.from(node.children)
-	const totalChilds = childs.length
-
 	function update() {
-		onChange?.(idx === 0, idx === totalChilds - 1)
+		const isFirst = node.scrollLeft === 0
+		const isLast = node.scrollLeft + node.clientWidth >= node.scrollWidth - 2
+		props.onChange?.(isFirst, isLast)
+	}
+
+	function getNextElement() {
+		const children = Array.from(node.children) as HTMLElement[]
+		const scrollLeft = node.scrollLeft
+		const scrollWidth = node.clientWidth / 3
+
+		if (scrollLeft === 0 && children.length > 1) {
+			return children[1]
+		}
+
+		for (const child of children) {
+			if (child.offsetLeft > scrollLeft + scrollWidth) {
+				return child
+			}
+		}
+		return children[children.length - 1]
+	}
+
+	function getPrevElement() {
+		const children = Array.from(node.children) as HTMLElement[]
+		const scrollLeft = node.scrollLeft
+		const scrollWidth = node.clientWidth / 3
+
+		if (scrollLeft < scrollWidth && children.length > 0) {
+			return children[0]
+		}
+
+		for (let i = children.length - 1; i >= 0; i--) {
+			if (children[i].offsetLeft < scrollLeft - scrollWidth / 2) {
+				return children[i]
+			}
+		}
+		return children[0]
+	}
+
+	function scrollToElement(element: HTMLElement) {
+		if (element) {
+			const isFirst = element === node.firstElementChild
+			node.scrollTo({
+				left: isFirst ? 0 : element.offsetLeft,
+				behavior: "smooth"
+			})
+
+			setTimeout(update, 250)
+		}
 	}
 
 	const controls = {
-		next: () => {
-			if (idx < totalChilds - 1) {
-				idx++
-				node.scrollBy({ left: node.clientWidth, behavior: "smooth" })
-				update()
-			}
-		},
-		prev: () => {
-			if (idx > 0) {
-				idx--
-				node.scrollBy({ left: -node.clientWidth, behavior: "smooth" })
-				update()
-			}
-		},
+		next: () => scrollToElement(getNextElement()),
+		prev: () => scrollToElement(getPrevElement()),
 		goTo: (index: number) => {
-			if (index >= 0 && index < totalChilds && index !== idx) {
-				idx = index
-				const scrollAmount = index * node.clientWidth - node.scrollLeft
-				node.scrollBy({ left: scrollAmount, behavior: "smooth" })
-				update()
-			}
+			const children = Array.from(node.children) as HTMLElement[]
+			const clampedIndex = Math.max(0, Math.min(index, children.length - 1))
+			scrollToElement(children[clampedIndex])
 		}
 	}
 
-	function handleKeyDown(event: KeyboardEvent) {
-		if (event.key === "ArrowRight") {
+	function handleKeyDown(e: KeyboardEvent) {
+		if (e.key === "ArrowRight") {
 			controls.next()
-			event.preventDefault()
-		} else if (event.key === "ArrowLeft") {
+			e.preventDefault()
+		} else if (e.key === "ArrowLeft") {
 			controls.prev()
-			event.preventDefault()
+			e.preventDefault()
 		}
 	}
 
+	node.addEventListener("scroll", update, { passive: true })
 	window.addEventListener("keydown", handleKeyDown)
-
-	update()
+	requestAnimationFrame(update)
 
 	return {
 		destroy() {
+			node.removeEventListener("scroll", update)
 			window.removeEventListener("keydown", handleKeyDown)
 		},
 		controls

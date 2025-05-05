@@ -2,55 +2,45 @@ import { scrollSectionState } from "../states/index.js"
 
 type Props = { debounceDelay?: number }
 
+function debounce<T extends (...args: any[]) => void>(
+	func: T,
+	wait: number
+): T {
+	let timeout: ReturnType<typeof setTimeout> | null = null
+	return ((...args: any[]) => {
+		if (timeout) clearTimeout(timeout)
+		timeout = setTimeout(() => func(...args), wait)
+	}) as T
+}
+
 export default function scrollSectionAction(node: HTMLElement, props?: Props) {
 	const { debounceDelay = 50 } = props ?? {}
-	const _scrollSectionState = scrollSectionState()
+	const state = scrollSectionState()
 
-	_scrollSectionState.register(node, node.id)
+	state.register(node, node.id)
 
-	function handleScroll() {
+	const handleScroll = () => {
 		let closest = { reference: "", top: Infinity }
-		for (const section of _scrollSectionState.data.sections) {
-			const rect = section.node.getBoundingClientRect()
-			const distance = Math.abs(rect.top)
 
-			if (distance < closest.top) {
-				closest = { reference: section.reference, top: distance }
+		for (const { node: sectionNode, reference } of state.data.sections) {
+			const top = Math.abs(sectionNode.getBoundingClientRect().top)
+			if (top < closest.top) {
+				closest = { reference, top }
 			}
 		}
 
-		if (
-			closest.reference &&
-			closest.reference !== _scrollSectionState.data.currentReference
-		) {
-			_scrollSectionState.data.currentReference = closest.reference
+		if (closest.reference !== state.data.currentReference) {
+			state.data.currentReference = closest.reference
 		}
 	}
 
-	function debounce(func: Function, waitFor: number) {
-		let timeout: ReturnType<typeof setTimeout> | null = null
-
-		return (...args: unknown[]) => {
-			if (timeout !== null) {
-				clearTimeout(timeout)
-			}
-			timeout = setTimeout(() => func(...args), waitFor)
-		}
-	}
-
-	let debounceScroll = debounce(handleScroll, debounceDelay)
-
-	document.addEventListener("scroll", debounceScroll, true)
+	let debouncedScroll = debounce(handleScroll, debounceDelay)
+	document.addEventListener("scroll", debouncedScroll, true)
 
 	return {
-		update({ debounceDelay }: { debounceDelay?: number }) {
-			if (debounceDelay) {
-				debounceScroll = debounce(handleScroll, debounceDelay)
-			}
-		},
 		destroy() {
-			document.removeEventListener("scroll", debounceScroll, true)
-			_scrollSectionState.unregister(node.id)
+			document.removeEventListener("scroll", debouncedScroll, true)
+			state.unregister(node.id)
 		}
 	}
 }

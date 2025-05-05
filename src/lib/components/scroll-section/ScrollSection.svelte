@@ -6,10 +6,7 @@
 	import type { HTMLAttributes } from "svelte/elements"
 	import KeyboardArrowLeftIcon from "../../icons/KeyboardArrowLeftIcon.svelte"
 	import KeyboardArrowRightIcon from "../../icons/KeyboardArrowRightIcon.svelte"
-	import {
-		scrollDetectAction,
-		scrollNavigatorAction
-	} from "../../actions/index.js"
+	import { scrollNavigatorAction } from "../../actions/index.js"
 
 	interface Props extends HTMLAttributes<HTMLElement> {
 		data: SectionType[]
@@ -47,22 +44,12 @@
 </script>
 
 <nav {...rest} class={styles.scrollSection}>
-	{#if isLast}
+	{#if !isFirst || isLast}
 		<Button variant="text" class={styles.arrowIndicator} onclick={prev}>
 			<KeyboardArrowLeftIcon height={"16px"} width={"16px"} />
 		</Button>
 	{/if}
-	<div
-		use:setupNavigator
-		use:scrollDetectAction={{
-			onChange: (a, b) => {
-				console.log(a, b)
-				isFirst = a
-				isLast = b
-			}
-		}}
-		class={styles.content}
-	>
+	<div use:setupNavigator class={styles.content}>
 		{#each data as { onClick, reference, isActive }}
 			<Button
 				variant="text"
@@ -76,7 +63,7 @@
 			</Button>
 		{/each}
 	</div>
-	{#if isFirst}
+	{#if !isLast}
 		<Button variant="text" class={styles.arrowIndicator} onclick={next}>
 			<KeyboardArrowRightIcon height={"16px"} width={"16px"} />
 		</Button>
