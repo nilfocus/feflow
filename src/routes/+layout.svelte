@@ -5,7 +5,7 @@
 	let { children } = $props()
 </script>
 
-<Toaster />
+<Toaster fullWidth />
 
 <ThemeProvider>
 	{@render children()}

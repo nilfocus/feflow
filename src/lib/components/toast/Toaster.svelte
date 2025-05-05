@@ -4,6 +4,14 @@
 	import Toast from "./Toast.svelte"
 	import { flip } from "svelte/animate"
 	import { fade, fly } from "svelte/transition"
+	import type { HTMLAttributes } from "svelte/elements"
+	import { classMapUtil } from "../../utils/index.js"
+
+	interface Props extends HTMLAttributes<HTMLDivElement> {
+		fullWidth?: boolean
+	}
+
+	let { class: className, fullWidth, ...rest }: Props = $props()
 
 	const { data } = toastState()
 
@@ -27,14 +35,27 @@
 </script>
 
 {#each Object.entries(positionStyles) as [position, style] (position)}
-	<div class="toaster" {style}>
+	<div
+		{...rest}
+		class={classMapUtil({
+			[className as string]: true,
+			["toaster"]: true,
+			["fullWidth"]: fullWidth,
+			["top"]: position.includes("top"),
+			["bottom"]: position.includes("bottom")
+		})}
+		style={`${style} ${rest.style}`}
+	>
 		{#each data.toasts.filter((t) => t.position === position) as toast (toast.id)}
 			<span
 				animate:flip={{ duration: 200 }}
 				in:fly={flyConfigs[position as PositionType] ?? { x: 0, y: 0 }}
 				out:fade
 			>
-				<Toast {...toast} />
+				<Toast
+					{...toast}
+					style={fullWidth ? "border: none; border-radius: 0;" : ""}
+				/>
 			</span>
 		{/each}
 	</div>
@@ -48,5 +69,20 @@
 		flex-direction: column;
 		gap: 0.5rem;
 		pointer-events: none;
+	}
+
+	.toaster.fullWidth {
+		left: 0 !important;
+		right: 0 !important;
+		width: 100% !important;
+		transform: none !important;
+	}
+
+	.toaster.fullWidth.top {
+		top: 0 !important;
+	}
+
+	.toaster.fullWidth.bottom {
+		bottom: 0 !important;
 	}
 </style>

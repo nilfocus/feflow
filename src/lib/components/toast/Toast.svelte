@@ -87,7 +87,6 @@
 		color: var(--color-on-primary);
 		padding: 0.5rem 1.25rem;
 		border-radius: 0.5rem;
-		margin-bottom: 0.5rem;
 		font-size: var(--sc-size-md);
 		font-weight: 500;
 		box-shadow:
