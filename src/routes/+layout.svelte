@@ -7,6 +7,19 @@
 
 <Toaster fullWidth />
 
-<ThemeProvider theme={{ colors: { colorPrimary: "red", colorBg: "green" } }}>
+<ThemeProvider
+	theme={{
+		colors: {
+			light: {
+				colorPrimary: "red",
+				colorBg: "green"
+			},
+			dark: {
+				colorPrimary: "blue",
+				colorBg: "black"
+			}
+		}
+	}}
+>
 	{@render children()}
 </ThemeProvider>

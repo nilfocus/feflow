@@ -1,4 +1,4 @@
-import type { ThemeVars } from "../types/index.js"
+import type { ThemeType, ThemeVars } from "../types/index.js"
 
 export default function themeUtil() {
 	const THEME_STORAGE = "theme"
@@ -11,17 +11,25 @@ export default function themeUtil() {
 	function themeVarsToCssString(theme?: ThemeVars): string {
 		if (!theme) return ""
 
-		let cssVars: string[] = []
+		let result = ""
 
-		for (const group of Object.values(theme)) {
-			if (typeof group === "object" && group !== null) {
-				for (const [key, value] of Object.entries(group)) {
-					cssVars.push(`${_toCssVar(key)}: ${value} !important;`)
-				}
-			}
+		const selectors: Record<ThemeType, string> = {
+			light: ":root, .light, [data-theme='light']",
+			dark: "[data-theme='dark'], .dark"
 		}
 
-		return `<style>:root {\n${cssVars.join("\n")}\n}</style>`
+		for (const [themeKey, vars] of Object.entries(theme.colors || {})) {
+			const cssVars: string[] = []
+
+			for (const [key, value] of Object.entries(vars)) {
+				cssVars.push(`${_toCssVar(key)}: ${value} !important;`)
+			}
+
+			const selector = selectors[themeKey as ThemeType]
+			result += `<style>${selector} {\n${cssVars.join("\n")}\n}</style>\n`
+		}
+
+		return result
 	}
 
 	function getCurrentTheme() {

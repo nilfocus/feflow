@@ -1,16 +1,21 @@
 export type ThemeType = "dark" | "light"
 
+type ColorsType = {
+	colorPrimary: string
+	colorOnPrimary: string
+	colorText: string
+	colorTextMuted: string
+	colorBg: string
+	colorOnBg: string
+	colorSurface: string
+	colorOnSurface: string
+}
+
 export type ThemeVars = {
-	colors?: Partial<{
-		colorPrimary: string
-		colorOnPrimary: string
-		colorText: string
-		colorTextMuted: string
-		colorBg: string
-		colorOnBg: string
-		colorSurface: string
-		colorOnSurface: string
-	}>
+	colors?: {
+		light?: Partial<ColorsType>
+		dark?: Partial<ColorsType>
+	}
 	spacing?: Partial<{
 		spaceXs: string
 		spaceSm: string
