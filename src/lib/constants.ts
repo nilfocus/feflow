@@ -35,6 +35,7 @@ export const themeDefault: ThemeVars = {
 		}
 	},
 	spacing: {
+		spaceXxs: "0.25rem",
 		spaceXs: "0.5rem",
 		spaceSm: "0.75rem",
 		spaceMd: "1rem",

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { InfoIcon } from "@/lib/icons/index.js"
 	import { Button, Utils } from "@/lib/index.js"
 	import { onMount } from "svelte"
 
@@ -21,5 +22,6 @@
 		})
 	}}
 >
+	<InfoIcon />
 	Toggle Theme
 </Button>

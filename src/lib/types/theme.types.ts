@@ -20,6 +20,7 @@ export type ThemeVars = {
 		dark?: Partial<ColorsType>
 	}
 	spacing?: Partial<{
+		spaceXxs: string
 		spaceXs: string
 		spaceSm: string
 		spaceMd: string
