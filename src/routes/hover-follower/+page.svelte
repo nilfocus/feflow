@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { HoverFollower } from "@/lib/index.js"
+	import { Card, HoverFollower } from "@/lib/index.js"
 </script>
 
 <h1>vertical</h1>
@@ -21,6 +21,23 @@
 			</div>
 		{/each}
 	</div>
+</HoverFollower>
+
+<br />
+<h1>with multiple childs</h1>
+<HoverFollower orientation="horizontal">
+	<Card>
+		<div>
+			<h4>test</h4>
+			<p>test</p>
+		</div>
+	</Card>
+	<Card>
+		<div>
+			<h4>test</h4>
+			<p>test</p>
+		</div>
+	</Card>
 </HoverFollower>
 
 <style>

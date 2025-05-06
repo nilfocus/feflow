@@ -5,7 +5,6 @@ export default function hoverFollowerAction(
 	orientation?: OrientationType
 ) {
 	const childs = Array.from(node.children)
-
 	let overlay = childs[0] as HTMLDivElement
 
 	if (orientation === "vertical") {
@@ -41,46 +40,58 @@ export default function hoverFollowerAction(
 		overlay.style.opacity = "0"
 	}
 
+	const enterListeners = new Map<HTMLElement, (event: MouseEvent) => void>()
+	const leaveListeners = new Map<HTMLElement, (event: MouseEvent) => void>()
+
 	function handleAdd(element: HTMLElement) {
 		element.style.position = "relative"
+		element.style.background = "transparent"
 
-		element.addEventListener("mouseenter", () => {
-			handleEnter(element)
-		})
+		const enterListener = (event: MouseEvent) => {
+			if (event.target === element) {
+				handleEnter(element)
+			}
+		}
 
-		element.addEventListener("mouseleave", () => {
-			handleLeave()
-		})
+		const leaveListener = (event: MouseEvent) => {
+			if (event.target === element) {
+				handleLeave()
+			}
+		}
+
+		enterListeners.set(element, enterListener)
+		leaveListeners.set(element, leaveListener)
+
+		element.addEventListener("mouseenter", enterListener)
+		element.addEventListener("mouseleave", leaveListener)
 	}
 
 	function handleRemove(element: HTMLElement) {
 		element.style.position = ""
+		element.style.background = ""
 
-		element.removeEventListener("mouseenter", () => {
-			handleEnter(element)
-		})
+		const enterListener = enterListeners.get(element)
+		const leaveListener = leaveListeners.get(element)
 
-		element.removeEventListener("mouseleave", () => {
-			handleLeave()
-		})
+		if (enterListener) {
+			element.removeEventListener("mouseenter", enterListener)
+			enterListeners.delete(element)
+		}
+
+		if (leaveListener) {
+			element.removeEventListener("mouseleave", leaveListener)
+			leaveListeners.delete(element)
+		}
 	}
 
-	childs.slice(1).forEach((node) => {
-		handleAdd(node as HTMLElement)
-
-		Array.from(node.children).forEach((node) => {
-			handleAdd(node as HTMLElement)
-		})
+	childs.slice(1).forEach((childNode) => {
+		handleAdd(childNode as HTMLElement)
 	})
 
 	return {
 		destroy() {
-			childs.slice(1).forEach((node) => {
-				handleRemove(node as HTMLElement)
-
-				Array.from(node.children).forEach((node) => {
-					handleRemove(node as HTMLElement)
-				})
+			childs.slice(1).forEach((childNode) => {
+				handleRemove(childNode as HTMLElement)
 			})
 		}
 	}
