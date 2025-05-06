@@ -1,6 +1,6 @@
 {
 	"name": "@dxdns/svelte-components",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "svelte components ui",
 	"private": false,
 	"publishConfig": {
