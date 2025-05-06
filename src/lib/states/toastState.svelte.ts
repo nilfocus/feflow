@@ -1,6 +1,5 @@
+import { TOAST_DEFAULT_DURATION } from "../constants.js"
 import type { ToastType } from "../types/index.js"
-
-const DEFAULT_DURATION = 3000
 
 export const data = $state<{ toasts: ToastType[] }>({
 	toasts: []
@@ -15,7 +14,7 @@ export default function toastState() {
 				{
 					id: crypto.randomUUID(),
 					message: toast.message ?? "",
-					duration: toast.duration ?? DEFAULT_DURATION,
+					duration: toast.duration ?? TOAST_DEFAULT_DURATION,
 					position: toast.position ?? "bottom-right",
 					...toast
 				}
@@ -30,8 +29,8 @@ export default function toastState() {
 		},
 		async clearWithDelay(step = 200) {
 			const toastsCopy = [...data.toasts].sort((a, b) => {
-				const d1 = a.duration ?? DEFAULT_DURATION
-				const d2 = b.duration ?? DEFAULT_DURATION
+				const d1 = a.duration ?? TOAST_DEFAULT_DURATION
+				const d2 = b.duration ?? TOAST_DEFAULT_DURATION
 				return d1 - d2
 			})
 

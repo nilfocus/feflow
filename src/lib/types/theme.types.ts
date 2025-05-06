@@ -3,6 +3,8 @@ export type ThemeType = "dark" | "light"
 type ColorsType = {
 	colorPrimary: string
 	colorOnPrimary: string
+	colorSecondary: string
+	colorOnSecondary: string
 	colorText: string
 	colorTextMuted: string
 	colorBg: string
