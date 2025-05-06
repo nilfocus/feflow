@@ -22,9 +22,9 @@
 <style>
 	.tabContent {
 		display: none;
-		padding: 20px;
-		background: #fff;
-		color: #333;
+		padding: 1rem;
+		background: var(--sc-color-surface);
+		color: var(--sc-color-on-surface);
 	}
 
 	.tabContent.active {

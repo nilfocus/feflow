@@ -1,4 +1,5 @@
 :root {
+	--sc-space-xxs: 0.25rem;
 	--sc-space-xs: 0.5rem;
 	--sc-space-sm: 0.75rem;
 	--sc-space-md: 1rem;
@@ -18,7 +19,7 @@
 	--sc-color-on-bg: var(--sc-color-text);
 	--sc-color-border: #e5e7eb;
 	--sc-color-surface: #f5f7fa;
-	--sc-color-on-surface: var(--sc-color-text-muted);
+	--sc-color-on-surface: var(--sc-color-text);
 
 	--sc-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 	--sc-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);

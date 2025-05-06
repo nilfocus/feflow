@@ -9,6 +9,7 @@ import scrollNavigatorAction from "./scrollNavigatorAction.js"
 import hoverFollowerAction from "./hoverFollowerAction.js"
 import scrollDetectAction from "./scrollDetectAction.js"
 import keyboardNavigationAction from "./keyboardNavigationAction.js"
+import activeLineAction from "./activeLineAction.js"
 
 export {
 	inputDropAction,
@@ -21,5 +22,6 @@ export {
 	scrollNavigatorAction,
 	hoverFollowerAction,
 	scrollDetectAction,
-	keyboardNavigationAction
+	keyboardNavigationAction,
+	activeLineAction
 }
