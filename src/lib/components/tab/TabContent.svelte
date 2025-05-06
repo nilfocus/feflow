@@ -1,33 +1,39 @@
 <script lang="ts">
-	import { classMapUtil } from "../../utils/index.js"
+	import type { TransitionEntry } from "../../types/index.js"
+	import { classMapUtil, transitionUtil } from "../../utils/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		isActive: boolean
+		transition?: TransitionEntry
 	}
 
-	let { class: className, isActive, children, ...rest }: Props = $props()
+	let {
+		class: className,
+		isActive,
+		transition,
+		children,
+		...rest
+	}: Props = $props()
 </script>
 
-<div
-	{...rest}
-	class={classMapUtil({
-		["tabContent"]: true,
-		["active"]: isActive
-	})}
->
-	{@render children?.()}
-</div>
+{#if isActive}
+	<div
+		{...rest}
+		use:transitionUtil={transition}
+		class={classMapUtil({
+			[className as string]: true,
+			["tabContent"]: true
+		})}
+	>
+		{@render children?.()}
+	</div>
+{/if}
 
 <style>
 	.tabContent {
-		display: none;
 		padding: 1rem;
 		background: var(--sc-color-surface);
 		color: var(--sc-color-on-surface);
-	}
-
-	.tabContent.active {
-		display: block;
 	}
 </style>

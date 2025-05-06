@@ -5,7 +5,7 @@
 	import { fade, scale } from "svelte/transition"
 	import Card from "../card/index.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen: boolean
 		handleClose: () => void
 	}

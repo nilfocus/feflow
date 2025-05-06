@@ -8,7 +8,7 @@
 	} from "../../types/index.js"
 	import styles from "./Input.module.css"
 	import { observeAttributeAction } from "../../actions/index.js"
-	import useActionUtil from "@/lib/utils/useActionUtil.js"
+	import { useActionUtil } from "../../utils/index.js"
 
 	interface Props extends HTMLInputAttributes {
 		label?: string

@@ -6,7 +6,7 @@
 	import { CloseIcon } from "../../icons/index.js"
 	import Button from "../button/index.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		content: Snippet
 		handleClose: () => void
 	}

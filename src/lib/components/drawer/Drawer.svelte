@@ -5,7 +5,7 @@
 	import styles from "./Drawer.module.css"
 	import { clickOutsideAction, resizeAction } from "../../actions/index.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen: boolean
 		handleClose: () => void
 		header: Snippet

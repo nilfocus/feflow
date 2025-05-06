@@ -5,7 +5,7 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import { clickOutsideAction } from "../../actions/index.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen: boolean
 		handleClose: () => void
 	}

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Actions, Button, Tab } from "@/lib/index.js"
+	import { fade, fly } from "svelte/transition"
 
 	let activeTab = $state("1")
 
@@ -34,7 +35,13 @@
 	</div>
 
 	{#each tabs as tab}
-		<Tab.Content isActive={activeTab === tab.id}>
+		<Tab.Content
+			isActive={activeTab === tab.id}
+			transition={{
+				in: [fly, { x: 300, duration: 400 }],
+				out: [fade, { duration: 300 }]
+			}}
+		>
 			{tab.content}
 		</Tab.Content>
 	{/each}

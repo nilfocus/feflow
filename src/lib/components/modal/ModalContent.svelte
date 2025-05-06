@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from "svelte/elements"
 	import classMapUtil from "../../utils/classMapUtil.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {}
+	export interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 	let { class: className = "", children, ...rest }: Props = $props()
 </script>

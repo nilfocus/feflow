@@ -3,7 +3,7 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import type { AlignType } from "../../types/index.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		align?: AlignType
 	}
 

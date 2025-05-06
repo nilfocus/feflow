@@ -8,7 +8,8 @@
 	} from "../../icons/index.js"
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import Button from "../button/index.js"
-	interface Props extends HTMLAttributes<HTMLDivElement> {}
+
+	export interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 	let { class: className = "", children, ...rest }: Props = $props()
 
