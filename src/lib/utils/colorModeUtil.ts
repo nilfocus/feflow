@@ -1,8 +1,8 @@
 import { THEME_ATTR, THEME_STORAGE } from "../constants.js"
 import type { ThemeType } from "../types/index.js"
 
-export default function themeUtil() {
-	function getTheme() {
+export default function colorModeUtil() {
+	function colorMode() {
 		return (
 			(document.documentElement.getAttribute(THEME_ATTR) as ThemeType | null) ||
 			"light"
@@ -15,15 +15,15 @@ export default function themeUtil() {
 		localStorage.setItem(THEME_STORAGE, theme)
 	}
 
-	function toggleTheme(onChange?: (t: ThemeType) => void) {
-		const currentTheme = getTheme()
+	function toggleColorMode(onChange?: (t: ThemeType) => void) {
+		const currentTheme = colorMode()
 		const next = currentTheme === "light" ? "dark" : "light"
 		_applyTheme(next)
 		onChange?.(next)
 	}
 
 	return {
-		getTheme,
-		toggleTheme
+		colorMode,
+		toggleColorMode
 	}
 }

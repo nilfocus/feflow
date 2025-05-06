@@ -4,6 +4,7 @@ export const CSS_VAR_PREFIX = "--sc"
 export const THEME_STORAGE = "theme"
 export const THEME_ATTR = "data-theme"
 export const TOAST_DEFAULT_DURATION = 3000
+export const THEME_CONTEXT = "theme-ctx"
 
 export const themeDefault: ThemeVars = {
 	colors: {

@@ -3,22 +3,22 @@
 	import { Button, Utils } from "@/lib/index.js"
 	import { onMount } from "svelte"
 
-	const { getTheme, toggleTheme } = Utils.themeUtil()
+	const { colorMode, toggleColorMode } = Utils.colorModeUtil()
 
-	let themeMode = $state("")
+	let currentColorMode = $state("")
 
 	onMount(() => {
-		const currentTheme = getTheme()
-		themeMode = currentTheme
+		const _currentColorMode = colorMode()
+		currentColorMode = _currentColorMode
 	})
 </script>
 
-<h1>Welcome {themeMode}</h1>
+<h1>Welcome {currentColorMode}</h1>
 
 <Button
 	onclick={() => {
-		toggleTheme((t) => {
-			themeMode = t
+		toggleColorMode((t) => {
+			currentColorMode = t
 		})
 	}}
 >

@@ -3,6 +3,7 @@
 	import type { ThemeVars } from "../../types/index.js"
 	import { type Snippet } from "svelte"
 	import { themeDefault, THEME_STORAGE, THEME_ATTR } from "../../constants.js"
+	import { setThemeContext } from "../../contexts/index.js"
 
 	interface Props {
 		customTheme?: ThemeVars
@@ -29,6 +30,8 @@
 	}
 
 	const theme = _deepMerge(themeDefault, customTheme || {})
+
+	setThemeContext(theme)
 </script>
 
 <svelte:head>
