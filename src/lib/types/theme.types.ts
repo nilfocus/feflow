@@ -11,6 +11,7 @@ type ColorsType = {
 	colorOnBg: string
 	colorSurface: string
 	colorOnSurface: string
+	colorBorder: string
 }
 
 export type ThemeVars = {

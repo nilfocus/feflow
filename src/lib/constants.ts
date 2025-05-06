@@ -17,7 +17,8 @@ export const themeDefault: ThemeVars = {
 			colorBg: "#ffffff",
 			colorOnBg: "#272727",
 			colorSurface: "#f5f7fa",
-			colorOnSurface: "#272727"
+			colorOnSurface: "#272727",
+			colorBorder: "#e5e7eb"
 		},
 		dark: {
 			colorPrimary: "#fafafa",
@@ -29,7 +30,8 @@ export const themeDefault: ThemeVars = {
 			colorBg: "#09090b",
 			colorOnBg: "#f9fafb",
 			colorSurface: "#101013",
-			colorOnSurface: "#f9fafb"
+			colorOnSurface: "#f9fafb",
+			colorBorder: "#27272a"
 		}
 	},
 	spacing: {
