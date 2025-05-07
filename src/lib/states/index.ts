@@ -1,4 +1,5 @@
-import scrollSectionState from "./scrollSectionState.svelte"
-import toastState from "./toastState.svelte"
+import scrollSectionState from "./scrollSectionState.svelte.js"
+import toastState from "./toastState.svelte.js"
+import themeModeState from "./themeModeState.svelte.js"
 
-export { scrollSectionState, toastState }
+export { scrollSectionState, toastState, themeModeState }

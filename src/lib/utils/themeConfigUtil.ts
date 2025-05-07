@@ -1,7 +1,9 @@
 import { CSS_VAR_PREFIX } from "../constants.js"
+import { getThemeConfigContext } from "../contexts/index.js"
+import { themeModeState } from "../states/index.js"
 import type { ThemeModeType, ThemeConfigType } from "../types/index.js"
 
-export default function themeConfigUtil() {
+export function themeConfigUtil() {
 	function _toCssVar(key: string) {
 		return `${CSS_VAR_PREFIX}-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`
 	}
@@ -45,4 +47,10 @@ export default function themeConfigUtil() {
 	}
 
 	return { themeConfigToCssString }
+}
+
+export function getThemeConfig() {
+	const { colors } = getThemeConfigContext()
+	const _themeState = themeModeState()
+	return colors[_themeState.data.mode]
 }

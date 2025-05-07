@@ -8,7 +8,7 @@ export {
 	transitionUtil,
 	useActionUtil
 } from "./utils/index.js"
-export { getThemeConfigContext } from "./contexts/index.js"
+export { getThemeConfig } from "./utils/themeConfigUtil.js"
 export type { ThemeModeType } from "./types/index.js"
 export { default as Accordion } from "./components/accordion/index.js"
 export { default as Avatar } from "./components/avatar/index.js"
