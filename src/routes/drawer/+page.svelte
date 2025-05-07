@@ -23,12 +23,12 @@
 
 {#snippet contentDrawer()}
 	<a
-		href={"/"}
+		href="/"
 		onclick={() => {
 			handleOpenDrawer()
 		}}
 	>
-		{"label"}
+		label
 	</a>
 {/snippet}
 

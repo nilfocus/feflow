@@ -23,7 +23,11 @@
 </script>
 
 <div
-	{...rest}
+	class={classMapUtil({
+		[className as string]: true,
+		[styles.drawer]: true,
+		[styles.show]: isOpen
+	})}
 	use:clickOutsideAction={{ handler: handleClose }}
 	use:resizeAction={{
 		handler: () => {
@@ -32,11 +36,7 @@
 			}
 		}
 	}}
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.drawer]: true,
-		[styles.show]: isOpen
-	})}
+	{...rest}
 >
 	{@render header()}
 	<div class={styles.content}>

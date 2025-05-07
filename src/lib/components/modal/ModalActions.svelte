@@ -16,12 +16,12 @@
 </script>
 
 <div
-	{...rest}
 	class={classMapUtil({
 		[className as string]: true,
 		["actions"]: true
 	})}
-	style={`justify-content: ${align};`}
+	style="justify-content: {align};"
+	{...rest}
 >
 	{@render children?.()}
 </div>

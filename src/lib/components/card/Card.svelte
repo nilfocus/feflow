@@ -9,11 +9,11 @@
 </script>
 
 <div
-	{...rest}
 	class={classMapUtil({
 		[className as string]: true,
 		[styles.card]: true
 	})}
+	{...rest}
 >
 	{@render children?.()}
 </div>

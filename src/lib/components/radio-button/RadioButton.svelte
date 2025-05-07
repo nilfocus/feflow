@@ -17,7 +17,7 @@
 		[styles.radioButton]: true
 	})}
 >
-	<input {...rest} type="radio" />
+	<input type="radio" {...rest} />
 	<div
 		class={classMapUtil({
 			[styles.circle]: true,

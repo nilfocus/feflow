@@ -43,12 +43,12 @@
 </script>
 
 <div
-	{...rest}
 	class={classMapUtil({
 		[className as string]: true,
 		[styles.carousel]: true
 	})}
 	aria-label="carousel"
+	{...rest}
 >
 	<div use:setupNavigator class={styles.content}>
 		{@render children?.()}
@@ -60,10 +60,10 @@
 			onclick={prev}
 			aria-label="Previous"
 		>
-			<KeyboardArrowLeftIcon height={"64px"} width={"64px"} />
+			<KeyboardArrowLeftIcon height="64px" width="64px" />
 		</Button>
 		<Button variant="text" disabled={isLast} onclick={next} aria-label="Next">
-			<KeyboardArrowRightIcon height={"64px"} width={"64px"} />
+			<KeyboardArrowRightIcon height="64px" width="64px" />
 		</Button>
 	</div>
 </div>

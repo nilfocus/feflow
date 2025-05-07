@@ -22,13 +22,13 @@
 </script>
 
 <div
-	{...rest}
 	class={classMapUtil({
 		[className as string]: true,
 		["header"]: true
 	})}
+	{...rest}
 >
-	<div class="content" style={`justify-content: ${align};`}>
+	<div class="content" style="justify-content: {align};">
 		{@render children?.()}
 	</div>
 	{#if closable}

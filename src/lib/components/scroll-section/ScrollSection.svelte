@@ -52,10 +52,10 @@
 	}
 </script>
 
-<nav {...rest} class={styles.scrollSection}>
+<nav class={styles.scrollSection} {...rest}>
 	{#if isScrollable && (!isFirst || isLast) && scrollButtons}
-		<Button variant="text" class={styles.arrowIndicator} onclick={prev}>
-			<KeyboardArrowLeftIcon height={"16px"} width={"16px"} />
+		<Button class={styles.arrowIndicator} variant="text" onclick={prev}>
+			<KeyboardArrowLeftIcon height="16px" width="16px" />
 		</Button>
 	{/if}
 	<div use:setupNavigator class={styles.content}>
@@ -74,7 +74,7 @@
 	</div>
 	{#if isScrollable && !isLast && scrollButtons}
 		<Button variant="text" class={styles.arrowIndicator} onclick={next}>
-			<KeyboardArrowRightIcon height={"16px"} width={"16px"} />
+			<KeyboardArrowRightIcon height="16px" width="16px" />
 		</Button>
 	{/if}
 </nav>

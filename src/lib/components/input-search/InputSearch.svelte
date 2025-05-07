@@ -6,7 +6,7 @@
 	import type { ColorType, VariantType } from "../../types/index.js"
 	import { SearchIcon } from "../../icons/index.js"
 
-	interface Props extends HTMLInputAttributes {
+	interface Props extends Omit<HTMLInputAttributes, "type"> {
 		variant?: VariantType
 		color?: ColorType
 	}
@@ -29,5 +29,5 @@
 	<span class={styles.searchIcon}>
 		<SearchIcon />
 	</span>
-	<Input class={styles.inputGroup} {...rest} {variant} {color} type="search" />
+	<Input class={styles.inputGroup} {variant} {color} type="search" {...rest} />
 </div>

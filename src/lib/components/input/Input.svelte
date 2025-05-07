@@ -51,7 +51,9 @@
 	})}
 >
 	<input
-		{...rest}
+		class={classMapUtil({
+			["border-error"]: Boolean(helperText)
+		})}
 		bind:this={el}
 		use:observeAttributeAction={{
 			attr: "data-error",
@@ -60,10 +62,8 @@
 			}
 		}}
 		use:useActionUtil={actions}
-		class={classMapUtil({
-			["border-error"]: Boolean(helperText)
-		})}
 		placeholder={rest.type === "search" ? rest.placeholder : " "}
+		{...rest}
 	/>
 
 	{#if label}

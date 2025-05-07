@@ -20,13 +20,13 @@
 </script>
 
 <Button
-	{...rest}
 	class={classMapUtil({
 		[className as string]: true,
 		[styles[size]]: true,
 		[styles[variant]]: true,
 		[styles.badge]: true
 	})}
+	{...rest}
 >
 	{@render children?.()}
 </Button>

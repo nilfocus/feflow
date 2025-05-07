@@ -12,11 +12,10 @@
 
 	let { customTheme, children }: Props = $props()
 
-	const { themeConfigToCssString } = themeConfigUtil()
-
 	const theme = mergeObjectUtil(themeDefault, customTheme || {})
-
 	setThemeConfigContext(theme)
+	const { themeConfigToCssString } = themeConfigUtil()
+	const style = themeConfigToCssString(theme)
 </script>
 
 <svelte:head>
@@ -30,7 +29,7 @@
 	</script>
 	`}
 
-	{@html themeConfigToCssString(theme)}
+	{@html style}
 </svelte:head>
 
 {@render children?.()}

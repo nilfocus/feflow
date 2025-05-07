@@ -36,7 +36,6 @@
 
 {#each Object.entries(positionStyles) as [position, style] (position)}
 	<div
-		{...rest}
 		class={classMapUtil({
 			[className as string]: true,
 			["toaster"]: true,
@@ -44,7 +43,8 @@
 			["top"]: position.includes("top"),
 			["bottom"]: position.includes("bottom")
 		})}
-		style={`${style} ${rest.style}`}
+		style="{style} {rest.style}"
+		{...rest}
 	>
 		{#each data.toasts.filter((t) => t.position === position) as toast (toast.id)}
 			<span

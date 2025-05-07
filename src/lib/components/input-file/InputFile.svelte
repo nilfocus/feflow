@@ -4,7 +4,7 @@
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import { inputDropAction } from "../../actions/index.js"
 
-	interface Props extends HTMLInputAttributes {
+	interface Props extends Omit<HTMLInputAttributes, "type"> {
 		onDropEvent?: (files: File[]) => void
 	}
 
@@ -26,17 +26,17 @@
 </script>
 
 <div
+	class={classMapUtil({
+		[className as string]: true,
+		[styles.dropzone]: true,
+		[styles.dragging]: isDragging
+	})}
 	use:inputDropAction={{
 		onFiles: handleDrop,
 		setIsDragging: (v: boolean) => {
 			isDragging = v
 		}
 	}}
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.dropzone]: true,
-		[styles.dragging]: isDragging
-	})}
 	role="region"
 >
 	{@render children?.()}

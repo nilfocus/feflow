@@ -7,7 +7,7 @@
 	import { VisibilityIcon, VisibilityOffIcon } from "../../icons/index.js"
 	import Button from "../button/index.js"
 
-	interface Props extends HTMLInputAttributes {
+	interface Props extends Omit<HTMLInputAttributes, "type"> {
 		label?: string
 		variant?: VariantType
 		color?: ColorType
@@ -42,18 +42,18 @@
 		onclick={togglePasswordVisibility}
 	>
 		{#if passwordVisible}
-			<VisibilityIcon height={"20px"} width={"20px"} />
+			<VisibilityIcon height="20px" width="20px" />
 		{:else}
-			<VisibilityOffIcon height={"20px"} width={"20px"} />
+			<VisibilityOffIcon height="20px" width="20px" />
 		{/if}
 	</Button>
 	<Input
 		class={styles.inputGroup}
-		{...rest}
 		{label}
 		{variant}
 		{color}
 		type={passwordVisible ? "text" : "password"}
 		focused={passwordVisible}
+		{...rest}
 	/>
 </div>

@@ -15,7 +15,7 @@
 	<Modal.Content>
 		<p>test content</p>
 	</Modal.Content>
-	<Modal.Actions class="border-0" align={"center"}>
+	<Modal.Actions class="border-0" align="center">
 		<Button variant="outlined" onclick={handleClose}>Cancel</Button>
 		<Button>Save</Button>
 	</Modal.Actions>

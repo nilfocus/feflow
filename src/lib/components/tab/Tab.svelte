@@ -8,11 +8,11 @@
 </script>
 
 <div
-	{...rest}
 	class={classMapUtil({
 		[className as string]: true,
 		["tab"]: true
 	})}
+	{...rest}
 >
 	{@render children?.()}
 </div>

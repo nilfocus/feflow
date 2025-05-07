@@ -20,13 +20,13 @@
 </script>
 
 <div
-	{...rest}
 	use:clickOutsideAction={{ handler: handleClose }}
 	class={classMapUtil({
 		[className as string]: true,
 		[styles.menu]: true,
 		[styles.show]: isOpen
 	})}
+	{...rest}
 >
 	<Card class={styles.content} onclick={handleClose}>
 		{@render children?.()}

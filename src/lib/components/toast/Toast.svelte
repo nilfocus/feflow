@@ -44,12 +44,12 @@
 </script>
 
 <div
-	{...rest}
 	class={classMapUtil({
 		[className as string]: true,
 		toast: true
 	})}
-	style={`background: var(--color-${color}); color: var(--color-on-${color}); ${rest.style}`}
+	style="background: var(--color-{color}); color: var(--color-on-{color}); {rest.style}"
+	{...rest}
 >
 	{#if Icon}
 		<Icon fill={`var(--color-on-${color})`} height="20px" width="20px" />

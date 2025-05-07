@@ -8,11 +8,11 @@
 </script>
 
 <div
-	{...rest}
 	class={classMapUtil({
 		[className as string]: true,
 		["content"]: true
 	})}
+	{...rest}
 >
 	{@render children?.()}
 </div>

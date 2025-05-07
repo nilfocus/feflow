@@ -23,11 +23,11 @@
 
 <div class={styles.accordion}>
 	<Button
-		{...rest}
 		class={classMapUtil({
 			[styles.active]: isOpen
 		})}
 		{variant}
+		{...rest}
 	>
 		{label}
 	</Button>

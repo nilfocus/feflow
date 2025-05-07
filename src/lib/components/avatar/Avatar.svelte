@@ -26,8 +26,8 @@
 			class={classMapUtil({
 				[className as string]: true
 			})}
-			{...rest}
 			onerror={handleError}
+			{...rest}
 		/>
 	{:else if textFallback}
 		<span class={styles.textFallback}>

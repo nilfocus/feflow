@@ -4,7 +4,7 @@
 	import styles from "./InputNumber.module.css"
 	import Button from "../button/index.js"
 
-	interface Props extends HTMLInputAttributes {
+	interface Props extends Omit<HTMLInputAttributes, "type"> {
 		increment: () => void
 		decrement: () => void
 		disableIncrement?: boolean
@@ -31,5 +31,5 @@
 		<Button disabled={disableDecrement} onclick={decrement}>-</Button>
 		<Button disabled={disableIncrement} onclick={increment}>+</Button>
 	</div>
-	<input {...rest} type="number" />
+	<input type="number" {...rest} />
 </div>

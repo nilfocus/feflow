@@ -4,7 +4,7 @@
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import type { SizeType } from "../../types/index.js"
 
-	interface Props extends Omit<HTMLInputAttributes, "size"> {
+	interface Props extends Omit<Omit<HTMLInputAttributes, "size">, "type"> {
 		size?: SizeType
 	}
 
@@ -18,7 +18,7 @@
 		["text-muted"]: rest.disabled
 	})}
 >
-	<input {...rest} type="checkbox" />
+	<input type="checkbox" {...rest} />
 	<div
 		class={classMapUtil({
 			[styles.wrapper]: true,

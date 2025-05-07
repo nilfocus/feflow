@@ -4,7 +4,7 @@
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import classMapUtil from "../../utils/classMapUtil.js"
 
-	interface Props extends Omit<HTMLInputAttributes, "size"> {
+	interface Props extends Omit<Omit<HTMLInputAttributes, "size">, "type"> {
 		size?: SizeType
 	}
 
@@ -19,7 +19,7 @@
 			[`text-${size}`]: true
 		})}
 	>
-		<input {...rest} type="checkbox" />
+		<input type="checkbox" {...rest} />
 		<span class={styles.slider}></span>
 	</label>
 	{rest["aria-label"]}

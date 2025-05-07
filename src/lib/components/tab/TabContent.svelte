@@ -19,12 +19,12 @@
 
 {#if isActive}
 	<div
-		{...rest}
-		use:transitionUtil={transition}
 		class={classMapUtil({
 			[className as string]: true,
 			["tabContent"]: true
 		})}
+		use:transitionUtil={transition}
+		{...rest}
 	>
 		{@render children?.()}
 	</div>

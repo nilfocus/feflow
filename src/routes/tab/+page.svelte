@@ -13,21 +13,21 @@
 <Tab>
 	<div
 		use:Actions.activeLineAction
-		data-line-color={"#ff5722"}
-		data-line-height={"2px"}
-		style={"display: flex; border-bottom: 1px solid #ff5722;"}
+		data-line-color="#ff5722"
+		data-line-height="2px"
+		style="display: flex; border-bottom: 1px solid #ff5722;"
 	>
 		{#each tabs as tab}
 			<Button
 				id={tab.id}
-				variant={"text"}
-				style={"flex:1;"}
+				variant="text"
+				style="flex:1;"
 				onclick={() => {
 					activeTab = tab.id
 				}}
 			>
 				{#if tab.icon}
-					<span style={"font-size: 20px;"}>{@html tab.icon}</span>
+					<span style="font-size: 20px;">{@html tab.icon}</span>
 				{/if}
 				{tab.label}
 			</Button>

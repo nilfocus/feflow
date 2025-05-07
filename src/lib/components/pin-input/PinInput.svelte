@@ -75,12 +75,11 @@
 </script>
 
 <input
-	bind:this={el}
 	class={classMapUtil({
 		[className as string]: true,
 		[styles.pinInput]: true
 	})}
-	{...rest}
+	bind:this={el}
 	type={type === "numeric" ? "number" : "text"}
 	inputmode={type === "numeric" ? "numeric" : "text"}
 	pattern={type === "numeric" ? "[0-9]{1}" : "^[a-zA-Z0-9]$"}
@@ -88,4 +87,5 @@
 	onkeydown={handleKeyDown}
 	oninput={handleInput}
 	placeholder="○"
+	{...rest}
 />
