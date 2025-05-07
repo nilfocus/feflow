@@ -20,7 +20,7 @@
 </script>
 
 <h1>activeThemeMode: {activeThemeMode}</h1>
-<p>colorBg: <strong>{colors![activeThemeMode]?.colorBg}</strong></p>
+<p>colorBg: <strong>{colors[activeThemeMode].colorBg}</strong></p>
 <Button
 	onclick={() => {
 		toggleThemeMode((t) => {
