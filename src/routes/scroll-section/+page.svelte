@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { Actions, ScrollSection, States } from "@/lib/index.js"
+	import { Actions, ScrollSection, scrollSectionState } from "@/lib/index.js"
 
 	const sectionsData = Array.from({ length: 25 }, (_, index) => ({
 		reference: `Section ${index + 1}`
 	}))
 
-	const _scrollSectionState = States.scrollSectionState()
+	const _scrollSectionState = scrollSectionState()
+
 	const registeredSections = $derived(_scrollSectionState.getSections())
 </script>
 

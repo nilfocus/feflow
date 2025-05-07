@@ -1,16 +1,16 @@
 {
-	"name": "@dxdns/svelte-components",
-	"version": "0.1.7",
-	"description": "svelte components ui",
+	"name": "@dxdns/feflow",
+	"version": "0.0.1",
+	"description": "feflow: svelte components ui",
 	"private": false,
 	"publishConfig": {
 		"access": "public"
 	},
 	"license": "MIT",
-	"homepage": "https://svelte-components.dxdns.dev",
+	"homepage": "https://feflow.dxdns.dev",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/dxdns/svelte-components.git"
+		"url": "git+https://github.com/dxdns/feflow.git"
 	},
 	"scripts": {
 		"dev": "vite dev",
@@ -62,7 +62,7 @@
 		"svelte5",
 		"svelte-ui",
 		"ui",
-		"svelte-components",
+		"feflow",
 		"components",
 		"ui-components",
 		"svelte-pkg",

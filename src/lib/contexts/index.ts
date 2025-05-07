@@ -1,1 +1,1 @@
-export * from "./ThemeContext.js"
+export * from "./themeConfigContext.js"

@@ -1,24 +1,30 @@
 <script lang="ts">
 	import { InfoIcon } from "@/lib/icons/index.js"
-	import { Button, Utils } from "@/lib/index.js"
+	import {
+		Button,
+		getThemeConfigContext,
+		themeModeUtil,
+		type ThemeModeType
+	} from "@/lib/index.js"
 	import { onMount } from "svelte"
 
-	const { colorMode, toggleColorMode } = Utils.colorModeUtil()
+	const { themeMode, toggleThemeMode } = themeModeUtil()
+	const { colors } = getThemeConfigContext()
 
-	let currentColorMode = $state("")
+	let activeThemeMode: ThemeModeType = $state("light")
 
 	onMount(() => {
-		const _currentColorMode = colorMode()
-		currentColorMode = _currentColorMode
+		const _currentThemeMode = themeMode()
+		activeThemeMode = _currentThemeMode
 	})
 </script>
 
-<h1>Welcome {currentColorMode}</h1>
-
+<h1>activeThemeMode: {activeThemeMode}</h1>
+<p>colorBg: <strong>{colors![activeThemeMode]?.colorBg}</strong></p>
 <Button
 	onclick={() => {
-		toggleColorMode((t) => {
-			currentColorMode = t
+		toggleThemeMode((t) => {
+			activeThemeMode = t
 		})
 	}}
 >

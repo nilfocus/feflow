@@ -1,7 +1,15 @@
 import classMapUtil from "./classMapUtil.js"
-import colorModeUtil from "./colorModeUtil.js"
 import useActionUtil from "./useActionUtil.js"
 import transitionUtil from "./transitionUtil.js"
-import themeCssUtil from "./themeCssUtil.js"
+import themeModeUtil from "./themeModeUtil.js"
+import themeConfigUtil from "./themeConfigUtil.js"
+import mergeObjectUtil from "./mergeObjectUtil.js"
 
-export { classMapUtil, colorModeUtil, useActionUtil, transitionUtil, themeCssUtil }
+export {
+	classMapUtil,
+	themeModeUtil,
+	useActionUtil,
+	transitionUtil,
+	themeConfigUtil,
+	mergeObjectUtil
+}

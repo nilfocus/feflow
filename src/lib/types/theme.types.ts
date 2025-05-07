@@ -1,6 +1,6 @@
-export type ThemeType = "dark" | "light"
+export type ThemeModeType = "dark" | "light"
 
-type ColorsType = {
+type ThemeColorsType = {
 	colorPrimary: string
 	colorOnPrimary: string
 	colorSecondary: string
@@ -14,10 +14,10 @@ type ColorsType = {
 	colorBorder: string
 }
 
-export type ThemeVars = {
+export type ThemeConfigType = {
 	colors?: {
-		light?: Partial<ColorsType>
-		dark?: Partial<ColorsType>
+		light?: Partial<ThemeColorsType>
+		dark?: Partial<ThemeColorsType>
 	}
 	spacing?: Partial<{
 		spaceXxs: string

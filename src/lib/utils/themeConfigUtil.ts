@@ -1,7 +1,7 @@
 import { CSS_VAR_PREFIX } from "../constants.js"
-import type { ThemeType, ThemeVars } from "../types/index.js"
+import type { ThemeModeType, ThemeConfigType } from "../types/index.js"
 
-export default function themeCssUtil() {
+export default function themeConfigUtil() {
 	function _toCssVar(key: string) {
 		return `${CSS_VAR_PREFIX}-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`
 	}
@@ -23,23 +23,25 @@ export default function themeCssUtil() {
 		return `<style>${selectors.join(", ")} {\n${cssVars.join("\n")}\n}</style>\n`
 	}
 
-	function themeVarsToCssString(theme?: ThemeVars) {
+	function themeConfigToCssString(theme?: ThemeConfigType) {
 		if (!theme) return ""
 
 		let result = ""
 
-		const selectors: Record<ThemeType, string> = {
+		const selectors: Record<ThemeModeType, string> = {
 			light: ":root, .light, [data-theme='light']",
 			dark: "[data-theme='dark'], .dark"
 		}
 
 		if (theme.colors) {
 			for (const [themeKey, vars] of Object.entries(theme.colors)) {
-				result += _processThemeSection(vars, [selectors[themeKey as ThemeType]])
+				result += _processThemeSection(vars, [
+					selectors[themeKey as ThemeModeType]
+				])
 			}
 		}
 
-		const sections: ThemeVars = {
+		const sections: ThemeConfigType = {
 			spacing: theme.spacing || {},
 			fontSizes: theme.fontSizes || {},
 			shadows: theme.shadows || {}
@@ -52,5 +54,5 @@ export default function themeCssUtil() {
 		return result
 	}
 
-	return { themeVarsToCssString }
+	return { themeConfigToCssString }
 }

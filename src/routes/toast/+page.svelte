@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Button, States } from "@/lib/index.js"
+	import { Button, toastState } from "@/lib/index.js"
 
-	const _toastState = States.toastState()
+	const _toastState = toastState()
 </script>
 
 <Button
