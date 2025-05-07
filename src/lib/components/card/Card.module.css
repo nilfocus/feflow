@@ -1,6 +1,6 @@
 .card {
-	background: var(--sc-color-bg);
-	color: var(--sc-color-on-bg);
+	background: var(--feflow-color-bg);
+	color: var(--feflow-color-on-bg);
 	padding: 1rem;
 	overflow: hidden;
 	position: relative;
@@ -9,5 +9,5 @@
 	transition: all 300ms ease;
 	margin-bottom: 1rem;
 	text-align: left;
-	border: 1px solid var(--sc-color-border);
+	border: 1px solid var(--feflow-color-border);
 }

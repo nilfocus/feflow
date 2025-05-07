@@ -26,7 +26,7 @@
 		left: 0;
 		width: 100%;
 		border-radius: 8px;
-		background: var(--sc-color-surface);
+		background: var(--feflow-color-surface);
 		opacity: 0;
 		pointer-events: none;
 		transition:

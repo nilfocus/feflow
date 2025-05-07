@@ -172,15 +172,15 @@
 	.bottomSheet .content {
 		width: 100%;
 		position: relative;
-		background: var(--sc-color-surface);
-		color: var(--sc-color-on-surface);
+		background: var(--feflow-color-surface);
+		color: var(--feflow-color-on-surface);
 		max-height: 100vh;
 		height: 50vh;
 		max-width: 1150px;
-		padding: var(--sc-space-lg) var(--sc-space-xl);
+		padding: var(--feflow-space-lg) var(--feflow-space-xl);
 		transform: translateY(100%);
 		border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-		box-shadow: var(--sc-shadow-lg);
+		box-shadow: var(--feflow-shadow-lg);
 		transition: 0.3s ease;
 		border-top-left-radius: 15px;
 		border-top-right-radius: 15px;
@@ -207,22 +207,22 @@
 	.header .dragIcon {
 		cursor: grab;
 		user-select: none;
-		padding: var(--sc-space-sm);
-		margin-top: var(--sc-space-sm);
+		padding: var(--feflow-space-sm);
+		margin-top: var(--feflow-space-sm);
 	}
 
 	.header .dragIcon span {
 		height: 4px;
 		width: 40px;
 		display: block;
-		background: var(--sc-color-primary);
+		background: var(--feflow-color-primary);
 		border-radius: var(--radius-pill);
 	}
 
 	.bottomSheet .body {
 		height: 100%;
 		overflow-y: auto;
-		padding: var(--sc-space-md) 0 var(--sc-space-lg);
+		padding: var(--feflow-space-md) 0 var(--feflow-space-lg);
 		scrollbar-width: none;
 	}
 

@@ -32,7 +32,7 @@
 		justify-content: flex-end;
 		gap: 0.5rem;
 		padding: 0.75rem 1rem;
-		border-top: 1px solid var(--sc-color-border);
+		border-top: 1px solid var(--feflow-color-border);
 		flex-wrap: wrap;
 	}
 

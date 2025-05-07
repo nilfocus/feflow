@@ -48,46 +48,46 @@
 		[className as string]: true,
 		toast: true
 	})}
-	style="background: var(--color-{color}); color: var(--color-on-{color}); {rest.style}"
+	style="background: var(--toast-color-{color}); color: var(--toast-color-on-{color}); {rest.style}"
 	{...rest}
 >
 	{#if Icon}
-		<Icon fill={`var(--color-on-${color})`} height="20px" width="20px" />
+		<Icon fill="var(--toast-color-on-${color})" height="20px" width="20px" />
 	{/if}
 	{message}
 </div>
 
 <style>
 	:root {
-		--color-primary: var(--sc-color-primary);
-		--color-on-primary: var(--sc-color-on-primary);
+		--toast-color-primary: var(--feflow-color-primary);
+		--toast-color-on-primary: var(--feflow-color-on-primary);
 
-		--color-secondary: var(--sc-color-secondary);
-		--color-on-secondary: var(--sc-color-on-secondary);
+		--toast-color-secondary: var(--feflow-color-secondary);
+		--toast-color-on-secondary: var(--feflow-color-on-secondary);
 
-		--color-success: #a7eac1;
-		--color-on-success: #004422;
+		--toast-color-success: #a7eac1;
+		--toast-color-on-success: #004422;
 
-		--color-error: #f9b1b1;
-		--color-on-error: #661111;
+		--toast-color-error: #f9b1b1;
+		--toast-color-on-error: #661111;
 
-		--color-info: #a7dffc;
-		--color-on-info: #003344;
+		--toast-color-info: #a7dffc;
+		--toast-color-on-info: #003344;
 
-		--color-warning: #fde6b0;
-		--color-on-warning: #5a3d00;
+		--toast-color-warning: #fde6b0;
+		--toast-color-on-warning: #5a3d00;
 
-		--color-inherit: inherit;
-		--color-on-inherit: currentColor;
+		--toast-color-inherit: inherit;
+		--toast-color-on-inherit: currentColor;
 	}
 
 	.toast {
 		position: relative;
-		background: var(--color-primary);
-		color: var(--color-on-primary);
+		background: var(--toast-color-primary);
+		color: var(--toast-color-on-primary);
 		padding: 0.5rem 1.25rem;
 		border-radius: 0.5rem;
-		font-size: var(--sc-size-md);
+		font-size: var(--feflow-size-md);
 		font-weight: 500;
 		box-shadow:
 			0 4px 12px rgba(0, 0, 0, 0.15),

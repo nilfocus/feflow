@@ -1,8 +1,8 @@
 import { getContext, setContext } from "svelte"
-import type { ThemeConfigContextType } from "../types/index.js"
+import type { ThemeConfigType, ThemeConfigContextType } from "../types/index.js"
 import { THEME_CONTEXT } from "../constants.js"
 
-export function setThemeConfigContext(t: ThemeConfigContextType) {
+export function setThemeConfigContext(t: ThemeConfigType) {
 	setContext(THEME_CONTEXT, t)
 }
 

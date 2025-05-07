@@ -7,9 +7,9 @@
 }
 
 .menuItem > * {
-	color: var(--sc-color-on-surface) !important;
+	color: var(--feflow-color-on-surface) !important;
 }
 
 .menuItem:hover {
-	background: var(--sc-color-surface);
+	background: var(--feflow-color-surface);
 }

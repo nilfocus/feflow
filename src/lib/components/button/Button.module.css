@@ -1,15 +1,15 @@
 .button {
-	background: var(--sc-color-primary);
+	background: var(--feflow-color-primary);
 	font-weight: 600;
 	cursor: pointer;
 	border-radius: 0.375rem;
-	color: var(--sc-color-on-primary);
-	padding: var(--sc-space-xs) var(--sc-space-md);
+	color: var(--feflow-color-on-primary);
+	padding: var(--feflow-space-xs) var(--feflow-space-md);
 	transition: all 200ms ease-in-out;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: var(--sc-space-xxs);
+	gap: var(--feflow-space-xxs);
 	height: 2.5rem;
 	min-width: 2.5rem;
 	outline: transparent solid 2px;
@@ -19,55 +19,55 @@
 	white-space: nowrap;
 	vertical-align: middle;
 	appearance: none;
-	padding-inline-start: var(--sc-space-md);
-	padding-inline-end: var(--sc-space-md);
+	padding-inline-start: var(--feflow-space-md);
+	padding-inline-end: var(--feflow-space-md);
 	border: none;
 }
 
 .button.contained svg path {
-	fill: var(--sc-color-on-primary);
+	fill: var(--feflow-color-on-primary);
 }
 
 .button:disabled {
 	cursor: not-allowed;
-	background: var(--sc-color-secondary);
-	color: var(--sc-color-on-secondary);
+	background: var(--feflow-color-secondary);
+	color: var(--feflow-color-on-secondary);
 }
 
 .button.contained:not(:disabled):hover {
-	background: var(--sc-color-secondary);
+	background: var(--feflow-color-secondary);
 }
 
 .button.outlined {
 	background: transparent;
-	border: 1px solid var(--sc-color-border);
+	border: 1px solid var(--feflow-color-border);
 	transition: all 0.2s ease-in-out;
-	color: var(--sc-color-text);
+	color: var(--feflow-color-text);
 }
 
 .button.outlined:hover {
-	box-shadow: 0 0 0 1px var(--sc-color-border);
+	box-shadow: 0 0 0 1px var(--feflow-color-border);
 }
 
 .button.text {
 	background: transparent;
 	padding: 0;
 	margin: 0;
-	color: var(--sc-color-text);
+	color: var(--feflow-color-text);
 }
 
 .button.text:hover {
-	color: var(--sc-color-primary);
+	color: var(--feflow-color-primary);
 }
 
 .button.text svg path {
-	fill: var(--sc-color-text);
+	fill: var(--feflow-color-text);
 }
 
 .button.text:disabled,
 .button.text:disabled svg path {
-	color: var(--sc-color-muted);
-	fill: var(--sc-color-muted);
+	color: var(--feflow-color-muted);
+	fill: var(--feflow-color-muted);
 }
 
 .button.inherit {

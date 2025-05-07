@@ -13,7 +13,7 @@
 }
 
 .inputSearch.contained .searchIcon svg path {
-	fill: var(--sc-color-text-muted);
+	fill: var(--feflow-color-text-muted);
 }
 
 .inputGroup > input {
@@ -25,7 +25,7 @@
 }
 
 .inputGroup > input::-webkit-input-placeholder {
-	color: var(--sc-color-text-muted);
+	color: var(--feflow-color-text-muted);
 }
 
 .inputGroup > input::-webkit-search-cancel-button {

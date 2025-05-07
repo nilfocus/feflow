@@ -33,7 +33,7 @@
 <style>
 	.tabContent {
 		padding: 1rem;
-		background: var(--sc-color-surface);
-		color: var(--sc-color-on-surface);
+		background: var(--feflow-color-surface);
+		color: var(--feflow-color-on-surface);
 	}
 </style>

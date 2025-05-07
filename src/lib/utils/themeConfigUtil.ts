@@ -41,16 +41,6 @@ export default function themeConfigUtil() {
 			}
 		}
 
-		const sections: ThemeConfigType = {
-			spacing: theme.spacing || {},
-			fontSizes: theme.fontSizes || {},
-			shadows: theme.shadows || {}
-		}
-
-		for (const [_, vars] of Object.entries(sections)) {
-			result += _processThemeSection(vars, Object.values(selectors))
-		}
-
 		return result
 	}
 

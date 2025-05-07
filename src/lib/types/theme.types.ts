@@ -14,33 +14,11 @@ type ThemeColorsType = {
 	colorBorder: string
 }
 
-type ThemeSpacingType = {
-	spaceXxs: string
-	spaceXs: string
-	spaceSm: string
-	spaceMd: string
-	spaceLg: string
-}
-
-type ThemeFontSizesType = {
-	sizeSm: string
-	sizeMd: string
-	sizeLg: string
-}
-
-type ThemeShadowsType = {
-	shadowMd: string
-	shadowLg: string
-}
-
 export type ThemeConfigType = {
 	colors?: {
 		light?: Partial<ThemeColorsType>
 		dark?: Partial<ThemeColorsType>
 	}
-	spacing?: Partial<ThemeSpacingType>
-	fontSizes?: Partial<ThemeFontSizesType>
-	shadows?: Partial<ThemeShadowsType>
 }
 
 export type ThemeConfigContextType = {
@@ -48,7 +26,4 @@ export type ThemeConfigContextType = {
 		light: ThemeColorsType
 		dark: ThemeColorsType
 	}
-	spacing: ThemeSpacingType
-	fontSizes: ThemeFontSizesType
-	shadows: ThemeShadowsType
 }

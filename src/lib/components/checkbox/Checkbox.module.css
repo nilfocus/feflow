@@ -15,8 +15,8 @@
 }
 
 .checkbox input:disabled + .wrapper .bg {
-	background: var(--sc-color-secondary) !important;
-	border-color: var(--sc-color-secondary) !important;
+	background: var(--feflow-color-secondary) !important;
+	border-color: var(--feflow-color-secondary) !important;
 }
 
 .wrapper {
@@ -31,8 +31,8 @@
 	position: absolute;
 	inset: 0;
 	border-radius: 8px;
-	border: 2px solid var(--sc-color-border);
-	background: var(--sc-color-primary);
+	border: 2px solid var(--feflow-color-border);
+	background: var(--feflow-color-primary);
 	transition: all 0.2s ease;
 }
 
@@ -42,7 +42,7 @@
 	margin: auto;
 	width: 80%;
 	height: 80%;
-	color: var(--sc-color-on-primary);
+	color: var(--feflow-color-on-primary);
 	transform: scale(0);
 	transition: all 0.2s ease;
 }
@@ -54,8 +54,8 @@
 }
 
 .checkbox input:checked + .wrapper .bg {
-	background: var(--sc-color-primary);
-	border-color: var(--sc-color-secondary);
+	background: var(--feflow-color-primary);
+	border-color: var(--feflow-color-secondary);
 }
 
 .checkbox input:checked + .wrapper .icon {

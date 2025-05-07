@@ -5,7 +5,7 @@
 
 .items {
 	border-radius: 5px;
-	background: var(--sc-color-surface);
+	background: var(--feflow-color-surface);
 	max-height: 300px;
 	overflow: hidden;
 	overflow-y: auto;
@@ -23,12 +23,12 @@
 	align-items: center;
 	gap: 16px;
 	cursor: pointer;
-	border-bottom: 1px solid var(--sc-color-border);
+	border-bottom: 1px solid var(--feflow-color-border);
 	font-size: 14px;
 }
 
 .items > div > * {
-	color: var(--sc-color-on-surface);
+	color: var(--feflow-color-on-surface);
 }
 
 .items > div.focused {

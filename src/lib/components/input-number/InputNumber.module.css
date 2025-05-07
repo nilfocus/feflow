@@ -11,12 +11,12 @@
 	box-sizing: border-box;
 	width: 100%;
 	height: 2.5rem;
-	font-size: var(--sc-size-md);
-	color: var(--sc-color-text);
-	padding: 0 var(--sc-space-sm);
-	border-radius: var(--sc-space-xs);
-	border: 1px solid var(--sc-color-border);
-	background: var(--sc-color-bg);
+	font-size: var(--feflow-size-md);
+	color: var(--feflow-color-text);
+	padding: 0 var(--feflow-space-sm);
+	border-radius: var(--feflow-space-xs);
+	border: 1px solid var(--feflow-color-border);
+	background: var(--feflow-color-bg);
 	text-align: center;
 	min-width: 150px;
 	transition:
@@ -26,8 +26,8 @@
 }
 
 .inputNumber > input[type="number"]:focus {
-	border-color: var(--sc-color-primary);
-	background: var(--sc-color-bg);
+	border-color: var(--feflow-color-primary);
+	background: var(--feflow-color-bg);
 }
 
 .inputNumber > input[type="number"]::-webkit-inner-spin-button,
@@ -52,7 +52,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: var(--sc-size-lg);
+	font-size: var(--feflow-size-lg);
 	cursor: pointer;
 	transition:
 		background-color 0.2s,

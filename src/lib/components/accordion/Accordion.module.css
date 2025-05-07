@@ -1,7 +1,7 @@
 .accordion > button {
 	width: 100%;
 	text-align: left;
-	font-size: var(--sc-size-sm);
+	font-size: var(--feflow-size-sm);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -14,7 +14,7 @@
 .accordion > button:after {
 	content: "\25BC";
 	font-weight: bold;
-	margin-left: var(--sc-space-xs);
+	margin-left: var(--feflow-space-xs);
 	transition: transform 0.6s;
 }
 
@@ -24,7 +24,7 @@
 
 .accordion .content {
 	opacity: 0;
-	padding: 0 var(--sc-space-md);
+	padding: 0 var(--feflow-space-md);
 	max-height: 0;
 	overflow: hidden;
 	transition:
@@ -35,6 +35,6 @@
 
 .accordion .content.active {
 	opacity: 1;
-	margin-top: var(--sc-space-md);
+	margin-top: var(--feflow-space-md);
 	max-height: 400px;
 }

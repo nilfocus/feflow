@@ -12,8 +12,13 @@
 
 	let { customTheme, children }: Props = $props()
 
-	const theme = mergeObjectUtil(themeDefault, customTheme || {})
+	const theme = mergeObjectUtil(
+		themeDefault,
+		customTheme || {}
+	) as ThemeConfigType
+	
 	setThemeConfigContext(theme)
+
 	const { themeConfigToCssString } = themeConfigUtil()
 	const style = themeConfigToCssString(theme)
 </script>

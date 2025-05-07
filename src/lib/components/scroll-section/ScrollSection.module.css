@@ -4,8 +4,8 @@
 	right: 0;
 	left: 0;
 	width: 100%;
-	background: var(--sc-color-surface);
-	box-shadow: var(--sc-shadow-md);
+	background: var(--feflow-color-surface);
+	box-shadow: var(--feflow-shadow-md);
 	z-index: 999;
 	overflow: hidden;
 	display: flex;
@@ -21,7 +21,7 @@
 	flex-wrap: nowrap;
 	overflow-x: auto;
 	overflow-y: hidden;
-	gap: var(--sc-space-lg);
+	gap: var(--feflow-space-lg);
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 	flex-grow: 1;
@@ -31,7 +31,7 @@
 	height: 100%;
 	cursor: grab;
 	-webkit-overflow-scrolling: touch;
-	color: var(--sc-color-on-surface);
+	color: var(--feflow-color-on-surface);
 }
 
 .content:active {
@@ -45,32 +45,32 @@
 .button {
 	text-decoration: none;
 	font-weight: bold;
-	color: var(--sc-color-text);
+	color: var(--feflow-color-text);
 	cursor: pointer;
-	padding: var(--sc-space-xs) var(--sc-space-sm);
+	padding: var(--feflow-space-xs) var(--feflow-space-sm);
 	transition: color 0.3s;
 	white-space: nowrap;
-	font-size: var(--sc-size-sm);
+	font-size: var(--feflow-size-sm);
 	flex-shrink: 0;
 	border-radius: 0;
 	min-width: max-content;
 }
 
 .button:hover {
-	color: var(--sc-color-text-muted) !important;
+	color: var(--feflow-color-text-muted) !important;
 }
 
 .button.active {
-	color: var(--sc-color-primary);
+	color: var(--feflow-color-primary);
 	font-weight: bold;
-	border-bottom: 2px solid var(--sc-color-primary);
+	border-bottom: 2px solid var(--feflow-color-primary);
 }
 
 .arrowIndicator {
-	padding-left: var(--sc-space-xs);
-	padding-right: var(--sc-space-xs);
-	font-size: var(--sc-size-lg);
-	color: var(--sc-color-text);
+	padding-left: var(--feflow-space-xs);
+	padding-right: var(--feflow-space-xs);
+	font-size: var(--feflow-size-lg);
+	color: var(--feflow-color-text);
 	animation: blink 1.5s infinite;
 	flex-shrink: 0;
 }
@@ -88,20 +88,20 @@
 
 @media (max-width: 768px) {
 	.scrollSection {
-		padding: var(--sc-space-xs);
+		padding: var(--feflow-space-xs);
 	}
 
 	.content {
-		gap: var(--sc-space-md);
-		padding: 0 var(--sc-space-xs);
+		gap: var(--feflow-space-md);
+		padding: 0 var(--feflow-space-xs);
 	}
 
 	.button {
-		font-size: var(--sc-size-xs);
-		padding: var(--sc-space-xxs) var(--sc-space-xs);
+		font-size: var(--feflow-size-xs);
+		padding: var(--feflow-space-xxs) var(--feflow-space-xs);
 	}
 
 	.arrowIndicator {
-		font-size: var(--sc-size-md);
+		font-size: var(--feflow-size-md);
 	}
 }

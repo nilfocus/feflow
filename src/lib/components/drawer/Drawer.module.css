@@ -1,12 +1,12 @@
 .drawer {
 	position: fixed;
 	transform: translateX(-100%);
-	background: var(--sc-color-surface);
-	color: var(--sc-color-on-surface);
+	background: var(--feflow-color-surface);
+	color: var(--feflow-color-on-surface);
 	width: 18rem;
 	z-index: 999;
-	border-right: 1px solid var(--sc-color-border);
-	padding-right: var(--sc-space-lg);
+	border-right: 1px solid var(--feflow-color-border);
+	padding-right: var(--feflow-space-lg);
 	transition: transform 0.3s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 	top: 0;
 	bottom: 0;
@@ -22,5 +22,5 @@
 	flex-direction: column;
 	height: 100%;
 	position: relative;
-	padding-top: var(--sc-space-xl);
+	padding-top: var(--feflow-space-xl);
 }

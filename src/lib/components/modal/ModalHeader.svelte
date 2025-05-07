@@ -46,7 +46,7 @@
 		align-items: last baseline;
 		gap: 1rem;
 		height: 70px;
-		border-bottom: 1px solid var(--sc-color-border);
+		border-bottom: 1px solid var(--feflow-color-border);
 	}
 
 	.header.border-0 {

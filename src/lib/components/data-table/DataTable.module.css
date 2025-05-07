@@ -8,10 +8,10 @@
 
 .table th,
 .table td {
-	padding: var(--sc-space-xs);
+	padding: var(--feflow-space-xs);
 	text-align: -webkit-center;
-	height: var(--sc-space-lg);
-	color: var(--sc-color-text);
+	height: var(--feflow-space-lg);
+	color: var(--feflow-color-text);
 }
 
 .table > thead {
@@ -25,20 +25,20 @@
 }
 
 .table > caption {
-	font-size: var(--sc-size-xl);
-	margin: var(--sc-space-sm) 0 var(--sc-space-md);
+	font-size: var(--feflow-size-xl);
+	margin: var(--feflow-space-sm) 0 var(--feflow-space-md);
 }
 
 .table > tbody > tr {
-	padding: var(--sc-space-xs);
+	padding: var(--feflow-space-xs);
 }
 
 .table > tbody > tr:not(.colappse) {
-	border-bottom: 1px solid var(--sc-color-border);
+	border-bottom: 1px solid var(--feflow-color-border);
 }
 
 .table > tbody > tr:not(.colappse):hover {
-	background-color: var(--sc-color-bg);
+	background-color: var(--feflow-color-bg);
 }
 
 .table > tbody > tr:last-child {
@@ -64,29 +64,29 @@
 
 .table > tbody .colappse.active > td {
 	height: 100%;
-	border-bottom: 1px solid var(--sc-color-border);
+	border-bottom: 1px solid var(--feflow-color-border);
 }
 
 .table > tbody .colappse.active,
 .table > tbody .colappse.active .content {
 	max-height: 400px;
-	padding: var(--sc-space-md);
+	padding: var(--feflow-space-md);
 }
 
 .table .expand-btn {
-	color: var(--sc-color-text);
+	color: var(--feflow-color-text);
 	cursor: pointer;
-	padding: var(--sc-space-sm);
+	padding: var(--feflow-space-sm);
 	background: none;
 	display: table;
 }
 
 .table .expand-btn:after {
 	content: "\25BC";
-	color: var(--sc-color-text-muted);
+	color: var(--feflow-color-text-muted);
 	font-weight: bold;
 	float: right;
-	margin-left: var(--sc-space-xs);
+	margin-left: var(--feflow-space-xs);
 }
 
 .table .expand-btn.active:after {
@@ -111,15 +111,15 @@
 	}
 
 	.table tr {
-		border-bottom: 3px solid var(--sc-color-border);
+		border-bottom: 3px solid var(--feflow-color-border);
 		display: block;
-		margin-bottom: var(--sc-space-md);
+		margin-bottom: var(--feflow-space-md);
 	}
 
 	.table td {
-		border-bottom: 1px solid var(--sc-color-border);
+		border-bottom: 1px solid var(--feflow-color-border);
 		display: block;
-		font-size: var(--sc-size-sm);
+		font-size: var(--feflow-size-sm);
 		text-align: -webkit-right;
 	}
 
@@ -128,6 +128,6 @@
 	}
 
 	.table > caption {
-		font-size: var(--sc-size-lg);
+		font-size: var(--feflow-size-lg);
 	}
 }

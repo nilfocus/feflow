@@ -11,7 +11,7 @@
 	height={rest.height ?? "24px"}
 	width={rest.width ?? "24px"}
 	viewBox="0 -960 960 960"
-	fill={rest.fill ?? "var(--sc-color-text)"}
+	fill={rest.fill ?? "black"}
 	{...rest}
 >
 	<path

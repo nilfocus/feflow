@@ -22,6 +22,6 @@
 		position: relative;
 		border-radius: 5px;
 		overflow: hidden;
-		background: var(--sc-color-surface);
+		background: var(--feflow-color-surface);
 	}
 </style>

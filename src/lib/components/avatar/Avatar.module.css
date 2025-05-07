@@ -5,7 +5,7 @@
 	max-height: 5rem;
 	border-radius: 50%;
 	overflow: hidden;
-	background: var(--sc-color-primary);
+	background: var(--feflow-color-primary);
 	position: relative;
 }
 
@@ -20,8 +20,8 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	color: var(--sc-color-on-primary);
-	font-size: var(--sc-size-lg);
+	color: var(--feflow-color-on-primary);
+	font-size: var(--feflow-size-lg);
 	line-height: 1;
 	white-space: nowrap;
 	text-align: center;

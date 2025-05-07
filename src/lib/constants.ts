@@ -1,12 +1,27 @@
-import type { ThemeVars } from "./types/index.js"
+import type { ThemeConfigType } from "./types/index.js"
 
-export const CSS_VAR_PREFIX = "--sc"
 export const THEME_STORAGE = "theme"
 export const THEME_ATTR = "data-theme"
 export const TOAST_DEFAULT_DURATION = 3000
 export const THEME_CONTEXT = "theme-ctx"
 
-export const themeDefault: ThemeVars = {
+export const CSS_VAR_PREFIX = "--feflow"
+
+export const COLOR_VARS_CSS = [
+	`${CSS_VAR_PREFIX}-color-primary`,
+	`${CSS_VAR_PREFIX}-color-on-primary`,
+	`${CSS_VAR_PREFIX}-color-secondary`,
+	`${CSS_VAR_PREFIX}-color-on-secondary`,
+	`${CSS_VAR_PREFIX}-color-text`,
+	`${CSS_VAR_PREFIX}-color-text-muted`,
+	`${CSS_VAR_PREFIX}-color-bg`,
+	`${CSS_VAR_PREFIX}-color-on-bg`,
+	`${CSS_VAR_PREFIX}-color-border`,
+	`${CSS_VAR_PREFIX}-color-surface`,
+	`${CSS_VAR_PREFIX}-color-on-surface`
+]
+
+export const themeDefault: ThemeConfigType = {
 	colors: {
 		light: {
 			colorPrimary: "#18181b",
@@ -34,21 +49,5 @@ export const themeDefault: ThemeVars = {
 			colorOnSurface: "#f9fafb",
 			colorBorder: "#27272a"
 		}
-	},
-	spacing: {
-		spaceXxs: "0.25rem",
-		spaceXs: "0.5rem",
-		spaceSm: "0.75rem",
-		spaceMd: "1rem",
-		spaceLg: "1.5rem"
-	},
-	fontSizes: {
-		sizeSm: "0.875rem",
-		sizeMd: "1rem",
-		sizeLg: "1.125rem"
-	},
-	shadows: {
-		shadowMd: "0 4px 6px rgba(0, 0, 0, 0.1)",
-		shadowLg: "0 10px 15px rgba(0, 0, 0, 0.15)"
 	}
 }

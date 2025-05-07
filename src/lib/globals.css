@@ -1,6 +1,26 @@
+:root {
+	--feflow-space-xxs: 0.25rem;
+	--feflow-space-xs: 0.5rem;
+	--feflow-space-sm: 0.75rem;
+	--feflow-space-md: 1rem;
+	--feflow-space-lg: 1.5rem;
+
+	--feflow-size-sm: 0.875rem;
+	--feflow-size-md: 1rem;
+	--feflow-size-lg: 1.125rem;
+
+	--feflow-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--feflow-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+	--feflow-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+	--feflow-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.6);
+}
+
 body {
-	background: var(--sc-color-bg);
-	color: var(--sc-color-text);
+	background: var(--feflow-color-bg);
+	color: var(--feflow-color-text);
 }
 
 h1,
@@ -9,13 +29,13 @@ h3,
 h4,
 h5,
 h6 {
-	color: var(--sc-color-text);
+	color: var(--feflow-color-text);
 }
 
 a {
-	color: var(--sc-color-primary);
+	color: var(--feflow-color-primary);
 }
 
 a:hover {
-	color: var(--sc-color-primary);
+	color: var(--feflow-color-primary);
 }
