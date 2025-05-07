@@ -1,6 +1,10 @@
 import "./globals.css"
 export * as Actions from "./actions/index.js"
-export { scrollSectionState, toastState } from "./states/index.js"
+export {
+	scrollSectionState,
+	toastState,
+	themeModeState
+} from "./states/index.js"
 export {
 	classMapUtil,
 	mergeObjectUtil,

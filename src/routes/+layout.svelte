@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { themeModeUtil, ThemeProvider, Toaster } from "@/lib/index.js"
-	import { themeModeState } from "@/lib/states/index.js"
+	import { themeModeState } from "@/lib/index.js"
 	import { onMount } from "svelte"
 
 	let { children } = $props()
