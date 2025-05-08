@@ -1,5 +1,4 @@
 .card {
-	background: var(--feflow-color-bg);
 	color: var(--feflow-color-on-bg);
 	padding: 1rem;
 	overflow: hidden;
