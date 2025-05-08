@@ -5,7 +5,7 @@
 
 	interface Props extends HTMLAnchorAttributes {
 		class?: string | (({ isActive }: { isActive: boolean }) => string)
-		pathname: string
+		pathname?: string
 		hoverUnderline?: "left" | "center" | "right"
 	}
 
@@ -18,7 +18,6 @@
 	}: Props = $props()
 
 	const isActive = $derived(pathname === rest.href)
-	console.log(Boolean(hoverUnderline))
 </script>
 
 <a
