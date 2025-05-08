@@ -9,7 +9,7 @@
 	width: 100%;
 	height: auto;
 	object-fit: cover;
-	border-radius: 0.5rem;
+	border-radius: var(--feflow-radius-md);
 	transition: transform 0.3s ease;
 }
 

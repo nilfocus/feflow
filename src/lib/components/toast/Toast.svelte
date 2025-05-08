@@ -86,12 +86,10 @@
 		background: var(--toast-color-primary);
 		color: var(--toast-color-on-primary);
 		padding: 0.5rem 1.25rem;
-		border-radius: 0.5rem;
+		border-radius: var(--feflow-radius-md);
 		font-size: var(--feflow-size-md);
 		font-weight: 500;
-		box-shadow:
-			0 4px 12px rgba(0, 0, 0, 0.15),
-			0 0 0 1px rgba(255, 255, 255, 0.05);
+		box-shadow: var(--feflow-shadow-md), var(--feflow-shadow-lg);
 		backdrop-filter: blur(6px);
 		display: flex;
 		align-items: center;
