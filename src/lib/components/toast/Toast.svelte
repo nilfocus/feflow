@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { ErrorIcon, InfoIcon, WarningIcon } from "../../icons/index.js"
 	import { toastState } from "../../states/index.js"
-	import type { ColorType, ToastType } from "../../types/index.js"
+	import type { StatusColorType, ToastType } from "../../types/index.js"
 	import classMapUtil from "../../utils/classMapUtil.js"
-	import { onDestroy, onMount, type Component } from "svelte"
+	import { onDestroy, onMount } from "svelte"
 	import type { HTMLAttributes } from "svelte/elements"
 
 	interface Props
 		extends HTMLAttributes<HTMLDivElement>,
 			Omit<ToastType, "id" | "color"> {
-		color?: ColorType
+		color?: StatusColorType | "primary"
 	}
 
 	let {
@@ -24,13 +24,13 @@
 
 	const _toastState = toastState()
 
-	const icons: Partial<Record<ColorType, Component>> = {
+	const Icon = {
 		error: ErrorIcon,
 		info: InfoIcon,
-		warning: WarningIcon
-	}
-
-	const Icon = icons[color] ?? InfoIcon
+		warning: WarningIcon,
+		success: InfoIcon,
+		primary: InfoIcon
+	}[color]
 
 	onMount(() => {
 		timer = setTimeout(() => {
@@ -48,43 +48,20 @@
 		[className as string]: true,
 		toast: true
 	})}
-	style="background: var(--toast-color-{color}); color: var(--toast-color-on-{color}); {rest.style}"
 	{...rest}
+	style="--bg-color: var(--feflow-color-{color}); --color: var(--feflow-color-on-{color}); {rest.style}"
 >
 	{#if Icon}
-		<Icon fill="var(--toast-color-on-${color})" height="20px" width="20px" />
+		<Icon fill="var(--color)" height="20px" width="20px" />
 	{/if}
 	{message}
 </div>
 
 <style>
-	:root {
-		--toast-color-primary: var(--feflow-color-primary);
-		--toast-color-on-primary: var(--feflow-color-on-primary);
-
-		--toast-color-secondary: var(--feflow-color-secondary);
-		--toast-color-on-secondary: var(--feflow-color-on-secondary);
-
-		--toast-color-success: #a7eac1;
-		--toast-color-on-success: #004422;
-
-		--toast-color-error: #f9b1b1;
-		--toast-color-on-error: #661111;
-
-		--toast-color-info: #a7dffc;
-		--toast-color-on-info: #003344;
-
-		--toast-color-warning: #fde6b0;
-		--toast-color-on-warning: #5a3d00;
-
-		--toast-color-inherit: inherit;
-		--toast-color-on-inherit: currentColor;
-	}
-
 	.toast {
 		position: relative;
-		background: var(--toast-color-primary);
-		color: var(--toast-color-on-primary);
+		background: var(--bg-color);
+		color: var(--color);
 		padding: 0.5rem 1.25rem;
 		border-radius: var(--feflow-radius-md);
 		font-size: var(--feflow-size-md);
@@ -101,7 +78,7 @@
 	}
 
 	.toast:hover {
-		transform: scale(1.1);
+		transform: scale(1.01);
 	}
 
 	@keyframes fadeInUp {

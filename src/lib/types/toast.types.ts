@@ -1,9 +1,9 @@
-import type { ColorType, PositionType } from "./index.js"
+import type { PositionType, StatusColorType } from "./index.js"
 
 export interface ToastType {
 	id: string
 	message: string
-	color?: ColorType
+	color?: StatusColorType
 	duration?: number
 	position?: PositionType
 }

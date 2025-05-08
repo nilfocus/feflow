@@ -13,13 +13,22 @@
 	--feflow-size-xl: 1.5rem;
 	--feflow-size-xxl: 2rem;
 
+	--feflow-radius-xs: 0.125rem;
 	--feflow-radius-sm: 0.25rem;
 	--feflow-radius-md: 0.5rem;
 	--feflow-radius-lg: 1rem;
+	--feflow-radius-xl: 1.5rem;
+	--feflow-radius-2xl: 2rem;
+	--feflow-radius-full: 9999px;
 
+
+	--feflow-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
 	--feflow-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
 	--feflow-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 	--feflow-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+	--feflow-shadow-xl: 0 15px 25px rgba(0, 0, 0, 0.2);
+	--feflow-shadow-2xl: 0 20px 30px rgba(0, 0, 0, 0.3);
+	--feflow-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 
 	--feflow-color-primary: #18181b;
 	--feflow-color-on-primary: #ffffff;
@@ -32,6 +41,21 @@
 	--feflow-color-surface: #f5f7fa;
 	--feflow-color-on-surface: #272727;
 	--feflow-color-border: #e5e7eb;
+
+	--feflow-color-success: #a7eac1;
+	--feflow-color-on-success: #004422;
+	--feflow-color-error: #f9b1b1;
+	--feflow-color-on-error: #661111;
+	--feflow-color-warning: #fde6b0;
+	--feflow-color-on-warning: #5a3d00;
+	--feflow-color-info: #a7dffc;
+	--feflow-color-on-info: #003344;
+	--feflow-color-inherit: inherit;
+	--feflow-color-on-inherit: currentColor;
+	--feflow-color-disabled: #d1d5db;
+	--feflow-color-on-disabled: #6b7280;
+	--feflow-color-focus: rgba(167, 223, 252, 0.5);
+	--feflow-color-on-focus: #003344;
 
 	--feflow-transition-fast: 150ms ease-in-out;
 	--feflow-transition-medium: 300ms ease-in-out;
@@ -57,8 +81,28 @@
 	--feflow-color-on-surface: #f9fafb;
 	--feflow-color-border: #27272a;
 
+	--feflow-color-success: #004422;
+	--feflow-color-on-success: #a7eac1;
+	--feflow-color-error: #661111;
+	--feflow-color-on-error: #f9b1b1;
+	--feflow-color-warning: #5a3d00;
+	--feflow-color-on-warning: #fde6b0;
+	--feflow-color-info: #003344;
+	--feflow-color-on-info: #a7dffc;
+	--feflow-color-inherit: inherit;
+	--feflow-color-on-inherit: currentColor;
+	--feflow-color-disabled: #374151;
+	--feflow-color-on-disabled: #9ca3af;
+	--feflow-color-focus: rgba(167, 223, 252, 0.7);
+	--feflow-color-on-focus: #a7dffc;
+
+	--feflow-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+	--feflow-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
 	--feflow-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
 	--feflow-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.6);
+	--feflow-shadow-xl: 0 15px 25px rgba(0, 0, 0, 0.7);
+	--feflow-shadow-2xl: 0 20px 30px rgba(0, 0, 0, 0.8);
+	--feflow-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -126,6 +170,7 @@ a {
 	color: var(--feflow-color-primary);
 	text-decoration: none;
 	transition: color var(--feflow-transition-fast);
+	cursor: pointer;
 }
 
 a:hover {
@@ -136,6 +181,8 @@ a:hover {
 img {
 	display: block;
 	width: 100%;
+	height: auto;
+	max-width: 100%;
 }
 
 svg {

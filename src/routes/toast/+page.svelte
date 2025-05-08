@@ -84,8 +84,8 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", duration: 5000 })
+		_toastState.add({ message: "test", duration: 15000 })
 	}}
 >
-	Duration: 5000
+	Duration: 15000
 </Button>

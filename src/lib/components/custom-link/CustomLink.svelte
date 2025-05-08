@@ -6,18 +6,28 @@
 	interface Props extends HTMLAnchorAttributes {
 		class?: string | (({ isActive }: { isActive: boolean }) => string)
 		pathname: string
+		hoverUnderline?: "left" | "center" | "right"
 	}
 
-	let { class: className = "", pathname, children, ...rest }: Props = $props()
+	let {
+		class: className = "",
+		pathname,
+		hoverUnderline,
+		children,
+		...rest
+	}: Props = $props()
 
 	const isActive = $derived(pathname === rest.href)
+	console.log(Boolean(hoverUnderline))
 </script>
 
 <a
 	class={classMapUtil({
 		[typeof className === "function" ? className({ isActive }) : className]:
 			true,
-		[styles.customLink]: true
+		[styles.customLink]: true,
+		[styles.customLinkUnderline]: Boolean(hoverUnderline),
+		[styles[hoverUnderline!]]: Boolean(hoverUnderline)
 	})}
 	aria-current={isActive ? "page" : undefined}
 	{...rest}
