@@ -9,16 +9,22 @@ export default function toastState() {
 	return {
 		data,
 		add(toast: Omit<Partial<ToastType>, "id">) {
-			data.toasts = [
-				...data.toasts,
-				{
-					id: crypto.randomUUID(),
-					message: toast.message ?? "",
-					duration: toast.duration ?? TOAST_DEFAULT_DURATION,
-					position: toast.position ?? "bottom-right",
-					...toast
-				}
-			]
+			const id = crypto.randomUUID()
+			const duration = toast.duration ?? TOAST_DEFAULT_DURATION
+
+			const newToast: ToastType = {
+				id,
+				message: toast.message ?? "",
+				duration,
+				position: toast.position ?? "bottom-right",
+				...toast
+			}
+
+			data.toasts = [...data.toasts, newToast]
+
+			setTimeout(() => {
+				this.remove(id)
+			}, duration)
 		},
 		async remove(toastId: string) {
 			await new Promise((resolve) => setTimeout(resolve, 50))

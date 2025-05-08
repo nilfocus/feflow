@@ -54,7 +54,9 @@
 			>
 				<Toast
 					{...toast}
-					style={fullWidth ? "border: none; border-radius: 0;" : ""}
+					style={fullWidth
+						? "border: none; border-radius: 0; transform: none;"
+						: ""}
 				/>
 			</span>
 		{/each}

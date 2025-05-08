@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { ErrorIcon, InfoIcon, WarningIcon } from "../../icons/index.js"
-	import { toastState } from "../../states/index.js"
 	import type { StatusColorType, ToastType } from "../../types/index.js"
 	import classMapUtil from "../../utils/classMapUtil.js"
-	import { onDestroy, onMount } from "svelte"
 	import type { HTMLAttributes } from "svelte/elements"
 
 	interface Props
@@ -20,10 +18,6 @@
 		...rest
 	}: Props = $props()
 
-	let timer: NodeJS.Timeout
-
-	const _toastState = toastState()
-
 	const Icon = {
 		error: ErrorIcon,
 		info: InfoIcon,
@@ -31,16 +25,6 @@
 		success: InfoIcon,
 		primary: InfoIcon
 	}[color]
-
-	onMount(() => {
-		timer = setTimeout(() => {
-			_toastState.clearWithDelay()
-		}, duration)
-	})
-
-	onDestroy(() => {
-		clearTimeout(timer)
-	})
 </script>
 
 <div
