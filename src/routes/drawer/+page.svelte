@@ -21,8 +21,12 @@
 	<span>logo</span>
 {/snippet}
 
-{#snippet drawerHeader()}
+{#snippet drawerHeaderLeft()}
 	<Drawer.Header content={headerContent} {handleClose} />
+{/snippet}
+
+{#snippet drawerHeaderRight()}
+	<Drawer.Header content={headerContent} />
 {/snippet}
 
 {#snippet contentDrawer()}
@@ -30,22 +34,19 @@
 {/snippet}
 
 <Drawer
-	autoClose
 	isOpen={isOpenLeft}
 	position={"left"}
 	{handleClose}
-	header={drawerHeader}
+	header={drawerHeaderLeft}
 	content={contentDrawer}
 />
 
 <Drawer
-	autoClose
+	variant="permanent"
 	isOpen={isOpenRight}
 	position={"right"}
-	{handleClose}
-	header={drawerHeader}
+	header={drawerHeaderRight}
 	content={contentDrawer}
 />
 
 <Button onclick={handleOpenLeft}>Left</Button>
-<Button onclick={handleOpenRight}>Right</Button>

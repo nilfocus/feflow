@@ -8,7 +8,7 @@
 	background-color: var(--feflow-color-surface);
 	margin-right: 5px;
 	color: var(--feflow-color-text);
-	border-radius: var(--feflow-radius-sm);
+	border-radius: 0.25rem;
 	outline: none;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;

@@ -47,10 +47,10 @@
 		background: var(--bg-color);
 		color: var(--color);
 		padding: 0.5rem 1.25rem;
-		border-radius: var(--feflow-radius-md);
-		font-size: var(--feflow-size-md);
+		border-radius: 0.5rem;
+		font-size: 1rem;
 		font-weight: 500;
-		box-shadow: var(--feflow-shadow-md), var(--feflow-shadow-lg);
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.15);
 		backdrop-filter: blur(6px);
 		display: flex;
 		align-items: center;

@@ -6,48 +6,50 @@
 	import { clickOutsideAction, resizeAction } from "../../actions/index.js"
 
 	export interface Props extends HTMLAttributes<HTMLDivElement> {
-		isOpen: boolean
-		autoClose?: boolean
+		isOpen?: boolean
+		variant?: "permanent" | "temporary"
 		position?: "left" | "right"
-		handleClose: () => void
-		header: Snippet
+		handleClose?: () => void
+		header?: Snippet
 		content: Snippet
 	}
 
 	let {
 		class: className = "",
-		isOpen,
-		autoClose = false,
+		isOpen = false,
+		variant = "temporary",
 		position = "left",
 		handleClose,
 		header,
 		content,
 		...rest
 	}: Props = $props()
+
+	const isAutoClose = variant === "temporary" && handleClose
 </script>
 
 <div
 	class={classMapUtil({
 		[className as string]: true,
 		[styles.drawer]: true,
-		[styles.show]: isOpen,
+		[styles.show]: isOpen || variant === "permanent",
 		[styles[position]]: true
 	})}
 	use:clickOutsideAction={{
 		handler: () => {
-			if (autoClose) handleClose()
+			if (isAutoClose) handleClose()
 		}
 	}}
 	use:resizeAction={{
 		handler: () => {
-			if (autoClose && window.innerWidth > 768) {
+			if (isAutoClose && window.innerWidth > 768) {
 				handleClose()
 			}
 		}
 	}}
 	{...rest}
 >
-	{@render header()}
+	{@render header?.()}
 	<div class={styles.content}>
 		{@render content()}
 	</div>

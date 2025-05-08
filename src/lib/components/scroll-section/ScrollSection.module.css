@@ -5,7 +5,7 @@
 	left: 0;
 	width: 100%;
 	background: var(--feflow-color-surface);
-	box-shadow: var(--feflow-shadow-md);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	z-index: 999;
 	overflow: hidden;
 	display: flex;
@@ -21,7 +21,7 @@
 	flex-wrap: nowrap;
 	overflow-x: auto;
 	overflow-y: hidden;
-	gap: var(--feflow-space-lg);
+	gap: 1.5rem;
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 	flex-grow: 1;
@@ -47,10 +47,10 @@
 	font-weight: bold;
 	color: var(--feflow-color-text);
 	cursor: pointer;
-	padding: var(--feflow-space-xs) var(--feflow-space-sm);
+	padding: 0.5rem 0.75rem;
 	transition: color 0.3s;
 	white-space: nowrap;
-	font-size: var(--feflow-size-sm);
+	font-size: 0.875rem;
 	flex-shrink: 0;
 	border-radius: 0;
 	min-width: max-content;
@@ -67,9 +67,9 @@
 }
 
 .arrowIndicator {
-	padding-left: var(--feflow-space-xs);
-	padding-right: var(--feflow-space-xs);
-	font-size: var(--feflow-size-lg);
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	font-size: 1.125rem;
 	color: var(--feflow-color-text);
 	animation: blink 1.5s infinite;
 	flex-shrink: 0;
@@ -88,20 +88,20 @@
 
 @media (max-width: 768px) {
 	.scrollSection {
-		padding: var(--feflow-space-xs);
+		padding: 0.5rem;
 	}
 
 	.content {
-		gap: var(--feflow-space-md);
-		padding: 0 var(--feflow-space-xs);
+		gap: 1rem;
+		padding: 0 0.5rem;
 	}
 
 	.button {
-		font-size: var(--feflow-size-xs);
-		padding: var(--feflow-space-xxs) var(--feflow-space-xs);
+		font-size: 0.75rem;
+		padding: 0.25rem 0.5rem;
 	}
 
 	.arrowIndicator {
-		font-size: var(--feflow-size-md);
+		font-size: 1rem;
 	}
 }

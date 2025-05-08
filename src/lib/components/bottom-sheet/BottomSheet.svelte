@@ -177,10 +177,10 @@
 		max-height: 100vh;
 		height: 50vh;
 		max-width: 1150px;
-		padding: var(--feflow-space-lg) var(--feflow-space-xl);
+		padding: 1.5rem 2rem;
 		transform: translateY(100%);
 		border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-		box-shadow: var(--feflow-shadow-lg);
+		box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
 		transition: 0.3s ease;
 		border-top-left-radius: 15px;
 		border-top-right-radius: 15px;
@@ -207,8 +207,8 @@
 	.header .dragIcon {
 		cursor: grab;
 		user-select: none;
-		padding: var(--feflow-space-sm);
-		margin-top: var(--feflow-space-sm);
+		padding: 0.75rem;
+		margin-top: 0.75rem;
 	}
 
 	.header .dragIcon span {
@@ -222,7 +222,7 @@
 	.bottomSheet .body {
 		height: 100%;
 		overflow-y: auto;
-		padding: var(--feflow-space-md) 0 var(--feflow-space-lg);
+		padding: 1rem 0 1.5rem;
 		scrollbar-width: none;
 	}
 

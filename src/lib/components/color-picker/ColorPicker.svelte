@@ -14,7 +14,7 @@
 		appearance: none;
 		width: 40px;
 		height: 40px;
-		border-radius: var(--feflow-radius-sm);
+		border-radius: 0.25rem;
 		border: 1px solid var(--feflow-color-border);
 		background: none;
 		cursor: pointer;

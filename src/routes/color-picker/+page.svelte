@@ -21,7 +21,7 @@
 		width: 38px;
 		height: 38px;
 		border: 1px solid var(--feflow-color-border);
-		border-radius: var(--feflow-radius-sm);
+		border-radius: 0.25rem;
 		background: var(--color);
 	}
 </style>

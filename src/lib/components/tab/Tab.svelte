@@ -20,7 +20,7 @@
 <style>
 	.tab {
 		position: relative;
-		border-radius: var(--feflow-radius-sm);
+		border-radius: 0.25rem;
 		overflow: hidden;
 		background: var(--feflow-color-surface);
 	}
