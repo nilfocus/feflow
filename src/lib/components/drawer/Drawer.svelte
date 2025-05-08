@@ -7,6 +7,8 @@
 
 	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen: boolean
+		autoClose?: boolean
+		position?: "left" | "right"
 		handleClose: () => void
 		header: Snippet
 		content: Snippet
@@ -15,6 +17,8 @@
 	let {
 		class: className = "",
 		isOpen,
+		autoClose = false,
+		position = "left",
 		handleClose,
 		header,
 		content,
@@ -26,12 +30,17 @@
 	class={classMapUtil({
 		[className as string]: true,
 		[styles.drawer]: true,
-		[styles.show]: isOpen
+		[styles.show]: isOpen,
+		[styles[position]]: true
 	})}
-	use:clickOutsideAction={{ handler: handleClose }}
+	use:clickOutsideAction={{
+		handler: () => {
+			if (autoClose) handleClose()
+		}
+	}}
 	use:resizeAction={{
 		handler: () => {
-			if (window.innerWidth > 768) {
+			if (autoClose && window.innerWidth > 768) {
 				handleClose()
 			}
 		}

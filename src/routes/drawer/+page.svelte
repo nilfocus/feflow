@@ -1,10 +1,19 @@
 <script lang="ts">
 	import { Button, Drawer } from "@/lib/index.js"
 
-	let openDrawer = $state(false)
+	let isOpenLeft = $state(false)
+	let isOpenRight = $state(false)
 
-	function handleOpenDrawer() {
-		openDrawer = !openDrawer
+	function handleOpenLeft() {
+		isOpenLeft = !isOpenLeft
+	}
+
+	function handleOpenRight() {
+		isOpenRight = !isOpenRight
+	}
+
+	function handleClose() {
+		isOpenLeft ? (isOpenLeft = false) : (isOpenRight = false)
 	}
 </script>
 
@@ -13,32 +22,30 @@
 {/snippet}
 
 {#snippet drawerHeader()}
-	<Drawer.Header
-		content={headerContent}
-		handleClose={() => {
-			openDrawer = false
-		}}
-	/>
+	<Drawer.Header content={headerContent} {handleClose} />
 {/snippet}
 
 {#snippet contentDrawer()}
-	<a
-		href="/"
-		onclick={() => {
-			handleOpenDrawer()
-		}}
-	>
-		label
-	</a>
+	<a href="/" onclick={handleClose}>label</a>
 {/snippet}
 
 <Drawer
-	isOpen={openDrawer}
-	handleClose={() => {
-		openDrawer = false
-	}}
+	autoClose
+	isOpen={isOpenLeft}
+	position={"left"}
+	{handleClose}
 	header={drawerHeader}
 	content={contentDrawer}
 />
 
-<Button onclick={handleOpenDrawer}>Open Drawer</Button>
+<Drawer
+	autoClose
+	isOpen={isOpenRight}
+	position={"right"}
+	{handleClose}
+	header={drawerHeader}
+	content={contentDrawer}
+/>
+
+<Button onclick={handleOpenLeft}>Left</Button>
+<Button onclick={handleOpenRight}>Right</Button>

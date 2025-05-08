@@ -8,7 +8,7 @@
 
 	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		content: Snippet
-		handleClose: () => void
+		handleClose?: () => void
 	}
 
 	let { class: className = "", content, handleClose, ...rest }: Props = $props()
@@ -22,7 +22,9 @@
 	{...rest}
 >
 	{@render content?.()}
-	<Button variant="text" class={styles.buttonClose} onclick={handleClose}>
-		<CloseIcon />
-	</Button>
+	{#if handleClose}
+		<Button variant="text" class={styles.buttonClose} onclick={handleClose}>
+			<CloseIcon />
+		</Button>
+	{/if}
 </div>

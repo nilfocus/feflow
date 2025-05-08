@@ -1,19 +1,33 @@
 .drawer {
 	position: fixed;
-	transform: translateX(-100%);
 	background: var(--feflow-color-surface);
 	color: var(--feflow-color-on-surface);
 	width: 18rem;
 	z-index: 999;
-	border-right: 1px solid var(--feflow-color-border);
-	padding-right: var(--feflow-space-lg);
+	padding: var(--feflow-space-md);
 	transition: transform 0.3s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 	top: 0;
 	bottom: 0;
 	will-change: transform;
 }
 
-.drawer.show {
+.drawer.left {
+	left: 0;
+	border-right: 1px solid var(--feflow-color-border);
+	transform: translateX(-100%);
+}
+
+.drawer.left.show {
+	transform: translateX(0);
+}
+
+.drawer.right {
+	right: 0;
+	border-left: 1px solid var(--feflow-color-border);
+	transform: translateX(100%);
+}
+
+.drawer.right.show {
 	transform: translateX(0);
 }
 
