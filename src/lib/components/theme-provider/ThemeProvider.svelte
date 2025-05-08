@@ -1,9 +1,14 @@
 <script lang="ts">
 	import { type Snippet } from "svelte"
-	import { themeDefault, THEME_STORAGE, THEME_ATTR } from "../../constants.js"
+	import {
+		themeConfigDefault,
+		THEME_STORAGE,
+		THEME_ATTR
+	} from "../../constants.js"
 	import { setThemeConfigContext } from "../../contexts/index.js"
 	import type { ThemeConfigType } from "../../types/index.js"
 	import { mergeObjectUtil, themeConfigUtil } from "../../utils/index.js"
+	import "./ThemeProvider.css"
 
 	interface Props {
 		customTheme?: ThemeConfigType
@@ -13,10 +18,10 @@
 	let { customTheme, children }: Props = $props()
 
 	const theme = mergeObjectUtil(
-		themeDefault,
+		themeConfigDefault,
 		customTheme || {}
 	) as ThemeConfigType
-	
+
 	setThemeConfigContext(theme)
 
 	const { themeConfigToCssString } = themeConfigUtil()

@@ -21,7 +21,7 @@ export const COLOR_VARS_CSS = [
 	`${CSS_VAR_PREFIX}-color-on-surface`
 ]
 
-export const themeDefault: ThemeConfigType = {
+export const themeConfigDefault: ThemeConfigType = {
 	colors: {
 		light: {
 			colorPrimary: "#18181b",

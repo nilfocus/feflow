@@ -1,4 +1,3 @@
-import "./globals.css"
 export * as Actions from "./actions/index.js"
 export {
 	scrollSectionState,
