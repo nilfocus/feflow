@@ -7,6 +7,11 @@ export const THEME_CONTEXT = "theme-ctx"
 
 export const CSS_VAR_PREFIX = "--feflow"
 
+export const defaultSelectors = {
+	light: [":root", ".light", "[data-theme='light']"],
+	dark: [".dark", "[data-theme='dark']"]
+}
+
 export const themeConfigDefault: ThemeConfigType = {
 	colors: {
 		light: {

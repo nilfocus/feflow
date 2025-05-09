@@ -72,3 +72,9 @@ body {
 	background: var(--feflow-color-bg);
 	color: var(--feflow-color-text);
 }
+
+svg {
+	display: inline-block;
+	vertical-align: middle;
+	fill: currentColor;
+}

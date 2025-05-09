@@ -1,4 +1,4 @@
-import { CSS_VAR_PREFIX } from "../constants.js"
+import { CSS_VAR_PREFIX, defaultSelectors } from "../constants.js"
 import { getThemeConfigContext } from "../contexts/index.js"
 import { themeModeState } from "../states/index.js"
 import type { ThemeModeType, ThemeConfigType } from "../types/index.js"
@@ -30,16 +30,12 @@ export function themeConfigUtil() {
 
 		let result = ""
 
-		const selectors: Record<ThemeModeType, string> = {
-			light: ":root, .light, [data-theme='light']",
-			dark: "[data-theme='dark'], .dark"
-		}
-
 		if (theme.colors) {
 			for (const [themeKey, vars] of Object.entries(theme.colors)) {
-				result += _processThemeSection(vars, [
-					selectors[themeKey as ThemeModeType]
-				])
+				result += _processThemeSection(
+					vars,
+					defaultSelectors[themeKey as ThemeModeType]
+				)
 			}
 		}
 
