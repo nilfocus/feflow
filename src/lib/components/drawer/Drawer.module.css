@@ -1,8 +1,12 @@
+:root {
+	--drawer-width: 18rem;
+}
+
 .drawer {
 	position: fixed;
 	background: var(--feflow-color-surface);
 	color: var(--feflow-color-on-surface);
-	width: 18rem;
+	width: var(--drawer-width);
 	z-index: 999;
 	padding: 1rem;
 	transition:
@@ -21,6 +25,7 @@
 }
 
 .drawer.left.show {
+	width: var(--drawer-width);
 	transform: translateX(0);
 }
 
@@ -31,6 +36,7 @@
 }
 
 .drawer.right.show {
+	width: var(--drawer-width);
 	transform: translateX(0);
 }
 
