@@ -18,17 +18,12 @@
 
 <div
 	class={classMapUtil({
+		[className as string]: true,
 		[styles.avatar]: true
 	})}
 >
 	{#if !hasError && rest.src}
-		<img
-			class={classMapUtil({
-				[className as string]: true
-			})}
-			onerror={handleError}
-			{...rest}
-		/>
+		<img onerror={handleError} {...rest} />
 	{:else if textFallback}
 		<span class={styles.textFallback}>
 			{textFallback.charAt(0).toUpperCase()}

@@ -7,20 +7,6 @@ export const THEME_CONTEXT = "theme-ctx"
 
 export const CSS_VAR_PREFIX = "--feflow"
 
-export const COLOR_VARS_CSS = [
-	`${CSS_VAR_PREFIX}-color-primary`,
-	`${CSS_VAR_PREFIX}-color-on-primary`,
-	`${CSS_VAR_PREFIX}-color-secondary`,
-	`${CSS_VAR_PREFIX}-color-on-secondary`,
-	`${CSS_VAR_PREFIX}-color-text`,
-	`${CSS_VAR_PREFIX}-color-text-muted`,
-	`${CSS_VAR_PREFIX}-color-bg`,
-	`${CSS_VAR_PREFIX}-color-on-bg`,
-	`${CSS_VAR_PREFIX}-color-border`,
-	`${CSS_VAR_PREFIX}-color-surface`,
-	`${CSS_VAR_PREFIX}-color-on-surface`
-]
-
 export const themeConfigDefault: ThemeConfigType = {
 	colors: {
 		light: {
