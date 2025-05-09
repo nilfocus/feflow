@@ -1,4 +1,4 @@
-import { CSS_VAR_PREFIX, defaultSelectors } from "../constants.js"
+import { CSS_VAR_PREFIX, themeModeSelectors } from "../constants.js"
 import { getThemeConfigContext } from "../contexts/index.js"
 import { themeModeState } from "../states/index.js"
 import type { ThemeModeType, ThemeConfigType } from "../types/index.js"
@@ -12,17 +12,14 @@ export function themeConfigUtil() {
 		return `${_toCssVar(key)}: ${value} !important;`
 	}
 
-	function _processThemeSection(
-		vars: Record<string, any>,
-		selectors: string[]
-	) {
+	function _processThemeSection(vars: Record<string, any>, selectors: string) {
 		const cssVars: string[] = []
 
 		for (const [key, value] of Object.entries(vars)) {
 			cssVars.push(_generateCssVariables(key, value))
 		}
 
-		return `<style>${selectors.join(", ")} {\n${cssVars.join("\n")}\n}</style>\n`
+		return `<style>${selectors} {\n${cssVars.join("\n")}\n}</style>\n`
 	}
 
 	function themeConfigToCssString(theme?: ThemeConfigType) {
@@ -34,7 +31,7 @@ export function themeConfigUtil() {
 			for (const [themeKey, vars] of Object.entries(theme.colors)) {
 				result += _processThemeSection(
 					vars,
-					defaultSelectors[themeKey as ThemeModeType]
+					themeModeSelectors[themeKey as ThemeModeType]
 				)
 			}
 		}

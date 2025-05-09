@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Snippet } from "svelte"
+	import { onMount, type Snippet } from "svelte"
 	import {
 		themeConfigDefault,
 		THEME_STORAGE,
@@ -7,9 +7,13 @@
 	} from "../../constants.js"
 	import { setThemeConfigContext } from "../../contexts/index.js"
 	import type { ThemeConfigType } from "../../types/index.js"
-	import { mergeObjectUtil, themeConfigUtil } from "../../utils/index.js"
+	import {
+		mergeObjectUtil,
+		themeConfigUtil,
+		themeModeUtil
+	} from "../../utils/index.js"
 	import "./ThemeProvider.css"
-	import { themeConfigAction } from "../../actions/index.js"
+	import { themeModeState } from "../../states/index.js"
 
 	interface Props {
 		customTheme?: ThemeConfigType
@@ -18,17 +22,23 @@
 
 	let { customTheme, children }: Props = $props()
 
-	let style = $state("")
+	const theme = mergeObjectUtil(
+		themeConfigDefault,
+		customTheme || {}
+	) as ThemeConfigType
 
-	// const theme = mergeObjectUtil(
-	// 	themeConfigDefault,
-	// 	customTheme || {}
-	// ) as ThemeConfigType
+	setThemeConfigContext(theme)
 
-	// setThemeConfigContext(theme)
+	const { themeConfigToCssString } = themeConfigUtil()
+	const style = themeConfigToCssString(theme)
 
-	// const { themeConfigToCssString } = themeConfigUtil()
-	// const style = themeConfigToCssString(theme)
+	const { getThemeMode } = themeModeUtil()
+	const _themeModeState = themeModeState()
+
+	onMount(() => {
+		const themeMode = getThemeMode()
+		_themeModeState.setThemeMode(themeMode)
+	})
 </script>
 
 <svelte:head>
@@ -45,15 +55,4 @@
 	{@html style}
 </svelte:head>
 
-<div
-	use:themeConfigAction={{
-		callback: (data) => {
-			const theme = mergeObjectUtil(data, customTheme || {}) as ThemeConfigType
-			setThemeConfigContext(theme)
-			const { themeConfigToCssString } = themeConfigUtil()
-			style = themeConfigToCssString(theme)
-		}
-	}}
->
-	{@render children?.()}
-</div>
+{@render children?.()}

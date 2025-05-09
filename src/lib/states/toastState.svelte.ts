@@ -47,3 +47,8 @@ export default function toastState() {
 		}
 	}
 }
+
+export function toast(toast: Omit<Partial<ToastType>, "id">) {
+	const _toastState = toastState()
+	_toastState.add(toast)
+}

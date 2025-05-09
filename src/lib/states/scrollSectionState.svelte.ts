@@ -44,3 +44,13 @@ export default function scrollSectionState() {
 		}
 	}
 }
+
+export function registerSection(node: HTMLElement, reference: string) {
+	const _scrollSectionState = scrollSectionState()
+	_scrollSectionState.register(node, reference)
+}
+
+export function getSections() {
+	const _scrollSectionState = scrollSectionState()
+	return _scrollSectionState.getSections()
+}

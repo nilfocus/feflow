@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { Button, toastState } from "@/lib/index.js"
-
-	const _toastState = toastState()
+	import { Button, toast } from "@/lib/index.js"
 </script>
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", color: "error" })
+		toast({ message: "test", color: "error" })
 	}}
 >
 	Error
@@ -14,7 +12,7 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", color: "success" })
+		toast({ message: "test", color: "success" })
 	}}
 >
 	Success
@@ -22,7 +20,7 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", color: "warning" })
+		toast({ message: "test", color: "warning" })
 	}}
 >
 	Warning
@@ -33,7 +31,7 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", position: "top-left" })
+		toast({ message: "test", position: "top-left" })
 	}}
 >
 	Top-Left
@@ -41,7 +39,7 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", position: "bottom-left" })
+		toast({ message: "test", position: "bottom-left" })
 	}}
 >
 	Bottom-Left
@@ -49,7 +47,7 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", position: "top-right" })
+		toast({ message: "test", position: "top-right" })
 	}}
 >
 	Top-Right
@@ -57,7 +55,7 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", position: "bottom-right" })
+		toast({ message: "test", position: "bottom-right" })
 	}}
 >
 	Bottom-Right
@@ -65,7 +63,7 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", position: "bottom-center" })
+		toast({ message: "test", position: "bottom-center" })
 	}}
 >
 	Bottom-Center
@@ -73,7 +71,7 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", position: "top-center" })
+		toast({ message: "test", position: "top-center" })
 	}}
 >
 	Top-Center
@@ -84,7 +82,7 @@
 
 <Button
 	onclick={() => {
-		_toastState.add({ message: "test", duration: 15000 })
+		toast({ message: "test", duration: 15000 })
 	}}
 >
 	Duration: 15000

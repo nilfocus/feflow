@@ -12,6 +12,21 @@ type ThemeColorsType = {
 	colorSurface: string
 	colorOnSurface: string
 	colorBorder: string
+
+	colorSuccess: string
+	colorOnSuccess: string
+	colorError: string
+	colorOnError: string
+	colorWarning: string
+	colorOnWarning: string
+	colorInfo: string
+	colorOnInfo: string
+	colorInherit: string
+	colorOnInherit: string
+	colorDisabled: string
+	colorOnDisabled: string
+	colorFocus: string
+	colorOnFocus: string
 }
 
 export type ThemeConfigType = {

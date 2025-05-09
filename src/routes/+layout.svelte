@@ -1,20 +1,11 @@
 <script lang="ts">
-	import { themeModeUtil, ThemeProvider, Toaster } from "@/lib/index.js"
-	import { themeModeState } from "@/lib/index.js"
-	import { onMount } from "svelte"
+	import { ThemeProvider, Toaster } from "@/lib/index.js"
 
 	let { children } = $props()
-	const { getThemeMode } = themeModeUtil()
-	const _themeModeState = themeModeState()
-
-	onMount(() => {
-		const themeMode = getThemeMode()
-		_themeModeState.setThemeMode(themeMode)
-	})
 </script>
 
 <Toaster fullWidth />
 
-<ThemeProvider customTheme={{ colors: { light: { colorBg: "green" }, dark: {colorBg: "red"} } }}>
+<ThemeProvider customTheme={{ colors: { light: { colorBg: "green" } } }}>
 	{@render children()}
 </ThemeProvider>

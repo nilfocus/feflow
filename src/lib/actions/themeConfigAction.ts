@@ -1,4 +1,4 @@
-import { cssVariableNames, defaultSelectors } from "../constants.js"
+import { cssVariableNames, themeModeSelectors } from "../constants.js"
 import type { ThemeConfigType, ThemeModeType } from "../types/theme.types.js"
 
 export default function themeConfigAction(
@@ -17,18 +17,17 @@ export default function themeConfigAction(
 		themeMode: ThemeModeType,
 		result: (k: string, v?: string) => void
 	) {
-		defaultSelectors[themeMode].forEach((element) => {
-			const el = document.querySelector(element)
-			if (el) {
-				const styles = getComputedStyle(el)
-				cssVariableNames.forEach((cssVar) => {
-					const newCssVar = `--${prefix}-${cssVar}`
-					const key = _toCamelCase(cssVar)
-					const cssValue = styles.getPropertyValue(newCssVar)
-					result(key, cssValue)
-				})
-			}
-		})
+		const selector = themeModeSelectors[themeMode]
+		const el = document.querySelector(selector)
+		if (el) {
+			const styles = getComputedStyle(el)
+			cssVariableNames.forEach((cssVar) => {
+				const newCssVar = `--${prefix}-${cssVar}`
+				const key = _toCamelCase(cssVar)
+				const cssValue = styles.getPropertyValue(newCssVar)
+				result(key, cssValue)
+			})
+		}
 	}
 
 	const handleCallback = () => {
@@ -39,7 +38,7 @@ export default function themeConfigAction(
 			}
 		}
 
-		Object.keys(defaultSelectors).forEach((themeMode) => {
+		Object.keys(themeModeSelectors).forEach((themeMode) => {
 			const _themeMode = themeMode as ThemeModeType
 
 			getActiveTheme(_themeMode, (k, v) => {

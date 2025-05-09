@@ -1,10 +1,5 @@
 export * as Actions from "./actions/index.js"
 export {
-	scrollSectionState,
-	toastState,
-	themeModeState
-} from "./states/index.js"
-export {
 	classMapUtil,
 	mergeObjectUtil,
 	themeModeUtil,
@@ -12,6 +7,11 @@ export {
 	useActionUtil
 } from "./utils/index.js"
 export { getThemeConfig } from "./utils/themeConfigUtil.js"
+export { toast } from "./states/toastState.svelte.js"
+export {
+	registerSection,
+	getSections
+} from "./states/scrollSectionState.svelte.js"
 export type { ThemeModeType } from "./types/index.js"
 export { default as Accordion } from "./components/accordion/index.js"
 export { default as Avatar } from "./components/avatar/index.js"
