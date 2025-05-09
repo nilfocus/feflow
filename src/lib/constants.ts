@@ -8,9 +8,23 @@ export const THEME_CONTEXT = "theme-ctx"
 export const CSS_VAR_PREFIX = "--feflow"
 
 export const defaultSelectors = {
-	light: [":root", ".light", "[data-theme='light']"],
-	dark: [".dark", "[data-theme='dark']"]
+	light: ["[data-theme='light']"],
+	dark: ["[data-theme='dark']"]
 }
+
+export const cssVariableNames = [
+	"color-primary",
+	"color-on-primary",
+	"color-secondary",
+	"color-on-secondary",
+	"color-text",
+	"color-text-muted",
+	"color-bg",
+	"color-on-bg",
+	"color-surface",
+	"color-on-surface",
+	"color-border"
+]
 
 export const themeConfigDefault: ThemeConfigType = {
 	colors: {

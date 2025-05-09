@@ -9,6 +9,7 @@
 	import type { ThemeConfigType } from "../../types/index.js"
 	import { mergeObjectUtil, themeConfigUtil } from "../../utils/index.js"
 	import "./ThemeProvider.css"
+	import { themeConfigAction } from "../../actions/index.js"
 
 	interface Props {
 		customTheme?: ThemeConfigType
@@ -17,15 +18,17 @@
 
 	let { customTheme, children }: Props = $props()
 
-	const theme = mergeObjectUtil(
-		themeConfigDefault,
-		customTheme || {}
-	) as ThemeConfigType
+	let style = $state("")
 
-	setThemeConfigContext(theme)
+	// const theme = mergeObjectUtil(
+	// 	themeConfigDefault,
+	// 	customTheme || {}
+	// ) as ThemeConfigType
 
-	const { themeConfigToCssString } = themeConfigUtil()
-	const style = themeConfigToCssString(theme)
+	// setThemeConfigContext(theme)
+
+	// const { themeConfigToCssString } = themeConfigUtil()
+	// const style = themeConfigToCssString(theme)
 </script>
 
 <svelte:head>
@@ -42,4 +45,15 @@
 	{@html style}
 </svelte:head>
 
-{@render children?.()}
+<div
+	use:themeConfigAction={{
+		callback: (data) => {
+			const theme = mergeObjectUtil(data, customTheme || {}) as ThemeConfigType
+			setThemeConfigContext(theme)
+			const { themeConfigToCssString } = themeConfigUtil()
+			style = themeConfigToCssString(theme)
+		}
+	}}
+>
+	{@render children?.()}
+</div>

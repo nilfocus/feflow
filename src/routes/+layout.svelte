@@ -15,8 +15,6 @@
 
 <Toaster fullWidth />
 
-<ThemeProvider
-	
->
+<ThemeProvider customTheme={{ colors: { light: { colorBg: "green" }, dark: {colorBg: "red"} } }}>
 	{@render children()}
 </ThemeProvider>

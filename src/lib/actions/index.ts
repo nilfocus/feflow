@@ -11,6 +11,7 @@ import scrollDetectAction from "./scrollDetectAction.js"
 import keyboardNavigationAction from "./keyboardNavigationAction.js"
 import activeLineAction from "./activeLineAction.js"
 import glowOnHoverAction from "./glowOnHoverAction.js"
+import themeConfigAction from "./themeConfigAction.js"
 
 export {
 	inputDropAction,
@@ -25,5 +26,6 @@ export {
 	scrollDetectAction,
 	keyboardNavigationAction,
 	activeLineAction,
-	glowOnHoverAction
+	glowOnHoverAction,
+	themeConfigAction
 }
