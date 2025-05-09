@@ -5,10 +5,12 @@
 	width: 18rem;
 	z-index: 999;
 	padding: 1rem;
-	transition: transform 0.3s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+	transition:
+		transform 0.3s cubic-bezier(0.82, 0.085, 0.395, 0.895),
+		width 0.3s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 	top: 0;
 	bottom: 0;
-	will-change: transform;
+	will-change: transform, width;
 }
 
 .drawer.left {

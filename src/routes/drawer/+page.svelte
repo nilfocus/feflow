@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Button, Drawer } from "@/lib/index.js"
+	import styles from "./drawer.module.css"
 
 	let isOpenLeft = $state(false)
 	let isOpenRight = $state(false)
@@ -42,6 +43,7 @@
 />
 
 <Drawer
+	class={styles.drawer}
 	variant="permanent"
 	isOpen={isOpenRight}
 	position={"right"}

@@ -20,3 +20,7 @@ svg {
 	vertical-align: middle;
 	fill: currentColor;
 }
+
+a {
+	color: var(--feflow-color-text);
+}
