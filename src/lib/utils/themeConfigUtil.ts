@@ -3,7 +3,7 @@ import { getThemeConfigContext } from "../contexts/index.js"
 import { themeModeState } from "../states/index.js"
 import type { ThemeModeType, ThemeConfigType } from "../types/index.js"
 
-export function themeConfigUtil() {
+export default function themeConfigUtil() {
 	function _toCssVar(key: string) {
 		return `${CSS_VAR_PREFIX}-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`
 	}

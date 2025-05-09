@@ -1,30 +1,17 @@
 import type { ThemeConfigType } from "./types/index.js"
 
-export const THEME_STORAGE = "theme"
+export const APP_NAME = "feflow"
+
+export const CSS_VAR_PREFIX = `--${APP_NAME}`
+export const THEME_STORAGE = `${APP_NAME}-theme`
 export const THEME_ATTR = "data-theme"
 export const TOAST_DEFAULT_DURATION = 3000
-export const THEME_CONTEXT = "theme-ctx"
-
-export const CSS_VAR_PREFIX = "--feflow"
+export const THEME_CONTEXT = `${APP_NAME}-theme-ctx`
 
 export const themeModeSelectors = {
-	light: "[data-theme='light']",
-	dark: "[data-theme='dark']"
+	light: `[${THEME_ATTR}='light']`,
+	dark: `[${THEME_ATTR}='dark']`
 }
-
-export const cssVariableNames = [
-	"color-primary",
-	"color-on-primary",
-	"color-secondary",
-	"color-on-secondary",
-	"color-text",
-	"color-text-muted",
-	"color-bg",
-	"color-on-bg",
-	"color-surface",
-	"color-on-surface",
-	"color-border"
-]
 
 export const themeConfigDefault: ThemeConfigType = {
 	colors: {
