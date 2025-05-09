@@ -11,6 +11,7 @@
 	top: 0;
 	bottom: 0;
 	will-change: transform, width;
+	overflow-x: hidden;
 }
 
 .drawer.left {
