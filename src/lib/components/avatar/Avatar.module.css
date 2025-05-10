@@ -1,6 +1,6 @@
 .avatar {
-	width: clamp(3rem, 6vw, 5rem);
-	height: clamp(3rem, 6vw, 5rem);
+	width: clamp(3rem, 4vw, 4rem);
+	height: clamp(3rem, 4vw, 4rem);
 	border-radius: 50%;
 	overflow: hidden;
 	background: var(--feflow-color-primary);
