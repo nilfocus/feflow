@@ -58,9 +58,9 @@
 
 .inputGroup > input:disabled,
 .inputGroup > input:disabled ~ label {
-	color: var(--feflow-color-text-muted);
+	color: var(--feflow-color-on-disabled);
 	cursor: not-allowed;
-	border-color: var(--feflow-color-primary);
+	border-color: var(--feflow-color-border);
 }
 
 .inputGroup > input:focus ~ label,

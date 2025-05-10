@@ -15,8 +15,8 @@
 }
 
 .checkbox input:disabled + .wrapper .bg {
-	background: var(--feflow-color-secondary) !important;
-	border-color: var(--feflow-color-secondary) !important;
+	background: var(--feflow-color-disabled) !important;
+	border-color: var(--feflow-color-border) !important;
 }
 
 .wrapper {

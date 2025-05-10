@@ -50,7 +50,9 @@
 		border-radius: 0.5rem;
 		font-size: 1rem;
 		font-weight: 500;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.15);
+		box-shadow:
+			0 4px 6px rgba(0, 0, 0, 0.1),
+			0 10px 15px rgba(0, 0, 0, 0.15);
 		backdrop-filter: blur(6px);
 		display: flex;
 		align-items: center;

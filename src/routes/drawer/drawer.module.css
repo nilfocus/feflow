@@ -1,12 +1,12 @@
 @media screen and (max-width: 768px) {
-    .drawer {
-        width: 80px;
-    }
+	.drawer {
+		width: 80px;
+	}
 }
 
 @media screen and (max-width: 425px) {
-    .drawer {
-        width: 0;
-        transform: translateX(100%) !important;
-    }
+	.drawer {
+		width: 0;
+		transform: translateX(100%) !important;
+	}
 }

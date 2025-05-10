@@ -19,8 +19,109 @@ svg {
 	display: inline-block;
 	vertical-align: middle;
 	fill: currentColor;
+	mix-blend-mode: difference;
 }
 
 a {
 	color: var(--feflow-color-text);
+}
+
+.text-primary {
+	color: var(--feflow-color-primary);
+}
+
+.text-on-primary {
+	color: var(--feflow-color-on-primary);
+}
+
+.text-secondary {
+	color: var(--feflow-color-secondary);
+}
+
+.text-on-secondary {
+	color: var(--feflow-color-on-secondary);
+}
+
+.text {
+	color: var(--feflow-color-text);
+}
+
+.text-muted {
+	color: var(--feflow-color-text-muted);
+}
+
+.bg-page {
+	background: var(--feflow-color-bg);
+}
+
+.text-on-bg {
+	color: var(--feflow-color-on-bg);
+}
+
+.bg-surface {
+	background: var(--feflow-color-surface);
+}
+
+.text-on-surface {
+	color: var(--feflow-color-on-surface);
+}
+
+.border {
+	border-color: var(--feflow-color-border);
+}
+
+.bg-success {
+	background: var(--feflow-color-success);
+}
+
+.text-on-success {
+	color: var(--feflow-color-on-success);
+}
+
+.bg-error {
+	background: var(--feflow-color-error);
+}
+
+.text-on-error {
+	color: var(--feflow-color-on-error);
+}
+
+.bg-warning {
+	background: var(--feflow-color-warning);
+}
+
+.text-on-warning {
+	color: var(--feflow-color-on-warning);
+}
+
+.bg-info {
+	background: var(--feflow-color-info);
+}
+
+.text-on-info {
+	color: var(--feflow-color-on-info);
+}
+
+.text-inherit {
+	color: var(--feflow-color-inherit);
+}
+
+.text-on-inherit {
+	color: var(--feflow-color-on-inherit);
+}
+
+.bg-disabled {
+	background: var(--feflow-color-disabled);
+}
+
+.text-on-disabled {
+	color: var(--feflow-color-on-disabled);
+}
+
+.bg-focus {
+	background: var(--feflow-color-focus);
+}
+
+.text-on-focus {
+	color: var(--feflow-color-on-focus);
 }

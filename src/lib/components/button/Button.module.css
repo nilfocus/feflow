@@ -30,8 +30,8 @@
 
 .button:disabled {
 	cursor: not-allowed;
-	background: var(--feflow-color-secondary);
-	color: var(--feflow-color-on-secondary);
+	background: var(--feflow-color-disabled);
+	color: var(--feflow-color-on-disabled);
 }
 
 .button.contained:not(:disabled):hover {

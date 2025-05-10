@@ -11,11 +11,13 @@
 	overflow-y: auto;
 	position: absolute;
 	z-index: 99;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.15);
+	box-shadow:
+		0 4px 6px rgba(0, 0, 0, 0.1),
+		0 10px 15px rgba(0, 0, 0, 0.15);
 	width: 100%;
 }
 
-.items>div {
+.items > div {
 	padding: 24px 32px;
 	display: flex;
 	align-items: center;
@@ -25,19 +27,19 @@
 	font-size: 14px;
 }
 
-.items>div>* {
+.items > div > * {
 	color: var(--feflow-color-on-surface);
 }
 
-.items>div.focused {
+.items > div.focused {
 	background: red;
 }
 
-.items>div:last-child {
+.items > div:last-child {
 	border: none;
 }
 
-.items>div:hover {
+.items > div:hover {
 	background: blue;
 }
 

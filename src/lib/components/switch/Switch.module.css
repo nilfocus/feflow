@@ -44,7 +44,7 @@
 }
 
 input:checked:disabled + .slider {
-	background: var(--feflow-color-text);
+	background: var(--feflow-color-disabled);
 	border: 1px solid var(--feflow-color-border);
 }
 
