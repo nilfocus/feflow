@@ -4,14 +4,15 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import styles from "./Drawer.module.css"
 	import { clickOutsideAction, resizeAction } from "../../actions/index.js"
+	import type { PositionTypeNoCenter } from "../../types/index.js"
 
 	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen?: boolean
 		variant?: "permanent" | "temporary"
-		position?: "left" | "right"
+		position?: PositionTypeNoCenter
 		handleClose?: () => void
-		header?: Snippet
-		content: Snippet
+		header?: Snippet<[]>
+		content: Snippet<[]>
 	}
 
 	let {

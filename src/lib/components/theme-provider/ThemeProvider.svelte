@@ -17,7 +17,7 @@
 
 	interface Props {
 		customTheme?: ThemeConfigType
-		children: Snippet
+		children: Snippet<[]>
 	}
 
 	let { customTheme, children }: Props = $props()

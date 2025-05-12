@@ -2,53 +2,69 @@
 	import { Button, Drawer } from "@/lib/index.js"
 	import styles from "./drawer.module.css"
 
-	let isOpenLeft = $state(false)
-	let isOpenRight = $state(false)
+	type PositionType = "top" | "left" | "right" | "bottom"
 
-	function handleOpenLeft() {
-		isOpenLeft = !isOpenLeft
+	let drawerStates = $state({
+		top: false,
+		left: false,
+		right: false,
+		bottom: false
+	})
+
+	function handleToggle(position: PositionType) {
+		drawerStates[position] = !drawerStates[position]
 	}
 
-	function handleOpenRight() {
-		isOpenRight = !isOpenRight
-	}
-
-	function handleClose() {
-		isOpenLeft ? (isOpenLeft = false) : (isOpenRight = false)
+	function handleClose(position: PositionType) {
+		drawerStates[position] = false
 	}
 </script>
 
-{#snippet headerContent()}
-	<span>logo</span>
+{#snippet header()}
+	<Drawer.Header>
+		{#snippet content()}
+			<span>logo</span>
+		{/snippet}
+	</Drawer.Header>
 {/snippet}
 
-{#snippet drawerHeaderLeft()}
-	<Drawer.Header content={headerContent} {handleClose} />
-{/snippet}
-
-{#snippet drawerHeaderRight()}
-	<Drawer.Header content={headerContent} />
-{/snippet}
-
-{#snippet contentDrawer()}
-	<a href="/" onclick={handleClose}>label</a>
+{#snippet content()}
+	<a href="/">label</a>
 {/snippet}
 
 <Drawer
-	isOpen={isOpenLeft}
-	position={"left"}
-	{handleClose}
-	header={drawerHeaderLeft}
-	content={contentDrawer}
+	isOpen={drawerStates.top}
+	position="top"
+	handleClose={() => handleClose("top")}
+	{header}
+	{content}
 />
 
 <Drawer
-	class={styles.drawer}
-	variant="permanent"
-	isOpen={isOpenRight}
-	position={"right"}
-	header={drawerHeaderRight}
-	content={contentDrawer}
+	isOpen={drawerStates.left}
+	position="left"
+	handleClose={() => handleClose("left")}
+	{header}
+	{content}
 />
 
-<Button onclick={handleOpenLeft}>Left</Button>
+<Drawer
+	isOpen={drawerStates.right}
+	position="right"
+	handleClose={() => handleClose("right")}
+	{header}
+	{content}
+/>
+
+<Drawer
+	isOpen={drawerStates.bottom}
+	position="bottom"
+	handleClose={() => handleClose("bottom")}
+	{header}
+	{content}
+/>
+
+<Button onclick={() => handleToggle("top")}>Top</Button>
+<Button onclick={() => handleToggle("left")}>Left</Button>
+<Button onclick={() => handleToggle("right")}>Right</Button>
+<Button onclick={() => handleToggle("bottom")}>Bottom</Button>

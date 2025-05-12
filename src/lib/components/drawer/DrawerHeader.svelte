@@ -7,7 +7,7 @@
 	import Button from "../button/index.js"
 
 	export interface Props extends HTMLAttributes<HTMLDivElement> {
-		content: Snippet
+		content: Snippet<[]>
 		handleClose?: () => void
 	}
 
