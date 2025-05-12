@@ -1,4 +1,4 @@
-export type BaseColorType = "inherit" | "primary" | "secondary"
+export type BaseColorType = "primary" | "secondary"
 
 export type StatusColorType = "success" | "error" | "info" | "warning"
 

@@ -55,7 +55,3 @@
 .button.text:hover {
 	color: var(--feflow-color-primary);
 }
-
-.button.inherit {
-	color: inherit;
-}

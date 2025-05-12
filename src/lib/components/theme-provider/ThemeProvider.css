@@ -1,30 +1,4 @@
-[data-theme="light"] {
-	--color-success: #a7eac1;
-	--color-on-success: #004422;
-	--color-error: #f9b1b1;
-	--color-on-error: #661111;
-	--color-warning: #fde6b0;
-	--color-on-warning: #5a3d00;
-	--color-info: #a7dffc;
-	--color-on-info: #003344;
-
-	--color-inherit: inherit;
-	--color-on-inherit: currentColor;
-}
-
-[data-theme="dark"] {
-	--color-success: #004422;
-	--color-on-success: #a7eac1;
-	--color-error: #661111;
-	--color-on-error: #f9b1b1;
-	--color-warning: #5a3d00;
-	--color-on-warning: #fde6b0;
-	--color-info: #003344;
-	--color-on-info: #a7dffc;
-
-	--color-inherit: inherit;
-	--color-on-inherit: currentColor;
-}
+@import url("./StatusColors.css");
 
 * {
 	margin: 0;
@@ -95,46 +69,6 @@ a {
 
 .border {
 	border-color: var(--feflow-color-border);
-}
-
-.bg-success {
-	background: var(--feflow-color-success);
-}
-
-.text-on-success {
-	color: var(--feflow-color-on-success);
-}
-
-.bg-error {
-	background: var(--feflow-color-error);
-}
-
-.text-on-error {
-	color: var(--feflow-color-on-error);
-}
-
-.bg-warning {
-	background: var(--feflow-color-warning);
-}
-
-.text-on-warning {
-	color: var(--feflow-color-on-warning);
-}
-
-.bg-info {
-	background: var(--feflow-color-info);
-}
-
-.text-on-info {
-	color: var(--feflow-color-on-info);
-}
-
-.text-inherit {
-	color: var(--feflow-color-inherit);
-}
-
-.text-on-inherit {
-	color: var(--feflow-color-on-inherit);
 }
 
 .bg-disabled {

@@ -1,0 +1,55 @@
+[data-theme="light"] {
+    --feflow-color-success: #a7eac1;
+    --feflow-color-on-success: #004422;
+    --feflow-color-error: #f9b1b1;
+    --feflow-color-on-error: #661111;
+    --feflow-color-warning: #fde6b0;
+    --feflow-color-on-warning: #5a3d00;
+    --feflow-color-info: #a7dffc;
+    --feflow-color-on-info: #003344;
+}
+
+[data-theme="dark"] {
+    --feflow-color-success: #004422;
+    --feflow-color-on-success: #a7eac1;
+    --feflow-color-error: #661111;
+    --feflow-color-on-error: #f9b1b1;
+    --feflow-color-warning: #5a3d00;
+    --feflow-color-on-warning: #fde6b0;
+    --feflow-color-info: #003344;
+    --feflow-color-on-info: #a7dffc;
+}
+
+.bg-success {
+    background: var(--feflow-color-success);
+}
+
+.text-on-success {
+    color: var(--feflow-color-on-success);
+}
+
+.bg-error,
+.bg-danger {
+    background: var(--feflow-color-error);
+}
+
+.text-on-error,
+.text-on-danger {
+    color: var(--feflow-color-on-error);
+}
+
+.bg-warning {
+    background: var(--feflow-color-warning);
+}
+
+.text-on-warning {
+    color: var(--feflow-color-on-warning);
+}
+
+.bg-info {
+    background: var(--feflow-color-info);
+}
+
+.text-on-info {
+    color: var(--feflow-color-on-info);
+}
