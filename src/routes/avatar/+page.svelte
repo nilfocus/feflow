@@ -12,4 +12,6 @@
 <Avatar
 	src="https://avatars.githubusercontent.com/u/26321303?v=4"
 	textFallback="test"
+	width="150px"
+	height="150px"
 />

@@ -3,11 +3,19 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import styles from "./Avatar.module.css"
 
-	interface Props extends HTMLImgAttributes {
+	interface Props extends Omit<HTMLImgAttributes, "width" | "height"> {
 		textFallback?: string
+		width?: string
+		height?: string
 	}
 
-	let { class: className = "", textFallback, ...rest }: Props = $props()
+	let {
+		class: className = "",
+		width,
+		height,
+		textFallback,
+		...rest
+	}: Props = $props()
 
 	let hasError = $state(false)
 
@@ -21,6 +29,7 @@
 		[className as string]: true,
 		[styles.avatar]: true
 	})}
+	style="width: {width}; height: {height};"
 >
 	{#if !hasError && rest.src}
 		<img onerror={handleError} {...rest} />
