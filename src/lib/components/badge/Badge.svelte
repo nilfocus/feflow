@@ -13,19 +13,18 @@
 	let {
 		class: className = "",
 		size = "sm",
-		variant = "contained",
 		children,
 		...rest
 	}: Props = $props()
 </script>
 
 <Button
-	class={classMapUtil({
-		[className as string]: true,
-		[styles[size]]: true,
-		[styles[variant]]: true,
-		[styles.badge]: true
-	})}
+	class={classMapUtil(
+		className as string,
+		[className, styles],
+		styles.badge,
+		styles[size]
+	)}
 	{...rest}
 >
 	{@render children?.()}

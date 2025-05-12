@@ -1,3 +1,31 @@
+[data-theme="light"] {
+	--color-success: #a7eac1;
+	--color-on-success: #004422;
+	--color-error: #f9b1b1;
+	--color-on-error: #661111;
+	--color-warning: #fde6b0;
+	--color-on-warning: #5a3d00;
+	--color-info: #a7dffc;
+	--color-on-info: #003344;
+
+	--color-inherit: inherit;
+	--color-on-inherit: currentColor;
+}
+
+[data-theme="dark"] {
+	--color-success: #004422;
+	--color-on-success: #a7eac1;
+	--color-error: #661111;
+	--color-on-error: #f9b1b1;
+	--color-warning: #5a3d00;
+	--color-on-warning: #fde6b0;
+	--color-info: #003344;
+	--color-on-info: #a7dffc;
+
+	--color-inherit: inherit;
+	--color-on-inherit: currentColor;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -19,7 +47,6 @@ svg {
 	display: inline-block;
 	vertical-align: middle;
 	fill: currentColor;
-	mix-blend-mode: difference;
 }
 
 a {

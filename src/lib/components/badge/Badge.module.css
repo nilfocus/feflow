@@ -1,8 +1,45 @@
 .badge {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	border-radius: 0.5rem;
-	padding: 0.3em 0.5em;
 	font-weight: 600;
 	letter-spacing: 0.05em;
 	transition: all 0.2s ease-in-out;
+	text-align: center;
+	padding: 0 0.5em;
+}
+
+.badge.xs {
+	font-size: 0.625rem;
+	min-width: 30px;
+	height: 30px;
+}
+
+.badge.sm {
+	font-size: 0.75rem;
+	min-width: 36px;
+	height: 36px;
+}
+
+.badge.md {
+	font-size: 0.875rem;
+	min-width: 42px;
+	height: 42px;
+}
+
+.badge.lg {
+	font-size: 1rem;
+	min-width: 48px;
+	height: 48px;
+}
+
+.badge.xl {
+	font-size: 1.125rem;
+	min-width: 54px;
+	height: 54px;
+}
+
+.badge.rounded-full {
+	border-radius: 100%;
 }

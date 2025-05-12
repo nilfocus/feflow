@@ -12,10 +12,16 @@
 	}
 </script>
 
-<Badge size="lg">{count}</Badge>
+<Badge
+	class="rounded-full bg-warning text-on-warning"
+	size="lg"
+	variant="contained"
+>
+	{count}
+</Badge>
 <br />
 <br />
-<Button variant="outlined" onclick={decrement}>decrement (-)</Button>
+<Button onclick={decrement}>decrement (-)</Button>
 <br />
 <br />
 <Button variant="contained" onclick={increment}>increment (+)</Button>

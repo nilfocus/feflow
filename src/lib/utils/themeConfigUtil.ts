@@ -42,6 +42,10 @@ export default function themeConfigUtil() {
 	return { themeConfigToCssString }
 }
 
+export function customThemeConfig(t: ThemeConfigType) {
+	return t
+}
+
 export function getThemeConfig() {
 	const { colors } = getThemeConfigContext()
 	const _themeState = themeModeState()

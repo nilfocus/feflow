@@ -24,10 +24,6 @@
 	border: none;
 }
 
-.button.contained svg path {
-	fill: var(--feflow-color-on-primary);
-}
-
 .button:disabled {
 	cursor: not-allowed;
 	background: var(--feflow-color-disabled);
@@ -35,7 +31,7 @@
 }
 
 .button.contained:not(:disabled):hover {
-	background: var(--feflow-color-secondary);
+	background: color-mix(in srgb, var(--feflow-color-primary) 75%, gray 15%);
 }
 
 .button.outlined {
@@ -58,16 +54,6 @@
 
 .button.text:hover {
 	color: var(--feflow-color-primary);
-}
-
-.button.text svg path {
-	fill: var(--feflow-color-text);
-}
-
-.button.text:disabled,
-.button.text:disabled svg path {
-	color: var(--feflow-color-muted);
-	fill: var(--feflow-color-muted);
 }
 
 .button.inherit {

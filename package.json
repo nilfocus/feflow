@@ -1,6 +1,6 @@
 {
 	"name": "@dxdns/feflow",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "feflow: svelte components ui",
 	"private": false,
 	"publishConfig": {

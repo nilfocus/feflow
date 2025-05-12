@@ -1,12 +1,12 @@
 export * as Actions from "./actions/index.js"
 export {
-	classMapUtil,
-	mergeObjectUtil,
-	themeModeUtil,
-	transitionUtil,
-	useActionUtil
+	classMapUtil as classMap,
+	mergeObjectUtil as mergeObject,
+	themeModeUtil as themeMode,
+	transitionUtil as useTransition,
+	actionUtil as useAction
 } from "./utils/index.js"
-export { getThemeConfig } from "./utils/themeConfigUtil.js"
+export { customThemeConfig, getThemeConfig } from "./utils/themeConfigUtil.js"
 export { toast } from "./states/toastState.svelte.js"
 export { getSections } from "./states/scrollSectionState.svelte.js"
 export type { ThemeModeType } from "./types/index.js"

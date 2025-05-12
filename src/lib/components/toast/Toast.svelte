@@ -33,7 +33,7 @@
 		toast: true
 	})}
 	{...rest}
-	style="--bg-color: var(--feflow-color-{color}); --color: var(--feflow-color-on-{color}); {rest.style}"
+	style="--bg-color: var(--color-{color}); --color: var(--color-on-{color}); {rest.style}"
 >
 	{#if Icon}
 		<Icon fill="var(--color)" height="20px" width="20px" />

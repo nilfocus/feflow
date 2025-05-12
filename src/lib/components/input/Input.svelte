@@ -8,7 +8,7 @@
 	} from "../../types/index.js"
 	import styles from "./Input.module.css"
 	import { observeAttributeAction } from "../../actions/index.js"
-	import { useActionUtil } from "../../utils/index.js"
+	import { actionUtil } from "../../utils/index.js"
 
 	interface Props extends HTMLInputAttributes {
 		label?: string
@@ -61,7 +61,7 @@
 				helperText = value
 			}
 		}}
-		use:useActionUtil={actions}
+		use:actionUtil={actions}
 		placeholder={rest.type === "search" ? rest.placeholder : " "}
 		{...rest}
 	/>
