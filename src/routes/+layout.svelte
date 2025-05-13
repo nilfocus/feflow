@@ -4,7 +4,7 @@
 	let { children } = $props()
 
 	const customTheme = customThemeConfig({
-		colors: { light: { colorBg: "gray" }, dark: { colorPrimary: "yellow" } }
+		colors: { light: { colorBg: "blue" }, dark: { colorPrimary: "yellow" } }
 	})
 </script>
 

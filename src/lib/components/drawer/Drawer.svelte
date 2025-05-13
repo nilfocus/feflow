@@ -23,8 +23,6 @@
 		content,
 		...rest
 	}: Props = $props()
-
-	const test = $derived(isOpen)
 </script>
 
 <div
@@ -38,6 +36,7 @@
 		}
 	)}
 	use:clickOutsideAction={{
+		isOpen,
 		handler: () => {
 			handleClose?.()
 		}
