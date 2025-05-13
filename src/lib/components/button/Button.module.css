@@ -1,3 +1,7 @@
+:root {
+	--color-hover: color-mix(in srgb, var(--feflow-color-primary) 75%, gray 15%);
+}
+
 .button {
 	background: var(--feflow-color-primary);
 	font-weight: 600;
@@ -31,7 +35,7 @@
 }
 
 .button.contained:not(:disabled):hover {
-	background: color-mix(in srgb, var(--feflow-color-primary) 75%, gray 15%);
+	background: var(--color-hover);
 }
 
 .button.outlined {
@@ -47,11 +51,9 @@
 
 .button.text {
 	background: transparent;
-	padding: 0;
-	margin: 0;
 	color: var(--feflow-color-text);
 }
 
 .button.text:hover {
-	color: var(--feflow-color-primary);
+	color: var(--color-hover);
 }

@@ -14,3 +14,7 @@
 >
 	<span>test</span>
 </Accordion>
+
+<Accordion label="test" isOpen={true}>
+	<span>test</span>
+</Accordion>
