@@ -8,6 +8,7 @@
 
 	export interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen?: boolean
+		variant?: "temporary" | "permanent"
 		position?: PositionTypeNoCenter
 		handleClose?: () => void
 		header?: Snippet<[]>
@@ -17,6 +18,7 @@
 	let {
 		class: className = "",
 		isOpen = false,
+		variant = "temporary",
 		position = "left",
 		handleClose,
 		header,
@@ -32,11 +34,11 @@
 		styles.drawer,
 		styles[position],
 		{
-			[styles.show]: isOpen
+			[styles.show]: variant === "permanent" ? true : isOpen
 		}
 	)}
 	use:clickOutsideAction={{
-		isOpen,
+		isOpen: variant === "permanent" ? false : isOpen,
 		handler: () => {
 			handleClose?.()
 		}

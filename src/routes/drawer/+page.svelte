@@ -63,6 +63,8 @@
 	{content}
 />
 
+<Drawer variant="permanent" position="right" {header} {content} />
+
 <Button onclick={() => handleToggle("top")}>Top</Button>
 <Button onclick={() => handleToggle("left")}>Left</Button>
 <Button onclick={() => handleToggle("right")}>Right</Button>
