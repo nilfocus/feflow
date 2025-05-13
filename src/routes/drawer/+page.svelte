@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Button, Drawer } from "@/lib/index.js"
-	import styles from "./drawer.module.css"
 
 	type PositionType = "top" | "left" | "right" | "bottom"
 

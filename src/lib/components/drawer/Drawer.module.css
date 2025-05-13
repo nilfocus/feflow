@@ -1,8 +1,3 @@
-:root {
-	--drawer-width: 18rem;
-	--drawer-height: 18rem;
-}
-
 .drawer {
 	position: fixed;
 	background: var(--feflow-color-surface);
@@ -15,13 +10,14 @@
 		height 0.3s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 	will-change: transform, width, height;
 	overflow: hidden;
+	height: auto;
+	width: auto;
 }
 
 .drawer.left {
 	top: 0;
 	bottom: 0;
 	left: 0;
-	width: var(--drawer-width);
 	transform: translateX(-100%);
 	border-right: 1px solid var(--feflow-color-border);
 }
@@ -34,7 +30,6 @@
 	top: 0;
 	bottom: 0;
 	right: 0;
-	width: var(--drawer-width);
 	transform: translateX(100%);
 	border-left: 1px solid var(--feflow-color-border);
 }
@@ -47,7 +42,6 @@
 	left: 0;
 	right: 0;
 	top: 0;
-	height: var(--drawer-height);
 	transform: translateY(-100%);
 	border-bottom: 1px solid var(--feflow-color-border);
 }
@@ -60,7 +54,6 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: var(--drawer-height);
 	transform: translateY(100%);
 	border-top: 1px solid var(--feflow-color-border);
 }

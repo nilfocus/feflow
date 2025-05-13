@@ -23,15 +23,20 @@
 		content,
 		...rest
 	}: Props = $props()
+
+	const test = $derived(isOpen)
 </script>
 
 <div
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.drawer]: true,
-		[styles.show]: isOpen,
-		[styles[position]]: true
-	})}
+	class={classMapUtil(
+		className,
+		[styles, className],
+		styles.drawer,
+		styles[position],
+		{
+			[styles.show]: isOpen
+		}
+	)}
 	use:clickOutsideAction={{
 		handler: () => {
 			handleClose?.()
