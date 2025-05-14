@@ -5,10 +5,12 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import { clickOutsideAction } from "../../actions/index.js"
 
-	export interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface MenuProps {
 		isOpen: boolean
 		handleClose: () => void
 	}
+
+	interface Props extends MenuProps, HTMLAttributes<HTMLDivElement> {}
 
 	let {
 		class: className = "",
@@ -20,7 +22,7 @@
 </script>
 
 <div
-	use:clickOutsideAction={{ handler: handleClose }}
+	use:clickOutsideAction={{ isOpen, handler: handleClose }}
 	class={classMapUtil({
 		[className as string]: true,
 		[styles.menu]: true,
