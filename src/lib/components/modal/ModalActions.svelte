@@ -3,9 +3,11 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import type { AlignType } from "../../types/index.js"
 
-	export interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface ModalActionsProps {
 		align?: AlignType
 	}
+
+	interface Props extends ModalActionsProps, HTMLAttributes<HTMLDivElement> {}
 
 	let {
 		class: className = "",

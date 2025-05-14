@@ -5,10 +5,12 @@
 	import { fade, scale } from "svelte/transition"
 	import Card from "../card/index.js"
 
-	export interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface ModalProps {
 		isOpen: boolean
 		handleClose: () => void
 	}
+
+	interface Props extends ModalProps, HTMLAttributes<HTMLDivElement> {}
 
 	let {
 		class: className = "",

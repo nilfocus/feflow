@@ -5,11 +5,13 @@
 	import { CloseIcon } from "../../icons/index.js"
 	import type { AlignType } from "../../types/index.js"
 
-	export interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface ModalHeaderProps {
 		align?: AlignType
 		closable?: boolean
 		handleClose: () => void
 	}
+
+	interface Props extends ModalHeaderProps, HTMLAttributes<HTMLDivElement> {}
 
 	let {
 		class: className = "",
