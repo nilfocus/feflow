@@ -3,10 +3,12 @@
 	import { classMapUtil, transitionUtil } from "../../utils/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
 
-	export interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface TabContentProps {
 		isActive: boolean
 		transition?: TransitionEntry
 	}
+
+	interface Props extends TabContentProps, HTMLAttributes<HTMLDivElement> {}
 
 	let {
 		class: className,
