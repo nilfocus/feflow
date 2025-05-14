@@ -6,10 +6,12 @@
 	import { CloseIcon } from "../../icons/index.js"
 	import Button from "../button/index.js"
 
-	export interface Props extends HTMLAttributes<HTMLDivElement> {
+	export interface DrawerHeaderProps {
 		content: Snippet<[]>
 		handleClose?: () => void
 	}
+
+	interface Props extends DrawerHeaderProps, HTMLAttributes<HTMLDivElement> {}
 
 	let { class: className = "", content, handleClose, ...rest }: Props = $props()
 </script>

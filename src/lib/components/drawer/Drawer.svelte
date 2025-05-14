@@ -6,14 +6,16 @@
 	import { clickOutsideAction } from "../../actions/index.js"
 	import type { PositionTypeNoCenter } from "../../types/index.js"
 
-	export interface Props extends HTMLAttributes<HTMLDivElement> {
-		isOpen?: boolean
+	export interface DrawerProps {
+		isOpen: boolean
 		variant?: "temporary" | "permanent"
 		position?: PositionTypeNoCenter
 		handleClose?: () => void
 		header?: Snippet<[]>
 		content: Snippet<[]>
 	}
+
+	interface Props extends DrawerProps, HTMLAttributes<HTMLDivElement> {}
 
 	let {
 		class: className = "",
@@ -34,7 +36,7 @@
 		styles.drawer,
 		styles[position],
 		{
-			[styles.show]: variant === "permanent" ? true : isOpen
+			[styles.show]: isOpen
 		}
 	)}
 	use:clickOutsideAction={{

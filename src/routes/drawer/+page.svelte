@@ -2,19 +2,21 @@
 	import { Button, Drawer } from "@/lib/index.js"
 
 	type PositionType = "top" | "left" | "right" | "bottom"
+	type PosType = PositionType | "rightPermanent"
 
 	let drawerStates = $state({
 		top: false,
 		left: false,
 		right: false,
-		bottom: false
+		bottom: false,
+		rightPermanent: true
 	})
 
-	function handleToggle(position: PositionType) {
+	function handleToggle(position: PosType) {
 		drawerStates[position] = !drawerStates[position]
 	}
 
-	function handleClose(position: PositionType) {
+	function handleClose(position: PosType) {
 		drawerStates[position] = false
 	}
 </script>
@@ -63,9 +65,17 @@
 	{content}
 />
 
-<Drawer variant="permanent" position="right" {header} {content} />
+<Drawer
+	isOpen={drawerStates.rightPermanent}
+	variant="permanent"
+	position="right"
+	{header}
+	{content}
+/>
 
 <Button onclick={() => handleToggle("top")}>Top</Button>
 <Button onclick={() => handleToggle("left")}>Left</Button>
 <Button onclick={() => handleToggle("right")}>Right</Button>
 <Button onclick={() => handleToggle("bottom")}>Bottom</Button>
+
+<Button onclick={() => handleToggle("rightPermanent")}>Right Permanent</Button>
