@@ -1,0 +1,42 @@
+.code {
+    background: var(--feflow-color-surface);
+    line-height: 1.5;
+    overflow: auto;
+    height: auto;
+    width: auto;
+}
+
+.code::-webkit-scrollbar {
+    width: 8px;
+}
+
+.code::-webkit-scrollbar-thumb {
+    background: var(--feflow-color-border);
+    border-radius: 4px;
+}
+
+.code pre {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    width: 100%;
+}
+
+.code pre::before {
+    content: attr(data-prefix);
+    width: 2em;
+    text-align: left;
+    margin-right: 1em;
+    padding: 0 0.5em;
+    color: var(--feflow-color-text-muted);
+    border-right: 2px solid var(--feflow-color-border);
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.code pre code {
+    white-space: pre-wrap;
+    display: block;
+    flex: 1;
+    padding-right: 1em;
+}
