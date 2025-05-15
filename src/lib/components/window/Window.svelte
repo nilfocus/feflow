@@ -14,7 +14,7 @@
 
 <Card class={classMapUtil(className)} {...rest}>
 	<div class="header">
-		<div>
+		<div class="actions">
 			<Badge class="bg-error" roundedFull size="xs"></Badge>
 			<Badge class="bg-warning" roundedFull size="xs"></Badge>
 			<Badge class="bg-success" roundedFull size="xs"></Badge>
@@ -36,5 +36,11 @@
 		margin-bottom: 15px;
 		height: 30px;
 		user-select: none;
+	}
+
+	.actions {
+		display: flex;
+		gap: 5px;
+		align-items: center;
 	}
 </style>
