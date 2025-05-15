@@ -5,12 +5,10 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import { clickOutsideAction } from "../../actions/index.js"
 
-	export interface MenuProps {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen: boolean
 		handleClose: () => void
 	}
-
-	interface Props extends MenuProps, HTMLAttributes<HTMLDivElement> {}
 
 	let {
 		class: className = "",

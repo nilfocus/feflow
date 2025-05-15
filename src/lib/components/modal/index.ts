@@ -1,15 +1,14 @@
-import ModalComponent, { type ModalProps } from "./Modal.svelte"
-import ModalHeaderComponent, {
-	type ModalHeaderProps
-} from "./ModalHeader.svelte"
+import ModalComponent from "./Modal.svelte"
 import ModalContentComponent from "./ModalContent.svelte"
-import ModalActionsComponent, {
-	type ModalActionsProps
-} from "./ModalActions.svelte"
-import type { Component } from "svelte"
+import ModalActionsComponent from "./ModalActions.svelte"
 
-export default Object.assign(ModalComponent as Component<ModalProps>, {
-	Header: ModalHeaderComponent as Component<ModalHeaderProps>,
-	Content: ModalContentComponent,
-	Actions: ModalActionsComponent as Component<ModalActionsProps>
-})
+type ModalComponentType = typeof ModalComponent & {
+	Content: typeof ModalContentComponent
+	Actions: typeof ModalActionsComponent
+}
+
+const Modal = ModalComponent as unknown as ModalComponentType
+Modal.Content = ModalContentComponent
+Modal.Actions = ModalActionsComponent
+
+export { Modal as default }

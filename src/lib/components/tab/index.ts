@@ -1,8 +1,11 @@
-import type { Component } from "svelte"
 import TabComponent from "./Tab.svelte"
 import TabContentComponent from "./TabContent.svelte"
 
-export default Object.assign(TabComponent, {
-	Tab: TabComponent,
-	Content: TabContentComponent as Component<TabContentComponent>
-})
+type TabComponentType = typeof TabComponent & {
+	Content: typeof TabContentComponent
+}
+
+const Tab = TabComponent as unknown as TabComponentType
+Tab.Content = TabContentComponent
+
+export { Tab as default }

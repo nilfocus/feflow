@@ -3,7 +3,7 @@
 	import styles from "./MenuItem.module.css"
 	import classMapUtil from "../../utils/classMapUtil.js"
 
-	export interface Props extends HTMLAttributes<HTMLDivElement> {}
+	interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 	let { class: className = "", children, ...rest }: Props = $props()
 </script>

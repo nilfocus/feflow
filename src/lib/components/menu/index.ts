@@ -1,7 +1,11 @@
-import type { Component } from "svelte"
-import MenuComponent, { type MenuProps } from "./Menu.svelte"
+import MenuComponent from "./Menu.svelte"
 import MenuItemComponent from "./MenuItem.svelte"
 
-export default Object.assign(MenuComponent as Component<MenuProps>, {
-	Item: MenuItemComponent
-})
+type MenuComponentType = typeof MenuComponent & {
+	Item: typeof MenuItemComponent
+}
+
+const Menu = MenuComponent as unknown as MenuComponentType
+Menu.Item = MenuItemComponent
+
+export { Menu as default }

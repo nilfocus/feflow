@@ -1,6 +1,11 @@
 import CarouselComponent from "./Carousel.svelte"
 import CarouselItemComponent from "./CarouselItem.svelte"
 
-export default Object.assign(CarouselComponent, {
-	Item: CarouselItemComponent
-})
+type CarouselComponentType = typeof CarouselComponent & {
+	Item: typeof CarouselItemComponent
+}
+
+const Carousel = CarouselComponent as unknown as CarouselComponentType
+Carousel.Item = CarouselItemComponent
+
+export { Carousel as default }
