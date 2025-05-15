@@ -3,24 +3,21 @@
 	import type { HTMLAttributes } from "svelte/elements"
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import styles from "./Drawer.module.css"
-	import { clickOutsideAction } from "../../actions/index.js"
 	import type { PositionTypeNoCenter } from "../../types/index.js"
 
-	export interface DrawerProps {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen: boolean
-		variant?: "temporary" | "permanent"
+		positionStyle?: "relative" | "absolute" | "fixed"
 		position?: PositionTypeNoCenter
 		handleClose?: () => void
 		header?: Snippet<[]>
 		content: Snippet<[]>
 	}
 
-	interface Props extends DrawerProps, HTMLAttributes<HTMLDivElement> {}
-
 	let {
 		class: className = "",
 		isOpen = false,
-		variant = "temporary",
+		positionStyle = "fixed",
 		position = "left",
 		handleClose,
 		header,
@@ -29,22 +26,31 @@
 	}: Props = $props()
 </script>
 
+{#if isOpen}
+	<button
+		aria-labelledby="overlay"
+		aria-label="Close overlay"
+		class={styles.overlay}
+		onclick={handleClose}
+		style="--position-style: {positionStyle === 'relative'
+			? 'absolute'
+			: positionStyle};"
+	>
+	</button>
+{/if}
+
 <div
 	class={classMapUtil(
 		className,
 		[styles, className],
 		styles.drawer,
 		styles[position],
+		styles[positionStyle],
 		{
 			[styles.show]: isOpen
 		}
 	)}
-	use:clickOutsideAction={{
-		isOpen: variant === "permanent" ? false : isOpen,
-		handler: () => {
-			handleClose?.()
-		}
-	}}
+	style="--position-style: {positionStyle}; {rest.style}"
 	{...rest}
 >
 	{@render header?.()}

@@ -1,22 +1,24 @@
 <script lang="ts">
-	import { Button, Drawer } from "@/lib/index.js"
+	import { Button, Drawer, Navbar, Window } from "@/lib/index.js"
 
 	type PositionType = "top" | "left" | "right" | "bottom"
-	type PosType = PositionType | "rightPermanent"
 
 	let drawerStates = $state({
 		top: false,
 		left: false,
 		right: false,
-		bottom: false,
-		rightPermanent: true
+		bottom: false
 	})
 
-	function handleToggle(position: PosType) {
+	let isOpen = $state(false)
+
+	let isOpenFixed = $state(false)
+
+	function handleToggle(position: PositionType) {
 		drawerStates[position] = !drawerStates[position]
 	}
 
-	function handleClose(position: PosType) {
+	function handleClose(position: PositionType) {
 		drawerStates[position] = false
 	}
 </script>
@@ -34,48 +36,111 @@
 {/snippet}
 
 <Drawer
-	isOpen={drawerStates.top}
-	position="top"
-	handleClose={() => handleClose("top")}
-	{header}
-	{content}
-/>
-
-<Drawer
-	isOpen={drawerStates.left}
-	position="left"
-	handleClose={() => handleClose("left")}
-	{header}
-	{content}
-/>
-
-<Drawer
-	isOpen={drawerStates.right}
+	isOpen={isOpenFixed}
+	positionStyle="fixed"
 	position="right"
-	handleClose={() => handleClose("right")}
+	handleClose={() => {
+		isOpenFixed = false
+	}}
 	{header}
 	{content}
 />
+<Button
+	onclick={() => {
+		isOpenFixed = !isOpenFixed
+	}}
+>
+	Right Fixed
+</Button>
 
-<Drawer
-	isOpen={drawerStates.bottom}
-	position="bottom"
-	handleClose={() => handleClose("bottom")}
-	{header}
-	{content}
-/>
+<Window style="height: 500px; width: 500px;">
+	<Drawer
+		isOpen={drawerStates.top}
+		positionStyle="absolute"
+		position="top"
+		handleClose={() => handleClose("top")}
+		{header}
+		{content}
+	/>
 
-<Drawer
-	isOpen={drawerStates.rightPermanent}
-	variant="permanent"
-	position="right"
-	{header}
-	{content}
-/>
+	<Drawer
+		isOpen={drawerStates.left}
+		positionStyle="absolute"
+		position="left"
+		handleClose={() => handleClose("left")}
+		{header}
+		{content}
+	/>
 
-<Button onclick={() => handleToggle("top")}>Top</Button>
-<Button onclick={() => handleToggle("left")}>Left</Button>
-<Button onclick={() => handleToggle("right")}>Right</Button>
-<Button onclick={() => handleToggle("bottom")}>Bottom</Button>
+	<Drawer
+		isOpen={drawerStates.right}
+		positionStyle="absolute"
+		position="right"
+		handleClose={() => handleClose("right")}
+		{header}
+		{content}
+	/>
 
-<Button onclick={() => handleToggle("rightPermanent")}>Right Permanent</Button>
+	<Drawer
+		isOpen={drawerStates.bottom}
+		positionStyle="absolute"
+		position="bottom"
+		handleClose={() => handleClose("bottom")}
+		{header}
+		{content}
+	/>
+	<Button onclick={() => handleToggle("top")}>Top</Button>
+	<Button onclick={() => handleToggle("left")}>Left</Button>
+	<Button onclick={() => handleToggle("right")}>Right</Button>
+	<Button onclick={() => handleToggle("bottom")}>Bottom</Button>
+</Window>
+
+<Window style="height: 500px; width: 500px;">
+	<div
+		class="container"
+		style="--size: {isOpen ? 'auto' : '0'}; overflow: hidden;"
+	>
+		<Drawer
+			{isOpen}
+			positionStyle="relative"
+			handleClose={() => {
+				isOpen = false
+			}}
+		>
+			{#snippet header()}
+				<Drawer.Header
+					handleClose={() => {
+						isOpen = false
+					}}
+				>
+					{#snippet content()}
+						<span>header</span>
+					{/snippet}
+				</Drawer.Header>
+			{/snippet}
+			{#snippet content()}
+				<span>test</span>
+			{/snippet}
+		</Drawer>
+
+		<Navbar>
+			{#if !isOpen}
+				<Button
+					onclick={() => {
+						isOpen = !isOpen
+					}}
+				>
+					Left
+				</Button>
+			{/if}
+			<span>Menu</span>
+		</Navbar>
+	</div>
+</Window>
+
+<style>
+	.container {
+		display: grid;
+		grid-template-columns: var(--size) 1fr;
+	}
+</style>

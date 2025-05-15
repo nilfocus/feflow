@@ -6,20 +6,17 @@
 	import { CloseIcon } from "../../icons/index.js"
 	import Button from "../button/index.js"
 
-	export interface DrawerHeaderProps {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		content: Snippet<[]>
 		handleClose?: () => void
 	}
-
-	interface Props extends DrawerHeaderProps, HTMLAttributes<HTMLDivElement> {}
 
 	let { class: className = "", content, handleClose, ...rest }: Props = $props()
 </script>
 
 <div
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.drawerHeader]: true
+	class={classMapUtil(className, [styles, className], styles.drawerHeader, {
+		[styles.withHandleClose]: Boolean(handleClose)
 	})}
 	{...rest}
 >

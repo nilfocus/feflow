@@ -1,9 +1,11 @@
-import { type Component } from "svelte"
-import DrawerComponent, { type DrawerProps } from "./Drawer.svelte"
-import DrawerHeaderComponent, {
-	type DrawerHeaderProps
-} from "./DrawerHeader.svelte"
+import DrawerComponent from "./Drawer.svelte"
+import DrawerHeaderComponent from "./DrawerHeader.svelte"
 
-export default Object.assign(DrawerComponent as Component<DrawerProps>, {
-	Header: DrawerHeaderComponent as Component<DrawerHeaderProps>
-})
+type DrawerComponentType = typeof DrawerComponent & {
+	Header: typeof DrawerHeaderComponent
+}
+
+const Drawer = DrawerComponent as unknown as DrawerComponentType
+Drawer.Header = DrawerHeaderComponent
+
+export { Drawer as default }
