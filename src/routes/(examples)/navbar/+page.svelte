@@ -10,6 +10,8 @@
 		<InputSearch variant="contained" />
 	</div>
 	<div data-position="end">
+		<Navbar.Item aria-current="page">active</Navbar.Item>
+		<Navbar.Item>test</Navbar.Item>
 		<Button
 			variant="text"
 			onclick={() => {

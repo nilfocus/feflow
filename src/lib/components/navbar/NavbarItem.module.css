@@ -1,0 +1,12 @@
+.navbarItem {
+    margin-left: 0.5rem;
+}
+
+.navbarItem[aria-current="page"] {
+    background: color-mix(in srgb, var(--feflow-color-surface) 85%, gray 15%);
+}
+
+.navbarItem:hover {
+    background: color-mix(in srgb, var(--feflow-color-surface) 90%, gray 10%);
+    color: var(--feflow-color-on-surface) !important;
+}
