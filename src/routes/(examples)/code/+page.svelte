@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code } from "@/lib/index.js"
+	import { Code, Window } from "@/lib/index.js"
 
 	const data = `
         .card {
@@ -13,10 +13,15 @@
         }`
 </script>
 
-<Code>
-	{#each data.split("\n").filter((l) => l.trim() !== "") as text, i}
-		<pre data-prefix={i}>
+<Window>
+	{#snippet label()}
+		<span>label</span>
+	{/snippet}
+	<Code>
+		{#each data.split("\n").filter((l) => l.trim() !== "") as text, i}
+			<pre data-prefix={i}>
 			<code>{text.trim()}</code>
 		</pre>
-	{/each}
-</Code>
+		{/each}
+	</Code>
+</Window>
