@@ -1,16 +1,35 @@
 <script lang="ts">
-	import { Button, Navbar } from "@/lib/index.js"
+	import { Button, InputSearch, Menu, Navbar, Window } from "@/lib/index.js"
 
-	let isOpen = $state(true)
+	let menuCollapsed = $state(false)
 </script>
 
 <Navbar>
-    <Button
-        onclick={() => {
-            isOpen = !isOpen
-        }}
-    >
-        test
-    </Button>
-    <span>test</span>
+	<div data-position="start">Logo</div>
+	<div data-position="center">
+		<InputSearch variant="contained" />
+	</div>
+	<div data-position="end">
+		<Button
+			variant="text"
+			onclick={() => {
+				menuCollapsed = !menuCollapsed
+			}}
+		>
+			Open menu
+		</Button>
+		<Menu
+			isOpen={menuCollapsed}
+			handleClose={() => {
+				menuCollapsed = false
+			}}
+		>
+			<Menu.Item>test1</Menu.Item>
+			<Menu.Item>test2</Menu.Item>
+			<Menu.Item>test3</Menu.Item>
+		</Menu>
+	</div>
 </Navbar>
+<main style="min-height: 100vh; width: 80%; margin: 3rem auto;">
+	<h1>test</h1>
+</main>

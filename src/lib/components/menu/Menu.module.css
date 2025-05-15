@@ -4,6 +4,7 @@
 }
 
 .content {
+	background: var(--feflow-color-surface);
 	opacity: 0;
 	margin: 0;
 	position: absolute;

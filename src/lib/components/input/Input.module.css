@@ -79,7 +79,7 @@
 }
 
 .inputGroup.contained > input {
-	background: var(--feflow-color-surface);
+	background: color-mix(in srgb, var(--feflow-color-surface) 90%, gray 5%);;
 	border: none;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;

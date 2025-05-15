@@ -1,15 +1,20 @@
+:root {
+	--color-hover: color-mix(in srgb, var(--feflow-color-surface) 75%, gray 15%);
+}
+
 .menuItem {
 	width: 100%;
 	cursor: pointer;
 	padding: 0.25rem 1rem;
 	display: list-item;
 	text-align: left;
+	transition: background .3s;
 }
 
-.menuItem > * {
+.menuItem>* {
 	color: var(--feflow-color-on-surface) !important;
 }
 
 .menuItem:hover {
-	background: var(--feflow-color-surface);
+	background: var(--color-hover);
 }
