@@ -8,11 +8,13 @@
 	interface Props extends HTMLButtonAttributes {
 		size?: SizeType
 		variant?: VariantType
+		roundedFull?: boolean
 	}
 
 	let {
 		class: className = "",
-		size = "sm",
+		size = "xs",
+		roundedFull = false,
 		children,
 		...rest
 	}: Props = $props()
@@ -23,7 +25,8 @@
 		className as string,
 		[className, styles],
 		styles.badge,
-		styles[size]
+		styles[size],
+		{ [styles.roundedFull]: roundedFull }
 	)}
 	{...rest}
 >

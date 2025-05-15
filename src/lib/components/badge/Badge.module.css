@@ -5,41 +5,40 @@
 	border-radius: 0.5rem;
 	font-weight: 600;
 	letter-spacing: 0.05em;
-	transition: all 0.2s ease-in-out;
 	text-align: center;
 	padding: 0 0.5em;
 }
 
 .badge.xs {
 	font-size: 0.625rem;
-	min-width: 30px;
-	height: 30px;
+	min-width: 14px;
+	height: 14px;
 }
 
 .badge.sm {
 	font-size: 0.75rem;
-	min-width: 36px;
-	height: 36px;
+	min-width: 18px;
+	height: 18px;
 }
 
 .badge.md {
 	font-size: 0.875rem;
-	min-width: 42px;
-	height: 42px;
+	min-width: 26px;
+	height: 26px;
 }
 
 .badge.lg {
 	font-size: 1rem;
-	min-width: 48px;
-	height: 48px;
+	min-width: 34px;
+	height: 34px;
 }
 
 .badge.xl {
 	font-size: 1.125rem;
-	min-width: 54px;
-	height: 54px;
+	min-width: 42px;
+	height: 42px;
 }
 
-.badge.rounded-full {
+.badge.roundedFull {
 	border-radius: 100%;
 }
