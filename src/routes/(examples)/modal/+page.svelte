@@ -9,7 +9,7 @@
 </script>
 
 <Modal isOpen={openModal} {handleClose}>
-	<Modal.Header {handleClose} align="center" closable={true}>
+	<Modal.Header {handleClose} align="center">
 		<h1>test header</h1>
 	</Modal.Header>
 	<Modal.Content>

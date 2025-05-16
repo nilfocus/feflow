@@ -1,3 +1,7 @@
+* {
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
 [data-theme="light"] {
     --feflow-color-success: #a7eac1;
     --feflow-color-on-success: #004422;
@@ -39,6 +43,24 @@
     background: var(--feflow-color-info);
 }
 
+/** hover bg **/
+.hover-bg-success:hover {
+    background: var(--feflow-color-success);
+}
+
+.hover-bg-error:hover,
+.hover-bg-danger:hover {
+    background: var(--feflow-color-error);
+}
+
+.hover-bg-warning:hover {
+    background: var(--feflow-color-warning);
+}
+
+.hover-bg-info:hover {
+    background: var(--feflow-color-info);
+}
+
 /** text **/
 
 .text-on-success {
@@ -58,19 +80,29 @@
     color: var(--feflow-color-on-info);
 }
 
-/** border **/
+/** hover text **/
 
-.border-success {
-    border-color: var(--feflow-color-success);
+.hover-text-on-success:hover {
+    color: var(--feflow-color-on-success);
 }
+
+.hover-text-on-error:hover,
+.hover-text-on-danger:hover {
+    color: var(--feflow-color-on-error);
+}
+
+.hover-text-on-warning:hover {
+    color: var(--feflow-color-on-warning);
+}
+
+.hover-text-on-info:hover {
+    color: var(--feflow-color-on-info);
+}
+
+/** border **/
 
 .border-on-success {
     border-color: var(--feflow-color-on-success);
-}
-
-.border-error,
-.border-danger {
-    border-color: var(--feflow-color-error);
 }
 
 .border-on-error,
@@ -78,18 +110,29 @@
     border-color: var(--feflow-color-on-error);
 }
 
-.border-warning {
-    border-color: var(--feflow-color-warning);
-}
-
 .border-on-warning {
     border-color: var(--feflow-color-on-warning);
 }
 
-.border-info {
-    border-color: var(--feflow-color-info);
+.border-on-info {
+    border-color: var(--feflow-color-on-info);
 }
 
-.border-on-info {
+/** hover border **/
+
+.hover-border-on-success:hover {
+    border-color: var(--feflow-color-on-success);
+}
+
+.hover-border-on-error:hover,
+.hover-border-on-danger:hover {
+    border-color: var(--feflow-color-on-error);
+}
+
+.hover-border-on-warning:hover {
+    border-color: var(--feflow-color-on-warning);
+}
+
+.hover-border-on-info:hover {
     border-color: var(--feflow-color-on-info);
 }

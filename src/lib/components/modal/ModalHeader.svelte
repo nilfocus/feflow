@@ -7,8 +7,7 @@
 
 	export interface ModalHeaderProps {
 		align?: AlignType
-		closable?: boolean
-		handleClose: () => void
+		handleClose?: () => void
 	}
 
 	interface Props extends ModalHeaderProps, HTMLAttributes<HTMLDivElement> {}
@@ -16,7 +15,6 @@
 	let {
 		class: className = "",
 		align = "start",
-		closable = true,
 		handleClose,
 		children,
 		...rest
@@ -27,7 +25,7 @@
 	<div class="content" style="justify-content: {align};">
 		{@render children?.()}
 	</div>
-	{#if closable}
+	{#if handleClose}
 		<Button variant="text" onclick={handleClose}>
 			<CloseIcon />
 		</Button>
@@ -43,10 +41,7 @@
 		gap: 1rem;
 		height: 70px;
 		border-bottom: 1px solid var(--feflow-color-border);
-	}
-
-	.header.border-0 {
-		border-bottom: none;
+		margin-bottom: 1rem;
 	}
 
 	.content {
@@ -58,5 +53,6 @@
 		line-clamp: 2;
 		flex: 1;
 		display: flex;
+		padding: 1rem;
 	}
 </style>

@@ -100,3 +100,7 @@ a {
 .border {
 	border-color: var(--feflow-color-border);
 }
+
+.border-0 {
+	border: none !important;
+}
