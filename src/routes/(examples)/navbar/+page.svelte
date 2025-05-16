@@ -14,8 +14,12 @@
 	{/snippet}
 
 	{#snippet end()}
-		<Navbar.Item aria-current="page">active</Navbar.Item>
-		<Navbar.Item>test</Navbar.Item>
+		<a href="/">
+			<Navbar.Item aria-current="page">active</Navbar.Item>
+		</a>
+		<a href="/">
+			<Navbar.Item>test</Navbar.Item>
+		</a>
 		<Navbar.Item
 			onclick={() => {
 				menuCollapsed = !menuCollapsed
@@ -29,9 +33,15 @@
 				menuCollapsed = false
 			}}
 		>
-			<Menu.Item>test1</Menu.Item>
-			<Menu.Item>test2</Menu.Item>
-			<Menu.Item>test3</Menu.Item>
+			<a href="/">
+				<Menu.Item>test1</Menu.Item>
+			</a>
+			<a href="/">
+				<Menu.Item>test2</Menu.Item>
+			</a>
+			<a href="/">
+				<Menu.Item>test3</Menu.Item>
+			</a>
 		</Menu>
 	{/snippet}
 </Navbar>

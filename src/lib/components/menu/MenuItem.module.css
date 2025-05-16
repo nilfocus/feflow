@@ -1,14 +1,12 @@
 .menuItem {
 	width: 100%;
 	cursor: pointer;
-	padding: 0.25rem 1rem;
+	padding: 0.7rem 1rem;
 	display: list-item;
 	text-align: left;
 	transition: background .3s;
-}
-
-.menuItem>* {
-	color: var(--feflow-color-on-surface) !important;
+	margin-right: 1rem;
+	line-height: 1.3;
 }
 
 .menuItem:hover {
