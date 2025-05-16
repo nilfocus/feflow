@@ -4,21 +4,28 @@
 	import Input from "../input/index.js"
 	import styles from "./Autocomplete.module.css"
 	import { classMapUtil } from "../../utils/index.js"
+	import type { HTMLAttributes } from "svelte/elements"
+
+	type DataType = {
+		id: number
+		label: string
+	}
+
+	interface Props extends HTMLAttributes<HTMLDivElement> {
+		data: DataType[]
+		onInput?: (value: string) => void
+		onSelect?: (value: DataType) => void
+	}
+
+	let { data, onInput, onSelect, ...rest }: Props = $props()
 
 	let focusedItem = $state(-1)
 	let inputValue = $state("")
 
-	const data = [
-		{ id: 1, title: "Item 1" },
-		{ id: 2, title: "Item 2" },
-		{ id: 3, title: "Item 3" },
-		{ id: 4, title: "Item 4" }
-	]
-
 	let filtered: typeof data = $state([])
 
-	function handleSelect(item: string) {
-		console.log(item)
+	function handleSelect(item: DataType) {
+		onSelect?.(item)
 		focusedItem = -1
 		filtered = []
 		inputValue = ""
@@ -35,16 +42,17 @@
 	) {
 		const value = e.currentTarget.value.toLowerCase()
 		inputValue = value
+		onInput?.(value)
 
 		const newData = data.filter((v) => {
 			if (value.length === 0) return
-			return v.title.toLowerCase().includes(value)
+			return v.label.toLowerCase().includes(value)
 		})
 		filtered = newData
 	}
 </script>
 
-<div class={styles.autocomplete}>
+<div class={styles.autocomplete} {...rest}>
 	<Input
 		actions={[
 			[
@@ -67,7 +75,7 @@
 					[styles.focused]: focusedItem === index
 				})}
 			>
-				<p>{item.title}</p>
+				<p>{item.label}</p>
 			</div>
 		{/each}
 	</div>
