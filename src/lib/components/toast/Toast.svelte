@@ -28,12 +28,11 @@
 </script>
 
 <div
-	class={classMapUtil(className, "toast")}
+	class={classMapUtil(className, "toast", `bg-${color}`, `text-on-${color}`)}
 	{...rest}
-	style="--bg-color: var(--feflow-color-{color}); --color: var(--feflow-color-on-{color}); {rest.style}"
 >
 	{#if Icon}
-		<Icon fill="var(--color)" height="20px" width="20px" />
+		<Icon fill="var(--feflow-color-on-{color})" height="20px" width="20px" />
 	{/if}
 	{message}
 </div>
@@ -41,8 +40,6 @@
 <style>
 	.toast {
 		position: relative;
-		background: var(--bg-color);
-		color: var(--color);
 		padding: 0.5rem 1.25rem;
 		border-radius: 0.5rem;
 		font-size: 1rem;
