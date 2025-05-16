@@ -5,21 +5,24 @@
 </script>
 
 <Navbar>
-	<div data-position="start">Logo</div>
-	<div data-position="center">
+	{#snippet start()}
+		Logo
+	{/snippet}
+
+	{#snippet center()}
 		<InputSearch variant="contained" />
-	</div>
-	<div data-position="end">
+	{/snippet}
+
+	{#snippet end()}
 		<Navbar.Item aria-current="page">active</Navbar.Item>
 		<Navbar.Item>test</Navbar.Item>
-		<Button
-			variant="text"
+		<Navbar.Item
 			onclick={() => {
 				menuCollapsed = !menuCollapsed
 			}}
 		>
 			Open menu
-		</Button>
+		</Navbar.Item>
 		<Menu
 			isOpen={menuCollapsed}
 			handleClose={() => {
@@ -30,7 +33,7 @@
 			<Menu.Item>test2</Menu.Item>
 			<Menu.Item>test3</Menu.Item>
 		</Menu>
-	</div>
+	{/snippet}
 </Navbar>
 <main style="min-height: 100vh; width: 80%; margin: 3rem auto;">
 	<h1>test</h1>
