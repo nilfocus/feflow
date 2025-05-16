@@ -21,9 +21,7 @@
 
 <div
 	use:clickOutsideAction={{ isOpen, handler: handleClose }}
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.menu]: true,
+	class={classMapUtil(className, [styles, className], styles.menu, {
 		[styles.show]: isOpen
 	})}
 	{...rest}

@@ -21,10 +21,7 @@
 
 {#if isActive}
 	<div
-		class={classMapUtil({
-			[className as string]: true,
-			["tabContent"]: true
-		})}
+		class={classMapUtil(className, "tabContent")}
 		use:transitionUtil={transition}
 		{...rest}
 	>

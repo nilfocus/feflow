@@ -22,7 +22,7 @@
 
 <Button
 	class={classMapUtil(
-		className as string,
+		className,
 		[className, styles],
 		styles.badge,
 		styles[size],

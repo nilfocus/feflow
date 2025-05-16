@@ -36,12 +36,10 @@
 
 {#each Object.entries(positionStyles) as [position, style] (position)}
 	<div
-		class={classMapUtil({
-			[className as string]: true,
-			["toaster"]: true,
-			["fullWidth"]: fullWidth,
-			["top"]: position.includes("top"),
-			["bottom"]: position.includes("bottom")
+		class={classMapUtil(className, "toaster", {
+			fullWidth,
+			top: position.includes("top"),
+			bottom: position.includes("bottom")
 		})}
 		style="{style} {rest.style}"
 		{...rest}

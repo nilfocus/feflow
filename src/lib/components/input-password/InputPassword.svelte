@@ -29,11 +29,12 @@
 </script>
 
 <div
-	class={classMapUtil({
-		[className as string]: true,
-		[styles[variant]]: true,
-		[styles.inputPassword]: true
-	})}
+	class={classMapUtil(
+		className,
+		[styles, className],
+		styles[variant],
+		styles.inputPassword
+	)}
 >
 	<Button
 		type="button"

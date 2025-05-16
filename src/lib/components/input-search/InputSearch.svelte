@@ -20,11 +20,12 @@
 </script>
 
 <div
-	class={classMapUtil({
-		[className as string]: true,
-		[styles[variant]]: true,
-		[styles.inputSearch]: true
-	})}
+	class={classMapUtil(
+		className,
+		[styles, className],
+		styles[variant],
+		styles.inputSearch
+	)}
 >
 	<span class={styles.searchIcon}>
 		<SearchIcon />

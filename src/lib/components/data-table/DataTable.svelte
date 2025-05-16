@@ -48,10 +48,7 @@
 </script>
 
 <table
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.table]: true
-	})}
+	class={classMapUtil(className, [styles, className], styles.table)}
 	{...rest}
 >
 	<thead>

@@ -20,12 +20,10 @@
     --feflow-color-on-info: #a7dffc;
 }
 
+/** bg **/
+
 .bg-success {
     background: var(--feflow-color-success);
-}
-
-.text-on-success {
-    color: var(--feflow-color-on-success);
 }
 
 .bg-error,
@@ -33,23 +31,65 @@
     background: var(--feflow-color-error);
 }
 
-.text-on-error,
-.text-on-danger {
-    color: var(--feflow-color-on-error);
-}
-
 .bg-warning {
     background: var(--feflow-color-warning);
-}
-
-.text-on-warning {
-    color: var(--feflow-color-on-warning);
 }
 
 .bg-info {
     background: var(--feflow-color-info);
 }
 
+/** text **/
+
+.text-on-success {
+    color: var(--feflow-color-on-success);
+}
+
+.text-on-error,
+.text-on-danger {
+    color: var(--feflow-color-on-error);
+}
+
+.text-on-warning {
+    color: var(--feflow-color-on-warning);
+}
+
 .text-on-info {
     color: var(--feflow-color-on-info);
+}
+
+/** border **/
+
+.border-success {
+    border-color: var(--feflow-color-success);
+}
+
+.border-on-success {
+    border-color: var(--feflow-color-on-success);
+}
+
+.border-error,
+.border-danger {
+    border-color: var(--feflow-color-error);
+}
+
+.border-on-error,
+.border-on-danger {
+    border-color: var(--feflow-color-on-error);
+}
+
+.border-warning {
+    border-color: var(--feflow-color-warning);
+}
+
+.border-on-warning {
+    border-color: var(--feflow-color-on-warning);
+}
+
+.border-info {
+    border-color: var(--feflow-color-info);
+}
+
+.border-on-info {
+    border-color: var(--feflow-color-on-info);
 }

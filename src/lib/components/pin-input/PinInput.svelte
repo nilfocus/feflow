@@ -75,10 +75,7 @@
 </script>
 
 <input
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.pinInput]: true
-	})}
+	class={classMapUtil(className, [styles, className], styles.pinInput)}
 	bind:this={el}
 	type={type === "numeric" ? "number" : "text"}
 	inputmode={type === "numeric" ? "numeric" : "text"}

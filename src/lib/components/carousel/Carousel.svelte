@@ -43,10 +43,7 @@
 </script>
 
 <div
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.carousel]: true
-	})}
+	class={classMapUtil(className, [styles, className], styles.carousel)}
 	aria-label="carousel"
 	{...rest}
 >

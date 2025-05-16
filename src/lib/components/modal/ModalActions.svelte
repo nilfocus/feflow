@@ -18,10 +18,7 @@
 </script>
 
 <div
-	class={classMapUtil({
-		[className as string]: true,
-		["actions"]: true
-	})}
+	class={classMapUtil(className, "actions")}
 	style="justify-content: {align};"
 	{...rest}
 >

@@ -22,12 +22,13 @@
 </script>
 
 <button
-	class={classMapUtil({
-		[className as string]: true,
-		[styles[variant]]: true,
-		[styles.button]: true,
-		[`bg-${bgColor}`]: true
-	})}
+	class={classMapUtil(
+		className,
+		[styles, className],
+		styles[variant],
+		styles.button,
+		[`bg-${bgColor}`]
+	)}
 	type={rest.type ?? "button"}
 	{...rest}
 >

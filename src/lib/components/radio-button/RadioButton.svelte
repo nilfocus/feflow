@@ -11,12 +11,7 @@
 	let { class: className = "", size = "sm", ...rest }: Props = $props()
 </script>
 
-<label
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.radioButton]: true
-	})}
->
+<label class={classMapUtil(className, [styles, className], styles.radioButton)}>
 	<input type="radio" {...rest} />
 	<div
 		class={classMapUtil({

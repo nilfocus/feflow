@@ -23,13 +23,7 @@
 	}: Props = $props()
 </script>
 
-<div
-	class={classMapUtil({
-		[className as string]: true,
-		["header"]: true
-	})}
-	{...rest}
->
+<div class={classMapUtil(className, "header")} {...rest}>
 	<div class="content" style="justify-content: {align};">
 		{@render children?.()}
 	</div>

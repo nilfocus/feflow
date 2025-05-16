@@ -28,10 +28,7 @@
 </script>
 
 <div
-	class={classMapUtil({
-		[className as string]: true,
-		toast: true
-	})}
+	class={classMapUtil(className, "toast")}
 	{...rest}
 	style="--bg-color: var(--feflow-color-{color}); --color: var(--feflow-color-on-{color}); {rest.style}"
 >

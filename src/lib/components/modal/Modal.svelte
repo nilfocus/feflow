@@ -32,10 +32,7 @@
 {#if isOpen}
 	<div
 		{...rest}
-		class={classMapUtil({
-			[className as string]: true,
-			[styles.modal]: true
-		})}
+		class={classMapUtil(className, [styles, className], styles.modal)}
 	>
 		<div
 			bind:this={el}

@@ -41,14 +41,17 @@
 </script>
 
 <div
-	class={classMapUtil({
-		[className as string]: true,
-		[styles[variant]]: true,
-		[color]: Boolean(color),
-		[styles.inputGroup]: true,
-		["border-error"]: Boolean(helperText),
-		[styles.helperTextVisible]: Boolean(helperText)
-	})}
+	class={classMapUtil(
+		className,
+		[styles, className],
+		styles[variant],
+		styles.inputGroup,
+		{
+			[color]: Boolean(color),
+			["border-error"]: Boolean(helperText),
+			[styles.helperTextVisible]: Boolean(helperText)
+		}
+	)}
 >
 	<input
 		class={classMapUtil({
@@ -79,13 +82,7 @@
   {/if} -->
 
 	{#if helperText}
-		<span
-			class={classMapUtil({
-				[styles[variant]]: true,
-				[styles.helper]: true,
-				["error"]: true
-			})}
-		>
+		<span class={classMapUtil(styles[variant], styles.helper, "text-on-error")}>
 			{helperText}
 		</span>
 	{/if}

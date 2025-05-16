@@ -25,10 +25,7 @@
 </script>
 
 <div
-	class={classMapUtil({
-		[className as string]: true,
-		[styles.avatar]: true
-	})}
+	class={classMapUtil(className, [styles, className], styles.avatar)}
 	style="width: {width}; height: {height};"
 >
 	{#if !hasError && rest.src}
