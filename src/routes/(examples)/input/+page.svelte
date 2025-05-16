@@ -26,7 +26,7 @@
 <InputSearch variant="outlined" placeholder="test" />
 <br />
 <br />
-<InputNumber increment={() => {}} decrement={() => {}} />
+<InputNumber increment={() => {}} decrement={() => {}} value={0} />
 <br />
 <br />
 <InputFile
@@ -44,6 +44,7 @@
 	</svg>
 	<p>Drag and Drop</p>
 	<p>or</p>
+	<br />
 	<Button>Browse file</Button>
 </InputFile>
 
