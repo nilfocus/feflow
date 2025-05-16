@@ -1,8 +1,10 @@
 <script lang="ts">
-	import { PinInput } from "@/lib/index.js"
+	import { Card, PinInput } from "@/lib/index.js"
 </script>
 
-<PinInput />
-<PinInput />
-<PinInput />
-<PinInput />
+<Card>
+	<PinInput />
+	<PinInput />
+	<PinInput />
+	<PinInput />
+</Card>

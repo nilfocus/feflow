@@ -9,4 +9,5 @@
 .navbarItem:hover {
     background: color-mix(in srgb, var(--feflow-color-surface) 90%, gray 10%);
     color: var(--feflow-color-on-surface) !important;
+    opacity: 1 !important;
 }

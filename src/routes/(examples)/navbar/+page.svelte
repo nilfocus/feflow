@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, InputSearch, Menu, Navbar, Window } from "@/lib/index.js"
+	import { InputSearch, Menu, Navbar } from "@/lib/index.js"
 
 	let menuCollapsed = $state(false)
 </script>
