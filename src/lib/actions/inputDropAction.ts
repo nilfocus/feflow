@@ -26,8 +26,11 @@ export default function inputDropAction(
 		preventDefaults(e)
 		setIsDragging(false)
 
-		if (e.dataTransfer?.files && e.dataTransfer.files.length > 0) {
-			const files = Array.from(e.dataTransfer.files)
+		if (e.dataTransfer) {
+			const files = Array.from(e.dataTransfer.files).filter((f) => f.size > 0)
+			if (files.length === 0) {
+				alert("permission denied")
+			}
 			onFiles(files)
 		}
 	}
