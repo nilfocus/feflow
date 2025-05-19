@@ -20,7 +20,7 @@
 <div class="accordion">
 	<input type="radio" id={rest.id} name="accordion" {...rest} />
 	<label for={rest.id} class="header">
-		<label>{label}</label>
+		<label for={rest.id} class="title">{label}</label>
 		<div class="icon">
 			<KeyboardArrowLeftIcon />
 		</div>
@@ -47,6 +47,7 @@
 		overflow: hidden;
 		transition: all 0.3s ease;
 		opacity: 0;
+		color: var(--feflow-color-on-surface);
 	}
 
 	.accordion input[type="radio"]:checked + .header + .content {
@@ -75,5 +76,9 @@
 		cursor: pointer;
 		font-weight: bold;
 		text-align: left;
+	}
+
+	.title {
+		color: var(--feflow-color-on-surface);
 	}
 </style>
