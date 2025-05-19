@@ -1,0 +1,41 @@
+.toggleButton {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        height: auto;
+    }
+
+    .toggleButton {
+        display: block;
+    }
+
+    .start {
+        justify-content: space-between;
+    }
+
+    .end {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        overflow: hidden;
+        max-height: 0;
+        padding: 0;
+        margin: 0 auto;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .navbar.show .end {
+        overflow-y: auto;
+        max-height: 150px;
+    }
+
+    .end * {
+        width: 100%;
+        margin: 0 !important;
+    }
+}

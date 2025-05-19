@@ -95,6 +95,10 @@ a {
 	background: var(--feflow-color-focus);
 }
 
+.bg-0 {
+	background: none !important;
+}
+
 /** border **/
 
 .border {

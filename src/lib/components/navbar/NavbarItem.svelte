@@ -3,15 +3,25 @@
 	import type { HTMLButtonAttributes } from "svelte/elements"
 	import Button from "../button/index.js"
 	import styles from "./NavbarItem.module.css"
+	import type { VariantType } from "../../types/index.js"
 
-	interface Props extends HTMLButtonAttributes {}
+	interface Props extends HTMLButtonAttributes {
+		variant?: VariantType
+	}
 
-	let { class: className = "", children, ...rest }: Props = $props()
+	let {
+		class: className = "",
+		variant = "text",
+		children,
+		...rest
+	}: Props = $props()
 </script>
 
 <Button
-	variant="text"
-	class={classMapUtil(className, [styles, className], styles.navbarItem)}
+	{variant}
+	class={classMapUtil(className, [styles, className], styles.navbarItem, {
+		[styles[variant]]: true
+	})}
 	{...rest}
 >
 	{@render children?.()}

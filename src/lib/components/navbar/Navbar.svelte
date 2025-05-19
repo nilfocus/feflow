@@ -4,34 +4,34 @@
 	import styles from "./Navbar.module.css"
 	import type { Snippet } from "svelte"
 
-	interface Props
-		extends Omit<HTMLAttributes<HTMLDivElement>, "children">,
-			Partial<{
-				start: Snippet<[]>
-				center: Snippet<[]>
-				end: Snippet<[]>
-			}> {}
+	type PositionedChilds = Partial<{
+		start: Snippet<[]>
+		center: Snippet<[]>
+		end: Snippet<[]>
+	}>
 
-	let { class: className = "", start, center, end, ...rest }: Props = $props()
+	interface Props extends HTMLAttributes<HTMLDivElement>, PositionedChilds {}
+
+	let {
+		class: className = "",
+		start,
+		center,
+		end,
+		children,
+		...rest
+	}: Props = $props()
 </script>
 
 <div
 	class={classMapUtil(className, [styles, className], styles.navbar)}
 	{...rest}
 >
-	{#if start}
-		<div class={styles.start}>
-			{@render start?.()}
-		</div>
-	{/if}
-	{#if center}
-		<div class={styles.center}>
-			{@render center?.()}
-		</div>
-	{/if}
-	{#if end}
-		<div class={styles.end}>
-			{@render end?.()}
-		</div>
+	{@render children?.()}
+	{#if children}
+		{@render children?.()}
+	{:else}
+		{@render start?.()}
+		{@render center?.()}
+		{@render end?.()}
 	{/if}
 </div>
