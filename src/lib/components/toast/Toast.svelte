@@ -32,7 +32,7 @@
 	{...rest}
 >
 	{#if Icon}
-		<Icon fill="var(--feflow-color-on-{color})" height="20px" width="20px" />
+		<Icon fill="var(--ff-color-on-{color})" height="20px" width="20px" />
 	{/if}
 	{message}
 </div>

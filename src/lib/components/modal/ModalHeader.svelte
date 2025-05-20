@@ -40,7 +40,7 @@
 		align-items: last baseline;
 		gap: 1rem;
 		height: 70px;
-		border-bottom: 1px solid var(--feflow-color-border);
+		border-bottom: 1px solid var(--ff-color-border);
 		margin-bottom: 1rem;
 	}
 

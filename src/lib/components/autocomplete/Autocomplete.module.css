@@ -5,7 +5,7 @@
 
 .items {
 	border-radius: 0.25rem;
-	background: var(--feflow-color-surface);
+	background: var(--ff-color-surface);
 	max-height: 300px;
 	overflow: hidden;
 	overflow-y: auto;
@@ -23,16 +23,16 @@
 	align-items: center;
 	gap: 16px;
 	cursor: pointer;
-	border-bottom: 1px solid var(--feflow-color-border);
+	border-bottom: 1px solid var(--ff-color-border);
 	font-size: 14px;
 }
 
 .items > div > * {
-	color: var(--feflow-color-on-surface);
+	color: var(--ff-color-on-surface);
 }
 
 .items > div.focused {
-	background: color-mix(in srgb, var(--feflow-color-surface) 75%, gray 15%);
+	background: color-mix(in srgb, var(--ff-color-surface) 75%, gray 15%);
 }
 
 .items > div:last-child {
@@ -40,7 +40,7 @@
 }
 
 .items > div:hover {
-	background: color-mix(in srgb, var(--feflow-color-surface) 95%, gray 5%);
+	background: color-mix(in srgb, var(--ff-color-surface) 95%, gray 5%);
 }
 
 .items::-webkit-scrollbar {

@@ -15,13 +15,13 @@
 		width: 40px;
 		height: 40px;
 		border-radius: 0.25rem;
-		border: 1px solid var(--feflow-color-border);
+		border: 1px solid var(--ff-color-border);
 		background: none;
 		cursor: pointer;
 		padding: 0;
 	}
 
 	input[type="color" i]::-webkit-color-swatch-wrapper {
-		background: var(--feflow-color-surface) !important;
+		background: var(--ff-color-surface) !important;
 	}
 </style>

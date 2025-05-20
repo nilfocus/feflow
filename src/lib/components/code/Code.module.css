@@ -1,5 +1,5 @@
 .code {
-    background: var(--feflow-color-surface);
+    background: var(--ff-color-surface);
     line-height: 1.5;
     overflow: auto;
     height: auto;
@@ -11,7 +11,7 @@
 }
 
 .code::-webkit-scrollbar-thumb {
-    background: var(--feflow-color-border);
+    background: var(--ff-color-border);
     border-radius: 4px;
 }
 
@@ -28,8 +28,8 @@
     text-align: left;
     margin-right: 1em;
     padding: 0 0.5em;
-    color: var(--feflow-color-text-muted);
-    border-right: 2px solid var(--feflow-color-border);
+    color: var(--ff-color-text-muted);
+    border-right: 2px solid var(--ff-color-border);
     user-select: none;
     flex-shrink: 0;
 }

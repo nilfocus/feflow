@@ -7,7 +7,7 @@
 
 .inputGroup.required > label::after {
 	content: " *";
-	color: var(--feflow-color-danger);
+	color: var(--ff-color-danger);
 }
 
 .inputGroup > label {
@@ -16,7 +16,7 @@
 	left: 5px;
 	transform: translateY(-50%);
 	font-size: 16px;
-	color: var(--feflow-color-text-muted);
+	color: var(--ff-color-text-muted);
 	padding: 0 5px;
 	pointer-events: none;
 	transition: 0.2s;
@@ -32,21 +32,21 @@
 	width: 100%;
 	height: 50px;
 	font-size: 16px;
-	color: var(--feflow-color-text);
+	color: var(--ff-color-text);
 	padding: 0 9px;
 	border-radius: 0.25rem;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	outline: none;
-	border: 1px solid var(--feflow-color-border);
+	border: 1px solid var(--ff-color-border);
 }
 
 .inputGroup > input:hover {
-	border-color: var(--feflow-color-primary);
+	border-color: var(--ff-color-primary);
 }
 
 .inputGroup > input:focus {
-	border-color: var(--feflow-color-primary);
+	border-color: var(--ff-color-primary);
 }
 
 .inputGroup > input::-webkit-input-placeholder {
@@ -54,21 +54,21 @@
 }
 
 .inputGroup > input:not(:placeholder-shown):not(:focus):invalid {
-	border-color: var(--feflow-color-danger);
+	border-color: var(--ff-color-danger);
 }
 
 .inputGroup > input:disabled,
 .inputGroup > input:disabled ~ label {
-	color: var(--feflow-color-on-disabled);
+	color: var(--ff-color-on-disabled);
 	cursor: not-allowed;
-	border-color: var(--feflow-color-border);
+	border-color: var(--ff-color-border);
 }
 
 .inputGroup > input:focus ~ label,
 .inputGroup > input:not(:placeholder-shown):not(:focus) ~ label {
 	top: 0;
 	font-size: 12px;
-	color: var(--feflow-color-text);
+	color: var(--ff-color-text);
 	background: transparent;
 	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
@@ -80,7 +80,7 @@
 }
 
 .inputGroup.contained > input {
-	background: color-mix(in srgb, var(--feflow-color-surface) 90%, gray 5%);;
+	background: color-mix(in srgb, var(--ff-color-surface) 90%, gray 5%);;
 	border: none;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
@@ -88,11 +88,11 @@
 
 .inputGroup.outlined > input {
 	background: transparent;
-	border: 1.2px solid var(--feflow-color-border);
+	border: 1.2px solid var(--ff-color-border);
 }
 
 .inputGroup.outlined > input:focus {
-	border-color: var(--feflow-color-primary);
+	border-color: var(--ff-color-primary);
 }
 
 .inputGroup.text > input {
@@ -110,7 +110,7 @@
 
 .inputGroup.contained::before,
 .inputGroup.text::before {
-	border-bottom: 1px solid var(--feflow-color-border);
+	border-bottom: 1px solid var(--ff-color-border);
 	left: 0px;
 	bottom: 0px;
 	content: " ";
@@ -122,7 +122,7 @@
 
 .inputGroup.contained::after,
 .inputGroup.text::after {
-	border-bottom: 2px solid var(--feflow-color-primary);
+	border-bottom: 2px solid var(--ff-color-primary);
 	left: 0px;
 	bottom: 0px;
 	content: "";
@@ -156,7 +156,7 @@
 
 .inputGroup > input[type="date"],
 .inputGroup > input[type="month"] {
-	color: var(--feflow-color-text);
+	color: var(--ff-color-text);
 	color-scheme: dark;
 }
 
@@ -180,7 +180,7 @@
 	position: absolute;
 	bottom: -20px;
 	left: 0;
-	color: var(--feflow-color-primary);
+	color: var(--ff-color-primary);
 	font-size: 0.75rem;
 	font-weight: 500;
 	line-height: 1rem;

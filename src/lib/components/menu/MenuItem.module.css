@@ -10,5 +10,5 @@
 }
 
 .menuItem:hover {
-	background: color-mix(in srgb, var(--feflow-color-surface) 75%, gray 15%);
+	background: color-mix(in srgb, var(--ff-color-surface) 75%, gray 15%);
 }

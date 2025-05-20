@@ -1,9 +1,9 @@
 .button {
-	background: var(--feflow-color-primary);
+	background: var(--ff-color-primary);
 	font-weight: 600;
 	cursor: pointer;
 	border-radius: 0.375rem;
-	color: var(--feflow-color-on-primary);
+	color: var(--ff-color-on-primary);
 	padding: 0.5rem 1rem;
 	transition: all 200ms ease-in-out;
 	display: inline-flex;
@@ -27,28 +27,28 @@
 
 .button:disabled {
 	cursor: not-allowed;
-	background: var(--feflow-color-disabled);
-	color: var(--feflow-color-on-disabled);
+	background: var(--ff-color-disabled);
+	color: var(--ff-color-on-disabled);
 }
 
 .button.contained:not(:disabled):hover {
-	background: color-mix(in srgb, var(--feflow-color-primary) 75%, gray 15%);
+	background: color-mix(in srgb, var(--ff-color-primary) 75%, gray 15%);
 }
 
 .button.outlined {
 	background: transparent;
-	border: 1px solid var(--feflow-color-border);
+	border: 1px solid var(--ff-color-border);
 	transition: all 0.2s ease-in-out;
-	color: var(--feflow-color-text);
+	color: var(--ff-color-text);
 }
 
 .button.outlined:hover {
-	box-shadow: 0 0 0 1px var(--feflow-color-border);
+	box-shadow: 0 0 0 1px var(--ff-color-border);
 }
 
 .button.text {
 	background: transparent;
-	color: var(--feflow-color-text);
+	color: var(--ff-color-text);
 }
 
 .button.text:hover {

@@ -32,7 +32,7 @@
 <style>
 	.tabContent {
 		padding: 1rem;
-		background: var(--feflow-color-surface);
-		color: var(--feflow-color-on-surface);
+		background: var(--ff-color-surface);
+		color: var(--ff-color-on-surface);
 	}
 </style>

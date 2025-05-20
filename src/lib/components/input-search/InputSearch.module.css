@@ -17,7 +17,7 @@
 }
 
 .inputSearch.contained .inputGroup>input::-webkit-input-placeholder {
-	color: var(--feflow-color-on-surface);
+	color: var(--ff-color-on-surface);
 }
 
 .inputGroup>input::-webkit-search-cancel-button {

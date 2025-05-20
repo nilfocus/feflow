@@ -44,15 +44,15 @@
 		cursor: pointer;
 		font-weight: bold;
 		text-align: left;
-		color: var(--feflow-color-on-surface);
+		color: var(--ff-color-on-surface);
 	}
 
 	.accordion.contained .header {
-		background: var(--feflow-color-surface);
+		background: var(--ff-color-surface);
 	}
 
 	.accordion.outlined .header {
-		border: 1px solid var(--feflow-color-border);
+		border: 1px solid var(--ff-color-border);
 		border-radius: 5px;
 	}
 
@@ -66,13 +66,13 @@
 		overflow: hidden;
 		transition: all 0.3s ease;
 		opacity: 0;
-		background: var(--feflow-color-surface);
+		background: var(--ff-color-surface);
 		border-bottom-left-radius: 5px;
 		border-bottom-right-radius: 5px;
 	}
 
 	.accordion:not(.outlined) .content {
-		border-top: 1px solid var(--feflow-color-border);
+		border-top: 1px solid var(--ff-color-border);
 	}
 
 	.accordion input[type="radio"]:checked + .header + .content {

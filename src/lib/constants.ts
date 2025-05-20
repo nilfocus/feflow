@@ -1,13 +1,14 @@
 import type { ThemeConfigType } from "./types/index.js"
 
 export const APP_NAME = "feflow"
+export const APP_NAME_ACRONYM = "ff"
 
-export const CSS_VAR_PREFIX = `--${APP_NAME}`
-export const THEME_STORAGE = `${APP_NAME}-theme`
-export const THEME_ATTR = "data-theme"
+export const CSS_VAR_PREFIX = `--${APP_NAME_ACRONYM}`
+export const THEME_STORAGE = `${APP_NAME_ACRONYM}-theme`
 export const TOAST_DEFAULT_DURATION = 3000
-export const THEME_CONTEXT = `${APP_NAME}-theme-ctx`
+export const THEME_CONTEXT = `${APP_NAME_ACRONYM}-theme-ctx`
 
+export const THEME_ATTR = "data-theme"
 export const themeModeSelectors = {
 	light: `[${THEME_ATTR}='light']`,
 	dark: `[${THEME_ATTR}='dark']`
@@ -29,7 +30,7 @@ export const themeConfigDefault: ThemeConfigType = {
 			colorBorder: "#e5e7eb",
 			colorDisabled: "#d1d5db",
 			colorOnDisabled: "#6b7280",
-			colorFocus: "rgba(167, 223, 252, 0.5)",
+			colorFocus: "#a7dffc80",
 			colorOnFocus: "#003344"
 		},
 		dark: {
@@ -46,7 +47,7 @@ export const themeConfigDefault: ThemeConfigType = {
 			colorBorder: "#27272a",
 			colorDisabled: "#374151",
 			colorOnDisabled: "#9ca3af",
-			colorFocus: "rgba(167, 223, 252, 0.7)",
+			colorFocus: "#a7dffcb3",
 			colorOnFocus: "#a7dffc"
 		}
 	}

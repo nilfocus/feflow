@@ -1,5 +1,5 @@
 .dropzone {
-	border: 2px dashed var(--feflow-color-border);
+	border: 2px dashed var(--ff-color-border);
 	padding: 2rem;
 	text-align: center;
 	border-radius: 8px;
@@ -9,8 +9,8 @@
 }
 
 .dropzone.dragging {
-	border-color: var(--feflow-color-border-hover);
-	background: var(--feflow-color-surface);
+	border-color: var(--ff-color-border-hover);
+	background: var(--ff-color-surface);
 }
 
 .dropzone input[type="file"] {

@@ -13,12 +13,12 @@
 	textarea {
 		padding: 1rem;
 		border-radius: 15px;
-		color: var(--feflow-color-on-surface);
-		background: var(--feflow-color-surface);
+		color: var(--ff-color-on-surface);
+		background: var(--ff-color-surface);
 	}
 
 	textarea:focus {
 		outline: none;
-		border-color: var(--feflow-color-border);
+		border-color: var(--ff-color-border);
 	}
 </style>

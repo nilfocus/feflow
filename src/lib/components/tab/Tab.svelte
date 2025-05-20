@@ -16,6 +16,6 @@
 		position: relative;
 		border-radius: 0.25rem;
 		overflow: hidden;
-		background: var(--feflow-color-surface);
+		background: var(--ff-color-surface);
 	}
 </style>

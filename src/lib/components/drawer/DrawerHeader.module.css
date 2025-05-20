@@ -12,7 +12,7 @@
 }
 
 .drawerHeader.borded {
-	border-bottom: 1px solid var(--feflow-color-border);
+	border-bottom: 1px solid var(--ff-color-border);
 }
 
 .buttonClose {

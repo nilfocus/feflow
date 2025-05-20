@@ -12,8 +12,8 @@
 
 .drawer {
 	position: var(--position-style);
-	background: var(--feflow-color-surface);
-	color: var(--feflow-color-on-surface);
+	background: var(--ff-color-surface);
+	color: var(--ff-color-on-surface);
 	z-index: 999;
 	padding: 1rem;
 	transition:
@@ -36,7 +36,7 @@
 	bottom: 0;
 	left: 0;
 	transform: translateX(-100%);
-	border-right: 1px solid var(--feflow-color-border);
+	border-right: 1px solid var(--ff-color-border);
 }
 
 .drawer.left.show {
@@ -48,7 +48,7 @@
 	bottom: 0;
 	right: 0;
 	transform: translateX(100%);
-	border-left: 1px solid var(--feflow-color-border);
+	border-left: 1px solid var(--ff-color-border);
 }
 
 .drawer.right.show {
@@ -60,7 +60,7 @@
 	right: 0;
 	top: 0;
 	transform: translateY(-100%);
-	border-bottom: 1px solid var(--feflow-color-border);
+	border-bottom: 1px solid var(--ff-color-border);
 }
 
 .drawer.top.show {
@@ -72,7 +72,7 @@
 	right: 0;
 	bottom: 0;
 	transform: translateY(100%);
-	border-top: 1px solid var(--feflow-color-border);
+	border-top: 1px solid var(--ff-color-border);
 }
 
 .drawer.bottom.show {

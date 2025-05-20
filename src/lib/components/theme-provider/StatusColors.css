@@ -1,134 +1,134 @@
 [data-theme="light"] {
-    --feflow-color-success: #a7eac1;
-    --feflow-color-on-success: #004422;
-    --feflow-color-error: #f9b1b1;
-    --feflow-color-on-error: #661111;
-    --feflow-color-warning: #fde6b0;
-    --feflow-color-on-warning: #5a3d00;
-    --feflow-color-info: #a7dffc;
-    --feflow-color-on-info: #003344;
+    --ff-color-success: #a7eac1;
+    --ff-color-on-success: #004422;
+    --ff-color-error: #f9b1b1;
+    --ff-color-on-error: #661111;
+    --ff-color-warning: #fde6b0;
+    --ff-color-on-warning: #5a3d00;
+    --ff-color-info: #a7dffc;
+    --ff-color-on-info: #003344;
 }
 
 [data-theme="dark"] {
-    --feflow-color-success: #004422;
-    --feflow-color-on-success: #a7eac1;
-    --feflow-color-error: #661111;
-    --feflow-color-on-error: #f9b1b1;
-    --feflow-color-warning: #5a3d00;
-    --feflow-color-on-warning: #fde6b0;
-    --feflow-color-info: #003344;
-    --feflow-color-on-info: #a7dffc;
+    --ff-color-success: #004422;
+    --ff-color-on-success: #a7eac1;
+    --ff-color-error: #661111;
+    --ff-color-on-error: #f9b1b1;
+    --ff-color-warning: #5a3d00;
+    --ff-color-on-warning: #fde6b0;
+    --ff-color-info: #003344;
+    --ff-color-on-info: #a7dffc;
 }
 
 /** bg **/
 
 .bg-success {
-    background: var(--feflow-color-success);
+    background: var(--ff-color-success);
 }
 
 .bg-error,
 .bg-danger {
-    background: var(--feflow-color-error);
+    background: var(--ff-color-error);
 }
 
 .bg-warning {
-    background: var(--feflow-color-warning);
+    background: var(--ff-color-warning);
 }
 
 .bg-info {
-    background: var(--feflow-color-info);
+    background: var(--ff-color-info);
 }
 
 /** hover bg **/
 .hover-bg-success:hover {
-    background: var(--feflow-color-success);
+    background: var(--ff-color-success);
 }
 
 .hover-bg-error:hover,
 .hover-bg-danger:hover {
-    background: var(--feflow-color-error);
+    background: var(--ff-color-error);
 }
 
 .hover-bg-warning:hover {
-    background: var(--feflow-color-warning);
+    background: var(--ff-color-warning);
 }
 
 .hover-bg-info:hover {
-    background: var(--feflow-color-info);
+    background: var(--ff-color-info);
 }
 
 /** text **/
 
 .text-on-success {
-    color: var(--feflow-color-on-success);
+    color: var(--ff-color-on-success);
 }
 
 .text-on-error,
 .text-on-danger {
-    color: var(--feflow-color-on-error);
+    color: var(--ff-color-on-error);
 }
 
 .text-on-warning {
-    color: var(--feflow-color-on-warning);
+    color: var(--ff-color-on-warning);
 }
 
 .text-on-info {
-    color: var(--feflow-color-on-info);
+    color: var(--ff-color-on-info);
 }
 
 /** hover text **/
 
 .hover-text-on-success:hover {
-    color: var(--feflow-color-on-success);
+    color: var(--ff-color-on-success);
 }
 
 .hover-text-on-error:hover,
 .hover-text-on-danger:hover {
-    color: var(--feflow-color-on-error);
+    color: var(--ff-color-on-error);
 }
 
 .hover-text-on-warning:hover {
-    color: var(--feflow-color-on-warning);
+    color: var(--ff-color-on-warning);
 }
 
 .hover-text-on-info:hover {
-    color: var(--feflow-color-on-info);
+    color: var(--ff-color-on-info);
 }
 
 /** border **/
 
 .border-on-success {
-    border-color: var(--feflow-color-on-success);
+    border-color: var(--ff-color-on-success);
 }
 
 .border-on-error,
 .border-on-danger {
-    border-color: var(--feflow-color-on-error);
+    border-color: var(--ff-color-on-error);
 }
 
 .border-on-warning {
-    border-color: var(--feflow-color-on-warning);
+    border-color: var(--ff-color-on-warning);
 }
 
 .border-on-info {
-    border-color: var(--feflow-color-on-info);
+    border-color: var(--ff-color-on-info);
 }
 
 /** hover border **/
 
 .hover-border-on-success:hover {
-    border-color: var(--feflow-color-on-success);
+    border-color: var(--ff-color-on-success);
 }
 
 .hover-border-on-error:hover,
 .hover-border-on-danger:hover {
-    border-color: var(--feflow-color-on-error);
+    border-color: var(--ff-color-on-error);
 }
 
 .hover-border-on-warning:hover {
-    border-color: var(--feflow-color-on-warning);
+    border-color: var(--ff-color-on-warning);
 }
 
 .hover-border-on-info:hover {
-    border-color: var(--feflow-color-on-info);
+    border-color: var(--ff-color-on-info);
 }

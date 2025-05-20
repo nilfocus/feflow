@@ -52,7 +52,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: var(--feflow-color-surface);
+	background: var(--ff-color-surface);
 	transition: 0.4s;
 	border-radius: 30px;
 }
@@ -61,7 +61,7 @@
 	position: absolute;
 	content: "";
 	border-radius: 20px;
-	background: var(--feflow-color-on-surface);
+	background: var(--ff-color-on-surface);
 	transition: 0.4s;
 }
 
@@ -131,9 +131,9 @@ input:disabled + .slider::before {
 
 input:disabled + .slider {
 	cursor: not-allowed;
-	background: var(--feflow-color-disabled);
+	background: var(--ff-color-disabled);
 }
 
 input:checked + .slider {
-	background: var(--feflow-color-primary);
+	background: var(--ff-color-primary);
 }
