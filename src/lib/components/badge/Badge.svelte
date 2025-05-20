@@ -1,34 +1,35 @@
 <script lang="ts">
-	import type { HTMLButtonAttributes } from "svelte/elements"
+	import type { HTMLAttributes } from "svelte/elements"
 	import styles from "./Badge.module.css"
 	import type { SizeType, VariantType } from "../../types/index.js"
 	import classMapUtil from "../../utils/classMapUtil.js"
-	import Button from "../button/index.js"
 
-	interface Props extends HTMLButtonAttributes {
+	interface Props extends HTMLAttributes<HTMLSpanElement> {
 		size?: SizeType
-		variant?: VariantType
+		variant?: Exclude<VariantType, "text">
 		roundedFull?: boolean
 	}
 
 	let {
 		class: className = "",
 		size = "xs",
+		variant = "contained",
 		roundedFull = false,
 		children,
 		...rest
 	}: Props = $props()
 </script>
 
-<Button
+<span
 	class={classMapUtil(
 		className,
 		[className, styles],
 		styles.badge,
 		styles[size],
+		styles[variant],
 		{ [styles.roundedFull]: roundedFull }
 	)}
 	{...rest}
 >
 	{@render children?.()}
-</Button>
+</span>

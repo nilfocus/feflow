@@ -6,39 +6,53 @@
 	font-weight: 600;
 	letter-spacing: 0.05em;
 	text-align: center;
-	padding: 0 0.5em !important;
+	white-space: nowrap;
+	user-select: none;
+	line-height: 1.25rem;
 }
 
 .badge.xs {
 	font-size: 0.625rem;
-	min-width: 14px;
-	height: 14px;
+	line-height: 0.75rem;
+	min-height: 1rem;
+	padding-inline: 0.25rem;
 }
 
 .badge.sm {
 	font-size: 0.75rem;
-	min-width: 18px;
-	height: 18px;
+	line-height: 0.9rem;
+	min-height: 1.2rem;
+	padding-inline: 0.3rem;
 }
 
 .badge.md {
 	font-size: 0.875rem;
-	min-width: 26px;
-	height: 26px;
+	line-height: 1.05rem;
+	min-height: 1.4rem;
+	padding-inline: 0.35rem;
 }
 
 .badge.lg {
 	font-size: 1rem;
-	min-width: 34px;
-	height: 34px;
+	line-height: 1.2rem;
+	min-height: 1.6rem;
+	padding-inline: 0.4rem;
 }
 
 .badge.xl {
 	font-size: 1.125rem;
-	min-width: 42px;
-	height: 42px;
+	line-height: 1.35rem;
+	min-height: 1.8rem;
+	padding-inline: 0.45rem;
 }
 
-.badge.roundedFull {
-	border-radius: 100%;
+.badge.rounded-full {
+	border-radius: 9999px;
+	padding: 0 0.5em;
+	overflow: hidden;
+}
+
+.badge.outlined {
+	background: none;
+	border: 1px solid var(--ff-color-border);
 }
