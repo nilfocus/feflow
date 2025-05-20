@@ -64,7 +64,7 @@
 		value={inputValue}
 	/>
 
-	<div class={styles.items}>
+	<div class={styles.content}>
 		{#each filtered as item, index}
 			<div
 				class={classMapUtil(styles.item, {

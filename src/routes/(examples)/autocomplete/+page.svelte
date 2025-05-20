@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { Autocomplete } from "@/lib/index.js"
-
-	const data = [
-		{ id: 1, label: "Item 1" },
-		{ id: 2, label: "Item 2" },
-		{ id: 3, label: "Item 3" },
-		{ id: 4, label: "Item 4" }
-	]
+	import { Autocomplete, Button } from "@/lib/index.js"
+	
+	const data = Array.from(Array(30)).map((_, i) => ({
+		id: i,
+		label: `Item ${i}`
+	}))
 </script>
 
 <Autocomplete
@@ -17,12 +15,13 @@
 	}}
 >
 	{#snippet renderInput({ label })}
-		<button
+		<Button
+			variant="text"
 			onclick={() => {
 				console.log(label)
 			}}
 		>
 			{label}
-		</button>
+		</Button>
 	{/snippet}
 </Autocomplete>
