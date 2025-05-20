@@ -11,6 +11,7 @@
 
 <Autocomplete
 	{data}
+	filter={(item) => `${item.label}`}
 	onSelect={(value) => {
 		console.log(value)
 	}}

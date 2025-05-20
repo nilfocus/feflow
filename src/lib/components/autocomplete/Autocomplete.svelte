@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" generics="T">
 	import type { ActionType } from "../../types/index.js"
 	import { keyboardNavigationAction } from "../../actions/index.js"
 	import Input from "../input/index.js"
@@ -6,33 +6,28 @@
 	import { classMapUtil } from "../../utils/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
 
-	type DataType = {
-		id: number
-		label: string
+	interface Props<T> extends HTMLAttributes<HTMLDivElement> {
+		data: T[]
+		filter: (item: T) => string
+		onSelect?: (value: T) => void
 	}
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
-		data: DataType[]
-		onInput?: (value: string) => void
-		onSelect?: (value: DataType) => void
-	}
+	let { data, filter, onSelect, ...rest }: Props<T> = $props()
 
-	let { data, onInput, onSelect, ...rest }: Props = $props()
-
-	let focusedItem = $state(-1)
+	let currentIndex = $state(-1)
 	let inputValue = $state("")
 
 	let filtered: typeof data = $state([])
 
-	function handleSelect(item: DataType) {
+	function handleSelect(item: T) {
 		onSelect?.(item)
-		focusedItem = -1
+		currentIndex = -1
 		filtered = []
 		inputValue = ""
 	}
 
-	function handleFocusChange(focused: number) {
-		focusedItem = focused
+	function handleFocusChange(index: number) {
+		currentIndex = index
 	}
 
 	function handleOnInput(
@@ -42,11 +37,10 @@
 	) {
 		const value = e.currentTarget.value.toLowerCase()
 		inputValue = value
-		onInput?.(value)
 
-		const newData = data.filter((v) => {
+		const newData = data.filter((item) => {
 			if (value.length === 0) return
-			return v.label.toLowerCase().includes(value)
+			return filter(item).toLowerCase().includes(value)
 		})
 		filtered = newData
 	}
@@ -72,10 +66,10 @@
 		{#each filtered as item, index}
 			<div
 				class={classMapUtil({
-					[styles.focused]: focusedItem === index
+					[styles.focused]: currentIndex === index
 				})}
 			>
-				<p>{item.label}</p>
+				<p>{filter(item)}</p>
 			</div>
 		{/each}
 	</div>
