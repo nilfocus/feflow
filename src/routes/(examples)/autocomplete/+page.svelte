@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Autocomplete, Button } from "@/lib/index.js"
-	
+
 	const data = Array.from(Array(30)).map((_, i) => ({
 		id: i,
 		label: `Item ${i}`
@@ -14,11 +14,12 @@
 		console.log(value)
 	}}
 >
-	{#snippet renderInput({ label })}
+	{#snippet renderInput({ id, label }, clear)}
 		<Button
 			variant="text"
 			onclick={() => {
-				console.log(label)
+				console.log({ id, label })
+				clear()
 			}}
 		>
 			{label}

@@ -11,7 +11,7 @@
 		data: T[]
 		filter: (item: T) => string
 		onSelect?: (value: T) => void
-		renderInput: Snippet<[T]>
+		renderInput: Snippet<[T, () => void]>
 	}
 
 	let { data, filter, onSelect, renderInput, ...rest }: Props<T> = $props()
@@ -21,11 +21,15 @@
 
 	let filtered: typeof data = $state([])
 
-	function handleSelect(item: T) {
-		onSelect?.(item)
+	function clear() {
 		currentIndex = -1
 		filtered = []
 		inputValue = ""
+	}
+
+	function handleSelect(item: T) {
+		onSelect?.(item)
+		clear()
 	}
 
 	function handleFocusChange(index: number) {
@@ -48,7 +52,7 @@
 	}
 </script>
 
-<div class={styles.autocomplete} {...rest}>
+<div {...rest} class={styles.autocomplete}>
 	<Input
 		actions={[
 			[
@@ -71,7 +75,7 @@
 					[styles.focused]: currentIndex === index
 				})}
 			>
-				{@render renderInput?.(item)}
+				{@render renderInput?.(item, clear)}
 			</div>
 		{/each}
 	</div>
