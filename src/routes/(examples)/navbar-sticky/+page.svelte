@@ -6,6 +6,10 @@
 	let isOpen = $state(false)
 </script>
 
+<div style="text-align: center; margin: 5rem 0;">
+	<h2>Scroll Down</h2>
+	<p>Scroll down to see the sticky effect.</p>
+</div>
 <Navbar
 	class={classMap(styles.navbar, {
 		[styles.show]: isOpen
