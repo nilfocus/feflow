@@ -38,7 +38,7 @@ export const themeConfigDefault: ThemeConfigType = {
 			colorOnPrimary: "#18181b",
 			colorSecondary: "#ddd",
 			colorOnSecondary: "#474747",
-			colorText: "#f9fafb",
+			colorText: "#dbdbdb",
 			colorTextMuted: "#78787f",
 			colorBg: "#09090b",
 			colorOnBg: "#f9fafb",
