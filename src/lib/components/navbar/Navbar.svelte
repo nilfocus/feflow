@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements"
 	import classMapUtil from "../../utils/classMapUtil.js"
-	import styles from "./Navbar.module.css"
 	import type { Snippet } from "svelte"
 
 	type PositionedChilds = Partial<{
@@ -22,16 +21,29 @@
 	}: Props = $props()
 </script>
 
-<div
-	class={classMapUtil(className, [styles, className], styles.navbar)}
-	{...rest}
->
+<div class={classMapUtil(className, "navbar")} {...rest}>
 	{@render children?.()}
 	{#if children}
 		{@render children?.()}
 	{:else}
 		{@render start?.()}
 		{@render center?.()}
-		{@render end?.()}
+		<div style="justify-self: flex-end;">
+			{@render end?.()}
+		</div>
 	{/if}
 </div>
+
+<style>
+	.navbar {
+		padding: 0 2rem;
+		position: relative;
+		background: var(--ff-color-surface);
+		color: var(--ff-color-on-surface);
+		display: grid;
+		grid-template-columns: 1fr max-content 1fr;
+		align-items: center;
+		gap: 1rem;
+		height: 80px;
+	}
+</style>
