@@ -2,6 +2,7 @@
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import type { VariantType } from "../../types/index.js"
 	import { KeyboardArrowLeftIcon } from "../../icons/index.js"
+	import { classMap } from "@/lib/index.js"
 
 	interface Props extends HTMLInputAttributes {
 		label: string
@@ -17,10 +18,10 @@
 	}: Props = $props()
 </script>
 
-<div class="accordion">
+<div class={classMap("accordion", variant)}>
 	<input type="radio" id={rest.id} name="accordion" {...rest} />
 	<label for={rest.id} class="header">
-		<label for={rest.id} class="title">{label}</label>
+		<label for={rest.id}>{label}</label>
 		<div class="icon">
 			<KeyboardArrowLeftIcon />
 		</div>
@@ -35,6 +36,26 @@
 		margin-bottom: 5px;
 	}
 
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px;
+		cursor: pointer;
+		font-weight: bold;
+		text-align: left;
+		color: var(--feflow-color-on-surface);
+	}
+
+	.accordion.contained .header {
+		background: var(--feflow-color-surface);
+	}
+
+	.accordion.outlined .header {
+		border: 1px solid var(--feflow-color-border);
+		border-radius: 5px;
+	}
+
 	.accordion input[type="radio"] {
 		display: none;
 	}
@@ -42,12 +63,16 @@
 	.accordion .content {
 		height: 0px;
 		padding: 0px;
-		background: var(--feflow-color-surface);
-		border-top: 1px solid var(--feflow-color-border);
 		overflow: hidden;
 		transition: all 0.3s ease;
 		opacity: 0;
-		color: var(--feflow-color-on-surface);
+		background: var(--feflow-color-surface);
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+
+	.accordion:not(.outlined) .content {
+		border-top: 1px solid var(--feflow-color-border);
 	}
 
 	.accordion input[type="radio"]:checked + .header + .content {
@@ -65,20 +90,5 @@
 
 	.accordion input[type="radio"]:checked + .header .icon {
 		transform: rotate(90deg);
-	}
-
-	.header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 8px;
-		background: var(--feflow-color-surface);
-		cursor: pointer;
-		font-weight: bold;
-		text-align: left;
-	}
-
-	.title {
-		color: var(--feflow-color-on-surface);
 	}
 </style>
