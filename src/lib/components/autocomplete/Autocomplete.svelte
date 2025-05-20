@@ -5,14 +5,16 @@
 	import styles from "./Autocomplete.module.css"
 	import { classMapUtil } from "../../utils/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
+	import type { Snippet } from "svelte"
 
 	interface Props<T> extends HTMLAttributes<HTMLDivElement> {
 		data: T[]
 		filter: (item: T) => string
 		onSelect?: (value: T) => void
+		renderInput: Snippet<[T]>
 	}
 
-	let { data, filter, onSelect, ...rest }: Props<T> = $props()
+	let { data, filter, onSelect, renderInput, ...rest }: Props<T> = $props()
 
 	let currentIndex = $state(-1)
 	let inputValue = $state("")
@@ -65,11 +67,11 @@
 	<div class={styles.items}>
 		{#each filtered as item, index}
 			<div
-				class={classMapUtil({
+				class={classMapUtil(styles.item, {
 					[styles.focused]: currentIndex === index
 				})}
 			>
-				<p>{filter(item)}</p>
+				{@render renderInput?.(item)}
 			</div>
 		{/each}
 	</div>

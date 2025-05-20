@@ -15,4 +15,14 @@
 	onSelect={(value) => {
 		console.log(value)
 	}}
-/>
+>
+	{#snippet renderInput({ label })}
+		<button
+			onclick={() => {
+				console.log(label)
+			}}
+		>
+			{label}
+		</button>
+	{/snippet}
+</Autocomplete>
