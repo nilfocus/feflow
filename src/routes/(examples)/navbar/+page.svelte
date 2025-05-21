@@ -1,51 +1,27 @@
 <script lang="ts">
-	import { Button, InputSearch, Menu, Navbar } from "@/lib/index.js"
+	import { classMap, InputSearch, Menu, Navbar } from "@/lib/index.js"
 
-	let isOpen = $state(false)
+	let navOpened = $state(false)
 </script>
 
-<Navbar data-toggle="collapse">
+<Navbar class={classMap({ show: navOpened })} data-toggle="full">
 	{#snippet start()}
 		<div
 			style="
-			display: flex; 
+			display: flex;
 			align-items: center; 
 			justify-content: space-between;
+			padding: 0 1rem;
+			margin-bottom: 1rem;
 			"
 		>
 			<h2>Logo</h2>
-			<Button
-				variant="text"
-				onclick={() => {
-					isOpen = !isOpen
+			<Navbar.Toggler
+				class="md"
+				onchange={() => {
+					navOpened = !navOpened
 				}}
-			>
-				{#if isOpen}
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						height="24px"
-						viewBox="0 -960 960 960"
-						width="24px"
-						fill="#e3e3e3"
-					>
-						<path
-							d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-						/>
-					</svg>
-				{:else}
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						height="24px"
-						viewBox="0 -960 960 960"
-						width="24px"
-						fill="#e3e3e3"
-					>
-						<path
-							d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-						/>
-					</svg>
-				{/if}
-			</Button>
+			/>
 		</div>
 	{/snippet}
 
@@ -60,7 +36,7 @@
 		<a href="/">
 			<Navbar.Item>test</Navbar.Item>
 		</a>
-		<Menu>
+		<Menu class="border-0">
 			{#snippet anchor()}
 				<Navbar.Item>Open menu</Navbar.Item>
 			{/snippet}

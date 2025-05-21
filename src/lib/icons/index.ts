@@ -7,3 +7,4 @@ export { default as KeyboardArrowRightIcon } from "./KeyboardArrowRightIcon.svel
 export { default as ErrorIcon } from "./ErrorIcon.svelte"
 export { default as InfoIcon } from "./InfoIcon.svelte"
 export { default as WarningIcon } from "./WarningIcon.svelte"
+export { default as MenuIcon } from "./MenuIcon.svelte"

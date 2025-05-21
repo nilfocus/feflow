@@ -17,7 +17,7 @@
 	<label
 		class={classMapUtil(
 			className,
-			[styles, className],
+			[className, styles],
 			styles.content,
 			styles[size]
 		)}

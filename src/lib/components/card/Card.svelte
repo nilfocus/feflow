@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class={classMapUtil(className, [styles, className], styles.card)}
+	class={classMapUtil(className, [className, styles], styles.card)}
 	{...rest}
 >
 	{@render children?.()}

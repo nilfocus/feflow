@@ -31,7 +31,7 @@
 <div
 	class={classMapUtil(
 		className,
-		[styles, className],
+		[className, styles],
 		styles[variant],
 		styles.inputPassword
 	)}

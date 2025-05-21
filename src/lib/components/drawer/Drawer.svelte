@@ -42,7 +42,7 @@
 <div
 	class={classMapUtil(
 		className,
-		[styles, className],
+		[className, styles],
 		styles.drawer,
 		styles[position],
 		styles[positionStyle],

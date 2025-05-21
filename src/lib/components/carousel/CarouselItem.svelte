@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class={classMapUtil(className, [styles, className], styles.carouselItem)}
+	class={classMapUtil(className, [className, styles], styles.carouselItem)}
 	{...rest}
 >
 	{@render children?.()}

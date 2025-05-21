@@ -15,7 +15,7 @@
 </script>
 
 <div
-	class={classMapUtil(className, [styles, className], styles.drawerHeader, {
+	class={classMapUtil(className, [className, styles], styles.drawerHeader, {
 		[styles.withHandleClose]: Boolean(handleClose)
 	})}
 	{...rest}

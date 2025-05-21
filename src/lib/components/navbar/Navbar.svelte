@@ -24,7 +24,7 @@
 
 <div
 	{...rest}
-	class={classMapUtil(className, [styles, className], styles.navbar)}
+	class={classMapUtil(className, [className, styles], styles.navbar)}
 >
 	{@render children?.()}
 	{#if children}

@@ -12,7 +12,7 @@
 </script>
 
 <label
-	class={classMapUtil(className, [styles, className], styles.checkbox, {
+	class={classMapUtil(className, [className, styles], styles.checkbox, {
 		["text-muted"]: rest.disabled
 	})}
 >

@@ -21,7 +21,7 @@
 	}: Props = $props()
 </script>
 
-<div class={classMapUtil(className, [styles, className], styles.inputNumber)}>
+<div class={classMapUtil(className, [className, styles], styles.inputNumber)}>
 	<div class={styles.numberControl}>
 		<Button disabled={disableDecrement} onclick={decrement}>-</Button>
 		<Button disabled={disableIncrement} onclick={increment}>+</Button>

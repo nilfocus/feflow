@@ -26,7 +26,7 @@
 </script>
 
 <div
-	class={classMapUtil(className, [styles, className], styles.dropzone, {
+	class={classMapUtil(className, [className, styles], styles.dropzone, {
 		[styles.dragging]: isDragging
 	})}
 	use:inputDropAction={{

@@ -2,6 +2,8 @@
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import type { Snippet } from "svelte"
 	import { clickOutsideAction } from "../../actions/index.js"
+	import { classMapUtil } from "../../utils/index.js"
+	import styles from "./Menu.module.css"
 
 	interface Props extends HTMLInputAttributes {
 		anchor: Snippet<[]>
@@ -19,7 +21,10 @@
 	}
 </script>
 
-<div class="menu" use:clickOutsideAction={{ handler: handleClose }}>
+<div
+	class={classMapUtil("menu", className, [className, styles])}
+	use:clickOutsideAction={{ handler: handleClose }}
+>
 	<input
 		{...rest}
 		bind:this={el}
@@ -38,7 +43,7 @@
 			{@render anchor?.()}
 		</span>
 	</label>
-	<div class="content">
+	<div class={classMapUtil("content", styles.content)}>
 		{@render items?.(handleClose)}
 	</div>
 </div>

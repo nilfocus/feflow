@@ -48,7 +48,7 @@
 </script>
 
 <table
-	class={classMapUtil(className, [styles, className], styles.table)}
+	class={classMapUtil(className, [className, styles], styles.table)}
 	{...rest}
 >
 	<thead>

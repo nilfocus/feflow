@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class={classMapUtil(className, [styles, className], styles.menuItem)}
+	class={classMapUtil(className, [className, styles], styles.menuItem)}
 	{...rest}
 >
 	{@render children?.()}

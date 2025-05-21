@@ -21,7 +21,7 @@
 	{variant}
 	class={classMapUtil(
 		className,
-		[styles, className],
+		[className, styles],
 		styles.navbarItem,
 		styles[variant]
 	)}
