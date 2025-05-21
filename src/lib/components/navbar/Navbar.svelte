@@ -3,41 +3,66 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import type { Snippet } from "svelte"
 	import styles from "./Navbar.module.css"
+	import type { HorizontalPositionType } from "../../types/index.js"
+	import NavbarToggler from "./NavbarToggler.svelte"
 
 	type PositionedChilds = Partial<{
-		start: Snippet<[]>
+		variant?: "full" | "collapse"
+		align?: Exclude<HorizontalPositionType, "center">
+		left: Snippet<[Snippet]>
 		center: Snippet<[]>
-		end: Snippet<[]>
+		right: Snippet<[Snippet]>
 	}>
 
 	interface Props extends HTMLAttributes<HTMLDivElement>, PositionedChilds {}
 
 	let {
 		class: className = "",
-		start,
+		variant = "full",
+		align = "right",
+		left,
 		center,
-		end,
+		right,
 		children,
 		...rest
 	}: Props = $props()
+
+	let isOpen = $state(false)
 </script>
+
+{#snippet toggler()}
+	<NavbarToggler
+		id={rest.id}
+		class="md"
+		{align}
+		onchange={() => {
+			console.log("opa")
+			isOpen = !isOpen
+		}}
+	/>
+{/snippet}
 
 <div
 	{...rest}
-	class={classMapUtil(className, [className, styles], styles.navbar)}
+	id="navbar"
+	data-toggle={variant}
+	data-align={align}
+	class={classMapUtil(className, [className, styles], styles.navbar, {
+		[styles.show]: isOpen
+	})}
 >
 	{@render children?.()}
 	{#if children}
 		{@render children?.()}
 	{:else}
-		<div class={styles.start}>
-			{@render start?.()}
+		<div class={styles.left}>
+			{@render left?.(toggler)}
 		</div>
 		<div class={styles.center}>
 			{@render center?.()}
 		</div>
-		<div class={styles.end}>
-			{@render end?.()}
+		<div class={styles.right}>
+			{@render right?.(toggler)}
 		</div>
 	{/if}
 </div>

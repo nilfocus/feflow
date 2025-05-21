@@ -8,16 +8,18 @@
     align-items: center;
     gap: 1rem;
     height: 80px;
+    user-select: none;
 }
 
-.start,
+.left,
 .center,
-.end {
+.right {
     display: flex;
     gap: 0.5rem;
+    align-items: center;
 }
 
-.end {
+.right {
     justify-self: flex-end;
     justify-content: flex-end;
 }
@@ -29,29 +31,29 @@
         height: auto;
     }
 
-    .navbar[data-align="start"] .end {
+    .navbar[data-align="left"] .right {
         order: -2;
     }
 
-    .navbar[data-align="start"] .center {
+    .navbar[data-align="left"] .center {
         order: -1;
     }
 
-    .navbar[data-toggle="full"][data-align="start"]:not(.show) .start,
-    .navbar[data-toggle="full"][data-align="end"]:not(.show) .end {
+    .navbar[data-toggle="full"][data-align="left"]:not(.show) .left,
+    .navbar[data-toggle="full"][data-align="right"]:not(.show) .right {
         display: none;
     }
 
-    .navbar[data-align="start"] .start,
-    .navbar[data-align="end"] .end {
+    .navbar[data-align="left"] .left,
+    .navbar[data-align="right"] .right {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         width: 100%;
     }
 
-    .navbar[data-toggle="collapse"][data-align="start"] .start,
-    .navbar[data-toggle="collapse"][data-align="end"] .end {
+    .navbar[data-toggle="collapse"][data-align="left"] .left,
+    .navbar[data-toggle="collapse"][data-align="right"] .right {
         transition: max-height 0.3s ease, padding 0.3s ease-in-out, opacity 1s ease;
         overflow: hidden;
         max-height: 0;
@@ -59,8 +61,8 @@
         opacity: 0;
     }
 
-    .navbar[data-toggle="collapse"][data-align="start"].show .start,
-    .navbar[data-toggle="collapse"][data-align="end"].show .end {
+    .navbar[data-toggle="collapse"][data-align="left"].show .left,
+    .navbar[data-toggle="collapse"][data-align="right"].show .right {
         max-height: max-content;
         padding: 1rem 0;
         opacity: 1;
@@ -79,13 +81,13 @@
         z-index: 1000;
     }
 
-    .navbar[data-toggle="full"][data-align="start"] .start,
-    .navbar[data-toggle="full"][data-align="end"] .end {
+    .navbar[data-toggle="full"][data-align="left"] .left,
+    .navbar[data-toggle="full"][data-align="right"] .right {
         display: flex;
     }
 
-    .navbar[data-align="start"] .start *,
-    .navbar[data-align="end"] .end * {
+    .navbar[data-align="left"] .left *,
+    .navbar[data-align="right"] .right * {
         width: 100%;
         margin: 0 !important;
     }

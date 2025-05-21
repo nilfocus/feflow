@@ -1,18 +1,9 @@
 <script lang="ts">
-	import { classMap, InputSearch, Menu, Navbar } from "@/lib/index.js"
-
-	let navOpened = $state({
-		full: false,
-		collapse: false
-	})
+	import { InputSearch, Menu, Navbar } from "@/lib/index.js"
 </script>
 
-<Navbar
-	class={classMap({ show: navOpened.full })}
-	data-toggle="full"
-	data-align="start"
->
-	{#snippet start()}
+<Navbar id="nav1" variant="full" align="left">
+	{#snippet left()}
 		<a href="/">
 			<Navbar.Item aria-current="page">active</Navbar.Item>
 		</a>
@@ -42,7 +33,7 @@
 		<InputSearch variant="contained" placeholder="test..." />
 	{/snippet}
 
-	{#snippet end()}
+	{#snippet right(toggler)}
 		<div
 			style="
 			display: flex;
@@ -51,15 +42,7 @@
 			padding: 0 1rem;
 			"
 		>
-			<Navbar.Toggler
-				id="togglerFull"
-				class="md"
-				align="left"
-				onchange={() => {
-					navOpened.full = !navOpened.full
-				}}
-			/>
-			<!-- <div ></div> -->
+			{@render toggler?.()}
 			<h2 style="flex: 1;">Lo<span style="color: aqua;">Go</span></h2>
 		</div>
 	{/snippet}
@@ -68,12 +51,8 @@
 <br />
 <br />
 
-<Navbar
-	class={classMap({ show: navOpened.collapse })}
-	data-toggle="collapse"
-	data-align="end"
->
-	{#snippet start()}
+<Navbar id="nav2" variant="collapse" align="right">
+	{#snippet left(toggler)}
 		<div
 			style="
 			display: flex;
@@ -83,15 +62,8 @@
 			margin-bottom: 1rem;
 			"
 		>
+			{@render toggler?.()}
 			<h2>Lo<span style="color: aqua;">Go</span></h2>
-			<Navbar.Toggler
-				id="togglerCollapse"
-				class="md"
-				align="right"
-				onchange={() => {
-					navOpened.collapse = !navOpened.collapse
-				}}
-			/>
 		</div>
 	{/snippet}
 
@@ -99,7 +71,7 @@
 		<InputSearch variant="contained" placeholder="test..." />
 	{/snippet}
 
-	{#snippet end()}
+	{#snippet right()}
 		<a href="/">
 			<Navbar.Item aria-current="page">active</Navbar.Item>
 		</a>
