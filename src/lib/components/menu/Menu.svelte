@@ -27,18 +27,13 @@
 >
 	<input
 		{...rest}
+		class="controller"
 		bind:this={el}
 		type="checkbox"
 		id={rest.id ?? "checkbox"}
 		style="display: none;"
 	/>
-	<label
-		style="
-		display: inline-block;
-		cursor: pointer;
-		"
-		for={rest.id ?? "checkbox"}
-	>
+	<label class="container" for={rest.id ?? "checkbox"}>
 		<span class="anchor">
 			{@render anchor?.()}
 		</span>
@@ -52,6 +47,11 @@
 	.menu {
 		position: relative;
 		user-select: none;
+	}
+
+	.container {
+		display: inline-block;
+		cursor: pointer;
 	}
 
 	.anchor {
@@ -81,7 +81,7 @@
 			transform 150ms ease-in-out;
 	}
 
-	#checkbox:checked ~ .content {
+	.controller:checked ~ .content {
 		opacity: 1;
 		transform: translateY(0);
 		pointer-events: auto;

@@ -30,8 +30,12 @@
 	{#if children}
 		{@render children?.()}
 	{:else}
-		{@render start?.()}
-		{@render center?.()}
+		<div class={styles.start}>
+			{@render start?.()}
+		</div>
+		<div class={styles.center}>
+			{@render center?.()}
+		</div>
 		<div class={styles.end}>
 			{@render end?.()}
 		</div>

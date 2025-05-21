@@ -7,42 +7,19 @@
 	})
 </script>
 
-<Navbar class={classMap({ show: navOpened.full })} data-toggle="full">
+<Navbar
+	class={classMap({ show: navOpened.full })}
+	data-toggle="full"
+	data-align="start"
+>
 	{#snippet start()}
-		<div
-			style="
-			display: flex;
-			align-items: center; 
-			justify-content: space-between;
-			padding: 0 1rem;
-			margin-bottom: 1rem;
-			"
-		>
-			<Navbar.Toggler
-				id="togglerFull"
-				class="md"
-				align="left"
-				onchange={() => {
-					navOpened.full = !navOpened.full
-				}}
-			/>
-			<div style="flex: 1;"></div>
-			<h2>Lo<span style="color: aqua;">Go</span></h2>
-		</div>
-	{/snippet}
-
-	{#snippet center()}
-		<InputSearch variant="contained" placeholder="test..." />
-	{/snippet}
-
-	{#snippet end()}
 		<a href="/">
 			<Navbar.Item aria-current="page">active</Navbar.Item>
 		</a>
 		<a href="/">
 			<Navbar.Item>test</Navbar.Item>
 		</a>
-		<Menu class="border-0">
+		<Menu id="one" class="border-0">
 			{#snippet anchor()}
 				<Navbar.Item>Open menu</Navbar.Item>
 			{/snippet}
@@ -60,12 +37,42 @@
 		<Navbar.Item variant="contained">test4</Navbar.Item>
 		<Navbar.Item variant="outlined">test5</Navbar.Item>
 	{/snippet}
+
+	{#snippet center()}
+		<InputSearch variant="contained" placeholder="test..." />
+	{/snippet}
+
+	{#snippet end()}
+		<div
+			style="
+			display: flex;
+			align-items: center; 
+			justify-content: space-between;
+			padding: 0 1rem;
+			"
+		>
+			<Navbar.Toggler
+				id="togglerFull"
+				class="md"
+				align="left"
+				onchange={() => {
+					navOpened.full = !navOpened.full
+				}}
+			/>
+			<!-- <div ></div> -->
+			<h2 style="flex: 1;">Lo<span style="color: aqua;">Go</span></h2>
+		</div>
+	{/snippet}
 </Navbar>
 
 <br />
 <br />
 
-<Navbar class={classMap({ show: navOpened.collapse })} data-toggle="collapse">
+<Navbar
+	class={classMap({ show: navOpened.collapse })}
+	data-toggle="collapse"
+	data-align="end"
+>
 	{#snippet start()}
 		<div
 			style="
@@ -99,7 +106,7 @@
 		<a href="/">
 			<Navbar.Item>test</Navbar.Item>
 		</a>
-		<Menu class="border-0">
+		<Menu id="two" class="border-0">
 			{#snippet anchor()}
 				<Navbar.Item>Open menu</Navbar.Item>
 			{/snippet}

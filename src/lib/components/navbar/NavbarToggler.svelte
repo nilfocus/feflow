@@ -57,6 +57,13 @@
 </div>
 
 <style>
+	.toggler {
+		position: absolute;
+		left: 3rem;
+		right: 3rem;
+		width: auto;
+	}
+
 	.toggler.md {
 		display: none;
 	}
@@ -98,10 +105,6 @@
 	@media screen and (max-width: 768px) {
 		.toggler.md {
 			display: block;
-			position: fixed;
-			left: 3rem;
-			right: 3rem;
-			width: auto;
 		}
 	}
 </style>
