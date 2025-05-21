@@ -28,7 +28,7 @@
 	{:else}
 		{@render start?.()}
 		{@render center?.()}
-		<div style="justify-self: flex-end;">
+		<div style="justify-self: flex-end; display: flex; gap: 0.5rem;">
 			{@render end?.()}
 		</div>
 	{/if}

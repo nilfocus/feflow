@@ -19,9 +19,12 @@
 
 <Button
 	{variant}
-	class={classMapUtil(className, [styles, className], styles.navbarItem, {
-		[styles[variant]]: true
-	})}
+	class={classMapUtil(
+		className,
+		[styles, className],
+		styles.navbarItem,
+		styles[variant]
+	)}
 	{...rest}
 >
 	{@render children?.()}

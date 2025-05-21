@@ -8,7 +8,7 @@
 	line-height: 1.3;
 	color: var(--ff-color-on-surface);
 	overflow: hidden;
-	border-radius: inherit;
+	border-radius: 0.25rem;
 }
 
 .menuItem:hover {

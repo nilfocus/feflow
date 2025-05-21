@@ -2,7 +2,6 @@
 	import { Button, classMap, InputSearch, Menu, Navbar } from "@/lib/index.js"
 	import styles from "./navbar.module.css"
 
-	let menuCollapsed = $state(false)
 	let isOpen = $state(false)
 </script>
 
@@ -13,7 +12,11 @@
 >
 	{#snippet start()}
 		<div
-			style="display: flex; align-items: center; justify-content: space-between;"
+			style="
+			display: flex; 
+			align-items: center; 
+			justify-content: space-between;
+			"
 		>
 			<h2>Logo</h2>
 			<Button
@@ -57,26 +60,18 @@
 	{/snippet}
 
 	{#snippet end()}
-		<div class={styles.end}>
-			<a href="/">
-				<Navbar.Item aria-current="page">active</Navbar.Item>
-			</a>
-			<a href="/">
-				<Navbar.Item>test</Navbar.Item>
-			</a>
-			<Navbar.Item
-				onclick={() => {
-					menuCollapsed = !menuCollapsed
-				}}
-			>
-				Open menu
-			</Navbar.Item>
-			<Menu
-				isOpen={menuCollapsed}
-				handleClose={() => {
-					menuCollapsed = false
-				}}
-			>
+		<a href="/">
+			<Navbar.Item aria-current="page">active</Navbar.Item>
+		</a>
+		<a href="/">
+			<Navbar.Item>test</Navbar.Item>
+		</a>
+		<Menu>
+			{#snippet anchor()}
+				<Navbar.Item>Open menu</Navbar.Item>
+			{/snippet}
+
+			{#snippet items(handleClose)}
 				<a href="/">
 					<Menu.Item>test1</Menu.Item>
 				</a>
@@ -86,10 +81,10 @@
 				<a href="/">
 					<Menu.Item>test3</Menu.Item>
 				</a>
-			</Menu>
-			<Navbar.Item variant="contained">test4</Navbar.Item>
-			<Navbar.Item variant="outlined">test5</Navbar.Item>
-		</div>
+			{/snippet}
+		</Menu>
+		<Navbar.Item variant="contained">test4</Navbar.Item>
+		<Navbar.Item variant="outlined">test5</Navbar.Item>
 	{/snippet}
 </Navbar>
 <main style="min-height: 100vh; width: 80%; margin: 3rem auto;">

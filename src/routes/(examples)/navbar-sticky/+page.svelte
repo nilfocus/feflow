@@ -2,7 +2,6 @@
 	import { Button, classMap, InputSearch, Menu, Navbar } from "@/lib/index.js"
 	import styles from "./navbar.module.css"
 
-	let menuCollapsed = $state(false)
 	let isOpen = $state(false)
 </script>
 
@@ -14,10 +13,15 @@
 	class={classMap(styles.navbar, {
 		[styles.show]: isOpen
 	})}
+	style="position: sticky; top: 0;"
 >
 	{#snippet start()}
 		<div
-			style="display: flex; align-items: center; justify-content: space-between;"
+			style="
+			display: flex; 
+			align-items: center; 
+			justify-content: space-between;
+			"
 		>
 			<h2>Logo</h2>
 			<Button
@@ -68,28 +72,22 @@
 			<a href="/">
 				<Navbar.Item>test</Navbar.Item>
 			</a>
-			<Navbar.Item
-				onclick={() => {
-					menuCollapsed = !menuCollapsed
-				}}
-			>
-				Open menu
-			</Navbar.Item>
-			<Menu
-				isOpen={menuCollapsed}
-				handleClose={() => {
-					menuCollapsed = false
-				}}
-			>
-				<a href="/">
-					<Menu.Item>test1</Menu.Item>
-				</a>
-				<a href="/">
-					<Menu.Item>test2</Menu.Item>
-				</a>
-				<a href="/">
-					<Menu.Item>test3</Menu.Item>
-				</a>
+			<Menu>
+				{#snippet anchor()}
+					<Navbar.Item>Open menu</Navbar.Item>
+				{/snippet}
+
+				{#snippet items(handleClose)}
+					<a href="/">
+						<Menu.Item>test1</Menu.Item>
+					</a>
+					<a href="/">
+						<Menu.Item>test2</Menu.Item>
+					</a>
+					<a href="/">
+						<Menu.Item>test3</Menu.Item>
+					</a>
+				{/snippet}
 			</Menu>
 			<Navbar.Item variant="contained">test4</Navbar.Item>
 			<Navbar.Item variant="outlined">test5</Navbar.Item>

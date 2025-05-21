@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from "svelte/elements"
-	import Button from "../button/index.js"
 	import type { Snippet } from "svelte"
-	import clickOutsideAction from "@/lib/actions/clickOutsideAction.js"
+	import { clickOutsideAction } from "../../actions/index.js"
 
 	interface Props extends HTMLInputAttributes {
 		anchor: Snippet<[]>
@@ -35,9 +34,9 @@
 		"
 		for={rest.id ?? "checkbox"}
 	>
-		<Button style="pointer-events: none;">
+		<span class="anchor">
 			{@render anchor?.()}
-		</Button>
+		</span>
 	</label>
 	<div class="content">
 		{@render items?.(handleClose)}
@@ -48,6 +47,14 @@
 	.menu {
 		position: relative;
 		user-select: none;
+	}
+
+	.anchor {
+		display: inline-block;
+	}
+
+	.anchor:active {
+		pointer-events: none;
 	}
 
 	.content {
