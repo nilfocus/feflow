@@ -1,21 +1,29 @@
 <script lang="ts">
-	import classMapUtil from "@/lib/utils/classMapUtil.js"
+	import type { HorizontalPositionType } from "../../types/index.js"
+	import { classMapUtil } from "../../utils/index.js"
 	import type { HTMLInputAttributes } from "svelte/elements"
 
-	interface Props extends HTMLInputAttributes {}
+	interface Props extends HTMLInputAttributes {
+		align?: Exclude<HorizontalPositionType, "center">
+	}
 
-	let { class: className = "", children, ...rest }: Props = $props()
+	let {
+		class: className = "",
+		align = "right",
+		children,
+		...rest
+	}: Props = $props()
 </script>
 
-<div class={classMapUtil(className, "toggler")}>
+<div class={classMapUtil(className, "toggler")} style="--align: {align}">
 	<input
 		{...rest}
 		class="controller"
 		type="checkbox"
-		name="toggler"
-		id="toggler"
+		name={rest.id ?? "toggler"}
+		id={rest.id ?? "toggler"}
 	/>
-	<label class="container" for="toggler">
+	<label class="container" for={rest.id ?? "toggler"}>
 		<svg
 			class="menu-icon"
 			viewBox="0 0 24 24"
@@ -63,7 +71,7 @@
 		align-items: center;
 		justify-content: center;
 		position: relative;
-		float: right;
+		float: var(--align);
 	}
 
 	svg {

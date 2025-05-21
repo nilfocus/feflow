@@ -2,7 +2,7 @@
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import type { VariantType } from "../../types/index.js"
 	import { KeyboardArrowLeftIcon } from "../../icons/index.js"
-	import { classMap } from "@/lib/index.js"
+	import { classMapUtil } from "../../utils/index.js"
 
 	interface Props extends HTMLInputAttributes {
 		label: string
@@ -18,7 +18,7 @@
 	}: Props = $props()
 </script>
 
-<div class={classMap("accordion", variant)}>
+<div class={classMapUtil("accordion", variant)}>
 	<input type="radio" id={rest.id} name="accordion" {...rest} />
 	<label for={rest.id} class="header">
 		<label for={rest.id}>{label}</label>
