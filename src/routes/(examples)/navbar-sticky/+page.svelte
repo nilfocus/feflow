@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Button, classMap, InputSearch, Menu, Navbar } from "@/lib/index.js"
-	import styles from "./navbar.module.css"
+	import { Button, InputSearch, Menu, Navbar } from "@/lib/index.js"
 
 	let isOpen = $state(false)
 </script>
@@ -9,12 +8,7 @@
 	<h2>Scroll Down</h2>
 	<p>Scroll down to see the sticky effect.</p>
 </div>
-<Navbar
-	class={classMap(styles.navbar, {
-		[styles.show]: isOpen
-	})}
-	style="position: sticky; top: 0;"
->
+<Navbar style="position: sticky; top: 0;" data-toggle="full">
 	{#snippet start()}
 		<div
 			style="
@@ -25,7 +19,6 @@
 		>
 			<h2>Logo</h2>
 			<Button
-				class={styles.toggleButton}
 				variant="text"
 				onclick={() => {
 					isOpen = !isOpen
@@ -65,33 +58,31 @@
 	{/snippet}
 
 	{#snippet end()}
-		<div class={styles.end}>
-			<a href="/">
-				<Navbar.Item aria-current="page">active</Navbar.Item>
-			</a>
-			<a href="/">
-				<Navbar.Item>test</Navbar.Item>
-			</a>
-			<Menu>
-				{#snippet anchor()}
-					<Navbar.Item>Open menu</Navbar.Item>
-				{/snippet}
+		<a href="/">
+			<Navbar.Item aria-current="page">active</Navbar.Item>
+		</a>
+		<a href="/">
+			<Navbar.Item>test</Navbar.Item>
+		</a>
+		<Menu>
+			{#snippet anchor()}
+				<Navbar.Item>Open menu</Navbar.Item>
+			{/snippet}
 
-				{#snippet items(handleClose)}
-					<a href="/">
-						<Menu.Item>test1</Menu.Item>
-					</a>
-					<a href="/">
-						<Menu.Item>test2</Menu.Item>
-					</a>
-					<a href="/">
-						<Menu.Item>test3</Menu.Item>
-					</a>
-				{/snippet}
-			</Menu>
-			<Navbar.Item variant="contained">test4</Navbar.Item>
-			<Navbar.Item variant="outlined">test5</Navbar.Item>
-		</div>
+			{#snippet items(handleClose)}
+				<a href="/">
+					<Menu.Item>test1</Menu.Item>
+				</a>
+				<a href="/">
+					<Menu.Item>test2</Menu.Item>
+				</a>
+				<a href="/">
+					<Menu.Item>test3</Menu.Item>
+				</a>
+			{/snippet}
+		</Menu>
+		<Navbar.Item variant="contained">test4</Navbar.Item>
+		<Navbar.Item variant="outlined">test5</Navbar.Item>
 	{/snippet}
 </Navbar>
 <main style="min-height: 100vh; width: 80%; margin: 3rem auto;">

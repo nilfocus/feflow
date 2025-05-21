@@ -1,15 +1,10 @@
 <script lang="ts">
-	import { Button, classMap, InputSearch, Menu, Navbar } from "@/lib/index.js"
-	import styles from "./navbar.module.css"
+	import { Button, InputSearch, Menu, Navbar } from "@/lib/index.js"
 
 	let isOpen = $state(false)
 </script>
 
-<Navbar
-	class={classMap(styles.navbar, {
-		[styles.show]: isOpen
-	})}
->
+<Navbar data-toggle="collapse">
 	{#snippet start()}
 		<div
 			style="
@@ -20,7 +15,6 @@
 		>
 			<h2>Logo</h2>
 			<Button
-				class={styles.toggleButton}
 				variant="text"
 				onclick={() => {
 					isOpen = !isOpen
