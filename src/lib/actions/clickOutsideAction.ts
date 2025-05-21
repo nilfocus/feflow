@@ -1,11 +1,10 @@
 type Props = {
-	isOpen: boolean
 	handler: () => void
 	events?: (keyof DocumentEventMap)[]
 }
 
 export default function clickOutsideAction(node: HTMLElement, params: Props) {
-	let { handler, events = ["mousedown"], isOpen } = params
+	let { handler, events = ["mousedown"] } = params
 
 	const handle = (e: Event) => {
 		const target = e.target as Node
@@ -30,8 +29,6 @@ export default function clickOutsideAction(node: HTMLElement, params: Props) {
 
 	return {
 		update(newParams: Props) {
-			const wasOpen = isOpen
-			isOpen = newParams.isOpen
 			handler = newParams.handler
 			events = newParams.events ?? ["mousedown"]
 		},

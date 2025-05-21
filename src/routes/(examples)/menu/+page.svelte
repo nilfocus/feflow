@@ -1,27 +1,39 @@
 <script lang="ts">
-	import { Button, Menu } from "@/lib/index.js"
-
-	let isOpen = $state(false)
+	import { Menu } from "@/lib/index.js"
 </script>
 
-<Button
-	onclick={() => {
-		isOpen = !isOpen
-	}}
->
-	Open menu
-</Button>
+<div style="width: 500px; margin: 5rem auto;">
+	<Menu>
+		{#snippet anchor()}
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				height="24px"
+				viewBox="0 -960 960 960"
+				width="24px"
+				fill="#e3e3e3"
+			>
+				<path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+			</svg>
+			<span>test</span>
+		{/snippet}
 
-<Menu
-	{isOpen}
-	handleClose={() => {
-		isOpen = false
-	}}
->
-	<Menu.Item onclick={() => null}>
-		<Button variant="text">Edit</Button>
-	</Menu.Item>
-	<Menu.Item onclick={() => null}>
-		<Button variant="text">Print</Button>
-	</Menu.Item>
-</Menu>
+		{#snippet items(handleClose)}
+			<Menu.Item
+				onclick={() => {
+					console.log("edit")
+					handleClose()
+				}}
+			>
+				Edit
+			</Menu.Item>
+			<Menu.Item
+				onclick={() => {
+					console.log("print")
+					handleClose()
+				}}
+			>
+				Print
+			</Menu.Item>
+		{/snippet}
+	</Menu>
+</div>
