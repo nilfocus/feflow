@@ -13,6 +13,8 @@ import activeLineAction from "./activeLineAction.js"
 import glowOnHoverAction from "./glowOnHoverAction.js"
 import checkVisibilityAction from "./checkVisibilityAction.js"
 import fadeOnScrollAction from "./fadeOnScrollAction.js"
+import onShortcutAction from "./onShortcutAction.js"
+import onScrollEndAction from "./onScrollEndAction.js"
 
 export {
 	inputDropAction,
@@ -29,5 +31,7 @@ export {
 	activeLineAction,
 	glowOnHoverAction,
 	checkVisibilityAction,
-	fadeOnScrollAction
+	fadeOnScrollAction,
+	onShortcutAction,
+	onScrollEndAction
 }
