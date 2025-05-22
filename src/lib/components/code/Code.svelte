@@ -9,8 +9,8 @@
 </script>
 
 <div
-	class={classMapUtil(className, [className, styles], styles.code)}
 	{...rest}
+	class={classMapUtil(className, [className, styles], styles.code)}
 >
 	{@render children?.()}
 </div>

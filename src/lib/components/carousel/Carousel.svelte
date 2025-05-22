@@ -43,9 +43,9 @@
 </script>
 
 <div
+	{...rest}
 	class={classMapUtil(className, [className, styles], styles.carousel)}
 	aria-label="carousel"
-	{...rest}
 >
 	<div use:setupNavigator class={styles.content}>
 		{@render children?.()}

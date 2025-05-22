@@ -15,10 +15,10 @@
 </script>
 
 <div
+	{...rest}
 	class={classMapUtil(className, [className, styles], styles.drawerHeader, {
 		[styles.withHandleClose]: Boolean(handleClose)
 	})}
-	{...rest}
 >
 	{@render content?.()}
 	{#if handleClose}

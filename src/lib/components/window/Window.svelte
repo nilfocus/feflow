@@ -12,7 +12,7 @@
 	let { class: className = "", label, children, ...rest }: Props = $props()
 </script>
 
-<Card class={classMapUtil(className)} {...rest}>
+<Card {...rest} class={classMapUtil(className)}>
 	<div class="header">
 		<div class="actions">
 			<Badge class="bg-error" roundedFull size="xs"></Badge>

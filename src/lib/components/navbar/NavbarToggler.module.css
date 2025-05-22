@@ -1,0 +1,51 @@
+.toggler {
+    position: absolute;
+    left: 3rem;
+    right: 3rem;
+    width: auto;
+}
+
+.toggler.md {
+    display: none;
+}
+
+.controller {
+    display: none;
+}
+
+.container {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    float: var(--align);
+}
+
+.menuIcon,
+.closeIcon {
+    transition: opacity 0.2s ease;
+    position: absolute;
+}
+
+.menuIcon {
+    opacity: 1;
+}
+
+.closeIcon {
+    opacity: 0;
+}
+
+.controller:checked+.container .menuIcon {
+    opacity: 0;
+}
+
+.controller:checked+.container .closeIcon {
+    opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .toggler.md {
+        display: block;
+    }
+}

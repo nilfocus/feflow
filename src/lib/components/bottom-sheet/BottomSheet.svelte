@@ -95,12 +95,12 @@
 </script>
 
 <div
+	{...rest}
 	bind:this={bottomSheet}
 	class={classMapUtil({
 		bottomSheet: true,
 		show: isOpen
 	})}
-	{...rest}
 >
 	<button
 		class="sheetOverlay"

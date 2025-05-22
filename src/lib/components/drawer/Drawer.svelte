@@ -40,6 +40,7 @@
 {/if}
 
 <div
+	{...rest}
 	class={classMapUtil(
 		className,
 		[className, styles],
@@ -51,7 +52,6 @@
 		}
 	)}
 	style="--position-style: {positionStyle}; {rest.style}"
-	{...rest}
 >
 	{@render header?.()}
 	<div class={styles.content}>

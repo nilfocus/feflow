@@ -10,7 +10,7 @@
 	let { children, orientation = "vertical", ...rest }: Props = $props()
 </script>
 
-<div class="hoverFollower" use:hoverFollowerAction={orientation} {...rest}>
+<div {...rest} class="hoverFollower" use:hoverFollowerAction={orientation}>
 	<div class="overlay"></div>
 	{@render children?.()}
 </div>

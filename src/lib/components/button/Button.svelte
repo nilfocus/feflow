@@ -22,6 +22,7 @@
 </script>
 
 <button
+	{...rest}
 	class={classMapUtil(
 		className,
 		[className, styles],
@@ -30,7 +31,6 @@
 		[`bg-${bgColor}`]
 	)}
 	type={rest.type ?? "button"}
-	{...rest}
 >
 	{#if isLoading}
 		<Spinner />

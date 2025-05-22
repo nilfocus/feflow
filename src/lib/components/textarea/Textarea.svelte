@@ -7,7 +7,7 @@
 	let { class: className = "", ...rest }: Props = $props()
 </script>
 
-<textarea class={classMapUtil(className)} {...rest}></textarea>
+<textarea {...rest} class={classMapUtil(className)}></textarea>
 
 <style>
 	textarea {

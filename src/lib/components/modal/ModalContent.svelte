@@ -7,7 +7,7 @@
 	let { class: className = "", children, ...rest }: Props = $props()
 </script>
 
-<div class={classMapUtil(className, "content")} {...rest}>
+<div {...rest} class={classMapUtil(className, "content")}>
 	{@render children?.()}
 </div>
 

@@ -21,9 +21,9 @@
 
 {#if isActive}
 	<div
+		{...rest}
 		class={classMapUtil(className, "tabContent")}
 		use:transitionUtil={transition}
-		{...rest}
 	>
 		{@render children?.()}
 	</div>

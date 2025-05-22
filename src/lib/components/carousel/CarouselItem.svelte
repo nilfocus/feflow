@@ -9,8 +9,8 @@
 </script>
 
 <div
-	class={classMapUtil(className, [className, styles], styles.carouselItem)}
 	{...rest}
+	class={classMapUtil(className, [className, styles], styles.carouselItem)}
 >
 	{@render children?.()}
 </div>

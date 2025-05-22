@@ -21,6 +21,7 @@
 </script>
 
 <span
+	{...rest}
 	class={classMapUtil(
 		className,
 		[className, styles],
@@ -29,7 +30,6 @@
 		styles[variant],
 		{ [styles.roundedFull]: roundedFull }
 	)}
-	{...rest}
 >
 	{@render children?.()}
 </span>

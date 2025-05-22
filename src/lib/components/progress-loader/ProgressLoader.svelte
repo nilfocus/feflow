@@ -11,8 +11,8 @@
 </script>
 
 <div
-	class={classMapUtil(className, [className, styles], styles.progressLoader)}
 	{...rest}
+	class={classMapUtil(className, [className, styles], styles.progressLoader)}
 >
 	<div class={styles.progress} style="width: {progress}%;"></div>
 </div>

@@ -28,8 +28,8 @@
 </script>
 
 <div
-	class={classMapUtil(className, "toast", `bg-${color}`, `text-on-${color}`)}
 	{...rest}
+	class={classMapUtil(className, "toast", `bg-${color}`, `text-on-${color}`)}
 >
 	{#if Icon}
 		<Icon fill="var(--ff-color-on-{color})" height="20px" width="20px" />

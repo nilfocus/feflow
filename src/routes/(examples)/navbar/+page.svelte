@@ -49,7 +49,11 @@
 			<p>Scroll down to see the sticky effect.</p>
 		</div>
 
-		<Navbar id="nav-sticky" style="position: sticky; top: 0;">
+		<Navbar
+			id="nav-sticky"
+			variant="collapse"
+			style="position: sticky; top: 0;"
+		>
 			{#snippet left(toggler)}
 				{@render logoWithToggler?.(toggler)}
 			{/snippet}

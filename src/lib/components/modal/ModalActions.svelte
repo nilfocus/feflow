@@ -18,9 +18,9 @@
 </script>
 
 <div
+	{...rest}
 	class={classMapUtil(className, "actions")}
 	style="justify-content: {align};"
-	{...rest}
 >
 	{@render children?.()}
 </div>

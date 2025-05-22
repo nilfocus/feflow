@@ -52,7 +52,7 @@
 	}
 </script>
 
-<nav class={styles.scrollSection} {...rest}>
+<nav {...rest} class={styles.scrollSection}>
 	{#if isScrollable && (!isFirst || isLast) && scrollButtons}
 		<Button class={styles.arrowIndicator} variant="text" onclick={prev}>
 			<KeyboardArrowLeftIcon height="16px" width="16px" />

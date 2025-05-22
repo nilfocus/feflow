@@ -21,6 +21,7 @@
 </script>
 
 <a
+	{...rest}
 	class={classMapUtil({
 		[typeof className === "function" ? className({ isActive }) : className]:
 			true,
@@ -29,7 +30,6 @@
 		[styles[hoverUnderline!]]: Boolean(hoverUnderline)
 	})}
 	aria-current={isActive ? "page" : undefined}
-	{...rest}
 >
 	{@render children?.()}
 </a>

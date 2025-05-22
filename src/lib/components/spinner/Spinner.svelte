@@ -12,11 +12,11 @@
 </script>
 
 <span
+	{...rest}
 	class={classMapUtil(
 		className,
 		[className, styles],
 		styles[size],
 		styles.spinner
 	)}
-	{...rest}
 ></span>

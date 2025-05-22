@@ -18,6 +18,7 @@
 </script>
 
 <Button
+	{...rest}
 	{variant}
 	class={classMapUtil(
 		className,
@@ -25,7 +26,6 @@
 		styles.navbarItem,
 		styles[variant]
 	)}
-	{...rest}
 >
 	{@render children?.()}
 </Button>
