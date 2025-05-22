@@ -10,6 +10,7 @@ type ThemeColorsType = {
 	colorBg: string
 	colorOnBg: string
 	colorSurface: string
+	colorSurfaceVariant: string
 	colorOnSurface: string
 	colorBorder: string
 	colorDisabled: string

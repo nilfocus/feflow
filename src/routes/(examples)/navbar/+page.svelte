@@ -53,6 +53,7 @@
 			id="nav-sticky"
 			variant="collapse"
 			style="position: sticky; top: 0;"
+			isTranslucent
 		>
 			{#snippet left(toggler)}
 				{@render logoWithToggler?.(toggler)}
@@ -97,7 +98,7 @@
 	<br />
 
 	{#snippet nav2()}
-		<Navbar id="nav2" variant="collapse" align="right">
+		<Navbar id="nav2" variant="collapse" align="right" fadeOnScroll>
 			{#snippet left(toggler)}
 				{@render logoWithToggler?.(toggler)}
 			{/snippet}

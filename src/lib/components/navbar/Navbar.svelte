@@ -5,8 +5,11 @@
 	import styles from "./Navbar.module.css"
 	import type { HorizontalPositionType } from "../../types/index.js"
 	import NavbarToggler from "./NavbarToggler.svelte"
+	import fadeOnScrollAction from "@/lib/actions/fadeOnScrollAction.js"
 
 	type PositionedChilds = Partial<{
+		isTranslucent?: boolean
+		fadeOnScroll: boolean
 		variant?: "full" | "collapse"
 		align?: Exclude<HorizontalPositionType, "center">
 		left: Snippet<[Snippet]>
@@ -18,6 +21,8 @@
 
 	let {
 		class: className = "",
+		isTranslucent = false,
+		fadeOnScroll = false,
 		variant = "full",
 		align = "right",
 		left,
@@ -36,7 +41,6 @@
 		class="md"
 		{align}
 		onchange={() => {
-			console.log("opa")
 			isOpen = !isOpen
 		}}
 	/>
@@ -47,9 +51,12 @@
 	id="navbar"
 	data-toggle={variant}
 	data-align={align}
+	data-fade-on-scroll={fadeOnScroll}
 	class={classMapUtil(className, [className, styles], styles.navbar, {
+		[styles.isTranslucent]: isTranslucent,
 		[styles.show]: isOpen
 	})}
+	use:fadeOnScrollAction
 >
 	{@render children?.()}
 	{#if children}

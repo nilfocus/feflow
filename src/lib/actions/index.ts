@@ -12,6 +12,7 @@ import keyboardNavigationAction from "./keyboardNavigationAction.js"
 import activeLineAction from "./activeLineAction.js"
 import glowOnHoverAction from "./glowOnHoverAction.js"
 import checkVisibilityAction from "./checkVisibilityAction.js"
+import fadeOnScrollAction from "./fadeOnScrollAction.js"
 
 export {
 	inputDropAction,
@@ -27,5 +28,6 @@ export {
 	keyboardNavigationAction,
 	activeLineAction,
 	glowOnHoverAction,
-	checkVisibilityAction
+	checkVisibilityAction,
+	fadeOnScrollAction
 }

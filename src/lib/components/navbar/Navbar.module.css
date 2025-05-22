@@ -13,6 +13,11 @@
     user-select: none;
 }
 
+.navbar.isTranslucent {
+    background: var(--ff-color-surface-variant);
+    backdrop-filter: blur(15px);
+}
+
 .left,
 .center,
 .right {
