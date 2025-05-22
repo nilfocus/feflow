@@ -46,7 +46,7 @@
 	padding-inline: 0.45rem;
 }
 
-.badge.rounded-full {
+.badge.roundedFull {
 	border-radius: 9999px;
 	padding: 0 0.5em;
 	overflow: hidden;
@@ -55,4 +55,30 @@
 .badge.outlined {
 	background: none;
 	border: 1px solid var(--ff-color-border);
+}
+
+/* empty */
+
+.badge.xs:empty {
+	min-width: 1rem;
+}
+
+.badge.sm:empty {
+	min-width: 1.2rem;
+	min-height: 1.2rem;
+}
+
+.badge.md:empty {
+	min-width: 1.4rem;
+	min-height: 1.4rem;
+}
+
+.badge.lg:empty {
+	min-width: 1.6rem;
+	min-height: 1.6rem;
+}
+
+.badge.xl:empty {
+	min-width: 1.8rem;
+	min-height: 1.8rem;
 }

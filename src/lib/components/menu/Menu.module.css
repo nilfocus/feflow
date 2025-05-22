@@ -1,6 +1,13 @@
-:not(.border-0) > .content > *:not(:first-child),
-:not(.border-0) > .content > *:not(:first-child) > * {
-    border-top: 1px solid var(--ff-color-border);
+.content>*>*:first-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.content>*>*:not(:first-child) {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+:not(.border-0)>.content>*>*:not(:first-child) {
+    border-top: 1px solid var(--ff-color-border);
 }

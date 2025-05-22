@@ -19,11 +19,10 @@
 			</Button>
 		{/snippet}
 
-		{#snippet items(handleClose)}
+		{#snippet items()}
 			<Menu.Item
 				onclick={() => {
 					console.log("edit")
-					handleClose()
 				}}
 			>
 				Edit
@@ -31,7 +30,6 @@
 			<Menu.Item
 				onclick={() => {
 					console.log("print")
-					handleClose()
 				}}
 			>
 				Print

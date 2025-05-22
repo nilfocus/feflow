@@ -109,8 +109,8 @@
 						<Navbar.Item>Open menu</Navbar.Item>
 					{/snippet}
 
-					{#snippet items(handleClose)}
-						<Menu.Item onclick={handleClose}>test1</Menu.Item>
+					{#snippet items()}
+						<Menu.Item>test1</Menu.Item>
 						<a href="/">
 							<Menu.Item>test2</Menu.Item>
 						</a>

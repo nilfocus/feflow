@@ -32,21 +32,11 @@
 			warning
 		</Badge>
 
-		<Badge
-			class="rounded-full bg-info text-on-info"
-			size="lg"
-			variant="contained"
-		>
+		<Badge class="bg-info text-on-info" size="lg" variant="contained">
 			999
 		</Badge>
 
-		<Badge
-			class="rounded-full bg-info text-on-info"
-			size="lg"
-			variant="outlined"
-		>
-			888
-		</Badge>
+		<Badge class="bg-info text-on-info" size="lg" variant="outlined">888</Badge>
 
 		<br />
 		<br />
@@ -60,8 +50,12 @@
 		</Badge>
 	</div>
 
+	<br />
+	<br />
+
 	<Badge
-		class="rounded-full bg-warning text-on-warning"
+		roundedFull
+		class="bg-warning text-on-warning"
 		size="lg"
 		variant="contained"
 	>
@@ -73,4 +67,16 @@
 	<br />
 	<br />
 	<Button variant="contained" onclick={increment}>increment (+)</Button>
+
+	<br />
+	<br />
+	<br />
+	<br />
+	<h2>empty</h2>
+	<br />
+	<Badge roundedFull class="bg-warning" size="xs"></Badge>
+	<Badge roundedFull class="bg-info" size="sm"></Badge>
+	<Badge roundedFull class="bg-warning" size="md"></Badge>
+	<Badge roundedFull class="bg-error" size="lg"></Badge>
+	<Badge roundedFull class="bg-success" size="xl"></Badge>
 </div>

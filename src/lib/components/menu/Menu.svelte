@@ -7,7 +7,7 @@
 
 	interface Props extends HTMLInputAttributes {
 		anchor: Snippet<[]>
-		items: Snippet<[() => void]>
+		items: Snippet<[]>
 	}
 
 	let { class: className = "", anchor, items, ...rest }: Props = $props()
@@ -39,7 +39,9 @@
 		</span>
 	</label>
 	<div class={classMapUtil("content", styles.content)}>
-		{@render items?.(handleClose)}
+		<span role="button" tabindex="0" onclick={handleClose} onkeydown={() => {}}>
+			{@render items?.()}
+		</span>
 	</div>
 </div>
 
