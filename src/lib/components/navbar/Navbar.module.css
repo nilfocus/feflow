@@ -1,10 +1,12 @@
 .navbar {
-    padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
     position: relative;
     background: var(--ff-color-surface);
     color: var(--ff-color-on-surface);
     display: grid;
-    grid-template-columns: 1fr max-content 1fr;
+    grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
     align-items: center;
     gap: 1rem;
     height: 80px;
