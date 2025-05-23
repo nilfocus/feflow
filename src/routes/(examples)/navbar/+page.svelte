@@ -23,25 +23,34 @@
 		<div style="flex:1;"></div>
 
 		<div class={classMap("menu", { ["show"]: isOpen })}>
-			<Navbar.Item aria-current="page">active</Navbar.Item>
-			<Menu id="menu-navFree">
-				{#snippet anchor()}
-					<Navbar.Item>Open menu</Navbar.Item>
-				{/snippet}
-
-				{#snippet items()}
-					<Menu.Item>test1</Menu.Item>
-					<Separator />
-					<a href="/">
-						<Menu.Item>test2</Menu.Item>
-					</a>
-					<Separator />
-					<a href="/">
-						<Menu.Item>test3</Menu.Item>
-					</a>
-				{/snippet}
-			</Menu>
+			<Navbar.Item
+				aria-current="page"
+				style={isOpen ? "width: 100%; border-radius: 0;" : ""}
+			>
+				active
+			</Navbar.Item>
+			<Navbar.Item style={isOpen ? "width: 100%; border-radius: 0;" : ""}>
+				test
+			</Navbar.Item>
 		</div>
+
+		<Menu id="menu-navFree">
+			{#snippet anchor()}
+				<Navbar.Item>Open menu</Navbar.Item>
+			{/snippet}
+
+			{#snippet items()}
+				<Menu.Item>test1</Menu.Item>
+				<Separator />
+				<a href="/">
+					<Menu.Item>test2</Menu.Item>
+				</a>
+				<Separator />
+				<a href="/">
+					<Menu.Item>test3</Menu.Item>
+				</a>
+			{/snippet}
+		</Menu>
 
 		<Navbar.Toggler
 			checked={isOpen}
@@ -83,6 +92,7 @@
 
 	@media screen and (max-width: 768px) {
 		.menu {
+			opacity: 0;
 			max-height: 0px;
 			overflow: hidden;
 			flex-direction: column;
@@ -90,15 +100,19 @@
 			right: 0;
 			background: rgba(0, 0, 0, 0.712);
 			backdrop-filter: blur(15px);
-			top: 30%;
-			transform: translate(0, 30%);
-			transition: max-height 0.3s ease, padding 0.3s ease;
+			top: 35%;
+			transform: translate(0, 35%);
+			transition:
+				max-height 0.3s ease,
+				opacity 0.3s ease;
 			gap: 0;
+			border-radius: 15px;
 		}
 
 		.menu.show {
-			max-height: 150px;
-			padding: 1rem 0;
+			max-height: 300px;
+			opacity: 1;
+			overflow: auto;
 		}
 	}
 </style>
