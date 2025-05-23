@@ -1,25 +1,29 @@
 <script lang="ts">
 	import { CloseIcon, MenuIcon } from "@/lib/icons/index.js"
-	import type { HorizontalPositionType } from "../../types/index.js"
 	import { classMapUtil } from "../../utils/index.js"
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import styles from "./NavbarToggler.module.css"
+	import type { SizeType } from "@/lib/types/size.types.js"
 
 	interface Props extends HTMLInputAttributes {
-		align?: Exclude<HorizontalPositionType, "center">
+		visibleInSize?: SizeType
 	}
 
 	let {
 		class: className = "",
-		align = "right",
+		visibleInSize = "md",
 		children,
 		...rest
 	}: Props = $props()
 </script>
 
 <div
-	class={classMapUtil(className, [className, styles], styles.toggler)}
-	style="--align: {align}"
+	class={classMapUtil(
+		className,
+		[className, styles],
+		[visibleInSize, styles],
+		styles.toggler
+	)}
 >
 	<input
 		{...rest}

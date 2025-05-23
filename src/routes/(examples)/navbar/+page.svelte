@@ -1,24 +1,10 @@
 <script lang="ts">
-	import { InputSearch, Menu, Navbar } from "@/lib/index.js"
+	import { Menu, Navbar, Separator } from "@/lib/index.js"
 	import type { Snippet } from "svelte"
 </script>
 
 {#snippet logo()}
 	<h2>Lo<span style="color: aqua;">Go</span></h2>
-{/snippet}
-
-{#snippet logoWithToggler(toggler: Snippet)}
-	<div
-		style="
-		display: flex;
-		align-items: center; 
-		justify-content: space-between;
-		padding: 0 1rem;
-		"
-	>
-		{@render toggler?.()}
-		{@render logo?.()}
-	</div>
 {/snippet}
 
 {#snippet container(children: Snippet)}
@@ -43,53 +29,32 @@
 {/snippet}
 
 <div style="padding: 3rem 0; background: black;">
-	{#snippet navContentCenter()}
-		<Navbar id="navContentCenter" variant="collapse" align="right">
-			{#snippet center()}
-				<Menu id="menu-navContentCenter" class="border-0">
-					{#snippet anchor()}
-						<Navbar.Item>Open menu</Navbar.Item>
-					{/snippet}
-
-					{#snippet items()}
-						<Menu.Item>test1</Menu.Item>
-						<a href="/">
-							<Menu.Item>test2</Menu.Item>
-						</a>
-						<a href="/">
-							<Menu.Item>test3</Menu.Item>
-						</a>
-					{/snippet}
-				</Menu>
-			{/snippet}
-		</Navbar>
-
-		{@render content?.("navContentCenter")}
-	{/snippet}
-	{@render container?.(navContentCenter)}
-
-	<br />
-	<br />
-
 	{#snippet navFree()}
-		<Navbar id="navFree" variant="collapse" align="right">
+		<Navbar id="navFree" style="display: flex; align-items: center; gap: 1rem;">
 			{@render logo?.()}
 
-			<Menu id="menu-navFree" class="border-0">
+			<div style="flex:1;"></div>
+
+			<Navbar.Item aria-current="page">active</Navbar.Item>
+			<Menu id="menu-navFree">
 				{#snippet anchor()}
 					<Navbar.Item>Open menu</Navbar.Item>
 				{/snippet}
 
 				{#snippet items()}
 					<Menu.Item>test1</Menu.Item>
+					<Separator />
 					<a href="/">
 						<Menu.Item>test2</Menu.Item>
 					</a>
+					<Separator />
 					<a href="/">
 						<Menu.Item>test3</Menu.Item>
 					</a>
 				{/snippet}
 			</Menu>
+
+			<Navbar.Toggler id="toggler-1" />
 		</Navbar>
 
 		{@render content?.("navFree")}
@@ -107,78 +72,16 @@
 
 		<Navbar
 			id="navSticky"
-			variant="collapse"
-			style="position: sticky; top: 0;"
+			style="position: sticky; top: 0; display: flex; align-items: center; gap: 1rem;"
 			isTranslucent
 		>
-			{#snippet left(toggler)}
-				{@render logoWithToggler?.(toggler)}
-			{/snippet}
-
-			{#snippet right()}
-				<Navbar.Item variant="contained">test1</Navbar.Item>
-				<Navbar.Item variant="outlined">test2</Navbar.Item>
-			{/snippet}
+			<Navbar.Toggler id="toggler-2" />
+			<Navbar.Item variant="contained">test1</Navbar.Item>
+			<Navbar.Item variant="outlined">test2</Navbar.Item>
+			<div style="flex: 1;"></div>
+			{@render logo?.()}
 		</Navbar>
 		{@render content?.("navSticky")}
 	{/snippet}
 	{@render container?.(navSticky)}
-
-	<br />
-	<br />
-
-	{#snippet nav1()}
-		<Navbar id="nav1" variant="full" align="right">
-			{#snippet left()}
-				<a href="/">
-					<Navbar.Item aria-current="page">active</Navbar.Item>
-				</a>
-			{/snippet}
-
-			{#snippet center()}
-				<InputSearch variant="contained" placeholder="test..." />
-			{/snippet}
-
-			{#snippet right(toggler)}
-				{@render logoWithToggler?.(toggler)}
-			{/snippet}
-		</Navbar>
-
-		{@render content?.("nav1")}
-	{/snippet}
-
-	{@render container?.(nav1)}
-
-	<br />
-	<br />
-
-	{#snippet nav2()}
-		<Navbar id="nav2" variant="collapse" align="right" fadeOnScroll>
-			{#snippet left(toggler)}
-				{@render logoWithToggler?.(toggler)}
-			{/snippet}
-
-			{#snippet right()}
-				<Menu id="menu-nav2" class="border-0">
-					{#snippet anchor()}
-						<Navbar.Item>Open menu</Navbar.Item>
-					{/snippet}
-
-					{#snippet items()}
-						<Menu.Item>test1</Menu.Item>
-						<a href="/">
-							<Menu.Item>test2</Menu.Item>
-						</a>
-						<a href="/">
-							<Menu.Item>test3</Menu.Item>
-						</a>
-					{/snippet}
-				</Menu>
-			{/snippet}
-		</Navbar>
-
-		{@render content?.("nav2")}
-	{/snippet}
-
-	{@render container?.(nav2)}
 </div>

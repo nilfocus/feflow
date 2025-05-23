@@ -1,25 +1,30 @@
 .toggler {
-    position: absolute;
-    left: 3rem;
-    right: 3rem;
-    width: auto;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
 
-.toggler.md {
-    display: none;
-}
-
+.xs,
+.sm,
+.md,
+.lg,
+.xl,
 .controller {
     display: none;
 }
 
 .container {
     cursor: pointer;
-    display: inline-flex;
+    position: absolute;
+    inset: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    float: var(--align);
+    pointer-events: auto;
 }
 
 .menuIcon,
@@ -28,24 +33,42 @@
     position: absolute;
 }
 
-.menuIcon {
-    opacity: 1;
-}
-
-.closeIcon {
-    opacity: 0;
-}
-
+.closeIcon,
 .controller:checked+.container .menuIcon {
     opacity: 0;
 }
 
+.menuIcon,
 .controller:checked+.container .closeIcon {
     opacity: 1;
 }
 
+@media screen and (max-width: 375px) {
+    .xs {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .sm {
+        display: block;
+    }
+}
+
 @media screen and (max-width: 768px) {
-    .toggler.md {
+    .md {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .lg {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .xl {
         display: block;
     }
 }

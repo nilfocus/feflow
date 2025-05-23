@@ -5,103 +5,12 @@
     padding: 0 clamp(0.5rem, 2vw, 1rem);
     background: var(--ff-color-surface);
     color: var(--ff-color-on-surface);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
     height: 80px;
+    line-height: 80px;
     user-select: none;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
-    align-items: center;
 }
 
 .navbar.isTranslucent {
     background: var(--ff-color-surface-variant);
     backdrop-filter: blur(15px);
-}
-
-.left,
-.center,
-.right {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.right {
-    justify-self: flex-end;
-    justify-content: flex-end;
-}
-
-@media screen and (max-width: 768px) {
-    .navbar {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-        height: auto;
-    }
-
-    .navbar[data-align="left"] .right {
-        order: -2;
-    }
-
-    .navbar[data-align="left"] .center {
-        order: -1;
-    }
-
-    .navbar[data-toggle="full"][data-align="left"]:not(.show) .left,
-    .navbar[data-toggle="full"][data-align="right"]:not(.show) .right {
-        display: none;
-    }
-
-    .navbar[data-align="left"] .left,
-    .navbar[data-align="right"] .right {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-    }
-
-    .navbar[data-toggle="collapse"][data-align="left"] .left,
-    .navbar[data-toggle="collapse"][data-align="right"] .right {
-        transition: max-height 0.3s ease, padding 0.3s ease-in-out, opacity 1s ease;
-        overflow: hidden;
-        max-height: 0;
-        padding: 0;
-        opacity: 0;
-    }
-
-    .navbar[data-toggle="collapse"][data-align="left"].show .left,
-    .navbar[data-toggle="collapse"][data-align="right"].show .right {
-        max-height: max-content;
-        padding: 1rem 0;
-        opacity: 1;
-    }
-
-    .navbar[data-toggle="full"].show {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: inherit;
-        z-index: 1000;
-    }
-
-    .navbar[data-toggle="full"][data-align="left"] .left,
-    .navbar[data-toggle="full"][data-align="right"] .right {
-        display: flex;
-    }
-
-    .navbar[data-align="left"] .left *,
-    .navbar[data-align="right"] .right * {
-        width: 100%;
-        margin: 0 !important;
-    }
 }

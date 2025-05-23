@@ -1,3 +1,7 @@
+.navbarItem {
+    display: flex;
+}
+
 .navbarItem[aria-current="page"] {
     background: color-mix(in srgb, var(--ff-color-surface) 85%, gray 15%);
 }

@@ -3,7 +3,6 @@
 	import type { Snippet } from "svelte"
 	import { clickOutsideAction } from "../../actions/index.js"
 	import { classMapUtil } from "../../utils/index.js"
-	import styles from "./Menu.module.css"
 
 	interface Props extends HTMLInputAttributes {
 		anchor: Snippet<[]>
@@ -22,7 +21,7 @@
 </script>
 
 <div
-	class={classMapUtil("menu", className, [className, styles])}
+	class={classMapUtil("menu", className)}
 	use:clickOutsideAction={{ handler: handleClose }}
 >
 	<input
@@ -31,17 +30,20 @@
 		bind:this={el}
 		type="checkbox"
 		id={rest.id ?? "checkbox"}
-		style="display: none;"
 	/>
 	<label class="container" for={rest.id ?? "checkbox"}>
 		<span class="anchor">
 			{@render anchor?.()}
 		</span>
 	</label>
-	<div class={classMapUtil("content", styles.content)}>
-		<span role="button" tabindex="0" onclick={handleClose} onkeydown={() => {}}>
-			{@render items?.()}
-		</span>
+	<div
+		class="content"
+		role="button"
+		tabindex="0"
+		onclick={handleClose}
+		onkeydown={() => {}}
+	>
+		{@render items?.()}
 	</div>
 </div>
 
@@ -49,6 +51,10 @@
 	.menu {
 		position: relative;
 		user-select: none;
+	}
+
+	.controller {
+		display: none;
 	}
 
 	.container {
@@ -66,9 +72,10 @@
 
 	.content {
 		position: absolute;
+		overflow: hidden;
 		left: 0;
 		right: unset;
-		top: calc(2em + 0.35em);
+		top: calc(3em + 0.35em);
 		background: var(--ff-color-surface);
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 		border-radius: 0.25rem;
@@ -76,7 +83,7 @@
 		z-index: 2;
 		margin: 0;
 		opacity: 0;
-		transform: translateY(-10px);
+		transform: translateY(-3px);
 		pointer-events: none;
 		transition:
 			opacity 150ms ease-in-out,
