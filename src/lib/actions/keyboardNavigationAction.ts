@@ -35,6 +35,10 @@ export default function keyboardNavigationAction<T>(
 			e.preventDefault()
 			if (data[focused]) {
 				onSelect(data[focused])
+
+				const child = node.children[focused] as HTMLElement
+				child?.click()
+				
 				focused = -1
 				onFocusChange?.(focused)
 			}
