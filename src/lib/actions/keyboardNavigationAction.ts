@@ -1,46 +1,42 @@
 type Props<T> = {
 	data: T[]
-	onSelect: (item: T) => void
-	onFocusChange?: (focused: number) => void
+	onSelect: (item: T, index: number, e: KeyboardEvent) => void
+	onFocusChange?: (index: number) => void
 }
 
 export default function keyboardNavigationAction<T>(
 	node: HTMLElement,
 	{ data, onSelect, onFocusChange }: Props<T>
 ) {
-	let focused = -1
+	let index = -1
 
 	function handleKeyDown(e: KeyboardEvent) {
 		if (!data.length) return
 
 		if (e.key === "ArrowDown") {
 			e.preventDefault()
-			focused = (focused + 1) % data.length
-			onFocusChange?.(focused)
+			index = (index + 1) % data.length
+			onFocusChange?.(index)
 		}
 
 		if (e.key === "ArrowUp") {
 			e.preventDefault()
-			focused = (focused + data.length - 1) % data.length
-			onFocusChange?.(focused)
+			index = (index + data.length - 1) % data.length
+			onFocusChange?.(index)
 		}
 
 		if (e.key === "Escape") {
 			e.preventDefault()
-			focused = -1
-			onFocusChange?.(focused)
+			index = -1
+			onFocusChange?.(index)
 		}
 
 		if (e.key === "Enter") {
 			e.preventDefault()
-			if (data[focused]) {
-				onSelect(data[focused])
-
-				const child = node.children[focused] as HTMLElement
-				child?.click()
-				
-				focused = -1
-				onFocusChange?.(focused)
+			if (data[index]) {
+				onSelect(data[index], index, e)
+				index = -1
+				onFocusChange?.(index)
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Autocomplete, Button } from "@/lib/index.js"
+	import { Autocomplete } from "@/lib/index.js"
 
 	const data = Array.from(Array(30)).map((_, i) => ({
 		id: i,
@@ -7,22 +7,10 @@
 	}))
 </script>
 
-<Autocomplete
-	{data}
-	filter={(item) => `${item.label}`}
-	onSelect={(value) => {
-		console.log(value)
-	}}
->
-	{#snippet renderInput({ id, label }, clear)}
-		<Button
-			variant="text"
-			onclick={() => {
-				console.log({ id, label })
-				clear()
-			}}
-		>
+<Autocomplete variant="search" {data} filter={(item) => `${item.label}`}>
+	{#snippet renderInput({ id, label })}
+		<a href="/{id}">
 			{label}
-		</Button>
+		</a>
 	{/snippet}
 </Autocomplete>

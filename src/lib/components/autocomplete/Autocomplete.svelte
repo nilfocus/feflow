@@ -6,30 +6,45 @@
 	import { classMapUtil } from "../../utils/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
 	import type { Snippet } from "svelte"
+	import InputSearch from "../input-search/index.js"
 
 	interface Props<T> extends HTMLAttributes<HTMLDivElement> {
+		variant?: "text" | "search"
 		data: T[]
 		filter: (item: T) => string
 		onSelect?: (value: T) => void
-		renderInput: Snippet<[T, () => void]>
+		renderInput: Snippet<[T]>
 	}
 
-	let { data, filter, onSelect, renderInput, ...rest }: Props<T> = $props()
+	let {
+		variant = "text",
+		data,
+		filter,
+		onSelect,
+		renderInput,
+		...rest
+	}: Props<T> = $props()
 
 	let currentIndex = $state(-1)
 	let inputValue = $state("")
-
 	let filtered: typeof data = $state([])
+	let elItems: HTMLElement[] = $state([])
 
-	function clear() {
+	function reset() {
 		currentIndex = -1
 		filtered = []
 		inputValue = ""
 	}
 
-	function handleSelect(item: T) {
+	function handleSelect(item: T, index: number, e: KeyboardEvent) {
+		if (e.key === "Enter") {
+			const parent = elItems[index]
+			const child = parent.querySelector("button, a") as HTMLElement
+			child ? child.click() : parent.click()
+		}
+
 		onSelect?.(item)
-		clear()
+		reset()
 	}
 
 	function handleFocusChange(index: number) {
@@ -53,29 +68,51 @@
 </script>
 
 <div {...rest} class={styles.autocomplete}>
-	<Input
-		actions={[
-			[
-				keyboardNavigationAction as ActionType<HTMLElement>,
-				{
-					data: $state.snapshot(filtered),
-					onSelect: handleSelect,
-					onFocusChange: handleFocusChange
-				}
-			]
-		]}
-		oninput={handleOnInput}
-		value={inputValue}
-	/>
+	{#if variant === "search"}
+		<InputSearch
+			actions={[
+				[
+					keyboardNavigationAction as ActionType<HTMLElement>,
+					{
+						data: $state.snapshot(filtered),
+						onSelect: handleSelect,
+						onFocusChange: handleFocusChange
+					}
+				]
+			]}
+			oninput={handleOnInput}
+			value={inputValue}
+		/>
+	{:else}
+		<Input
+			actions={[
+				[
+					keyboardNavigationAction as ActionType<HTMLElement>,
+					{
+						data: $state.snapshot(filtered),
+						onSelect: handleSelect,
+						onFocusChange: handleFocusChange
+					}
+				]
+			]}
+			oninput={handleOnInput}
+			value={inputValue}
+		/>
+	{/if}
 
 	<div class={styles.content}>
 		{#each filtered as item, index}
 			<div
+				role="button"
+				tabindex="0"
 				class={classMapUtil(styles.item, {
 					[styles.focused]: currentIndex === index
 				})}
+				onkeyup={() => {}}
+				onclick={reset}
+				bind:this={elItems[index]}
 			>
-				{@render renderInput?.(item, clear)}
+				{@render renderInput?.(item)}
 			</div>
 		{/each}
 	</div>
