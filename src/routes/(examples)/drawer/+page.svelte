@@ -124,21 +124,17 @@
 		</Drawer>
 
 		<Navbar>
-			{#snippet start()}
-				{#if !isOpen}
-					<Button
-						onclick={() => {
-							isOpen = !isOpen
-						}}
-					>
-						Left
-					</Button>
-				{/if}
-			{/snippet}
+			{#if !isOpen}
+				<Button
+					onclick={() => {
+						isOpen = !isOpen
+					}}
+				>
+					Left
+				</Button>
+			{/if}
 
-			{#snippet end()}
-				<span>Menu</span>
-			{/snippet}
+			<span>Menu</span>
 		</Navbar>
 	</div>
 </Window>
