@@ -58,18 +58,19 @@
 	})}
 	use:fadeOnScrollAction
 >
-	{@render children?.()}
 	{#if children}
 		{@render children?.()}
 	{:else}
-		<div class={styles.left}>
-			{@render left?.(toggler)}
-		</div>
-		<div class={styles.center}>
-			{@render center?.()}
-		</div>
-		<div class={styles.right}>
-			{@render right?.(toggler)}
+		<div class={styles.grid}>
+			<div class={styles.left}>
+				{@render left?.(toggler)}
+			</div>
+			<div class={styles.center}>
+				{@render center?.()}
+			</div>
+			<div class={styles.right}>
+				{@render right?.(toggler)}
+			</div>
 		</div>
 	{/if}
 </div>

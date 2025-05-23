@@ -1,16 +1,22 @@
 .navbar {
+    position: relative;
     width: 100%;
     box-sizing: border-box;
     padding: 0 clamp(0.5rem, 2vw, 1rem);
-    position: relative;
     background: var(--ff-color-surface);
     color: var(--ff-color-on-surface);
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1rem;
     height: 80px;
     user-select: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
+    align-items: center;
 }
 
 .navbar.isTranslucent {
