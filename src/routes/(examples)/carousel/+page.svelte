@@ -1,23 +1,16 @@
 <script lang="ts">
 	import { Button, Card, Carousel } from "@/lib/index.js"
-
-	let isFirst = $state(false)
-	let isLast = $state(false)
-
-	function handleChange(a: boolean, b: boolean) {
-		isFirst = a
-		isLast = b
-	}
 </script>
 
 <Carousel
+	loop
+	id="carousel-1"
 	style="
 	width:600px;
 	margin: 3rem auto; 
 	background: blue; 
 	padding: 0 3.5rem;
 	"
-	onChange={handleChange}
 >
 	<Carousel.Item>
 		<img
@@ -34,7 +27,7 @@
 		/>
 	</Carousel.Item>
 
-	{#snippet actionRender({ prev, next })}
+	{#snippet actionRender({ prev, next, isFirst, isLast })}
 		<div
 			style="
 			display: flex;
@@ -53,6 +46,7 @@
 </Carousel>
 
 <Carousel
+	id="carousel-2"
 	style="
 		width: 600px;
 		margin: 3rem auto;
@@ -94,6 +88,7 @@
 </Carousel>
 
 <Carousel
+	id="carousel-3"
 	style="
 		width: 600px;
 		margin: 3rem auto;

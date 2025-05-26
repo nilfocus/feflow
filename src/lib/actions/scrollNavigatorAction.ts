@@ -44,13 +44,14 @@ export default function scrollNavigatorAction(node: HTMLElement, props: Props) {
 	}
 
 	function scrollToElement(element: HTMLElement) {
-		if (element) {
-			const isFirst = element === node.firstElementChild
-			node.scrollTo({
-				left: isFirst ? 0 : element.offsetLeft,
-				behavior: "smooth"
-			})
-		}
+		if (!element) return
+
+		const isFirst = element === node.firstElementChild
+
+		node.scrollTo({
+			left: isFirst ? 0 : element.offsetLeft,
+			behavior: "smooth"
+		})
 	}
 
 	function handleChange(el: HTMLElement) {
@@ -75,11 +76,15 @@ export default function scrollNavigatorAction(node: HTMLElement, props: Props) {
 		goTo: (index: number) => {
 			const childs = getChilds()
 			const clampedIndex = Math.max(0, Math.min(index, childs.length - 1))
-			scrollToElement(childs[clampedIndex])
+			const el = childs[clampedIndex]
+			scrollToElement(el)
+			handleChange(el)
 		}
 	}
 
 	function handleKeyDown(e: KeyboardEvent) {
+		if (!node.contains(document.activeElement)) return
+
 		if (e.key === "ArrowRight") {
 			controls.next()
 			e.preventDefault()
