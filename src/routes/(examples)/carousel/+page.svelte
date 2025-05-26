@@ -52,7 +52,7 @@
 	"
 >
 	{#each Array.from(Array(5)) as _, index}
-		<Carousel.Item>
+		<Carousel.Item href="https://dxdns.dev" target="_blank">
 			<Card>
 				<h1 style="text-align: center;">{index}</h1>
 				<br />
