@@ -9,6 +9,7 @@
 		variant?: VariantType
 		bgColor?: ColorType
 		isLoading?: boolean
+		roundedFull?: boolean
 	}
 
 	let {
@@ -16,6 +17,7 @@
 		variant = "contained",
 		bgColor = "primary",
 		isLoading,
+		roundedFull,
 		children,
 		...rest
 	}: Props = $props()
@@ -28,7 +30,8 @@
 		[className, styles],
 		styles[variant],
 		styles.button,
-		[`bg-${bgColor}`]
+		[`bg-${bgColor}`],
+		{ [styles.roundedFull]: roundedFull }
 	)}
 	type={rest.type ?? "button"}
 >

@@ -13,13 +13,3 @@
 	scroll-behavior: smooth;
 	scroll-snap-type: x mandatory;
 }
-
-.actions {
-	display: flex;
-	justify-content: space-between;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 50%;
-	transform: translate(0, -50%);
-}
