@@ -3,8 +3,8 @@ type Props = {
 	events?: (keyof DocumentEventMap)[]
 }
 
-export default function clickOutsideAction(node: HTMLElement, params: Props) {
-	let { handler, events = ["mousedown"] } = params
+export default function clickOutsideAction(node: HTMLElement, props: Props) {
+	let { handler, events = ["mousedown"] } = props
 
 	const handle = (e: Event) => {
 		const target = e.target as Node
@@ -28,9 +28,9 @@ export default function clickOutsideAction(node: HTMLElement, params: Props) {
 	setupListeners()
 
 	return {
-		update(newParams: Props) {
-			handler = newParams.handler
-			events = newParams.events ?? ["mousedown"]
+		update(newProps: Props) {
+			handler = newProps.handler
+			events = newProps.events ?? ["mousedown"]
 		},
 		destroy() {
 			removeListeners()

@@ -58,7 +58,11 @@
 			<KeyboardArrowLeftIcon height="16px" width="16px" />
 		</Button>
 	{/if}
-	<div use:setupNavigator class={styles.content}>
+	<div
+		use:setupNavigator
+		data-listeners={["scroll", "resize", "keyboard"]}
+		class={styles.content}
+	>
 		{#each data as { onClick, reference, isActive }}
 			<Button
 				variant="text"

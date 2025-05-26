@@ -20,23 +20,23 @@
 	}: Props = $props()
 </script>
 
-{#if href}
-	<a
-		aria-label="carouselItem"
-		{href}
-		{target}
-		style="
-		position: absolute;
-		inset: 0;
-		z-index: 1;
-		display: block;
-		"
-	></a>
-{/if}
-
 <div
 	{...rest}
 	class={classMapUtil(className, [className, styles], styles.carouselItem)}
 >
+	{#if href}
+		<a
+			aria-label="carouselItem"
+			{href}
+			{target}
+			style="
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+			display: block;
+			"
+		>
+		</a>
+	{/if}
 	{@render children?.()}
 </div>

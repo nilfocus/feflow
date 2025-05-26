@@ -6,34 +6,24 @@
 	import type { Snippet } from "svelte"
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
-		actions: Snippet<
-			[
-				{
-					prev: () => void
-					next: () => void
-					isFirst?: boolean
-					isLast?: boolean
-				}
-			]
-		>
+		onChange?: (isFirst: boolean, isLast: boolean) => void
+		actionRender: Snippet<[{ prev: () => void; next: () => void }]>
 	}
 
-	let { class: className = "", children, actions, ...rest }: Props = $props()
+	let {
+		class: className = "",
+		onChange,
+		actionRender,
+		children,
+		...rest
+	}: Props = $props()
 
 	let _scrollNavigatorAction:
 		| ReturnType<typeof scrollNavigatorAction>
 		| undefined
 
-	let isFirst = $state(true)
-	let isLast = $state(false)
-
 	function setupNavigator(node: HTMLDivElement) {
-		_scrollNavigatorAction = scrollNavigatorAction(node, {
-			onChange(a, b) {
-				isFirst = a
-				isLast = b
-			}
-		})
+		_scrollNavigatorAction = scrollNavigatorAction(node, { onChange })
 		return _scrollNavigatorAction
 	}
 
@@ -55,8 +45,8 @@
 	class={classMapUtil(className, [className, styles], styles.carousel)}
 	aria-label="carousel"
 >
-	<div use:setupNavigator class={styles.content}>
+	<div use:setupNavigator data-listeners={["keyboard"]} class={styles.content}>
 		{@render children?.()}
 	</div>
-	{@render actions?.({ prev, next, isFirst, isLast })}
+	{@render actionRender?.({ prev, next })}
 </div>
