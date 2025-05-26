@@ -3,7 +3,7 @@
 </script>
 
 <Carousel
-	loop
+	auto
 	id="carousel-1"
 	style="
 	width:600px;

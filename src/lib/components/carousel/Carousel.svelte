@@ -6,7 +6,7 @@
 	import { onDestroy, onMount, type Snippet } from "svelte"
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
-		loop?: boolean
+		auto?: boolean
 		delay?: number
 		actionRender: Snippet<
 			[
@@ -22,7 +22,7 @@
 
 	let {
 		class: className = "",
-		loop,
+		auto,
 		delay = 3000,
 		actionRender,
 		children,
@@ -57,7 +57,7 @@
 	function next() {
 		if (!_scrollNavigatorAction?.controls) return
 
-		if (loop && isLast) {
+		if (auto && isLast) {
 			_scrollNavigatorAction.controls.goTo(0)
 		} else {
 			_scrollNavigatorAction.controls.next()
@@ -65,7 +65,7 @@
 	}
 
 	onMount(() => {
-		if (loop) {
+		if (auto) {
 			interval = setInterval(() => {
 				next()
 			}, delay)
