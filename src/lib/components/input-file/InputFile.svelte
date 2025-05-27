@@ -19,9 +19,8 @@
 	let isDragging = $state(false)
 
 	function handleDrop(newFiles: File[]) {
-		const filesData = [...files, ...newFiles]
-		files = filesData
-		onDropEvent?.(filesData)
+		files = newFiles
+		onDropEvent?.(newFiles)
 	}
 </script>
 
