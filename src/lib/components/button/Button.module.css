@@ -36,7 +36,7 @@
 	color: var(--ff-color-text);
 }
 
-.button.outlined:hover {
+.button.outlined:not(:disabled):hover {
 	box-shadow: 0 0 0 1px var(--ff-color-border);
 }
 
@@ -45,7 +45,7 @@
 	color: var(--ff-color-text);
 }
 
-.button.text:hover {
+.button.text:not(:disabled):hover {
 	opacity: 0.7;
 }
 
@@ -54,7 +54,11 @@
 	color: var(--ff-color-on-disabled);
 }
 
-.button:not(.text):disabled {
+.button.outlined:disabled {
+	border-color: var(--ff-color-disabled);
+}
+
+.button:not(.text):not(.outlined):disabled {
 	background: var(--ff-color-disabled);
 }
 

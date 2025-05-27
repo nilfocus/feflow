@@ -8,7 +8,7 @@
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		auto?: boolean
 		delay?: number
-		actionRender: Snippet<
+		actionRender?: Snippet<
 			[
 				{
 					prev: () => void
