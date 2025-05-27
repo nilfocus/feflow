@@ -5,11 +5,11 @@ type Props = {
 
 export default function fadeOnScrollAction(
 	node: HTMLElement,
-	options: Props = {}
+	props: Props = {}
 ) {
 	if (node.dataset.fadeOnScroll === "false") return
 
-	const { start = 0, end = window.innerHeight } = options
+	const { start = 0, end = window.innerHeight } = props
 
 	function handleScroll() {
 		const scrollY = window.scrollY

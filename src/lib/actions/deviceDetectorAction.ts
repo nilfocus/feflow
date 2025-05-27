@@ -16,7 +16,7 @@ interface Props {
 
 export default function deviceDetectorAction(
 	_node: HTMLElement,
-	options?: Props
+	props?: Props
 ) {
 	if (typeof window === "undefined") {
 		return { destroy: () => {} }
@@ -27,7 +27,7 @@ export default function deviceDetectorAction(
 		disableUADetection: false,
 		detectOrientation: true,
 		debounceTime: 250,
-		...options
+		...props
 	}
 
 	const mobileUARegex =
@@ -88,7 +88,7 @@ export default function deviceDetectorAction(
 
 		if (JSON.stringify(newState) !== JSON.stringify(currentState)) {
 			currentState = newState
-			options?.onChange?.(currentState)
+			props?.onChange?.(currentState)
 		}
 	}
 
@@ -107,8 +107,8 @@ export default function deviceDetectorAction(
 	update()
 
 	return {
-		update(newOptions: Props) {
-			Object.assign(config, newOptions)
+		update(newProps: Props) {
+			Object.assign(config, newProps)
 			update()
 		},
 		destroy() {

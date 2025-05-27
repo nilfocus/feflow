@@ -7,10 +7,7 @@ interface Props {
 	momentum?: number
 }
 
-export default function dragScrollAction(
-	node: HTMLElement,
-	options: Props = {}
-) {
+export default function dragScrollAction(node: HTMLElement, props: Props = {}) {
 	if (typeof window === "undefined") {
 		return { destroy: () => {} }
 	}
@@ -19,7 +16,7 @@ export default function dragScrollAction(
 		sensitivity: 1.2,
 		momentum: 400,
 		disabled: false,
-		...options
+		...props
 	}
 
 	let isDown = false
@@ -128,8 +125,8 @@ export default function dragScrollAction(
 	node.addEventListener("mouseleave", () => isDown && handleMouseUp())
 
 	return {
-		update(newOptions: Props) {
-			Object.assign(config, newOptions)
+		update(newProps: Props) {
+			Object.assign(config, newProps)
 
 			if (config.disabled && isDown) {
 				isDown = false
