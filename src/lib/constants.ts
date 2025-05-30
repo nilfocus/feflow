@@ -47,8 +47,8 @@ export const themeConfigDefault: ThemeConfigType = {
 			colorSurfaceVariant: "#10101380",
 			colorOnSurface: "#f9fafb",
 			colorBorder: "#27272a",
-			colorDisabled: "#374151",
-			colorOnDisabled: "#9ca3af",
+			colorDisabled: "#ffffff1f",
+			colorOnDisabled: "#ffffff4d",
 			colorFocus: "#a7dffcb3",
 			colorOnFocus: "#a7dffc"
 		}

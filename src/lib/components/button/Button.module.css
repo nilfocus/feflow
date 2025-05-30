@@ -31,7 +31,7 @@
 
 .button.outlined {
 	background: transparent;
-	border: 1px solid var(--ff-color-border);
+	border: 1px solid var(--ff-color-disabled);
 	transition: all 0.2s ease-in-out;
 	color: var(--ff-color-text);
 }

@@ -2,8 +2,6 @@
 	import { InfoIcon } from "@/lib/icons/index.js"
 	import { Actions, Button, themeMode } from "@/lib/index.js"
 
-	const { toggleThemeMode } = themeMode()
-
 	function handleShortcut(event: KeyboardEvent) {
 		console.log("Shortcut pressed!", event)
 	}
@@ -12,15 +10,6 @@
 		console.log("end")
 	}
 </script>
-
-<br />
-<br />
-
-<h1>activeThemeMode</h1>
-<Button onclick={toggleThemeMode}>
-	<InfoIcon />
-	Toggle Theme
-</Button>
 
 <br />
 <br />
