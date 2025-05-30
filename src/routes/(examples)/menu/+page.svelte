@@ -3,7 +3,7 @@
 </script>
 
 <div style="width: 500px; margin: 5rem auto;">
-	<Menu>
+	<Menu isTranslucent>
 		{#snippet anchor()}
 			<Button>
 				<svg

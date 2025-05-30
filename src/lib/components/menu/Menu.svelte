@@ -5,11 +5,18 @@
 	import { classMapUtil } from "../../utils/index.js"
 
 	interface Props extends HTMLInputAttributes {
+		isTranslucent?: boolean
 		anchor: Snippet<[]>
 		items: Snippet<[]>
 	}
 
-	let { class: className = "", anchor, items, ...rest }: Props = $props()
+	let {
+		class: className = "",
+		isTranslucent,
+		anchor,
+		items,
+		...rest
+	}: Props = $props()
 
 	let el: HTMLInputElement | undefined
 
@@ -37,7 +44,7 @@
 		</span>
 	</label>
 	<div
-		class="content"
+		class={classMapUtil("content", { ["isTranslucent"]: isTranslucent })}
 		role="button"
 		tabindex="0"
 		onclick={handleClose}
@@ -88,6 +95,11 @@
 		transition:
 			opacity 150ms ease-in-out,
 			transform 150ms ease-in-out;
+	}
+
+	.content.isTranslucent {
+		background: var(--ff-color-surface-variant);
+		backdrop-filter: blur(15px);
 	}
 
 	.controller:checked ~ .content {
