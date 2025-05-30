@@ -46,6 +46,7 @@
 			const selectedFiles = Array.from(input.files || [])
 			handleDrop(selectedFiles)
 			files = []
+			input.value = ""
 		}}
 	/>
 </div>
