@@ -6,7 +6,7 @@
 		THEME_ATTR
 	} from "../../constants.js"
 	import { setThemeConfigContext } from "../../contexts/index.js"
-	import type { ThemeConfigType } from "../../types/index.js"
+	import type { ThemeConfigType, ThemeModeType } from "../../types/index.js"
 	import {
 		mergeObjectUtil,
 		themeConfigUtil,
@@ -16,10 +16,11 @@
 
 	interface Props {
 		customTheme?: ThemeConfigType
+		defaultMode?: ThemeModeType
 		children: Snippet<[]>
 	}
 
-	let { customTheme, children }: Props = $props()
+	let { customTheme, defaultMode = "light", children }: Props = $props()
 
 	const theme = mergeObjectUtil(
 		themeConfigDefault,
@@ -44,7 +45,7 @@
 	{@html `
 	<script>
 		(function () {
-			const theme = localStorage.getItem("${THEME_STORAGE}") || "light";
+			const theme = localStorage.getItem("${THEME_STORAGE}") || "${defaultMode}";
 			document.documentElement.setAttribute("${THEME_ATTR}", theme);
 			document.documentElement.style.colorScheme = theme;
 		})()
