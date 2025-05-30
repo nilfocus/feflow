@@ -27,7 +27,7 @@
 
 <div
 	use:Actions.onShortcutAction={{
-		keys: ["Control", "Shift", "K"],
+		keys: ["Control", "F"],
 		callback: handleShortcut
 	}}
 >

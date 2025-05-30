@@ -16,7 +16,12 @@ export default function onShortcutAction(_: HTMLElement, props: Props) {
 		const allMatch = props.keys.every((key) => pressed.has(normalizeKey(key)))
 
 		if (allMatch) {
-			event.preventDefault()
+			const isCtrlF = pressed.has("control") && pressed.has("f")
+
+			if (!isCtrlF) {
+				event.preventDefault()
+			}
+			
 			props.callback(event)
 		}
 	}
