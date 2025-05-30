@@ -42,7 +42,10 @@
 		type="file"
 		onchange={(e) => {
 			if (files.length > 0 && !rest.multiple) return
-			handleDrop(Array.from((e.target as HTMLInputElement).files || []))
+			const input = e.target as HTMLInputElement
+			const selectedFiles = Array.from(input.files || [])
+			handleDrop(selectedFiles)
+			files = []
 		}}
 	/>
 </div>
