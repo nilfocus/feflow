@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { InfoIcon } from "@/lib/icons/index.js"
-	import { Actions, Button, themeMode } from "@/lib/index.js"
+	import { Actions } from "@/lib/index.js"
 
 	function handleShortcut(event: KeyboardEvent) {
 		console.log("Shortcut pressed!", event)

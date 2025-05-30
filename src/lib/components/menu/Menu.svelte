@@ -6,30 +6,43 @@
 
 	interface Props extends HTMLInputAttributes {
 		isTranslucent?: boolean
+		openOnHover?: boolean
 		anchor: Snippet<[]>
 		items: Snippet<[]>
 	}
 
 	let {
 		class: className = "",
-		isTranslucent,
+		isTranslucent = false,
+		openOnHover = false,
 		anchor,
 		items,
 		...rest
 	}: Props = $props()
 
+	let elMenu: HTMLElement | undefined
 	let el: HTMLInputElement | undefined
 
+	function handleMenuHover(disable: boolean) {
+		if (!elMenu) return
+		elMenu.classList.toggle("disable-hover", disable)
+	}
+
 	function handleClose() {
-		if (el) {
-			el.checked = false
-		}
+		if (!el) return
+		el.checked = false
+		if (openOnHover) handleMenuHover(true)
 	}
 </script>
 
 <div
-	class={classMapUtil("menu", className)}
+	role="region"
+	class={classMapUtil("menu", className, { ["openOnHover"]: openOnHover })}
 	use:clickOutsideAction={{ handler: handleClose }}
+	bind:this={elMenu}
+	onmouseenter={() => {
+		if (openOnHover) handleMenuHover(false)
+	}}
 >
 	<input
 		{...rest}
@@ -37,6 +50,7 @@
 		bind:this={el}
 		type="checkbox"
 		id={rest.id ?? "checkbox"}
+		hidden
 	/>
 	<label class="container" for={rest.id ?? "checkbox"}>
 		<span class="anchor">
@@ -80,9 +94,10 @@
 	.content {
 		position: absolute;
 		overflow: hidden;
+		width: 100%;
 		left: 0;
 		right: unset;
-		top: calc(3em + 0.35em);
+		top: 100%;
 		background: var(--ff-color-surface);
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 		border-radius: 0.25rem;
@@ -90,7 +105,7 @@
 		z-index: 2;
 		margin: 0;
 		opacity: 0;
-		transform: translateY(-3px);
+		transform: translateY(-5px);
 		pointer-events: none;
 		transition:
 			opacity 150ms ease-in-out,
@@ -102,7 +117,8 @@
 		backdrop-filter: blur(15px);
 	}
 
-	.controller:checked ~ .content {
+	.controller:checked ~ .content,
+	.menu:not(.disable-hover).openOnHover:hover .content {
 		opacity: 1;
 		transform: translateY(0);
 		pointer-events: auto;
