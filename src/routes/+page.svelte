@@ -28,7 +28,8 @@
 <div
 	use:Actions.onShortcutAction={{
 		keys: ["Control", "F"],
-		callback: handleShortcut
+		callback: handleShortcut,
+		preventDefault: true
 	}}
 >
 	Press Ctrl + Shift + K

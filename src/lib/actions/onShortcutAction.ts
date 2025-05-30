@@ -1,9 +1,13 @@
 type Props = {
 	keys: string[]
 	callback: (event: KeyboardEvent) => void
+	preventDefault?: boolean
 }
 
-export default function onShortcutAction(_: HTMLElement, props: Props) {
+export default function onShortcutAction(
+	_: HTMLElement,
+	{ keys, callback, preventDefault = true }: Props
+) {
 	const pressed = new Set<string>()
 
 	function normalizeKey(key: string) {
@@ -13,16 +17,14 @@ export default function onShortcutAction(_: HTMLElement, props: Props) {
 	function onKeyDown(event: KeyboardEvent) {
 		pressed.add(normalizeKey(event.key))
 
-		const allMatch = props.keys.every((key) => pressed.has(normalizeKey(key)))
+		const allMatch = keys.every((key) => pressed.has(normalizeKey(key)))
 
 		if (allMatch) {
-			const isCtrlF = pressed.has("control") && pressed.has("f")
-
-			if (!isCtrlF) {
+			if (preventDefault) {
 				event.preventDefault()
 			}
-			
-			props.callback(event)
+
+			callback(event)
 		}
 	}
 
