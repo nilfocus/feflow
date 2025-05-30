@@ -14,7 +14,7 @@
 	const { toggleThemeMode } = themeMode()
 
 	const customTheme = customThemeConfig({
-		colors: { light: { colorBg: "blue" }, dark: { colorPrimary: "yellow" } }
+		colors: { light: { colorBg: "blue" } }
 	})
 </script>
 

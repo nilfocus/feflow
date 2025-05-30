@@ -99,35 +99,35 @@
 	bottom: 0.45em;
 }
 
-.content.xs input:checked+.slider::before {
+.content.xs input:checked + .slider::before {
 	transform: translateX(0.9em);
 }
 
-.content.sm input:checked+.slider::before {
+.content.sm input:checked + .slider::before {
 	transform: translateX(1.1em);
 }
 
-.content.md input:checked+.slider::before {
+.content.md input:checked + .slider::before {
 	transform: translateX(1.4em);
 }
 
-.content.lg input:checked+.slider::before {
+.content.lg input:checked + .slider::before {
 	transform: translateX(1.8em);
 }
 
-.content.xl input:checked+.slider::before {
+.content.xl input:checked + .slider::before {
 	transform: translateX(2.4em);
 }
 
-input:disabled+.slider::before {
+input:disabled + .slider::before {
 	opacity: 0.7;
 }
 
-input:disabled+.slider {
+input:disabled + .slider {
 	cursor: not-allowed;
 	background: var(--ff-color-disabled);
 }
 
-input:checked+.slider {
-	background: var(--ff-color-primary);
+input:checked + .slider {
+	background: color-mix(in srgb, var(--ff-color-surface) 75%, gray 15%);
 }
