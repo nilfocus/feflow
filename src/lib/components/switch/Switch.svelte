@@ -22,7 +22,7 @@
 			styles[size]
 		)}
 	>
-		<input type="checkbox" {...rest} />
+		<input {...rest} type="checkbox" hidden />
 		<span class={styles.slider}></span>
 	</label>
 	{#if typeof label === "string"}
