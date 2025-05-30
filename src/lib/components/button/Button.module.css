@@ -22,15 +22,11 @@
 	padding-inline-start: 1rem;
 	padding-inline-end: 1rem;
 	border: none;
-	padding: .5rem 1rem;
+	padding: 0.5rem 1rem;
 }
 
 .button:active {
 	top: 1px;
-}
-
-.button.contained:not(:disabled):hover {
-	background: color-mix(in srgb, var(--ff-color-primary) 75%, gray 15%);
 }
 
 .button.outlined {
@@ -40,17 +36,9 @@
 	color: var(--ff-color-text);
 }
 
-.button.outlined:not(:disabled):hover {
-	box-shadow: 0 0 0 1px var(--ff-color-border);
-}
-
 .button.text {
 	background: transparent;
 	color: var(--ff-color-text);
-}
-
-.button.text:not(:disabled):hover {
-	opacity: 0.7;
 }
 
 .button:disabled {
@@ -70,4 +58,18 @@
 	border-radius: 9999px;
 	padding: 0 0.5em;
 	overflow: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.button.contained:not(:disabled):hover {
+		background: color-mix(in srgb, var(--ff-color-primary) 75%, gray 15%);
+	}
+
+	.button.outlined:not(:disabled):hover {
+		box-shadow: 0 0 0 1px var(--ff-color-border);
+	}
+
+	.button.text:not(:disabled):hover {
+		opacity: 0.7;
+	}
 }

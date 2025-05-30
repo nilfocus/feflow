@@ -80,7 +80,7 @@
 }
 
 .inputGroup.contained > input {
-	background: color-mix(in srgb, var(--ff-color-surface) 90%, gray 5%);;
+	background: color-mix(in srgb, var(--ff-color-surface) 90%, gray 5%);
 	border: none;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;

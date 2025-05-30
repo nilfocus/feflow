@@ -1,43 +1,43 @@
 .code {
-    background: var(--ff-color-surface);
-    line-height: 1.5;
-    overflow: auto;
-    height: auto;
-    width: auto;
-    padding: 1rem;
+	background: var(--ff-color-surface);
+	line-height: 1.5;
+	overflow: auto;
+	height: auto;
+	width: auto;
+	padding: 1rem;
 }
 
 .code::-webkit-scrollbar {
-    width: 8px;
+	width: 8px;
 }
 
 .code::-webkit-scrollbar-thumb {
-    background: var(--ff-color-border);
-    border-radius: 4px;
+	background: var(--ff-color-border);
+	border-radius: 4px;
 }
 
 .code pre {
-    display: flex;
-    align-items: stretch;
-    margin: 0;
-    width: 100%;
+	display: flex;
+	align-items: stretch;
+	margin: 0;
+	width: 100%;
 }
 
 .code pre::before {
-    content: attr(data-prefix);
-    width: 2em;
-    text-align: left;
-    margin-right: 1em;
-    padding: 0 0.5em;
-    color: var(--ff-color-text-muted);
-    border-right: 2px solid var(--ff-color-border);
-    user-select: none;
-    flex-shrink: 0;
+	content: attr(data-prefix);
+	width: 2em;
+	text-align: left;
+	margin-right: 1em;
+	padding: 0 0.5em;
+	color: var(--ff-color-text-muted);
+	border-right: 2px solid var(--ff-color-border);
+	user-select: none;
+	flex-shrink: 0;
 }
 
 .code pre code {
-    white-space: pre-wrap;
-    display: block;
-    flex: 1;
-    padding-right: 1em;
+	white-space: pre-wrap;
+	display: block;
+	flex: 1;
+	padding-right: 1em;
 }

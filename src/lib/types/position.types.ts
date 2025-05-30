@@ -3,4 +3,6 @@ export type HorizontalPositionType = "left" | "right" | "center"
 
 export type PositionType = `${VerticalPositionType}-${HorizontalPositionType}`
 
-export type PositionTypeNoCenter = VerticalPositionType | Exclude<HorizontalPositionType, "center">
+export type PositionTypeNoCenter =
+	| VerticalPositionType
+	| Exclude<HorizontalPositionType, "center">

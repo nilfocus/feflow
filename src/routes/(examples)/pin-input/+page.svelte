@@ -19,7 +19,10 @@
 		</div>
 	</Modal.Content>
 	<Modal.Actions class="border-0" align="center">
-		<Button class="hover-border-on-error hover-text-on-error" variant="outlined">
+		<Button
+			class="hover-border-on-error hover-text-on-error"
+			variant="outlined"
+		>
 			Cancel
 		</Button>
 		<Button>Save</Button>

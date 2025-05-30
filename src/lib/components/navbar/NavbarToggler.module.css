@@ -1,11 +1,11 @@
 .toggler {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
 }
 
 .xs,
@@ -14,61 +14,61 @@
 .lg,
 .xl,
 .controller {
-    display: none;
+	display: none;
 }
 
 .container {
-    cursor: pointer;
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: auto;
+	cursor: pointer;
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: auto;
 }
 
 .menuIcon,
 .closeIcon {
-    transition: opacity 0.2s ease;
-    position: absolute;
+	transition: opacity 0.2s ease;
+	position: absolute;
 }
 
 .closeIcon,
-.controller:checked+.container .menuIcon {
-    opacity: 0;
+.controller:checked + .container .menuIcon {
+	opacity: 0;
 }
 
 .menuIcon,
-.controller:checked+.container .closeIcon {
-    opacity: 1;
+.controller:checked + .container .closeIcon {
+	opacity: 1;
 }
 
 @media screen and (max-width: 375px) {
-    .xs {
-        display: block;
-    }
+	.xs {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 425px) {
-    .sm {
-        display: block;
-    }
+	.sm {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 768px) {
-    .md {
-        display: block;
-    }
+	.md {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 1024px) {
-    .lg {
-        display: block;
-    }
+	.lg {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 1280px) {
-    .xl {
-        display: block;
-    }
+	.xl {
+		display: block;
+	}
 }
