@@ -94,7 +94,7 @@
 	.content {
 		position: absolute;
 		overflow: hidden;
-		width: 100%;
+		width: max-content;
 		left: 0;
 		right: unset;
 		top: 100%;
