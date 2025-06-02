@@ -30,7 +30,7 @@
 
 > Minimal, accessible, dependency-free — made by a developer who loves clean UI.
 
-## Why feflow?
+## ❓ Why feflow?
 
 - 🪶 Lightweight by design
 - 🛡️ Isolated styles using CSS Modules — no bleeding styles
@@ -49,17 +49,17 @@
 
 ## 🚀 Getting Started
 
-### Installation
+## 📦 Installation
 
 ```bash
 npm install @dxdns/feflow
 ```
 
-## Examples
+## 🧪 Examples
 
 [examples](https://github.com/dxdns/feflow/tree/main/src/routes/%28examples%29)
 
-## Contributors
+## 🫶 Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
