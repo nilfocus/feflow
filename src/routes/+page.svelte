@@ -17,7 +17,7 @@
 	use:Actions.onShortcutAction={{
 		keys: ["Control", "F"],
 		callback: handleShortcut,
-		preventDefault: true
+		preventDefault: false
 	}}
 >
 	Press Ctrl + Shift + K

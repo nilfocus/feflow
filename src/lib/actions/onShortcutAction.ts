@@ -8,28 +8,28 @@ export default function onShortcutAction(
 	_: HTMLElement,
 	{ keys, callback, preventDefault = true }: Props
 ) {
-	const pressed = new Set<string>()
+	const pressedKeys: string[] = []
 
 	function normalizeKey(key: string) {
 		return key.toLowerCase()
 	}
 
 	function onKeyDown(event: KeyboardEvent) {
-		pressed.add(normalizeKey(event.key))
+		const key = normalizeKey(event.key)
+		if (!pressedKeys.includes(key)) pressedKeys.push(key)
+		if (pressedKeys.length !== keys.length) return
 
-		const allMatch = keys.every((key) => pressed.has(normalizeKey(key)))
+		const allMatch = pressedKeys.every((k, i) => k === normalizeKey(keys[i]))
 
 		if (allMatch) {
-			if (preventDefault) {
-				event.preventDefault()
-			}
-
+			pressedKeys.length = 0
+			if (preventDefault) event.preventDefault()
 			callback(event)
 		}
 	}
 
-	function onKeyUp(event: KeyboardEvent) {
-		pressed.delete(normalizeKey(event.key))
+	function onKeyUp(_: KeyboardEvent) {
+		pressedKeys.length = 0
 	}
 
 	window.addEventListener("keydown", onKeyDown)
