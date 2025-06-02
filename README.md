@@ -57,7 +57,7 @@ npm install @dxdns/feflow
 
 ## 🧪 Examples
 
-[examples](https://github.com/dxdns/feflow/tree/main/src/routes/%28examples%29)
+Explore practical usage examples in the [examples](https://github.com/dxdns/feflow/tree/main/src/routes/%28examples%29) folder of the repository
 
 ## 🫶 Contributors
 
