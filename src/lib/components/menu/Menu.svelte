@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import type { Snippet } from "svelte"
-	import { clickOutsideAction } from "../../actions/index.js"
+	import { autoAlignAction, clickOutsideAction } from "../../actions/index.js"
 	import { classMapUtil } from "../../utils/index.js"
 
 	interface Props extends HTMLInputAttributes {
@@ -61,6 +61,7 @@
 		class={classMapUtil("content", { ["isTranslucent"]: isTranslucent })}
 		role="button"
 		tabindex="0"
+		use:autoAlignAction
 		onclick={handleClose}
 		onkeydown={() => {}}
 	>
@@ -93,11 +94,10 @@
 
 	.content {
 		position: absolute;
+		top: 100%;
 		overflow: hidden;
 		width: max-content;
-		left: 0;
-		right: unset;
-		top: 100%;
+		max-width: 100vw;
 		background: var(--ff-color-surface);
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 		border-radius: 0.25rem;

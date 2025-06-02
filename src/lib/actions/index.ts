@@ -15,6 +15,7 @@ import checkVisibilityAction from "./checkVisibilityAction.js"
 import fadeOnScrollAction from "./fadeOnScrollAction.js"
 import onShortcutAction from "./onShortcutAction.js"
 import onScrollEndAction from "./onScrollEndAction.js"
+import autoAlignAction from "./autoAlignAction.js"
 
 export {
 	inputDropAction,
@@ -33,5 +34,6 @@ export {
 	checkVisibilityAction,
 	fadeOnScrollAction,
 	onShortcutAction,
-	onScrollEndAction
+	onScrollEndAction,
+	autoAlignAction
 }

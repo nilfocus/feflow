@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { InfoIcon } from "@/lib/icons/index.js"
 	import {
-		Button,
 		customThemeConfig,
-		Separator,
+		Navbar,
 		themeMode,
 		ThemeProvider,
 		Toaster
@@ -21,13 +20,14 @@
 <Toaster fullWidth />
 
 <ThemeProvider {customTheme}>
-	<div style="display:flex; justify-self: flex-end; padding: 1rem;">
-		<Button onclick={toggleThemeMode}>
+	<Navbar
+		style="display: flex; align-items: center; justify-content: space-between;"
+	>
+		<img alt="feflow" src="/logo.png" width="180px" height="50px" />
+		<Navbar.Item onclick={toggleThemeMode}>
 			<InfoIcon />
 			Toggle Theme
-		</Button>
-	</div>
-	<Separator />
-	<br />
+		</Navbar.Item>
+	</Navbar>
 	{@render children()}
 </ThemeProvider>

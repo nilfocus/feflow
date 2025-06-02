@@ -20,7 +20,7 @@
 		preventDefault: false
 	}}
 >
-	Press Ctrl + Shift + K
+	Press Ctrl + F
 </div>
 
 <br />
