@@ -8,11 +8,11 @@
 
 <ScrollSection data={getSections()}>
 	{#each sectionsData as { reference }}
-		<ScrollSection.Item
+		<ScrollSection.Content
 			id={reference}
 			style="height: 100vh; border: 1px solid red"
 		>
 			<h2>{reference}</h2>
-		</ScrollSection.Item>
+		</ScrollSection.Content>
 	{/each}
 </ScrollSection>

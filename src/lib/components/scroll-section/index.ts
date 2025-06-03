@@ -1,12 +1,12 @@
 import ScrollSectionComponent from "./ScrollSection.svelte"
-import ScrollSectionItemComponent from "./ScrollSectionItem.svelte"
+import ScrollSectionContentComponent from "./ScrollSectionContent.svelte"
 
 type ScrollSectionComponentType = typeof ScrollSectionComponent & {
-	Item: typeof ScrollSectionItemComponent
+	Content: typeof ScrollSectionContentComponent
 }
 
 const ScrollSection =
 	ScrollSectionComponent as unknown as ScrollSectionComponentType
-ScrollSection.Item = ScrollSectionItemComponent
+ScrollSection.Content = ScrollSectionContentComponent
 
 export { ScrollSection as default }
