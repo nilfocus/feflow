@@ -30,36 +30,36 @@
 
 > Minimal, accessible, dependency-free — made by a developer who loves clean UI.
 
-## ❓ Why feflow?
+## Why feflow?
 
-- 🪶 Lightweight by design
-- 🛡️ Isolated styles using CSS Modules — no bleeding styles
-- 🧠 Simple to read, simple to use — ideal for clean Svelte projects
+- Lightweight by design
+- Isolated styles using CSS Modules — no bleeding styles
+- Simple to read, simple to use — ideal for clean Svelte projects
 
-## ✨ Features
+## Features
 
-- 🧩 **Zero external dependencies**
-- 🧼 **Scoped styles with CSS Modules** (no global conflicts)
-- 🎨 Optional integration with Tailwind (not required)
-- 🎨 **Easy theme customization** — built to support theming out-of-the-box
-- 🌙 **Dark and Light themes included** by default, switchable via simple props or CSS variables
-- ⚡ Fully typed with TypeScript
-- 🔌 Component slots and customizable props
-- 🧪 Built for developer experience (DX)
+- **Zero external dependencies**
+- **Scoped styles with CSS Modules** (no global conflicts)
+- Optional integration with Tailwind (not required)
+- **Easy theme customization** — built to support theming out-of-the-box
+- **Dark and Light themes included** by default, switchable via simple props or CSS variables
+- Fully typed with TypeScript
+- Component slots and customizable props
+- Built for developer experience (DX)
 
-## 🚀 Getting Started
+## Getting Started
 
-## 📦 Installation
+### Installation
 
 ```bash
 npm install @dxdns/feflow
 ```
 
-## 🧪 Examples
+## Examples
 
-Explore practical usage examples in the [examples](https://github.com/dxdns/feflow/tree/main/src/routes/%28examples%29) folder of the repository
+Explore practical usage examples in the [examples](https://github.com/dxdns/feflow/tree/main/src/routes/%28app%29/%28examples%29) folder of the repository
 
-## 🫶 Contributors
+## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -70,17 +70,21 @@ Explore practical usage examples in the [examples](https://github.com/dxdns/fefl
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## 📄 License
+## Contributing
+
+Please see the [Contributing Guide](CONTRIBUTING.md) for information on contributing to feflow.
+
+## License
 
 MIT — free for personal and commercial use.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdxdns%2Ffeflow.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdxdns%2Ffeflow?ref=badge_large)
 
-## 📚 Documentation
+## Documentation
 
-Coming soon in the [/docs](https://feflow.dxdns.dev/docs) folder or external site built with SvelteKit.
+Coming soon in the [https://feflow.dxdns.dev/docs](https://feflow.dxdns.dev/docs).
 
-## 🧑‍💻 Author
+## Author
 
 Made with ♥ by @dxdns
 [Github](https://github.com/dxdns) • [LinkedIn](https://linkedin.com/in/dxdns)
