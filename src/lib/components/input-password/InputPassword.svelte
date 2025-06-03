@@ -37,6 +37,7 @@
 	)}
 >
 	<Button
+		pressedEffect={false}
 		type="button"
 		variant="text"
 		class={styles.passwordToggleButton}

@@ -6,6 +6,7 @@
 	import styles from "./Button.module.css"
 
 	interface Props extends HTMLButtonAttributes {
+		pressedEffect?: boolean
 		variant?: VariantType
 		bgColor?: ColorType
 		isLoading?: boolean
@@ -14,6 +15,7 @@
 
 	let {
 		class: className = "",
+		pressedEffect = true,
 		variant = "contained",
 		bgColor = "primary",
 		isLoading,
@@ -31,7 +33,7 @@
 		styles[variant],
 		styles.button,
 		[`bg-${bgColor}`],
-		{ [styles.roundedFull]: roundedFull }
+		{ [styles.roundedFull]: roundedFull, [styles.pressedEffect]: pressedEffect }
 	)}
 	type={rest.type ?? "button"}
 >
