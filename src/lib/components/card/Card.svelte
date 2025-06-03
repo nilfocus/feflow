@@ -10,7 +10,7 @@
 
 	let {
 		class: className = "",
-		glowOnHover,
+		glowOnHover = false,
 		children,
 		...rest
 	}: Props = $props()

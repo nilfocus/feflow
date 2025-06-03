@@ -17,6 +17,7 @@
 		class: className = "",
 		data,
 		scrollButtons = true,
+		children,
 		...rest
 	}: Props = $props()
 
@@ -82,3 +83,5 @@
 		</Button>
 	{/if}
 </nav>
+
+{@render children?.()}

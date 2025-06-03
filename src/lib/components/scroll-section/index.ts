@@ -1,3 +1,12 @@
-import ScrollSection from "./ScrollSection.svelte"
+import ScrollSectionComponent from "./ScrollSection.svelte"
+import ScrollSectionItemComponent from "./ScrollSectionItem.svelte"
 
-export default ScrollSection
+type ScrollSectionComponentType = typeof ScrollSectionComponent & {
+	Item: typeof ScrollSectionItemComponent
+}
+
+const ScrollSection =
+	ScrollSectionComponent as unknown as ScrollSectionComponentType
+ScrollSection.Item = ScrollSectionItemComponent
+
+export { ScrollSection as default }
