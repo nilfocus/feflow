@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Actions, Button, Tab } from "@/lib/index.js"
+	import { Button, Tab } from "@/lib/index.js"
 	import { fade, fly } from "svelte/transition"
 
 	let activeTab = $state("1")
@@ -11,12 +11,7 @@
 </script>
 
 <Tab>
-	<div
-		use:Actions.activeLineAction
-		data-line-color="#ff5722"
-		data-line-height="2px"
-		style="display: flex; border-bottom: 1px solid #ff5722;"
-	>
+	<Tab.Item>
 		{#each tabs as tab}
 			<Button
 				id={tab.id}
@@ -32,7 +27,7 @@
 				{tab.label}
 			</Button>
 		{/each}
-	</div>
+	</Tab.Item>
 
 	{#each tabs as tab}
 		<Tab.Content
