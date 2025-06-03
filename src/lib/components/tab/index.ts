@@ -1,14 +1,14 @@
 import TabComponent from "./Tab.svelte"
-import TabContentComponent from "./TabContent.svelte"
-import TabItemComponent from "./TabItem.svelte"
+import TabListComponent from "./TabList.svelte"
+import TabPanelComponent from "./TabPanel.svelte"
 
 type TabComponentType = typeof TabComponent & {
-	Content: typeof TabContentComponent
-	Item: typeof TabItemComponent
+	List: typeof TabListComponent
+	Panel: typeof TabPanelComponent
 }
 
 const Tab = TabComponent as unknown as TabComponentType
-Tab.Content = TabContentComponent
-Tab.Item = TabItemComponent
+Tab.List = TabListComponent
+Tab.Panel = TabPanelComponent
 
 export { Tab as default }

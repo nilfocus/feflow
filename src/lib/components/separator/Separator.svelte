@@ -34,7 +34,7 @@
     border-style: {variant}; 
     --size: {sizes[size]}px;
     --height: {height}; 
-    {rest.style}
+    {rest.style ?? ""};
     "
 ></div>
 

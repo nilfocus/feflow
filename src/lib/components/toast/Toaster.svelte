@@ -42,7 +42,7 @@
 			top: position.includes("top"),
 			bottom: position.includes("bottom")
 		})}
-		style="{style} {rest.style}"
+		style="{style} {rest.style ?? ""};"
 	>
 		{#each data.toasts.filter((t) => t.position === position) as toast (toast.id)}
 			<span

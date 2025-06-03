@@ -6,11 +6,13 @@
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		orientation?: OrientationType
+		bgColor?: string
 		actions?: ActionEntryType<HTMLElement>[]
 	}
 
 	let {
 		class: className,
+		bgColor = "var(--ff-color-surface)",
 		orientation = "vertical",
 		actions,
 		children,
@@ -23,6 +25,7 @@
 	class="hoverFollower"
 	use:hoverFollowerAction={orientation}
 	use:actionUtil={actions}
+	style="--color-bg: {bgColor}; {rest.style ?? ''};"
 >
 	<div class={classMapUtil("overlay", className)}></div>
 	{@render children?.()}
@@ -39,7 +42,7 @@
 		left: 0;
 		width: 100%;
 		border-radius: 8px;
-		background: var(--ff-color-surface);
+		background: var(--color-bg);
 		opacity: 0;
 		pointer-events: none;
 		transition:
