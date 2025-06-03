@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { Button, getThemeConfig, themeMode } from "@/lib/index.js"
+	import {
+		Button,
+		Code,
+		getThemeConfig,
+		themeMode,
+		Window
+	} from "@/lib/index.js"
 
 	const theme = $derived(getThemeConfig())
 
@@ -11,6 +17,34 @@
 		for the theme to work you must place the <strong>theme provider</strong> component
 		under the layout
 	</p>
+	<br />
+
+	<Window>
+		<Code>
+			{@const codeString = `
+			<script lang="ts">
+				import { customThemeConfig, ThemeProvider } from "@/lib/index.js"
+				
+				let { children } = $props()
+			
+				const customTheme = customThemeConfig({
+					colors: { light: { colorBg: "orange" } }
+				})
+			</script>
+			
+			<ThemeProvider {customTheme} defaultMode="dark">
+				{@render children()}
+			</ThemeProvider>
+			`
+				.trim()
+				.split("\n")}
+
+			{#each codeString as line, i}
+				<pre data-prefix={i}><code>{line.trim()}</code></pre>
+			{/each}
+		</Code>
+	</Window>
+
 	<br />
 
 	<ul>
