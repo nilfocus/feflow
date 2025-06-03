@@ -1,0 +1,23 @@
+<script lang="ts">
+	import type { HTMLInputAttributes } from "svelte/elements"
+	import styles from "./Anchor.module.css"
+
+	interface Props extends HTMLInputAttributes {
+		ref?: HTMLInputElement
+	}
+
+	let { class: className, ref, children, ...rest }: Props = $props()
+</script>
+
+<input
+	{...rest}
+	class={styles.controller}
+	type="checkbox"
+	id={rest.id ?? "checkbox"}
+	bind:this={ref}
+	hidden
+/>
+
+<label class={styles.container} for={rest.id ?? "checkbox"}>
+	{@render children?.()}
+</label>
