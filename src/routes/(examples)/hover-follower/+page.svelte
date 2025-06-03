@@ -12,32 +12,30 @@
 </HoverFollower>
 
 <br />
-<h1>horizontal</h1>
-<HoverFollower orientation="horizontal">
-	<div style="display: flex;">
-		{#each ["item1", "item2", "item3"] as item, i}
-			<div role="list" class="card">
-				{item}
-			</div>
-		{/each}
-	</div>
+<h1>with multiple childs</h1>
+<HoverFollower>
+	<Card>
+		<div>
+			<h4>test</h4>
+			<p>test</p>
+		</div>
+	</Card>
+	<Card>
+		<div>
+			<h4>test</h4>
+			<p>test</p>
+		</div>
+	</Card>
 </HoverFollower>
 
 <br />
-<h1>with multiple childs</h1>
-<HoverFollower orientation="horizontal">
-	<Card>
-		<div>
-			<h4>test</h4>
-			<p>test</p>
+<h1>horizontal</h1>
+<HoverFollower style="display: flex;" orientation="horizontal">
+	{#each ["item1", "item2", "item3"] as item, i}
+		<div role="list" class="card">
+			{item}
 		</div>
-	</Card>
-	<Card>
-		<div>
-			<h4>test</h4>
-			<p>test</p>
-		</div>
-	</Card>
+	{/each}
 </HoverFollower>
 
 <style>
