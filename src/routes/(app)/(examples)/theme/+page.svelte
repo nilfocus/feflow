@@ -1,58 +1,29 @@
 <script lang="ts">
-	import {
-		Button,
-		Code,
-		getThemeConfig,
-		themeMode,
-		Window
-	} from "@/lib/index.js"
+	import { Badge, Button, Card, getThemeConfig } from "@/lib/index.js"
 
 	const theme = $derived(getThemeConfig())
-
-	const { toggleThemeMode } = themeMode()
 </script>
 
 <div style="width: 500px; margin: 3rem auto;">
-	<p>
+	<p class="text-on-error">
 		for the theme to work you must place the <strong>theme provider</strong> component
 		under the layout
 	</p>
 	<br />
+	<h2>{theme.mode}</h2>
+	<br />
 
-	<Window>
-		<Code>
-			{@const codeString = `
-			<script lang="ts">
-				import { customThemeConfig, ThemeProvider } from "@/lib/index.js"
-				
-				let { children } = $props()
-			
-				const customTheme = customThemeConfig({
-					colors: { light: { colorBg: "orange" } }
-				})
-			</script>
-			
-			<ThemeProvider {customTheme} defaultMode="dark">
-				{@render children()}
-			</ThemeProvider>
-			`
-				.trim()
-				.split("\n")}
-
-			{#each codeString as line, i}
-				<pre data-prefix={i}><code>{line.trim()}</code></pre>
+	<Card style="background: {theme.mode === 'dark' ? 'green' : 'red'};">
+		<ul style="line-height: 2;">
+			{#each Object.keys(theme.colors) as t}
+				{@const color = theme.colors[t as keyof typeof theme.colors]}
+				<li>
+					<span style="color:aqua;">{t}</span>:
+					<Badge roundedFull style="background: {color};" size="sm"></Badge>
+				</li>
 			{/each}
-		</Code>
-	</Window>
-
+		</ul>
+	</Card>
 	<br />
-
-	<ul>
-		{#each Object.keys(theme) as t}
-			{@const color = theme[t as keyof typeof theme]}
-			<li>{t}: <span style="color: {color};">{color}</span></li>
-		{/each}
-	</ul>
-	<br />
-	<Button variant="outlined" onclick={toggleThemeMode}>toggle theme</Button>
+	<Button variant="outlined" onclick={theme.toggle}>toggle theme</Button>
 </div>

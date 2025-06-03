@@ -2,6 +2,7 @@ import { CSS_VAR_PREFIX, themeModeSelectors } from "../constants.js"
 import { getThemeConfigContext } from "../contexts/index.js"
 import { themeModeState } from "../states/index.js"
 import type { ThemeModeType, ThemeConfigType } from "../types/index.js"
+import themeModeUtil from "./themeModeUtil.js"
 
 export default function themeConfigUtil() {
 	function _toCssVar(key: string) {
@@ -47,7 +48,10 @@ export function customThemeConfig(t: ThemeConfigType) {
 }
 
 export function getThemeConfig() {
-	const { colors } = getThemeConfigContext()
 	const _themeState = themeModeState()
-	return colors[_themeState.data.mode]
+	const { colors } = getThemeConfigContext()
+	const { toggleThemeMode } = themeModeUtil()
+
+	const mode = _themeState.data.mode
+	return { colors: colors[mode], mode, toggle: toggleThemeMode }
 }

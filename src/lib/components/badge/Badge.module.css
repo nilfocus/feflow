@@ -11,6 +11,11 @@
 	line-height: 1.25rem;
 }
 
+.badge.contained {
+	background: var(--ff-color-surface);
+	color: var(--ff-color-on-surface);
+}
+
 .badge.xs {
 	font-size: 0.625rem;
 	line-height: 0.75rem;

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { InfoIcon } from "@/lib/icons/index.js"
-	import { Navbar, themeMode, Toaster } from "@/lib/index.js"
+	import { getThemeConfig, Navbar, Toaster } from "@/lib/index.js"
 
 	let { children } = $props()
 
-	const { toggleThemeMode } = themeMode()
+	const theme = $derived(getThemeConfig())
 </script>
 
 <Toaster fullWidth />
@@ -13,7 +13,7 @@
 	style="display: flex; align-items: center; justify-content: space-between;"
 >
 	<img alt="feflow" src="/logo.png" width="180px" height="50px" />
-	<Navbar.Item onclick={toggleThemeMode}>
+	<Navbar.Item onclick={theme.toggle}>
 		<InfoIcon />
 		Toggle Theme
 	</Navbar.Item>

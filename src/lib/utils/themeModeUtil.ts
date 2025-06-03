@@ -3,7 +3,7 @@ import themeModeState from "../states/themeModeState.svelte.js"
 import type { ThemeModeType } from "../types/theme.types.js"
 
 export default function themeModeUtil() {
-	function getThemeMode() {
+	function getThemeModeFromAttr() {
 		return (
 			(document.documentElement.getAttribute(
 				THEME_ATTR
@@ -18,10 +18,10 @@ export default function themeModeUtil() {
 	}
 
 	function toggleThemeMode(onChange?: ((t: ThemeModeType) => void) | Event) {
-		const currentThemeMode = getThemeMode()
+		const themeModeFromAttr = getThemeModeFromAttr()
 		const _themeState = themeModeState()
 
-		const nextThemeMode = currentThemeMode === "light" ? "dark" : "light"
+		const nextThemeMode = themeModeFromAttr === "light" ? "dark" : "light"
 		_applyThemeMode(nextThemeMode)
 		_themeState.setThemeMode(nextThemeMode)
 
@@ -31,7 +31,7 @@ export default function themeModeUtil() {
 	}
 
 	return {
-		getThemeMode,
+		getThemeModeFromAttr,
 		toggleThemeMode
 	}
 }

@@ -32,12 +32,12 @@
 	const { themeConfigToCssString } = themeConfigUtil()
 	const style = themeConfigToCssString(theme)
 
-	const { getThemeMode } = themeModeUtil()
+	const { getThemeModeFromAttr } = themeModeUtil()
 	const _themeModeState = themeModeState()
 
 	onMount(() => {
-		const themeMode = getThemeMode()
-		_themeModeState.setThemeMode(themeMode)
+		const themeModeFromAttr = getThemeModeFromAttr()
+		_themeModeState.setThemeMode(themeModeFromAttr)
 	})
 </script>
 

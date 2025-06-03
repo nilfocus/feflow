@@ -2,14 +2,12 @@ export * as Actions from "./actions/index.js"
 export {
 	classMapUtil as classMap,
 	mergeObjectUtil as mergeObject,
-	themeModeUtil as themeMode,
 	transitionUtil as useTransition,
 	actionUtil as useAction
 } from "./utils/index.js"
 export { customThemeConfig, getThemeConfig } from "./utils/themeConfigUtil.js"
 export { toast } from "./states/toastState.svelte.js"
 export { getSections } from "./states/scrollSectionState.svelte.js"
-export type { ThemeModeType } from "./types/index.js"
 export { default as Accordion } from "./components/accordion/index.js"
 export { default as Avatar } from "./components/avatar/index.js"
 export { default as Badge } from "./components/badge/index.js"
