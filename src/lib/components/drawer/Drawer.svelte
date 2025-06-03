@@ -51,7 +51,7 @@
 			[styles.show]: isOpen
 		}
 	)}
-	style="--position-style: {positionStyle}; {rest.style ?? ""};"
+	style="--position-style: {positionStyle}; {rest.style ?? ''};"
 >
 	{@render header?.()}
 	<div class={styles.content}>
