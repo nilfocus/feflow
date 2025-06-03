@@ -162,6 +162,7 @@
 
 		.border-0 {
 			border: none !important;
+			border-radius: 0 !important;
 		}
 
 		[data-theme="light"] {

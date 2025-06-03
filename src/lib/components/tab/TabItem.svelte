@@ -1,20 +1,47 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements"
 	import { activeLineAction } from "../../actions/index.js"
+	import HoverFollower from "../hover-follower/index.js"
+	import type { ActionType } from "../../types/index.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {}
+	interface Props extends HTMLAttributes<HTMLDivElement> {
+		hoverFollower?: boolean
+	}
 
-	let { class: className, children, ...rest }: Props = $props()
+	let {
+		class: className,
+		hoverFollower = false,
+		children,
+		...rest
+	}: Props = $props()
 
-	const color = "var(--ff-color-primary)"
+	const dataSet = {
+		"data-line-color": "var(--ff-color-on-surface)",
+		"data-line-height": "2px"
+	}
+	const style = `display: flex; border-bottom: 1px solid var(--ff-color-border); ${rest.style}`
 </script>
 
-<div
-	{...rest}
-	use:activeLineAction
-	data-line-color={color}
-	data-line-height="2px"
-	style="display: flex; border-bottom: 1px solid {color}; {rest.style}"
->
-	{@render children?.()}
+<div {...rest}>
+	{#if hoverFollower}
+		<HoverFollower
+			{style}
+			orientation="horizontal"
+			{...dataSet}
+			actions={[
+				[
+					activeLineAction as ActionType<HTMLElement>,
+					{
+						firstChildIndex: 1
+					}
+				]
+			]}
+		>
+			{@render children?.()}
+		</HoverFollower>
+	{:else}
+		<div use:activeLineAction {style} {...dataSet}>
+			{@render children?.()}
+		</div>
+	{/if}
 </div>

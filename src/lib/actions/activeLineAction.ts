@@ -1,4 +1,10 @@
-export default function activeLineAction(node: HTMLElement) {
+type Props = {
+	firstChildIndex?: number
+}
+
+export default function activeLineAction(node: HTMLElement, props?: Props) {
+	const { firstChildIndex = 0 } = props ?? {}
+
 	const line = document.createElement("div")
 
 	Object.assign(line.style, {
@@ -42,7 +48,7 @@ export default function activeLineAction(node: HTMLElement) {
 	) as HTMLElement[]
 
 	if (childElements.length > 0) {
-		activeElement = childElements[0]
+		activeElement = childElements[firstChildIndex]
 		update()
 	}
 
