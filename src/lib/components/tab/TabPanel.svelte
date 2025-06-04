@@ -6,7 +6,7 @@
 	import { mergeStyleUtil } from "../../utils/index.js"
 
 	export interface TabContentProps {
-		isActive: boolean
+		isActive?: boolean
 		transition?: TransitionEntry
 	}
 
@@ -14,7 +14,7 @@
 
 	let {
 		class: className,
-		isActive,
+		isActive = true,
 		transition,
 		children,
 		...rest
@@ -29,8 +29,8 @@
 		class={className}
 		{style}
 		use:transitionUtil={transition ?? {
-			in: [fly, { x: 300, duration: 400 }],
-			out: [fade, { duration: 300 }]
+			in: [fly, { x: 100, duration: 200 }],
+			out: [fade, { duration: 100 }]
 		}}
 	>
 		{@render children?.()}

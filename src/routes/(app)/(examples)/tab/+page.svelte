@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Card from "@/lib/components/card/Card.svelte"
 	import { Button, getThemeConfig, Separator, Tab } from "@/lib/index.js"
 	import { fade, fly } from "svelte/transition"
 
@@ -26,8 +27,8 @@
 	<Tab.Panel
 		{isActive}
 		transition={{
-			in: [fly, { x: 100, duration: 200 }],
-			out: [fade, { duration: 100 }]
+			in: [fly, { x: 300, duration: 400 }],
+			out: [fade, { duration: 300 }]
 		}}
 	>
 		{content}
@@ -38,147 +39,151 @@
 	<span style="font-size: 20px;">{@html s}</span>
 {/snippet}
 
-<br />
-<h1>horizontal</h1>
-<br />
+<div style="width:800px; margin: 3rem auto;">
+	<br />
+	<h1>horizontal</h1>
+	<br />
 
-<Tab id="tab1">
-	<Tab.List lineStyle={{ color: "red" }}>
+	<Card>
+		<Tab id="tab1">
+			<Tab.List lineStyle={{ color: "red" }}>
+				{#each tabs as tab}
+					<Button
+						id={tab.id}
+						title={tab.label}
+						variant="text"
+						style="flex:1;"
+						onclick={() => {
+							handle("tab1", tab.id)
+						}}
+					>
+						{#if tab.icon}
+							{@render icon(tab.icon)}
+						{/if}
+						{tab.label}
+					</Button>
+				{/each}
+			</Tab.List>
+
+			{#each tabs as tab}
+				{@render content(activeTab.tab1 === tab.id, tab.content)}
+			{/each}
+		</Tab>
+	</Card>
+
+	<br />
+	<br />
+
+	<Tab id="tab2" style="background: transparent;">
+		<Tab.List hoverFollower>
+			{#each tabs as tab}
+				<Button
+					id={tab.id}
+					title={tab.label}
+					variant="text"
+					style="flex:1;"
+					onclick={() => {
+						handle("tab2", tab.id)
+					}}
+				>
+					{#if tab.icon}
+						{@render icon(tab.icon)}
+					{/if}
+					{tab.label}
+				</Button>
+			{/each}
+		</Tab.List>
+
 		{#each tabs as tab}
-			<Button
-				id={tab.id}
-				title={tab.label}
-				variant="text"
-				style="flex:1;"
-				onclick={() => {
-					handle("tab1", tab.id)
-				}}
-			>
-				{#if tab.icon}
-					{@render icon(tab.icon)}
-				{/if}
-				{tab.label}
-			</Button>
+			{@render content(activeTab.tab2 === tab.id, tab.content)}
 		{/each}
-	</Tab.List>
+	</Tab>
 
-	{#each tabs as tab}
-		{@render content(activeTab.tab1 === tab.id, tab.content)}
-	{/each}
-</Tab>
+	<br />
+	<br />
 
-<br />
-<br />
+	<Tab id="tab3">
+		<Tab.List>
+			{#each tabs as tab}
+				<Button
+					id={tab.id}
+					title={tab.label}
+					variant="text"
+					onclick={() => {
+						handle("tab3", tab.id)
+					}}
+				>
+					{#if tab.icon}
+						{@render icon(tab.icon)}
+					{/if}
+					{tab.label}
+				</Button>
+			{/each}
+		</Tab.List>
 
-<Tab id="tab2" style="background: transparent;">
-	<Tab.List hoverFollower>
 		{#each tabs as tab}
-			<Button
-				id={tab.id}
-				title={tab.label}
-				variant="text"
-				style="flex:1;"
-				onclick={() => {
-					handle("tab2", tab.id)
-				}}
-			>
-				{#if tab.icon}
-					{@render icon(tab.icon)}
-				{/if}
-				{tab.label}
-			</Button>
+			{@render content(activeTab.tab3 === tab.id, tab.content)}
 		{/each}
-	</Tab.List>
+	</Tab>
 
-	{#each tabs as tab}
-		{@render content(activeTab.tab2 === tab.id, tab.content)}
-	{/each}
-</Tab>
+	<br />
+	<br />
 
-<br />
-<br />
+	<h1>vertical</h1>
+	<br />
 
-<Tab id="tab3">
-	<Tab.List>
+	<Tab id="tab4" orientation="vertical">
+		<Tab.List orientation="vertical">
+			{#each tabs as tab}
+				<Button
+					id={tab.id}
+					title={tab.label}
+					variant="text"
+					onclick={() => {
+						handle("tab4", tab.id)
+					}}
+				>
+					{#if tab.icon}
+						{@render icon(tab.icon)}
+					{/if}
+					{tab.label}
+				</Button>
+			{/each}
+		</Tab.List>
+		<Separator orientation="vertical" height="auto" />
 		{#each tabs as tab}
-			<Button
-				id={tab.id}
-				title={tab.label}
-				variant="text"
-				onclick={() => {
-					handle("tab3", tab.id)
-				}}
-			>
-				{#if tab.icon}
-					{@render icon(tab.icon)}
-				{/if}
-				{tab.label}
-			</Button>
+			{@render content(activeTab.tab4 === tab.id, tab.content)}
 		{/each}
-	</Tab.List>
+	</Tab>
 
-	{#each tabs as tab}
-		{@render content(activeTab.tab3 === tab.id, tab.content)}
-	{/each}
-</Tab>
+	<br />
+	<br />
 
-<br />
-<br />
-
-<h1>vertical</h1>
-<br />
-
-<Tab id="tab4" orientation="vertical">
-	<Tab.List orientation="vertical">
+	<Tab id="tab5" orientation="vertical">
+		<Tab.List
+			class="border-0"
+			orientation="vertical"
+			hoverFollower={{ bgColor: theme.colors.colorTextMuted }}
+		>
+			{#each tabs as tab}
+				<Button
+					id={tab.id}
+					title={tab.label}
+					variant="text"
+					onclick={() => {
+						handle("tab5", tab.id)
+					}}
+				>
+					{#if tab.icon}
+						{@render icon(tab.icon)}
+					{/if}
+					{tab.label}
+				</Button>
+			{/each}
+		</Tab.List>
+		<Separator orientation="vertical" height="auto" />
 		{#each tabs as tab}
-			<Button
-				id={tab.id}
-				title={tab.label}
-				variant="text"
-				onclick={() => {
-					handle("tab4", tab.id)
-				}}
-			>
-				{#if tab.icon}
-					{@render icon(tab.icon)}
-				{/if}
-				{tab.label}
-			</Button>
+			{@render content(activeTab.tab5 === tab.id, tab.content)}
 		{/each}
-	</Tab.List>
-	<Separator orientation="vertical" height="auto" />
-	{#each tabs as tab}
-		{@render content(activeTab.tab4 === tab.id, tab.content)}
-	{/each}
-</Tab>
-
-<br />
-<br />
-
-<Tab id="tab5" orientation="vertical">
-	<Tab.List
-		class="border-0"
-		orientation="vertical"
-		hoverFollower={{ bgColor: theme.colors.colorTextMuted }}
-	>
-		{#each tabs as tab}
-			<Button
-				id={tab.id}
-				title={tab.label}
-				variant="text"
-				onclick={() => {
-					handle("tab5", tab.id)
-				}}
-			>
-				{#if tab.icon}
-					{@render icon(tab.icon)}
-				{/if}
-				{tab.label}
-			</Button>
-		{/each}
-	</Tab.List>
-	<Separator orientation="vertical" height="auto" />
-	{#each tabs as tab}
-		{@render content(activeTab.tab5 === tab.id, tab.content)}
-	{/each}
-</Tab>
+	</Tab>
+</div>
