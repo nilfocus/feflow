@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { actionUtil, classMapUtil } from "../../utils/index.js"
+	import {
+		actionUtil,
+		classMapUtil,
+		mergeStyleUtil
+	} from "../../utils/index.js"
 	import { hoverFollowerAction } from "../../actions/index.js"
 	import type { ActionEntryType, OrientationType } from "../../types/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
@@ -18,6 +22,8 @@
 		children,
 		...rest
 	}: Props = $props()
+
+	const style = mergeStyleUtil(`--color-bg: ${bgColor};`, rest.style)
 </script>
 
 <div
@@ -25,7 +31,7 @@
 	class="hoverFollower"
 	use:hoverFollowerAction={orientation}
 	use:actionUtil={actions}
-	style="--color-bg: {bgColor}; {rest.style ?? ''};"
+	{style}
 >
 	<div class={classMapUtil("overlay", className)}></div>
 	{@render children?.()}

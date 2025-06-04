@@ -3,6 +3,7 @@
 	import { activeLineAction } from "../../actions/index.js"
 	import HoverFollower from "../hover-follower/index.js"
 	import type { ActionType, OrientationType } from "../../types/index.js"
+	import { mergeStyleUtil } from "../../utils/index.js"
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		hoverFollower?: boolean | { bgColor?: string }
@@ -21,13 +22,15 @@
 		"data-line-color": "var(--ff-color-on-surface)",
 		"data-line-height": "2px"
 	}
-	const borderStyle = "border-bottom: 1px solid var(--ff-color-border);"
 
-	const style = `
-	display: flex; 
-	${orientation === "vertical" ? "flex-direction: column;" : ""}
-	${orientation === "horizontal" ? borderStyle : ""}
-	${rest.style ?? ""};`
+	const style = mergeStyleUtil(
+		"display: flex;",
+		orientation === "vertical" ? "flex-direction: column;" : "",
+		orientation === "horizontal"
+			? "border-bottom: 1px solid var(--ff-color-border);"
+			: "",
+		rest.style
+	)
 
 	const bgColor =
 		typeof hoverFollower === "object" ? hoverFollower?.bgColor : undefined
@@ -39,7 +42,7 @@
 			{...dataSet}
 			{bgColor}
 			class={className}
-			style="{style} {borderStyle}"
+			{style}
 			{orientation}
 			actions={[
 				[

@@ -4,6 +4,7 @@ import transitionUtil from "./transitionUtil.js"
 import themeModeUtil from "./themeModeUtil.js"
 import themeConfigUtil from "./themeConfigUtil.js"
 import mergeObjectUtil from "./mergeObjectUtil.js"
+import mergeStyleUtil from "./mergeStyleUtil.js"
 
 export {
 	classMapUtil,
@@ -11,5 +12,6 @@ export {
 	actionUtil,
 	transitionUtil,
 	themeConfigUtil,
-	mergeObjectUtil
+	mergeObjectUtil,
+	mergeStyleUtil
 }

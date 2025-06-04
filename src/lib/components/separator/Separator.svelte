@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { classMapUtil } from "../../utils/index.js"
+	import { classMapUtil, mergeStyleUtil } from "../../utils/index.js"
 	import type { OrientationType, SizeType } from "../../types/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
 
@@ -25,18 +25,16 @@
 		lg: 6,
 		xl: 8
 	}
+
+	const style = mergeStyleUtil(
+		`border-style: ${variant};`,
+		`--size: ${sizes[size]}px;`,
+		`--height: ${height};`,
+		rest.style
+	)
 </script>
 
-<div
-	{...rest}
-	class={classMapUtil("separator", orientation)}
-	style="
-    border-style: {variant}; 
-    --size: {sizes[size]}px;
-    --height: {height}; 
-    {rest.style ?? ''};
-    "
-></div>
+<div {...rest} class={classMapUtil("separator", orientation)} {style}></div>
 
 <style>
 	.separator {

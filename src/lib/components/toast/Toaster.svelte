@@ -5,7 +5,7 @@
 	import { flip } from "svelte/animate"
 	import { fade, fly } from "svelte/transition"
 	import type { HTMLAttributes } from "svelte/elements"
-	import { classMapUtil } from "../../utils/index.js"
+	import { classMapUtil, mergeStyleUtil } from "../../utils/index.js"
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		fullWidth?: boolean
@@ -42,7 +42,7 @@
 			top: position.includes("top"),
 			bottom: position.includes("bottom")
 		})}
-		style="{style} {rest.style ?? ''};"
+		style={mergeStyleUtil(style, rest.style)}
 	>
 		{#each data.toasts.filter((t) => t.position === position) as toast (toast.id)}
 			<span

@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { fade, fly } from "svelte/transition"
 	import type { TransitionEntry } from "../../types/index.js"
-	import { classMapUtil, transitionUtil } from "../../utils/index.js"
+	import { transitionUtil } from "../../utils/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
+	import { mergeStyleUtil } from "../../utils/index.js"
 
 	export interface TabContentProps {
 		isActive: boolean
@@ -17,22 +19,20 @@
 		children,
 		...rest
 	}: Props = $props()
+
+	const style = mergeStyleUtil("padding: 1rem;", rest.style)
 </script>
 
 {#if isActive}
 	<div
 		{...rest}
-		class={classMapUtil(className, "tabContent")}
-		use:transitionUtil={transition}
+		class={className}
+		{style}
+		use:transitionUtil={transition ?? {
+			in: [fly, { x: 300, duration: 400 }],
+			out: [fade, { duration: 300 }]
+		}}
 	>
 		{@render children?.()}
 	</div>
 {/if}
-
-<style>
-	.tabContent {
-		padding: 1rem;
-		background: var(--ff-color-surface);
-		color: var(--ff-color-on-surface);
-	}
-</style>

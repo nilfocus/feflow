@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { CloseIcon, MenuIcon } from "@/lib/icons/index.js"
+	import { CloseIcon, MenuIcon } from "../../icons/index.js"
 	import { classMapUtil } from "../../utils/index.js"
 	import type { HTMLInputAttributes } from "svelte/elements"
 	import styles from "./NavbarToggler.module.css"
-	import type { SizeType } from "@/lib/types/size.types.js"
+	import type { SizeType } from "../../types/index.js"
 
 	interface Props extends HTMLInputAttributes {
 		visibleInSize?: SizeType

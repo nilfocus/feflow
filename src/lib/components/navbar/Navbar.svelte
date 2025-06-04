@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from "svelte/elements"
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import styles from "./Navbar.module.css"
-	import fadeOnScrollAction from "@/lib/actions/fadeOnScrollAction.js"
+	import { fadeOnScrollAction } from "../../actions/index.js"
 
 	type PositionedChilds = Partial<{
 		isTranslucent?: boolean

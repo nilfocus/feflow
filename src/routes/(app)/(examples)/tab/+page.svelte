@@ -26,8 +26,8 @@
 	<Tab.Panel
 		{isActive}
 		transition={{
-			in: [fly, { x: 300, duration: 400 }],
-			out: [fade, { duration: 300 }]
+			in: [fly, { x: 100, duration: 200 }],
+			out: [fade, { duration: 100 }]
 		}}
 	>
 		{content}
@@ -128,7 +128,7 @@
 <h1>vertical</h1>
 <br />
 
-<Tab id="tab4" style="display: flex;">
+<Tab id="tab4" orientation="vertical">
 	<Tab.List orientation="vertical">
 		{#each tabs as tab}
 			<Button
@@ -155,11 +155,11 @@
 <br />
 <br />
 
-<Tab id="tab5" style="display: flex;">
+<Tab id="tab5" orientation="vertical">
 	<Tab.List
 		class="border-0"
 		orientation="vertical"
-		hoverFollower={{ bgColor: theme.colorTextMuted }}
+		hoverFollower={{ bgColor: theme.colors.colorTextMuted }}
 	>
 		{#each tabs as tab}
 			<Button

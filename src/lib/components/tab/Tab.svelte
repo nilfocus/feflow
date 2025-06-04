@@ -1,21 +1,21 @@
 <script lang="ts">
-	import { classMapUtil } from "../../utils/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
+	import Card from "../card/Card.svelte"
+	import type { OrientationType } from "../../types/index.js"
+	import { mergeStyleUtil } from "../../utils/index.js"
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {}
+	interface Props extends HTMLAttributes<HTMLDivElement> {
+		orientation?: OrientationType
+	}
 
-	let { class: className, children, ...rest }: Props = $props()
+	let { class: className, orientation = "horizontal", children, ...rest }: Props = $props()
+
+	const style = mergeStyleUtil(
+		orientation === "vertical" ? "display: flex;" : "",
+		rest.style
+	)
 </script>
 
-<div {...rest} class={classMapUtil(className, "tab")}>
+<Card {...rest} class={className} {style}>
 	{@render children?.()}
-</div>
-
-<style>
-	.tab {
-		position: relative;
-		border-radius: 0.25rem;
-		overflow: hidden;
-		background: var(--ff-color-surface);
-	}
-</style>
+</Card>

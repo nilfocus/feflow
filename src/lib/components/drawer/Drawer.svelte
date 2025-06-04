@@ -4,6 +4,7 @@
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import styles from "./Drawer.module.css"
 	import type { PositionTypeNoCenter } from "../../types/index.js"
+	import { mergeStyleUtil } from "../../utils/index.js"
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		isOpen: boolean
@@ -32,9 +33,9 @@
 		aria-label="Close overlay"
 		class={styles.overlay}
 		onclick={handleClose}
-		style="--position-style: {positionStyle === 'relative'
-			? 'absolute'
-			: positionStyle};"
+		style="
+		--position-style: {positionStyle === 'relative' ? 'absolute' : positionStyle};
+			"
 	>
 	</button>
 {/if}
@@ -51,7 +52,7 @@
 			[styles.show]: isOpen
 		}
 	)}
-	style="--position-style: {positionStyle}; {rest.style ?? ''};"
+	style={mergeStyleUtil(`--position-style: ${positionStyle};`, rest.style)}
 >
 	{@render header?.()}
 	<div class={styles.content}>
