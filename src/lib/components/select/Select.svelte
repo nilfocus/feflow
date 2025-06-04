@@ -2,6 +2,7 @@
 	import type { HTMLSelectAttributes } from "svelte/elements"
 	import classMapUtil from "../../utils/classMapUtil.js"
 	import styles from "./Select.module.css"
+	import { KeyboardArrowDownIcon } from "../../icons/index.js"
 
 	interface Props extends HTMLSelectAttributes {}
 
@@ -12,4 +13,5 @@
 	<select {...rest}>
 		{@render children?.()}
 	</select>
+	<KeyboardArrowDownIcon class={styles.icon} height="24px" width="24px" />
 </div>

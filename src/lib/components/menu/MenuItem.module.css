@@ -10,6 +10,8 @@
 	word-wrap: break-word;
 }
 
-.menuItem:hover {
-	background: color-mix(in srgb, var(--ff-color-surface) 75%, gray 15%);
+@media (hover: hover) and (pointer: fine) {
+	.menuItem:hover {
+		background: color-mix(in srgb, var(--ff-color-surface) 75%, gray 15%);
+	}
 }

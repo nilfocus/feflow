@@ -8,7 +8,7 @@
 	overflow: hidden;
 }
 
-.select > select {
+.select>select {
 	appearance: none;
 	border: 0;
 	box-shadow: none;
@@ -21,21 +21,21 @@
 	outline: 0;
 }
 
-.select > select::-ms-expand {
+.select>select::-ms-expand {
 	display: none;
 }
 
-.select::after {
-	content: "\25BC";
+.select .icon {
 	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 5px 5px;
-	transition: 0.25s all ease;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
 	pointer-events: none;
 	color: var(--ff-color-on-surface);
 }
 
-.select:hover::after {
-	color: var(--ff-color-text-muted);
+@media (hover: hover) and (pointer: fine) {
+	.select:hover .icon {
+		color: var(--ff-color-text-muted);
+	}
 }

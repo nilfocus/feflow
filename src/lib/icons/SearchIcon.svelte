@@ -3,11 +3,12 @@
 
 	interface Props extends SVGAttributes<SVGSVGElement> {}
 
-	let { ...rest }: Props = $props()
+	let { class: className, ...rest }: Props = $props()
 </script>
 
 <svg
 	{...rest}
+	class={className}
 	xmlns="http://www.w3.org/2000/svg"
 	height={rest.height ?? "24px"}
 	width={rest.width ?? "24px"}
