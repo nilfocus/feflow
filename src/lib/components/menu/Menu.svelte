@@ -25,7 +25,7 @@
 
 	function handleMenuHover(disable: boolean) {
 		if (!elMenu) return
-		elMenu.classList.toggle("disable-hover", disable)
+		elMenu.classList.toggle("disableHover", disable)
 	}
 
 	function handleClose() {
@@ -118,7 +118,7 @@
 	}
 
 	.controller:checked ~ .content,
-	.menu:not(.disable-hover).openOnHover:hover .content {
+	.menu:not(.disableHover).openOnHover:hover .content {
 		opacity: 1;
 		transform: translateY(0);
 		pointer-events: auto;
