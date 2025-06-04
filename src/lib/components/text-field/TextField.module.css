@@ -86,7 +86,7 @@
     border-radius: inherit;
     border-style: solid;
     border-width: 1px;
-    border-color: rgba(255 255 255 / 0.23);
+    border-color: var(--ff-color-border);
     border-radius: 5px;
 }
 
@@ -132,10 +132,11 @@
     opacity: 1;
 }
 
-.textField.outlined>input:focus~fieldset legend,
-.textField.outlined>input:not(:placeholder-shown)~fieldset legend {
+.textField:not(.labelEmpty).outlined>input:focus~fieldset legend,
+.textField:not(.labelEmpty).outlined>input:not(:placeholder-shown)~fieldset legend {
     max-width: 100%;
     visibility: visible;
     color: var(--ff-color-primary);
     padding: 5px 0;
+    font-size: 1rem;
 }

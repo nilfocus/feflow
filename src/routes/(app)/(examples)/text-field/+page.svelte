@@ -2,8 +2,10 @@
 	import { TextField } from "@/lib/index.js"
 </script>
 
-<br />
-<TextField />
-<br />
-<br />
-<TextField label="label" />
+<div style="width: 500px; margin: 3rem auto;">
+	<br />
+	<TextField />
+	<br />
+	<br />
+	<TextField label="label" />
+</div>

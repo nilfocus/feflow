@@ -33,7 +33,8 @@
 		className,
 		[className, styles],
 		[variant, styles],
-		styles.textField
+		styles.textField,
+		{ [styles.labelEmpty]: !Boolean(label) }
 	)}
 >
 	<input bind:this={el} placeholder={rest.placeholder ?? " "} {...rest} />
