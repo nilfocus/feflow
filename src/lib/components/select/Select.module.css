@@ -32,6 +32,7 @@
 	transform: translateY(-50%);
 	pointer-events: none;
 	color: var(--ff-color-on-surface);
+	transition: color 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
