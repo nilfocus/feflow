@@ -1,3 +1,8 @@
 import InputNumber from "./InputNumber.svelte"
 
-export default InputNumber
+/**
+ * @deprecated Use `NumberInput` instead.
+ */
+const DeprecatedInput = InputNumber
+
+export default DeprecatedInput

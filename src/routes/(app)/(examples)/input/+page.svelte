@@ -2,8 +2,8 @@
 	import {
 		Button,
 		FileInput,
-		InputNumber,
 		InputRange,
+		NumberInput,
 		PasswordInput,
 		SearchInput,
 		TextField
@@ -44,7 +44,12 @@
 	<SearchInput variant="outlined" placeholder="test" />
 	<br />
 	<br />
-	<InputNumber increment={() => {}} decrement={() => {}} value={0} />
+	<NumberInput
+		variant="outlined"
+		increment={() => {}}
+		decrement={() => {}}
+		value={0}
+	/>
 	<br />
 	<br />
 	<FileInput multiple accept="image/*,.pdf" onDropEvent={handleChange}>
