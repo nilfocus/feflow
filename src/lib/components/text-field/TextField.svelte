@@ -43,11 +43,9 @@
 		<label for={rest.id ?? rest.name}>{label}</label>
 	{/if}
 
-	{#if variant === "outlined"}
-		<fieldset>
-			<legend>
-				<span>{label}</span>
-			</legend>
-		</fieldset>
-	{/if}
+	<fieldset>
+		<legend>
+			<span>{label}</span>
+		</legend>
+	</fieldset>
 </div>

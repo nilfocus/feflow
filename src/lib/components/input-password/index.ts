@@ -1,3 +1,8 @@
 import InputPassword from "./InputPassword.svelte"
 
-export default InputPassword
+/**
+ * @deprecated Use `PasswordInput` instead.
+ */
+const DeprecatedInput = InputPassword
+
+export default DeprecatedInput

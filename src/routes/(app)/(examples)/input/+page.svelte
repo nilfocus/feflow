@@ -6,7 +6,8 @@
 		InputNumber,
 		InputPassword,
 		InputRange,
-		InputSearch
+		InputSearch,
+		PasswordInput
 	} from "@/lib/index.js"
 
 	let filesData: File[] = $state([])
@@ -23,7 +24,13 @@
 	<InputRange />
 	<br />
 	<br />
-	<InputPassword />
+	<PasswordInput label="password" />
+	<br />
+	<br />
+	<PasswordInput variant="contained" label="contained" />
+	<br />
+	<br />
+	<PasswordInput variant="text" label="text" />
 	<br />
 	<br />
 	<Input label="test" />
