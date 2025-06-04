@@ -17,7 +17,8 @@ export default function activeLineAction(node: HTMLElement, props?: Props) {
 			orientation === "horizontal"
 				? "left 0.25s ease, width 0.25s ease"
 				: "top 0.25s ease, height 0.25s ease",
-		zIndex: "0"
+		zIndex: "0",
+		pointerEvents: "none"
 	})
 
 	if (orientation === "horizontal") {
@@ -52,11 +53,24 @@ export default function activeLineAction(node: HTMLElement, props?: Props) {
 		}
 	}
 
+	function getDirectChildOfNode(el: HTMLElement, container: HTMLElement) {
+		let current: HTMLElement | null = el
+		while (current && current !== container) {
+			if (current.parentElement === container) {
+				return current
+			}
+			current = current.parentElement
+		}
+		return null
+	}
+
 	function handleClick(event: Event) {
 		const target = event.target as HTMLElement
 
-		if (target.parentElement === node && target !== line) {
-			activeElement = target
+		const clickedChild = getDirectChildOfNode(target, node)
+
+		if (clickedChild) {
+			activeElement = clickedChild
 			update()
 		}
 	}
