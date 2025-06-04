@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from "svelte/elements"
-	import styles from "./Anchor.module.css"
+	import styles from "./Wrapper.module.css"
 
 	interface Props extends HTMLInputAttributes {
 		ref?: HTMLInputElement

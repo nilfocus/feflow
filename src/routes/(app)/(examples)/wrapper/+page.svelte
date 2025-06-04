@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { Anchor, Button } from "@/lib/index.js"
+	import { Wrapper, Button } from "@/lib/index.js"
 </script>
 
 <br />
-<Anchor
+<Wrapper
 	id="one"
 	onchange={(e) => {
 		console.log(e.currentTarget.checked)
 	}}
 >
 	<Button>test</Button>
-</Anchor>
+</Wrapper>
