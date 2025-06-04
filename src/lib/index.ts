@@ -48,3 +48,4 @@ export { default as ProgressCircle } from "./components/progress-circle/index.js
 export { default as InputRange } from "./components/input-range/index.js"
 export { default as TextField } from "./components/text-field/index.js"
 export * from "./components/password-input/index.js"
+export * from "./components/search-input/index.js"

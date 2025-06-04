@@ -7,7 +7,8 @@
 		InputPassword,
 		InputRange,
 		InputSearch,
-		PasswordInput
+		PasswordInput,
+		SearchInput
 	} from "@/lib/index.js"
 
 	let filesData: File[] = $state([])
@@ -36,13 +37,13 @@
 	<Input label="test" />
 	<br />
 	<br />
-	<InputSearch variant="contained" placeholder="test" />
+	<SearchInput variant="contained" placeholder="test" />
 	<br />
 	<br />
-	<InputSearch placeholder="test" />
+	<SearchInput placeholder="test" />
 	<br />
 	<br />
-	<InputSearch variant="outlined" placeholder="test" />
+	<SearchInput variant="outlined" placeholder="test" />
 	<br />
 	<br />
 	<InputNumber increment={() => {}} decrement={() => {}} value={0} />

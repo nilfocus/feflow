@@ -1,3 +1,8 @@
 import InputSearch from "./InputSearch.svelte"
 
-export default InputSearch
+/**
+ * @deprecated Use `SearchInput` instead.
+ */
+const DeprecatedInput = InputSearch
+
+export default DeprecatedInput
