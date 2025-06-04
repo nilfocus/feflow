@@ -1,3 +1,8 @@
 import Input from "./Input.svelte"
 
-export default Input
+/**
+ * @deprecated Use `TextField` instead.
+ */
+const DeprecatedInput = Input
+
+export default DeprecatedInput
