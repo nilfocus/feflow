@@ -31,12 +31,9 @@
 	<Switch size="lg" label="lg" />
 	<br />
 	<Switch size="xl" label="xl" />
-
-	<br />
 	<br />
 
-	<div style="display: flex; align-items: center; gap: 1rem;">
-		<Input />
-		<Switch label="with image" size="md" />
-	</div>
+	<h1>colors</h1>
+	<br />
+	<Switch color="red" />
 </div>
