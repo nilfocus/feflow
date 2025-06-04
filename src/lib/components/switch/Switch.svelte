@@ -18,8 +18,8 @@
 		class={classMapUtil(
 			className,
 			[className, styles],
-			styles.content,
-			styles[size]
+			[size, styles],
+			styles.content
 		)}
 	>
 		<input {...rest} type="checkbox" hidden />
