@@ -1,3 +1,8 @@
 import InputFile from "./InputFile.svelte"
 
-export default InputFile
+/**
+ * @deprecated Use `FileInput` instead.
+ */
+const DeprecatedInput = InputFile
+
+export default DeprecatedInput
