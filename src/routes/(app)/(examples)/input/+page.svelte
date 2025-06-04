@@ -2,9 +2,9 @@
 	import {
 		Button,
 		FileInput,
-		InputRange,
 		NumberInput,
 		PasswordInput,
+		RangeInput,
 		SearchInput,
 		TextField
 	} from "@/lib/index.js"
@@ -17,10 +17,10 @@
 </script>
 
 <div style="width:500px; height:350px; margin: 5rem auto;">
-	<InputRange step="50" />
+	<RangeInput step="50" />
 	<br />
 	<br />
-	<InputRange />
+	<RangeInput />
 	<br />
 	<br />
 	<PasswordInput label="password" />

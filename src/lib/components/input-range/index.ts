@@ -1,3 +1,8 @@
 import InputRange from "./InputRange.svelte"
 
-export default InputRange
+/**
+ * @deprecated Use `RangeInput` instead.
+ */
+const DeprecatedInput = InputRange
+
+export default DeprecatedInput
