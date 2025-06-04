@@ -1,12 +1,12 @@
 <script lang="ts" generics="T">
 	import type { ActionType } from "../../types/index.js"
 	import { keyboardNavigationAction } from "../../actions/index.js"
-	import Input from "../input/index.js"
 	import styles from "./Autocomplete.module.css"
 	import { classMapUtil } from "../../utils/index.js"
 	import type { HTMLAttributes } from "svelte/elements"
 	import type { Snippet } from "svelte"
-	import InputSearch from "../input-search/index.js"
+	import { SearchInput } from "../search-input/index.js"
+	import TextField from "../text-field/index.js"
 
 	interface Props<T> extends HTMLAttributes<HTMLDivElement> {
 		variant?: "text" | "search"
@@ -69,7 +69,7 @@
 
 <div {...rest} class={styles.autocomplete}>
 	{#if variant === "search"}
-		<InputSearch
+		<SearchInput
 			actions={[
 				[
 					keyboardNavigationAction as ActionType<HTMLElement>,
@@ -84,7 +84,7 @@
 			value={inputValue}
 		/>
 	{:else}
-		<Input
+		<TextField
 			actions={[
 				[
 					keyboardNavigationAction as ActionType<HTMLElement>,
