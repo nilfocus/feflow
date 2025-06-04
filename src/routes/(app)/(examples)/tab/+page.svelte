@@ -43,7 +43,7 @@
 <br />
 
 <Tab id="tab1">
-	<Tab.List>
+	<Tab.List lineStyle={{ color: "red" }}>
 		{#each tabs as tab}
 			<Button
 				id={tab.id}
