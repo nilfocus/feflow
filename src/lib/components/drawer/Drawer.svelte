@@ -46,8 +46,8 @@
 		className,
 		[className, styles],
 		styles.drawer,
-		styles[position],
-		styles[positionStyle],
+		[position, styles],
+		[positionStyle, styles],
 		{
 			[styles.show]: isOpen
 		}

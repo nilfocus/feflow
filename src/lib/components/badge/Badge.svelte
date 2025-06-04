@@ -26,8 +26,8 @@
 		className,
 		[className, styles],
 		styles.badge,
-		styles[size],
-		styles[variant],
+		[size, styles],
+		[variant, styles],
 		{ [styles.roundedFull]: roundedFull }
 	)}
 >

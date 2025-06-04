@@ -20,12 +20,10 @@
 <Button
 	{...rest}
 	{variant}
-	class={classMapUtil(
-		className,
-		[className, styles],
-		styles.navbarItem,
-		styles[variant]
-	)}
+	class={classMapUtil(className, [className, styles], styles.navbarItem, [
+		variant,
+		styles
+	])}
 >
 	{@render children?.()}
 </Button>

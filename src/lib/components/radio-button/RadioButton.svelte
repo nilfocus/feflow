@@ -13,11 +13,6 @@
 
 <label class={classMapUtil(className, [className, styles], styles.radioButton)}>
 	<input type="radio" {...rest} />
-	<div
-		class={classMapUtil({
-			[styles.circle]: true,
-			[styles[size]]: true
-		})}
-	></div>
+	<div class={classMapUtil(styles.circle, [size, styles])}></div>
 	{rest["aria-label"]}
 </label>

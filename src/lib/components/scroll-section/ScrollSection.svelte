@@ -68,8 +68,7 @@
 			<Button
 				variant="text"
 				onclick={onClick}
-				class={classMapUtil({
-					[styles.button]: true,
+				class={classMapUtil(styles.button, {
 					[styles.active]: isActive
 				})}
 			>

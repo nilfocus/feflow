@@ -16,7 +16,7 @@
 	class={classMapUtil(
 		className,
 		[className, styles],
-		styles[size],
+		[size, styles],
 		styles.spinner
 	)}
 ></span>

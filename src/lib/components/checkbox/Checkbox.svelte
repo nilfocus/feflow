@@ -17,12 +17,7 @@
 	})}
 >
 	<input type="checkbox" {...rest} />
-	<div
-		class={classMapUtil({
-			[styles.wrapper]: true,
-			[`box-${size}`]: true
-		})}
-	>
+	<div class={classMapUtil(styles.wrapper, `box-${size}`)}>
 		<div class={styles.bg}></div>
 		<svg fill="none" viewBox="0 0 24 24" class={styles.icon}>
 			<path

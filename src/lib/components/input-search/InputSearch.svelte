@@ -29,7 +29,7 @@
 	class={classMapUtil(
 		className,
 		[className, styles],
-		styles[variant],
+		[variant, styles],
 		styles.inputSearch
 	)}
 >

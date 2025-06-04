@@ -44,7 +44,7 @@
 	class={classMapUtil(
 		className,
 		[className, styles],
-		styles[variant],
+		[variant, styles],
 		styles.inputGroup,
 		{
 			[color]: Boolean(color),
@@ -73,16 +73,10 @@
 		<label for={rest.id ?? rest.name}>{label}</label>
 	{/if}
 
-	<!-- {#if variant === "outlined"}
-    <fieldset>
-      <legend>
-        <span>{label}</span>
-      </legend>
-    </fieldset>
-  {/if} -->
-
 	{#if helperText}
-		<span class={classMapUtil(styles[variant], styles.helper, "text-on-error")}>
+		<span
+			class={classMapUtil([variant, styles], styles.helper, "text-on-error")}
+		>
 			{helperText}
 		</span>
 	{/if}

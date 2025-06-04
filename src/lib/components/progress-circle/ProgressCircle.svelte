@@ -29,12 +29,10 @@
 </script>
 
 <div
-	class={classMapUtil(
-		className,
-		[className, styles],
-		styles.progressCircle,
-		styles[size]
-	)}
+	class={classMapUtil(className, [className, styles], styles.progressCircle, [
+		size,
+		styles
+	])}
 >
 	<svg
 		{...rest}

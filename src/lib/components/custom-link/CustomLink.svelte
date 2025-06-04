@@ -22,10 +22,9 @@
 
 <a
 	{...rest}
-	class={classMapUtil({
+	class={classMapUtil(styles.customLink, {
 		[typeof className === "function" ? className({ isActive }) : className]:
 			true,
-		[styles.customLink]: true,
 		[styles.customLinkUnderline]: Boolean(hoverUnderline),
 		[styles[hoverUnderline!]]: Boolean(hoverUnderline)
 	})}

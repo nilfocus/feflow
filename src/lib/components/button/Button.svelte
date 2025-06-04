@@ -30,7 +30,7 @@
 	class={classMapUtil(
 		className,
 		[className, styles],
-		styles[variant],
+		[variant, styles],
 		styles.button,
 		[`bg-${bgColor}`],
 		{ [styles.roundedFull]: roundedFull, [styles.pressedEffect]: pressedEffect }
