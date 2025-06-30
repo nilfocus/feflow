@@ -47,29 +47,9 @@
 - Component slots and customizable props
 - Built for developer experience (DX)
 
-## Getting Started
+## Documentation
 
-### Installation
-
-```bash
-npm install @dxdns/feflow
-```
-
-## Examples
-
-Explore practical usage examples in the [examples](https://github.com/dxdns/feflow/tree/main/src/routes/%28app%29/%28examples%29) folder of the repository
-
-## Contributors
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+Coming soon in the [https://feflow.dxdns.dev/docs](https://feflow.dxdns.dev/docs).
 
 ## Contributing
 
@@ -79,14 +59,8 @@ Please see the [Contributing Guide](CONTRIBUTING.md) for information on contribu
 
 MIT — free for personal and commercial use.
 
-<!-- [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdxdns%2Ffeflow.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdxdns%2Ffeflow?ref=badge_large) -->
-
-## Documentation
-
-Coming soon in the [https://feflow.dxdns.dev/docs](https://feflow.dxdns.dev/docs).
-
 ## Credits
 
-Made with ❤️ by [@dxdns](https://linkedin.com/in/dxdns)
+Made with ❤️ by [@dxdns](https://linkedin.com/in/dxdns).
 
-Inspired by the work of [MUI](https://mui.com) and [shadcn/ui](https://ui.shadcn.com)
+Inspired by the work of [MUI](https://mui.com), [shadcn/ui](https://ui.shadcn.com) and [Chakra UI](https://chakra-ui.com).
