@@ -22,10 +22,6 @@
 		children,
 		...rest
 	}: Props = $props()
-
-	const direction = orientation === "horizontal" ? "row" : "column"
-
-	const style = mergeStyleUtil(`--direction: ${direction}`, rest.style)
 </script>
 
 <div
@@ -33,7 +29,10 @@
 	class={classMapUtil(className, "hoverFollower")}
 	use:hoverFollowerAction={{ orientation, bgColor }}
 	use:actionUtil={actions}
-	{style}
+	style={mergeStyleUtil(
+		`--direction: ${orientation === "horizontal" ? "row" : "column"}`,
+		rest.style
+	)}
 >
 	{@render children?.()}
 </div>
@@ -43,6 +42,6 @@
 		position: relative;
 		display: flex;
 		gap: 0.5rem;
-		flex-direction: var(--direction, "column");
+		flex-direction: var(--direction);
 	}
 </style>

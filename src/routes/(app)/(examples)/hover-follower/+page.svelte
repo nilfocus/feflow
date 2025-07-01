@@ -1,5 +1,12 @@
 <script lang="ts">
-	import { Card, HoverFollower, Link } from "@/lib/index.js"
+	import { Card, HoverFollower, Link, useMediaQuery } from "@/lib/index.js"
+	import { onDestroy } from "svelte"
+
+	const isMd = $derived(useMediaQuery("max-width", "md"))
+
+	onDestroy(() => {
+		isMd.destroy()
+	})
 </script>
 
 <h1>vertical</h1>
@@ -32,9 +39,8 @@
 	</Link>
 </HoverFollower>
 
-<br />
-<h1>horizontal</h1>
-<HoverFollower style="display: flex;" orientation="horizontal">
+<h1>{isMd.value}</h1>
+<HoverFollower orientation={isMd.value ? "vertical" : "horizontal"}>
 	{#each ["item1", "item2", "item3"] as item, i}
 		<div role="list" class="card">
 			{item}
