@@ -2,7 +2,7 @@
 	"name": "feflow",
 	"version": "0.0.1",
 	"description": "UI Component Library",
-	"private": false,
+	"private": true,
 	"workspaces": [
 		"packages/*"
 	],
