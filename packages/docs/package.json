@@ -15,7 +15,6 @@
 		"@dxdns/feflow": "*",
 		"astro": "^5.6.1",
 		"sharp": "^0.32.5",
-		"svelte": "^5.28.2",
-		"typescript": "^5.8.3"
+		"svelte": "^5.28.2"
 	}
 }
