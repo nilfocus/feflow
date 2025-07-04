@@ -56,13 +56,17 @@
 </div>
 
 <style>
-    :global(.sl-container > h1) {
+	:global(.sl-container > h1) {
 		display: none;
 	}
 
 	:global(.content-panel) {
 		border-top: 0;
 		padding: 0;
+	}
+
+	:global(footer.sl-flex) {
+		display: none;
 	}
 
 	.container {
